@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 
 url = "data/raw/PL-25-26.csv"
 df = pd.read_csv(url)
@@ -49,7 +49,7 @@ split_point = int(len(df_clean) * 0.8)
 X_train, X_test = X.iloc[:split_point], X.iloc[split_point:]
 y_train, y_test = y.iloc[:split_point], y.iloc[split_point:]
 
-model = LogisticRegression(max_iter=1000)
+model = RandomForestClassifier(n_estimators=100, random_state=67)
 model.fit(X_train, y_train)
 
 efectiveness = model.score(X_test, y_test)
