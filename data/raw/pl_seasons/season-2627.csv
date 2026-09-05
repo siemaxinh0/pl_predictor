@@ -1,31 +1,31 @@
 HomeTeam,AwayTeam,FTHG,FTAG
-Arsenal,Coventry City,,
-Hull City,Man United,,
-Everton,Crystal Palace,,
-Ipswich,Sunderland,,
-Nott'm Forest,Leeds United,,
-Brentford,Tottenham,,
-Brighton,Aston Villa,,
-Man City,Bournemouth,,
-Newcastle,Liverpool,,
-Fulham,Chelsea,,
-Bournemouth,Everton,,
-Aston Villa,Arsenal,,
-Chelsea,Brighton,,
-Coventry City,Hull City,,
-Crystal Palace,Man City,,
-Leeds United,Brentford,,
-Liverpool,Nott'm Forest,,
-Man United,Ipswich,,
-Sunderland,Fulham,,
-Tottenham,Newcastle,,
+Arsenal,Coventry City,3.0,0.0
+Hull City,Man United,2.0,0.0
+Everton,Crystal Palace,2.0,0.0
+Ipswich,Sunderland,2.0,1.0
+Nott'm Forest,Leeds United,0.0,1.0
+Brentford,Tottenham,3.0,0.0
+Brighton,Aston Villa,4.0,0.0
+Man City,Bournemouth,2.0,1.0
+Newcastle,Liverpool,2.0,2.0
+Fulham,Chelsea,2.0,3.0
+Bournemouth,Everton,1.0,1.0
+Aston Villa,Arsenal,0.0,1.0
+Chelsea,Brighton,4.0,3.0
+Coventry City,Hull City,0.0,1.0
+Crystal Palace,Man City,1.0,4.0
+Leeds United,Brentford,1.0,1.0
+Liverpool,Nott'm Forest,2.0,2.0
+Man United,Ipswich,5.0,2.0
+Sunderland,Fulham,1.0,0.0
+Tottenham,Newcastle,0.0,2.0
 Arsenal,Chelsea,,
 Brentford,Sunderland,,
 Brighton,Leeds United,,
 Everton,Man United,,
 Fulham,Crystal Palace,,
 Hull City,Aston Villa,,
-Ipswich,Liverpool,,
+Ipswich,Liverpool,0.0,2.0
 Man City,Coventry City,,
 Newcastle,Bournemouth,,
 Nott'm Forest,Tottenham,,
