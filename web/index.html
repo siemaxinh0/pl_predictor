@@ -44,7 +44,6 @@
             <button class="tab-button" type="button" data-tab="standings">Tabela ligowa</button>
             <button class="tab-button" type="button" data-tab="upcoming">Nadchodzące mecze</button>
             <button class="tab-button" type="button" data-tab="results">Wyniki</button>
-            <button class="tab-button" type="button" data-tab="bookmaker">Porównanie z bukmacherem</button>
             <button class="tab-button" type="button" data-tab="history">Historia</button>
             <button class="tab-button" type="button" data-tab="charts">Wykresy</button>
             <button class="tab-button" type="button" data-tab="how">Jak to działa</button>
@@ -134,47 +133,6 @@
             <label class="history-select-label" for="results-select">Wybierz kolejkę</label>
             <select class="history-select" id="results-select"></select>
             <div class="fixtures-grid" id="results-body"></div>
-        </section>
-
-        <section class="bookmaker-panel tab-view" data-view="bookmaker" aria-label="Porównanie z bukmacherem">
-            <div class="results-header">
-                <div>
-                    <p class="section-kicker">Model kontra rynek</p>
-                    <h2 id="bookmaker-title">Porównanie z bukmacherem</h2>
-                </div>
-                <p class="table-note">Obie strony typują bez wiedzy o wyniku: model prognozą sprzed kolejki, bukmacher kursem sprzed meczu.</p>
-            </div>
-
-            <label class="history-select-label" for="bookmaker-select">Wybierz bukmachera</label>
-            <div class="bookmaker-toolbar">
-                <div class="bookmaker-brand" id="bookmaker-brand" aria-hidden="true"></div>
-                <select class="history-select" id="bookmaker-select"></select>
-            </div>
-
-            <div class="scoreboard-grid" id="bookmaker-scoreboard"></div>
-
-            <div class="table-wrap history-table-wrap" id="bookmaker-table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="bookmaker-logo-col" aria-label="Logo bukmachera"></th>
-                            <th class="rank-col">Kolejka</th>
-                            <th>Mecze</th>
-                            <th>Brier modelu</th>
-                            <th>Brier bukmachera</th>
-                            <th>Przewaga modelu</th>
-                            <th>Bliżej w meczach</th>
-                            <th>Bliżej prawdy</th>
-                        </tr>
-                    </thead>
-                    <tbody id="bookmaker-body"></tbody>
-                </table>
-            </div>
-
-            <div class="model-note">
-                <strong>Jak to czytać:</strong>
-                <p>Brier to błąd prognozy: dla każdego meczu sumuje kwadraty różnic między przypisanym prawdopodobieństwem a tym, co faktycznie się stało. Niżej znaczy lepiej, zero to typ idealny. <em>Przewaga modelu</em> to Brier bukmachera minus Brier modelu, więc wartość dodatnia oznacza kolejkę wygraną przez model. Kolumna <em>Bliżej w meczach</em> liczy, w ilu spotkaniach dany typ miał wyższe prawdopodobieństwo na faktyczny wynik, w formacie model - bukmacher. Remisy liczymy, gdy różnica jest mniejsza niż 0,5 p.p.</p>
-            </div>
         </section>
 
         <section class="history-panel tab-view" data-view="history" aria-label="Historia prognoz">
@@ -284,7 +242,6 @@
 
     <script src="forecast-data.js"></script>
     <script src="forecast-history.js"></script>
-    <script src="odds-data.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
