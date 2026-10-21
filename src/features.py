@@ -29,6 +29,7 @@ TEAM_NAME_MAP = {
     "Wolverhampton Wanderers": "Wolves",
     "Leeds United": "Leeds",
     "Cardiff City": "Cardiff",
+    "Coventry": "Coventry City",
 }
 
 START_ELO = 1500.0

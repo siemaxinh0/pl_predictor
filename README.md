@@ -143,7 +143,23 @@ web/forecast-history.js
 
 Ten plik przechowuje snapshoty prognozy przed sezonem i po kazdej pelnej kolejce. Zakladka `Historia` pozwala przelaczac zapisane tabele prawdopodobienstw, a zakladka `Wykresy` rysuje trendy dla tytulu, Top 4 i spadku na podstawie tych snapshotow oraz aktualnej prognozy.
 
-## Dodawanie wyniku
+## Pobieranie wynikow
+
+Nowe wyniki mozna pobrac automatycznie z [football-data.co.uk](https://www.football-data.co.uk/englandm.php). Skrypt sam dopasuje mecze do terminarza, dopisze brakujace wyniki i przeliczy strone:
+
+```powershell
+.\venv\Scripts\python.exe src\update_results.py
+```
+
+Podglad bez zapisywania:
+
+```powershell
+.\venv\Scripts\python.exe src\update_results.py --dry-run
+```
+
+Wpisanych juz wynikow skrypt nie nadpisuje. Jesli zrodlo podaje inny wynik, wypisze tylko ostrzezenie. Gdy naraz dochodzi kilka pelnych kolejek, prognoza jest liczona po kazdej z nich, zeby w historii nie bylo dziur. Jesli zrodlo uzywa nazwy druzyny, ktorej nie zna `TEAM_NAME_MAP` w `src/features.py`, skrypt konczy sie bledem i niczego nie zapisuje.
+
+## Reczne dodawanie wyniku
 
 Najpierw mozna wyswietlic terminarz z numerami wierszy:
 

@@ -18,7 +18,9 @@ from features import DEFAULT_SQUAD_VALUES_PATH, load_squad_values, normalize_nam
 
 # zmiana liczby symulacji: .\venv\Scripts\python.exe src\run_forecast.py --simulations 10000
 
-# procedura dodawania meczow:
+# nowe wyniki z football-data.co.uk i przeliczenie strony: .\venv\Scripts\python.exe src\update_results.py
+
+# reczne dodawanie meczow:
 # 1 sprawdzamy nr meczu .\venv\Scripts\python.exe src\add_result.py --list
 # 2 dopisanie wyniku i przeliczenie strony .\venv\Scripts\python.exe src\add_result.py --fixture 1 --score 2-0 --run-forecast
 # 3 poprawa juz wpisanego wyniku .\venv\Scripts\python.exe src\add_result.py --fixture 1 --score 1-1 --force --run-forecast
@@ -38,6 +40,7 @@ DISPLAY_NAME_MAP = {
 DIFF_FEATURES = ["EloDiff", "FormDiff", "VenueFormDiff", "H2HDiff"]
 VALUE_FEATURE = "SquadValueDiff"
 CATEGORICAL_FEATURES = ["Team", "Opponent"]
+ROUND_SIZE = 10
 RECENT_HISTORY_SEASONS = 3
 HISTORY_SCALE_MATCHES = 76
 MIN_TEAM_UNCERTAINTY_SIGMA = 0.02
@@ -534,7 +537,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--simulations", type=int, default=10000)
     parser.add_argument("--sample-tables", type=int, default=80)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--round-size", type=int, default=10)
+    parser.add_argument("--round-size", type=int, default=ROUND_SIZE)
     return parser.parse_args()
 
 

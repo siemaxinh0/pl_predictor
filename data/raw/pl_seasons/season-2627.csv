@@ -49,26 +49,26 @@ Man City,Sunderland,5.0,3.0
 Newcastle,Hull City,2.0,1.0
 Nott'm Forest,Coventry City,0.0,1.0
 Tottenham,Aston Villa,2.0,3.0
-Arsenal,Leeds United,,
-Aston Villa,Brentford,,
-Chelsea,Bournemouth,,
-Coventry City,Newcastle,,
-Crystal Palace,Nott'm Forest,,
-Hull City,Everton,,
-Ipswich,Fulham,,
-Liverpool,Man City,,
-Man United,Tottenham,,
-Sunderland,Brighton,,
-Bournemouth,Sunderland,,
-Brentford,Liverpool,,
-Brighton,Crystal Palace,,
-Everton,Chelsea,,
-Fulham,Hull City,,
-Leeds United,Man United,,
-Man City,Ipswich,,
-Newcastle,Aston Villa,,
-Nott'm Forest,Arsenal,,
-Tottenham,Coventry City,,
+Arsenal,Leeds United,2.0,1.0
+Aston Villa,Brentford,2.0,2.0
+Chelsea,Bournemouth,5.0,1.0
+Coventry City,Newcastle,4.0,1.0
+Crystal Palace,Nott'm Forest,3.0,1.0
+Hull City,Everton,2.0,2.0
+Ipswich,Fulham,2.0,1.0
+Liverpool,Man City,0.0,3.0
+Man United,Tottenham,1.0,1.0
+Sunderland,Brighton,0.0,2.0
+Bournemouth,Sunderland,2.0,0.0
+Brentford,Liverpool,1.0,2.0
+Brighton,Crystal Palace,5.0,0.0
+Everton,Chelsea,0.0,2.0
+Fulham,Hull City,1.0,0.0
+Leeds United,Man United,1.0,1.0
+Man City,Ipswich,3.0,2.0
+Newcastle,Aston Villa,0.0,1.0
+Nott'm Forest,Arsenal,0.0,1.0
+Tottenham,Coventry City,3.0,1.0
 Arsenal,Everton,,
 Aston Villa,Man City,,
 Chelsea,Tottenham,,
