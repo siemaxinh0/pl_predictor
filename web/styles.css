@@ -92,7 +92,6 @@ input {
     padding: 28px 0 22px;
 }
 
-.eyebrow,
 .section-kicker {
     margin: 0 0 8px;
     color: var(--purple-soft);
@@ -127,40 +126,6 @@ h2 {
     color: var(--muted);
     font-size: 1.04rem;
     line-height: 1.55;
-}
-
-.meta-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(120px, 1fr));
-    gap: 10px;
-    min-width: min(520px, 100%);
-}
-
-.meta-item {
-    border: 1px solid rgba(31, 36, 32, 0.1);
-    border-radius: 6px;
-    padding: 14px 16px;
-    background: rgba(255, 250, 240, 0.82);
-    box-shadow: 0 12px 26px rgba(45, 39, 27, 0.08);
-}
-
-.meta-item span {
-    display: block;
-    color: var(--muted);
-    font-size: 0.78rem;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-.meta-item strong {
-    display: block;
-    margin-top: 6px;
-    font-size: 1.15rem;
-    white-space: nowrap;
-}
-
-.meta-item.danger strong {
-    color: var(--rose);
 }
 
 .match-progress {
@@ -903,11 +868,6 @@ td {
         grid-template-columns: 1fr;
         align-items: start;
         padding-top: 58px;
-    }
-
-    .meta-grid {
-        grid-template-columns: 1fr;
-        min-width: 0;
     }
 
     .table-toolbar {

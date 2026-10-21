@@ -8,19 +8,19 @@ To nie jest gotowy bukmacherski model. Bardziej roboczy predictor: ma dawac sens
 
 Dane sa trzymane w `data/raw/pl_seasons/`. Historyczne sezony maja realne wyniki meczow, a przyszly sezon (`season-2627.csv`) jest terminarzem bez wynikow.
 
-Notebook najpierw laczy historyczne pliki w:
+Skrypt `src/features.py` skleja historyczne sezony i liczy dla kazdego meczu cechy przedmeczowe, m.in. ELO, forme i H2H:
 
-```text
-data/processed/PL_allseasons.csv
+```powershell
+.\venv\Scripts\python.exe src\features.py
 ```
 
-Potem na tej bazie powstaje:
+Wynik trafia do:
 
 ```text
 data/processed/PL_base_with_traits.csv
 ```
 
-Ten drugi plik zawiera juz cechy przedmeczowe, m.in. ELO, forme i H2H. Wazne: mecze bez `FTHG` i `FTAG` sa wyrzucane z treningu, zeby przyszly terminarz nie udawal historycznych wynikow.
+Wazne: mecze bez `FTHG` i `FTAG` sa wyrzucane z treningu, zeby przyszly terminarz nie udawal historycznych wynikow.
 
 ## ELO
 

@@ -7,44 +7,18 @@ from pathlib import Path
 
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_FIXTURE_PATH = ROOT / "data" / "raw" / "pl_seasons" / "season-2627.csv"
-RUN_FORECAST_PATH = ROOT / "src" / "run_forecast.py"
+from run_forecast import DEFAULT_FIXTURE_PATH, normalize_team_name
 
-TEAM_NAME_MAP = {
-    "AFC Bournemouth": "Bournemouth",
-    "Brighton & Hove Albion": "Brighton",
-    "Brighton and Hove Albion": "Brighton",
-    "Hull City": "Hull",
-    "Manchester City": "Man City",
-    "Manchester United": "Man United",
-    "Newcastle United": "Newcastle",
-    "Nottingham Forest": "Nott'm Forest",
-    "Tottenham Hotspur": "Tottenham",
-    "West Ham United": "West Ham",
-    "Wolverhampton Wanderers": "Wolves",
-    "Leeds United": "Leeds",
-    "Cardiff City": "Cardiff",
-}
+RUN_FORECAST_PATH = Path(__file__).resolve().parent / "run_forecast.py"
 
 
-def normalize_team_name(name: object) -> str:
-    cleaned_name = str(name).strip()
-    return TEAM_NAME_MAP.get(cleaned_name, cleaned_name)
-
-
-def parse_score(score: str | None, home_goals: int | None, away_goals: int | None) -> tuple[int, int]:
-    if score:
-        normalized_score = score.replace(":", "-").strip()
-        parts = normalized_score.split("-")
-        if len(parts) != 2:
-            raise ValueError("Score must look like 2-1 or 2:1.")
-        return int(parts[0]), int(parts[1])
-
-    if home_goals is None or away_goals is None:
-        raise ValueError("Pass --score 2-1 or both --home-goals and --away-goals.")
-
-    return home_goals, away_goals
+def parse_score(score: str | None) -> tuple[int, int]:
+    if not score:
+        raise ValueError("Pass --score, for example 2-1.")
+    parts = score.replace(":", "-").strip().split("-")
+    if len(parts) != 2:
+        raise ValueError("Score must look like 2-1 or 2:1.")
+    return int(parts[0]), int(parts[1])
 
 
 def status_for_row(row: pd.Series) -> str:
@@ -93,7 +67,7 @@ def add_result(args: argparse.Namespace) -> None:
         print_fixtures(fixtures)
         return
 
-    home_goals, away_goals = parse_score(args.score, args.home_goals, args.away_goals)
+    home_goals, away_goals = parse_score(args.score)
     fixture_index = find_fixture(fixtures, args.fixture, args.home, args.away)
     current_row = fixtures.loc[fixture_index]
 
@@ -102,15 +76,6 @@ def add_result(args: argparse.Namespace) -> None:
 
     fixtures.at[fixture_index, "FTHG"] = home_goals
     fixtures.at[fixture_index, "FTAG"] = away_goals
-
-    if "FTR" in fixtures.columns:
-        if home_goals > away_goals:
-            fixtures.at[fixture_index, "FTR"] = "H"
-        elif away_goals > home_goals:
-            fixtures.at[fixture_index, "FTR"] = "A"
-        else:
-            fixtures.at[fixture_index, "FTR"] = "D"
-
     fixtures.to_csv(args.fixtures, index=False)
     print(f"Dodano wynik: {current_row['HomeTeam']} - {current_row['AwayTeam']} {home_goals}-{away_goals}")
 
@@ -136,8 +101,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--home", help="Home team name, used with --away when --fixture is not passed.")
     parser.add_argument("--away", help="Away team name, used with --home when --fixture is not passed.")
     parser.add_argument("--score", help="Final score, for example 2-1 or 2:1.")
-    parser.add_argument("--home-goals", type=int)
-    parser.add_argument("--away-goals", type=int)
     parser.add_argument("--force", action="store_true", help="Overwrite an existing result.")
     parser.add_argument("--run-forecast", action="store_true", help="Regenerate web/forecast-data.js after saving the score.")
     parser.add_argument("--simulations", type=int, default=10000, help="Monte Carlo simulations when --run-forecast is used.")

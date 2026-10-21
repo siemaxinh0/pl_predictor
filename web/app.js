@@ -15,9 +15,9 @@ const state = {
 };
 
 const metricConfigs = [
-    { key: "title", countKey: "titleCount", label: "Szansa na tytuł", shortLabel: "Tytuł" },
-    { key: "top4", countKey: "top4Count", label: "Szansa na Top 4", shortLabel: "Top 4" },
-    { key: "relegation", countKey: "relegationCount", label: "Ryzyko spadku", shortLabel: "Spadek" }
+    { key: "title", label: "Szansa na tytuł" },
+    { key: "top4", label: "Szansa na Top 4" },
+    { key: "relegation", label: "Ryzyko spadku" }
 ];
 
 const chartColors = ["#3d195b", "#e94091", "#00a3ff", "#00a878", "#f2a900", "#6a37a8"];
@@ -37,12 +37,9 @@ const teamColors = {
     "Leeds": "#ffcd00",
     "Liverpool": "#c8102e",
     "Man City": "#6cabdd",
-    "Manchester City": "#6cabdd",
     "Man United": "#da291c",
-    "Manchester United": "#da291c",
     "Newcastle": "#241f20",
     "Nott'm Forest": "#dd0000",
-    "Nottingham Forest": "#dd0000",
     "Sunderland": "#eb172b",
     "Tottenham": "#132257"
 };
@@ -90,75 +87,18 @@ function formatPercent(value) {
     return `${Number(value || 0).toFixed(1)}%`;
 }
 
-function snapshotIdFromMeta(meta) {
-    const playedMatches = Number(meta.playedMatches || 0);
-    const playedRounds = Number(meta.playedRounds || 0);
-
-    if (playedMatches === 0) {
-        return "round-0";
-    }
-
-    if (playedRounds > 0) {
-        return `round-${playedRounds}`;
-    }
-
-    return `current-${playedMatches}`;
-}
-
-function snapshotLabelFromMeta(meta) {
-    const playedMatches = Number(meta.playedMatches || 0);
-    const playedRounds = Number(meta.playedRounds || 0);
-
-    if (playedMatches === 0) {
-        return "Przed sezonem";
-    }
-
-    if (playedRounds > 0) {
-        return `Po ${playedRounds}. kolejce`;
-    }
-
-    return `Aktualnie: ${playedMatches}/${meta.totalMatches || 380} meczów`;
-}
-
-function currentSnapshot() {
-    return {
-        id: snapshotIdFromMeta(forecastMeta),
-        label: snapshotLabelFromMeta(forecastMeta),
-        playedRounds: forecastMeta.playedRounds || 0,
-        playedMatches: forecastMeta.playedMatches || 0,
-        simulations: forecastMeta.simulations || 0,
-        generatedAtUTC: forecastMeta.generatedAtUTC,
-        teams: teams.map(team => ({
-            rank: team.rank,
-            teamKey: team.teamKey || team.team,
-            team: team.team,
-            slug: team.slug,
-            initials: team.initials,
-            xPts: team.xPts,
-            xGF: team.xGF,
-            xGA: team.xGA,
-            xGD: team.xGD,
-            title: team.title,
-            top4: team.top4,
-            relegation: team.relegation,
-            titleCount: team.titleCount,
-            top4Count: team.top4Count,
-            relegationCount: team.relegationCount
-        }))
-    };
-}
-
 function buildTimelineSnapshots() {
-    const snapshotMap = new Map();
-    (forecastHistory.snapshots || []).forEach(snapshot => {
-        if (snapshot && snapshot.id) {
-            snapshotMap.set(snapshot.id, snapshot);
-        }
-    });
+    const snapshotMap = new Map((forecastHistory.snapshots || []).map(snapshot => [snapshot.id, snapshot]));
 
     if (teams.length) {
-        const snapshot = currentSnapshot();
-        snapshotMap.set(snapshot.id, snapshot);
+        snapshotMap.set(forecastMeta.snapshotId, {
+            id: forecastMeta.snapshotId,
+            label: forecastMeta.snapshotLabel,
+            playedRounds: forecastMeta.playedRounds || 0,
+            playedMatches: forecastMeta.playedMatches || 0,
+            simulations: forecastMeta.simulations || 0,
+            teams
+        });
     }
 
     return [...snapshotMap.values()].sort((first, second) => {
@@ -197,27 +137,13 @@ function createLogo(team) {
     `;
 }
 
-function colorForTeam(team) {
-    return teamColors[team.teamKey] || teamColors[team.key] || teamColors[team.team] || teamColors[team.name] || chartColors[0];
-}
-
-function renderPercentButton(percent, count, total, label) {
-    const detail = `${label}: ${formatInteger(count)} z ${formatInteger(total)} symulacji`;
+function renderPercent(team, key, simulations, label) {
+    const detail = `${label}: ${formatInteger(team[`${key}Count`])} z ${formatInteger(simulations)} symulacji`;
     return `
-        <button class="percent-detail" type="button" title="${escapeHtml(detail)}" data-detail="${escapeHtml(detail)}" aria-label="${escapeHtml(detail)}">
-            ${formatPercent(percent)}
+        <button class="percent-detail" type="button" title="${escapeHtml(detail)}" aria-label="${escapeHtml(detail)}">
+            ${formatPercent(team[key])}
         </button>
     `;
-}
-
-function renderCurrentPercent(team, percentKey, countKey, label) {
-    const count = team[countKey] ?? Math.round((Number(team[percentKey] || 0) / 100) * Number(forecastMeta.simulations || 0));
-    return renderPercentButton(team[percentKey], count, forecastMeta.simulations || 0, label);
-}
-
-function renderSnapshotPercent(team, snapshot, percentKey, countKey, label) {
-    const count = team[countKey] ?? Math.round((Number(team[percentKey] || 0) / 100) * Number(snapshot.simulations || 0));
-    return renderPercentButton(team[percentKey], count, snapshot.simulations || 0, label);
 }
 
 function renderMeta() {
@@ -229,21 +155,10 @@ function renderMeta() {
     const total = Number(forecastMeta.totalMatches || 380);
     const progress = total > 0 ? Math.max(0, Math.min(100, (played / total) * 100)) : 0;
 
-    if (lead) {
-        lead.textContent = `Prognoza tabeli po ${forecastMeta.simulations || "?"} symulacjach sezonu, oparta na oczekiwanych golach i rozkładach wyników.`;
-    }
-
-    if (playedMatches) {
-        playedMatches.textContent = `${formatInteger(played)}/${formatInteger(total)}`;
-    }
-
-    if (matchProgressFill) {
-        matchProgressFill.style.width = `${progress}%`;
-    }
-
-    if (matchProgressCaption) {
-        matchProgressCaption.textContent = `${formatInteger(played)} z ${formatInteger(total)} meczów Premier League zostało uwzględnionych jako fakty.`;
-    }
+    lead.textContent = `Prognoza tabeli po ${forecastMeta.simulations || "?"} symulacjach sezonu, oparta na oczekiwanych golach i rozkładach wyników.`;
+    playedMatches.textContent = `${formatInteger(played)}/${formatInteger(total)}`;
+    matchProgressFill.style.width = `${progress}%`;
+    matchProgressCaption.textContent = `${formatInteger(played)} z ${formatInteger(total)} meczów Premier League zostało uwzględnionych jako fakty.`;
 }
 
 function renderTable() {
@@ -268,29 +183,14 @@ function renderTable() {
             <td>${formatNumber(team.xGF)}</td>
             <td>${formatNumber(team.xGA)}</td>
             <td class="${team.xGD >= 0 ? "positive" : "negative"}">${formatNumber(team.xGD)}</td>
-            <td class="title-prob">${renderCurrentPercent(team, "title", "titleCount", "Tytuł")}</td>
-            <td>${renderCurrentPercent(team, "top4", "top4Count", "Top 4")}</td>
-            <td class="relegation-prob">${renderCurrentPercent(team, "relegation", "relegationCount", "Spadek")}</td>
+            <td class="title-prob">${renderPercent(team, "title", forecastMeta.simulations, "Tytuł")}</td>
+            <td>${renderPercent(team, "top4", forecastMeta.simulations, "Top 4")}</td>
+            <td class="relegation-prob">${renderPercent(team, "relegation", forecastMeta.simulations, "Spadek")}</td>
         </tr>
     `).join("");
 }
 
-function showProbabilityDetail(detail) {
-    return detail;
-}
-
-function handleProbabilityEvent(event) {
-    const button = event.target.closest(".percent-detail");
-    if (button) {
-        showProbabilityDetail(button.dataset.detail);
-    }
-}
-
 function renderRandomSimulation(sampleTable) {
-    if (!randomSimulationModal || !randomSimulationBody || !randomSimulationTitle) {
-        return;
-    }
-
     randomSimulationTitle.textContent = `Symulacja ${formatInteger(sampleTable.simulation)} z ${formatInteger(forecastMeta.simulations || sampleTables.length)}`;
     randomSimulationBody.innerHTML = sampleTable.teams.map(team => `
         <tr class="${team.rank >= 18 ? "relegation-row" : ""}">
@@ -309,17 +209,13 @@ function renderRandomSimulation(sampleTable) {
     `).join("");
     randomSimulationModal.hidden = false;
     document.body.classList.add("modal-open");
-    hideRandomSimulationButton?.focus();
+    hideRandomSimulationButton.focus();
 }
 
 function closeRandomSimulation() {
-    if (!randomSimulationModal) {
-        return;
-    }
-
     randomSimulationModal.hidden = true;
     document.body.classList.remove("modal-open");
-    randomSimulationButton?.focus();
+    randomSimulationButton.focus();
 }
 
 function renderRandomSampleTable() {
@@ -343,14 +239,8 @@ function probabilityBlock(label, value, className, extraClass = "") {
 }
 
 function renderUpcomingFixtures() {
-    if (!upcomingBody) {
-        return;
-    }
-
     const upcomingRound = document.querySelector("#upcoming-round");
-    if (upcomingRound) {
-        upcomingRound.textContent = forecastMeta.nextRound ? `Kolejka ${forecastMeta.nextRound}` : "Brak nadchodzących spotkań";
-    }
+    upcomingRound.textContent = forecastMeta.nextRound ? `Kolejka ${forecastMeta.nextRound}` : "Brak nadchodzących spotkań";
 
     if (!upcomingFixtures.length) {
         upcomingBody.innerHTML = `<p class="empty-state">Brak nierozgranych meczów w terminarzu.</p>`;
@@ -384,18 +274,12 @@ function renderUpcomingFixtures() {
 }
 
 function renderStandings() {
-    if (!standingsBody) {
-        return;
-    }
-
     if (!standings.length) {
         standingsBody.innerHTML = `<tr><td colspan="10">Brak rozegranych meczów w tym sezonie.</td></tr>`;
         return;
     }
 
-    if (standingsNote) {
-        standingsNote.textContent = `Stan po ${formatInteger(forecastMeta.playedMatches || 0)} rozegranych meczach, sortowanie po punktach, różnicy bramek i golach zdobytych.`;
-    }
+    standingsNote.textContent = `Stan po ${formatInteger(forecastMeta.playedMatches || 0)} rozegranych meczach, sortowanie po punktach, różnicy bramek i golach zdobytych.`;
 
     standingsBody.innerHTML = standings.map(team => `
         <tr class="${team.rank >= 18 ? "relegation-row" : ""}">
@@ -423,10 +307,6 @@ function resultRounds() {
 }
 
 function renderResultsControls() {
-    if (!resultsSelect) {
-        return;
-    }
-
     const rounds = resultRounds();
     if (!rounds.length) {
         resultsSelect.innerHTML = `<option>Brak rozegranych kolejek</option>`;
@@ -439,21 +319,13 @@ function renderResultsControls() {
 }
 
 function renderResults() {
-    if (!resultsBody) {
-        return;
-    }
-
     if (!results.length) {
-        if (resultsTitle) {
-            resultsTitle.textContent = "Brak rozegranych meczów";
-        }
+        resultsTitle.textContent = "Brak rozegranych meczów";
         resultsBody.innerHTML = `<p class="empty-state">Żaden mecz sezonu nie ma jeszcze wyniku.</p>`;
         return;
     }
 
-    if (resultsTitle) {
-        resultsTitle.textContent = `Kolejka ${state.resultsRound}`;
-    }
+    resultsTitle.textContent = `Kolejka ${state.resultsRound}`;
 
     const roundMatches = results.filter(match => Number(match.round) === state.resultsRound);
     resultsBody.innerHTML = roundMatches.map(match => `
@@ -483,16 +355,7 @@ function renderResults() {
     `).join("");
 }
 
-function renderResultsTab() {
-    renderResultsControls();
-    renderResults();
-}
-
 function renderHistoryControls() {
-    if (!historySelect) {
-        return;
-    }
-
     if (!historySnapshots.length) {
         historySelect.innerHTML = `<option>Brak zapisanych snapshotów</option>`;
         historySelect.disabled = true;
@@ -510,10 +373,6 @@ function renderHistoryControls() {
 }
 
 function renderHistoryTable() {
-    if (!historyBody || !historyTitle) {
-        return;
-    }
-
     const snapshot = historySnapshots[state.historyIndex];
     if (!snapshot) {
         historyTitle.textContent = "Brak historii prognoz";
@@ -535,9 +394,9 @@ function renderHistoryTable() {
             <td>${formatNumber(team.xGF)}</td>
             <td>${formatNumber(team.xGA)}</td>
             <td class="${team.xGD >= 0 ? "positive" : "negative"}">${formatNumber(team.xGD)}</td>
-            <td class="title-prob">${renderSnapshotPercent(team, snapshot, "title", "titleCount", "Tytuł")}</td>
-            <td>${renderSnapshotPercent(team, snapshot, "top4", "top4Count", "Top 4")}</td>
-            <td class="relegation-prob">${renderSnapshotPercent(team, snapshot, "relegation", "relegationCount", "Spadek")}</td>
+            <td class="title-prob">${renderPercent(team, "title", snapshot.simulations, "Tytuł")}</td>
+            <td>${renderPercent(team, "top4", snapshot.simulations, "Top 4")}</td>
+            <td class="relegation-prob">${renderPercent(team, "relegation", snapshot.simulations, "Spadek")}</td>
         </tr>
     `).join("");
 }
@@ -570,7 +429,7 @@ function teamsForMetric(metricKey) {
         key: teamKey(team),
         name: team.team,
         slug: team.slug,
-        color: colorForTeam(team)
+        color: teamColors[teamKey(team)]
     }));
 }
 
@@ -643,10 +502,6 @@ function renderChartCard(config) {
 }
 
 function renderCharts() {
-    if (!chartsBody) {
-        return;
-    }
-
     chartsBody.innerHTML = metricConfigs.map(renderChartCard).join("");
 }
 
@@ -671,47 +526,27 @@ document.querySelectorAll(".tab-button").forEach(button => {
     });
 });
 
-if (tableBody) {
-    tableBody.addEventListener("mouseover", handleProbabilityEvent);
-    tableBody.addEventListener("click", handleProbabilityEvent);
-    tableBody.addEventListener("focusin", handleProbabilityEvent);
-}
+historySelect.addEventListener("change", () => {
+    state.historyIndex = Number(historySelect.value || 0);
+    renderHistory();
+});
 
-if (historyBody) {
-    historyBody.addEventListener("mouseover", handleProbabilityEvent);
-    historyBody.addEventListener("click", handleProbabilityEvent);
-    historyBody.addEventListener("focusin", handleProbabilityEvent);
-}
+resultsSelect.addEventListener("change", () => {
+    state.resultsRound = Number(resultsSelect.value || 0);
+    renderResults();
+});
 
-if (historySelect) {
-    historySelect.addEventListener("change", () => {
-        state.historyIndex = Number(historySelect.value || 0);
-        renderHistory();
-    });
-}
+randomSimulationButton.disabled = !sampleTables.length;
+randomSimulationButton.addEventListener("click", renderRandomSampleTable);
 
-if (resultsSelect) {
-    resultsSelect.addEventListener("change", () => {
-        state.resultsRound = Number(resultsSelect.value || 0);
-        renderResults();
-    });
-}
-
-if (randomSimulationButton) {
-    randomSimulationButton.disabled = !sampleTables.length;
-    randomSimulationButton.addEventListener("click", renderRandomSampleTable);
-}
-
-if (hideRandomSimulationButton) {
-    hideRandomSimulationButton.addEventListener("click", closeRandomSimulation);
-}
+hideRandomSimulationButton.addEventListener("click", closeRandomSimulation);
 
 document.querySelectorAll("[data-random-close]").forEach(element => {
     element.addEventListener("click", closeRandomSimulation);
 });
 
 document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && randomSimulationModal && !randomSimulationModal.hidden) {
+    if (event.key === "Escape" && !randomSimulationModal.hidden) {
         closeRandomSimulation();
     }
 });
@@ -720,6 +555,7 @@ renderMeta();
 renderTable();
 renderStandings();
 renderUpcomingFixtures();
-renderResultsTab();
+renderResultsControls();
+renderResults();
 renderHistory();
 renderCharts();
