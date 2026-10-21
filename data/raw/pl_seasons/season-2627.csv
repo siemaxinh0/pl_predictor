@@ -19,36 +19,36 @@ Liverpool,Nott'm Forest,2.0,2.0
 Man United,Ipswich,5.0,2.0
 Sunderland,Fulham,1.0,0.0
 Tottenham,Newcastle,0.0,2.0
-Arsenal,Chelsea,,
-Brentford,Sunderland,,
-Brighton,Leeds United,,
-Everton,Man United,,
-Fulham,Crystal Palace,,
-Hull City,Aston Villa,,
+Arsenal,Chelsea,2.0,1.0
+Brentford,Sunderland,1.0,1.0
+Brighton,Leeds United,1.0,1.0
+Everton,Man United,2.0,2.0
+Fulham,Crystal Palace,2.0,3.0
+Hull City,Aston Villa,0.0,0.0
 Ipswich,Liverpool,0.0,2.0
-Man City,Coventry City,,
-Newcastle,Bournemouth,,
-Nott'm Forest,Tottenham,,
-Bournemouth,Brentford,,
-Aston Villa,Nott'm Forest,,
-Chelsea,Hull City,,
-Coventry City,Brighton,,
-Crystal Palace,Ipswich,,
-Leeds United,Newcastle,,
-Liverpool,Fulham,,
-Man United,Man City,,
-Sunderland,Arsenal,,
-Tottenham,Everton,,
-Bournemouth,Liverpool,,
-Brentford,Chelsea,,
-Brighton,Arsenal,,
-Everton,Ipswich,,
-Fulham,Man United,,
-Leeds United,Crystal Palace,,
-Man City,Sunderland,,
-Newcastle,Hull City,,
-Nott'm Forest,Coventry City,,
-Tottenham,Aston Villa,,
+Man City,Coventry City,1.0,0.0
+Newcastle,Bournemouth,2.0,2.0
+Nott'm Forest,Tottenham,0.0,0.0
+Bournemouth,Brentford,2.0,2.0
+Aston Villa,Nott'm Forest,1.0,2.0
+Chelsea,Hull City,2.0,2.0
+Coventry City,Brighton,0.0,5.0
+Crystal Palace,Ipswich,2.0,3.0
+Leeds United,Newcastle,4.0,1.0
+Liverpool,Fulham,0.0,0.0
+Man United,Man City,0.0,1.0
+Sunderland,Arsenal,0.0,2.0
+Tottenham,Everton,0.0,0.0
+Bournemouth,Liverpool,0.0,1.0
+Brentford,Chelsea,3.0,0.0
+Brighton,Arsenal,3.0,0.0
+Everton,Ipswich,1.0,0.0
+Fulham,Man United,1.0,1.0
+Leeds United,Crystal Palace,0.0,0.0
+Man City,Sunderland,5.0,3.0
+Newcastle,Hull City,2.0,1.0
+Nott'm Forest,Coventry City,0.0,1.0
+Tottenham,Aston Villa,2.0,3.0
 Arsenal,Leeds United,,
 Aston Villa,Brentford,,
 Chelsea,Bournemouth,,

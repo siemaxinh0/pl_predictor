@@ -486,10 +486,9 @@ def adjusted_lambdas(
     home_lambdas = []
     away_lambdas = []
     for match in match_lambdas.itertuples(index=False):
-        home_shrinkage = team_shrinkage[match.HomeTeam]
-        away_shrinkage = team_shrinkage[match.AwayTeam]
-        home_lambdas.append((1 - home_shrinkage) * match.lambda_home + home_shrinkage * home_goal_mean)
-        away_lambdas.append((1 - away_shrinkage) * match.lambda_away + away_shrinkage * away_goal_mean)
+        fixture_shrinkage = max(team_shrinkage[match.HomeTeam], team_shrinkage[match.AwayTeam])
+        home_lambdas.append((1 - fixture_shrinkage) * match.lambda_home + fixture_shrinkage * home_goal_mean)
+        away_lambdas.append((1 - fixture_shrinkage) * match.lambda_away + fixture_shrinkage * away_goal_mean)
 
     adjusted_matches["lambda_home"] = home_lambdas
     adjusted_matches["lambda_away"] = away_lambdas

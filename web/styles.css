@@ -600,6 +600,289 @@ h2 {
     font-weight: 900;
 }
 
+.empty-state-wide {
+    grid-column: 1 / -1;
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.odds-block {
+    margin-top: 12px;
+    border: 1px solid rgba(61, 25, 91, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.odds-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.odds-head-meta {
+    color: var(--purple-soft);
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.bookmaker-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.bookmaker-toolbar .history-select {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.bookmaker-brand {
+    flex: 0 0 auto;
+}
+
+.bookmaker-logo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    background: transparent;
+}
+
+.bookmaker-logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bookmaker-logo img.is-missing {
+    opacity: 0.35;
+}
+
+.bookmaker-logo-inline {
+    width: 118px;
+    height: 38px;
+}
+
+.bookmaker-logo-large {
+    width: 140px;
+    height: 44px;
+}
+
+.bookmaker-logo-table {
+    width: 96px;
+    height: 30px;
+}
+
+.bookmaker-logo-col,
+.bookmaker-logo-cell {
+    width: 108px;
+    text-align: center;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.odds-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.odds-cell {
+    border-radius: 8px;
+    padding: 8px;
+    background: #fff;
+    text-align: center;
+}
+
+.odds-cell span,
+.odds-cell b,
+.odds-cell strong,
+.odds-cell em {
+    display: block;
+    font-variant-numeric: tabular-nums;
+}
+
+.odds-cell span {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 900;
+}
+
+.odds-cell b {
+    margin-top: 2px;
+    color: var(--purple);
+    font-size: 0.98rem;
+}
+
+.odds-cell strong {
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.odds-cell em {
+    margin-top: 2px;
+    font-size: 0.74rem;
+    font-style: normal;
+}
+
+.odds-legend {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 0.72rem;
+}
+
+.odds-missing {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.verdict {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 10px;
+    align-items: center;
+    margin-top: 12px;
+    border-radius: 8px;
+    padding: 10px 12px;
+    background: rgba(61, 25, 91, 0.06);
+}
+
+.verdict span {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.verdict strong {
+    justify-self: end;
+    font-size: 0.98rem;
+}
+
+.verdict em {
+    grid-column: 1 / -1;
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-style: normal;
+}
+
+.verdict.is-model {
+    background: rgba(0, 201, 131, 0.14);
+}
+
+.verdict.is-model strong {
+    color: #00895a;
+}
+
+.verdict.is-book {
+    background: rgba(233, 64, 145, 0.12);
+}
+
+.verdict.is-book strong {
+    color: var(--pink);
+}
+
+.verdict.is-tie strong {
+    color: var(--purple);
+}
+
+.verdict-badge {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.verdict-badge.is-model {
+    color: #00694a;
+    background: rgba(0, 201, 131, 0.18);
+}
+
+.verdict-badge.is-book {
+    color: #a3216a;
+    background: rgba(233, 64, 145, 0.16);
+}
+
+.verdict-badge.is-tie {
+    color: var(--purple);
+    background: rgba(61, 25, 91, 0.1);
+}
+
+.scoreboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.scoreboard-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    background:
+        linear-gradient(135deg, rgba(114, 215, 255, 0.16), rgba(255, 255, 255, 0.94)),
+        #ffffff;
+}
+
+.scoreboard-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.scoreboard-card strong {
+    display: block;
+    margin: 6px 0 4px;
+    color: var(--purple);
+    font-size: 1.5rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.scoreboard-card em {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-style: normal;
+}
+
+.scoreboard-card.is-better {
+    border-color: rgba(0, 201, 131, 0.5);
+}
+
+.scoreboard-card.is-model strong {
+    color: #00895a;
+}
+
+.scoreboard-card.is-book strong {
+    color: var(--pink);
+}
+
 table {
     width: 100%;
     min-width: 920px;

@@ -1,17 +1,24 @@
 const forecastData = window.forecastData || { meta: {}, teams: [], upcomingFixtures: [], sampleTables: [] };
 const forecastHistory = window.forecastHistory || { snapshots: [] };
+const oddsData = window.oddsData || { meta: {}, odds: [] };
 const forecastMeta = forecastData.meta || {};
 const teams = forecastData.teams || [];
 const standings = forecastData.standings || [];
 const results = forecastData.results || [];
 const upcomingFixtures = forecastData.upcomingFixtures || [];
 const sampleTables = forecastData.sampleTables || [];
+const oddsRows = oddsData.odds || [];
+const oddsBookmakers = (oddsData.meta || {}).bookmakers || [...new Set(oddsRows.map(row => row.bookmaker))];
+
+const outcomeKeys = ["home", "draw", "away"];
+const outcomeLabels = { home: "1", draw: "X", away: "2" };
 
 const state = {
     sortKey: "rank",
     sortDirection: "asc",
     historyIndex: 0,
-    resultsRound: 0
+    resultsRound: 0,
+    bookmaker: oddsBookmakers[0] || ""
 };
 
 const metricConfigs = [
@@ -58,6 +65,12 @@ const historySelect = document.querySelector("#history-select");
 const historyBody = document.querySelector("#history-body");
 const historyTitle = document.querySelector("#history-title");
 const chartsBody = document.querySelector("#charts-body");
+const bookmakerSelect = document.querySelector("#bookmaker-select");
+const bookmakerScoreboard = document.querySelector("#bookmaker-scoreboard");
+const bookmakerBody = document.querySelector("#bookmaker-body");
+const bookmakerTableWrap = document.querySelector("#bookmaker-table-wrap");
+const bookmakerTitle = document.querySelector("#bookmaker-title");
+const bookmakerBrand = document.querySelector("#bookmaker-brand");
 const randomSimulationButton = document.querySelector("#random-simulation-button");
 const randomSimulationModal = document.querySelector("#random-simulation-modal");
 const randomSimulationTitle = document.querySelector("#random-simulation-title");
@@ -342,6 +355,323 @@ function probabilityBlock(label, value, className, extraClass = "") {
     `;
 }
 
+const oddsFields = { home: "oddsHome", draw: "oddsDraw", away: "oddsAway" };
+const probFields = { home: "probHome", draw: "probDraw", away: "probAway" };
+
+function bookmakerSlug(bookmaker) {
+    return String(bookmaker || "")
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "") || "_default";
+}
+
+const bookmakerLabels = {
+    betclic: "Betclic",
+    bet365: "Bet365"
+};
+
+function formatBookmakerName(bookmaker) {
+    const slug = bookmakerSlug(bookmaker);
+    return bookmakerLabels[slug] || String(bookmaker || "Bukmacher");
+}
+
+function createBookmakerLogo(bookmaker, className = "") {
+    const slug = bookmakerSlug(bookmaker);
+    const label = formatBookmakerName(bookmaker);
+    return `
+        <span class="bookmaker-logo ${className}" aria-hidden="true">
+            <img
+                src="assets/logos/bookmakers/${escapeHtml(slug)}.svg"
+                alt=""
+                data-fallback="assets/logos/bookmakers/_default.svg"
+                onerror="if (!this.dataset.fallbackUsed) { this.dataset.fallbackUsed = '1'; this.src = this.dataset.fallback; } else { this.classList.add('is-missing'); }"
+            >
+            <span class="sr-only">${escapeHtml(label)}</span>
+        </span>
+    `;
+}
+
+function renderBookmakerBrand(bookmaker) {
+    if (!bookmakerBrand) {
+        return;
+    }
+    bookmakerBrand.innerHTML = bookmaker
+        ? createBookmakerLogo(bookmaker, "bookmaker-logo-large")
+        : "";
+}
+
+function formatSigned(value) {
+    const number = Number(value || 0);
+    if (Math.abs(number) < 0.05) {
+        return "0.0";
+    }
+    return `${number > 0 ? "+" : "-"}${Math.abs(number).toFixed(1)}`;
+}
+
+function formatBrier(value) {
+    return Number(value || 0).toFixed(3);
+}
+
+function formatSignedBrier(value) {
+    const number = Number(value || 0);
+    if (Math.abs(number) < 0.0005) {
+        return "0.000";
+    }
+    return `${number > 0 ? "+" : "-"}${Math.abs(number).toFixed(3)}`;
+}
+
+function averageOf(values) {
+    return values.length ? values.reduce((total, value) => total + value, 0) / values.length : 0;
+}
+
+function oddsForFixture(fixture, bookmaker = state.bookmaker) {
+    if (!bookmaker) {
+        return null;
+    }
+    return oddsRows.find(row => Number(row.fixture) === Number(fixture) && row.bookmaker === bookmaker) || null;
+}
+
+function modelProbabilities(match) {
+    return { home: match.homeWin, draw: match.draw, away: match.awayWin };
+}
+
+function bookmakerProbabilities(odds) {
+    return { home: odds.probHome, draw: odds.probDraw, away: odds.probAway };
+}
+
+// Brier: suma kwadratow roznic miedzy typem a rzeczywistoscia. Nizej znaczy lepiej.
+// To regula wlasciwa, wiec nie da sie jej oszukac zawyzaniem pewnosci.
+function brierScore(probabilities, outcome) {
+    return outcomeKeys.reduce((total, key) => {
+        const probability = Number(probabilities[key] || 0) / 100;
+        const actual = key === outcome ? 1 : 0;
+        return total + (probability - actual) ** 2;
+    }, 0);
+}
+
+function closerToTruth(modelProbs, bookProbs, outcome) {
+    const modelValue = Number(modelProbs[outcome] || 0);
+    const bookValue = Number(bookProbs[outcome] || 0);
+    const difference = modelValue - bookValue;
+    if (Math.abs(difference) < 0.05) {
+        return "tie";
+    }
+    return difference > 0 ? "model" : "book";
+}
+
+function renderOddsBlock(odds, modelProbs) {
+    if (!odds) {
+        return `<p class="odds-missing">Brak zebranych kursów dla tego meczu.</p>`;
+    }
+
+    const bookProbs = bookmakerProbabilities(odds);
+    const cells = outcomeKeys.map(key => {
+        const delta = Number(modelProbs[key] || 0) - Number(bookProbs[key] || 0);
+        return `
+            <div class="odds-cell">
+                <span>${outcomeLabels[key]}</span>
+                <b>${formatLambda(odds[oddsFields[key]])}</b>
+                <strong>${formatPercent(bookProbs[key])}</strong>
+                <em class="${delta >= 0 ? "positive" : "negative"}">${formatSigned(delta)}</em>
+            </div>
+        `;
+    }).join("");
+
+    return `
+        <div class="odds-block">
+            <div class="odds-head">
+                ${createBookmakerLogo(odds.bookmaker, "bookmaker-logo-inline")}
+                <span class="odds-head-meta">marża ${formatPercent(odds.margin)}</span>
+            </div>
+            <div class="odds-grid">${cells}</div>
+            <p class="odds-legend">Kurs, szansa bez marży i różnica: model minus bukmacher.</p>
+        </div>
+    `;
+}
+
+function renderVerdict(match, odds) {
+    if (!odds) {
+        return "";
+    }
+
+    const modelValue = Number(modelProbabilities(match)[match.outcome] || 0);
+    const bookValue = Number(bookmakerProbabilities(odds)[match.outcome] || 0);
+    const difference = modelValue - bookValue;
+    const isDraw = Math.abs(difference) < 0.05;
+    const winnerClass = isDraw ? "is-tie" : (difference > 0 ? "is-model" : "is-book");
+    const winnerLabel = isDraw ? "Remis" : (difference > 0 ? "Model" : "Bukmacher");
+
+    return `
+        <div class="verdict ${winnerClass}">
+            <span>Bliżej prawdy</span>
+            <strong>${winnerLabel}</strong>
+            <em>Na wynik ${outcomeLabels[match.outcome]}: model ${formatPercent(modelValue)}, bukmacher ${formatPercent(bookValue)}</em>
+        </div>
+    `;
+}
+
+function comparisonMatches(bookmaker) {
+    return results.reduce((rows, match) => {
+        const odds = oddsForFixture(match.fixture, bookmaker);
+        if (!odds) {
+            return rows;
+        }
+
+        const modelProbs = modelProbabilities(match);
+        const bookProbs = bookmakerProbabilities(odds);
+        rows.push({
+            round: Number(match.round),
+            modelBrier: brierScore(modelProbs, match.outcome),
+            bookBrier: brierScore(bookProbs, match.outcome),
+            closer: closerToTruth(modelProbs, bookProbs, match.outcome)
+        });
+        return rows;
+    }, []);
+}
+
+function comparisonByRound(rows) {
+    const grouped = new Map();
+    rows.forEach(row => {
+        if (!grouped.has(row.round)) {
+            grouped.set(row.round, []);
+        }
+        grouped.get(row.round).push(row);
+    });
+
+    return [...grouped.entries()]
+        .sort((first, second) => first[0] - second[0])
+        .map(([round, items]) => {
+            const modelBrier = averageOf(items.map(item => item.modelBrier));
+            const bookBrier = averageOf(items.map(item => item.bookBrier));
+            return {
+                round,
+                matches: items.length,
+                modelBrier,
+                bookBrier,
+                difference: bookBrier - modelBrier,
+                modelCloser: items.filter(item => item.closer === "model").length,
+                bookCloser: items.filter(item => item.closer === "book").length
+            };
+        });
+}
+
+function roundsAwaitingResults(bookmaker) {
+    const playedFixtures = new Set(results.map(match => Number(match.fixture)));
+    const rounds = oddsRows
+        .filter(row => row.bookmaker === bookmaker && !playedFixtures.has(Number(row.fixture)))
+        .map(row => Number(row.round))
+        .filter(round => Number.isFinite(round));
+    return [...new Set(rounds)].sort((first, second) => first - second);
+}
+
+function scoreboardCard(label, value, caption, extraClass = "") {
+    return `
+        <article class="scoreboard-card ${extraClass}">
+            <span>${escapeHtml(label)}</span>
+            <strong>${value}</strong>
+            <em>${escapeHtml(caption)}</em>
+        </article>
+    `;
+}
+
+function renderBookmakerControls() {
+    if (!bookmakerSelect) {
+        return;
+    }
+
+    if (!oddsBookmakers.length) {
+        bookmakerSelect.innerHTML = `<option>Brak zebranych kursów</option>`;
+        bookmakerSelect.disabled = true;
+        renderBookmakerBrand("");
+        return;
+    }
+
+    bookmakerSelect.disabled = oddsBookmakers.length === 1;
+    bookmakerSelect.innerHTML = oddsBookmakers
+        .map(bookmaker => `<option value="${escapeHtml(bookmaker)}" ${bookmaker === state.bookmaker ? "selected" : ""}>${escapeHtml(formatBookmakerName(bookmaker))}</option>`)
+        .join("");
+    renderBookmakerBrand(state.bookmaker);
+}
+
+function renderBookmakerComparison() {
+    if (!bookmakerBody || !bookmakerScoreboard) {
+        return;
+    }
+
+    if (bookmakerTitle) {
+        bookmakerTitle.textContent = state.bookmaker
+            ? `Model kontra ${formatBookmakerName(state.bookmaker)}`
+            : "Porównanie z bukmacherem";
+    }
+
+    const rows = comparisonMatches(state.bookmaker);
+    const rounds = comparisonByRound(rows);
+
+    if (!rounds.length) {
+        const waiting = roundsAwaitingResults(state.bookmaker);
+        const waitingNote = waiting.length
+            ? `Kursy czekają już na ${waiting.length === 1 ? "kolejkę" : "kolejki"}: ${waiting.join(", ")}.`
+            : "Najpierw uruchom agenta kursów, żeby zebrać kursy na nadchodzące mecze.";
+
+        bookmakerScoreboard.innerHTML = "";
+        if (bookmakerTableWrap) {
+            bookmakerTableWrap.hidden = true;
+        }
+        bookmakerBody.innerHTML = "";
+        bookmakerScoreboard.innerHTML = `
+            <p class="empty-state empty-state-wide">
+                Nie ma jeszcze rozegranej kolejki z zebranymi kursami. Agent zapisuje kursy tylko dla meczów
+                nierozegranych, więc porównanie pojawi się po pierwszej kolejce rozegranej od momentu włączenia
+                zbierania. ${escapeHtml(waitingNote)}
+            </p>
+        `;
+        return;
+    }
+
+    if (bookmakerTableWrap) {
+        bookmakerTableWrap.hidden = false;
+    }
+
+    const modelBrier = averageOf(rows.map(row => row.modelBrier));
+    const bookBrier = averageOf(rows.map(row => row.bookBrier));
+    const modelRoundWins = rounds.filter(round => round.difference > 0).length;
+    const bookRoundWins = rounds.filter(round => round.difference < 0).length;
+    const modelCloser = rows.filter(row => row.closer === "model").length;
+    const bookCloser = rows.filter(row => row.closer === "book").length;
+    const leaderLabel = modelBrier === bookBrier
+        ? "Remis"
+        : (modelBrier < bookBrier ? "Model" : "Bukmacher");
+    const leaderClass = modelBrier === bookBrier
+        ? "is-tie"
+        : (modelBrier < bookBrier ? "is-model" : "is-book");
+
+    bookmakerScoreboard.innerHTML = [
+        scoreboardCard("Mecze porównane", formatInteger(rows.length), `Kolejki: ${rounds.map(round => round.round).join(", ")}`),
+        scoreboardCard("Brier modelu", formatBrier(modelBrier), `Bliżej w meczach: ${modelCloser}/${rows.length}`, modelBrier <= bookBrier ? "is-better" : ""),
+        scoreboardCard("Brier bukmachera", formatBrier(bookBrier), `Bliżej w meczach: ${bookCloser}/${rows.length}`, bookBrier < modelBrier ? "is-better" : ""),
+        scoreboardCard("Prowadzi", leaderLabel, `Wygrane kolejki: ${modelRoundWins} - ${bookRoundWins}`, leaderClass)
+    ].join("");
+
+    bookmakerBody.innerHTML = rounds.map(round => {
+        const isDraw = Math.abs(round.difference) < 0.0005;
+        const winnerLabel = isDraw ? "Remis" : (round.difference > 0 ? "Model" : "Bukmacher");
+        const winnerClass = isDraw ? "is-tie" : (round.difference > 0 ? "is-model" : "is-book");
+        return `
+            <tr>
+                <td class="bookmaker-logo-cell">${createBookmakerLogo(state.bookmaker, "bookmaker-logo-table")}</td>
+                <td class="rank-cell">${round.round}</td>
+                <td>${round.matches}</td>
+                <td class="${round.difference > 0 ? "positive" : ""}">${formatBrier(round.modelBrier)}</td>
+                <td class="${round.difference < 0 ? "positive" : ""}">${formatBrier(round.bookBrier)}</td>
+                <td class="${round.difference >= 0 ? "positive" : "negative"}">${formatSignedBrier(round.difference)}</td>
+                <td>${round.modelCloser} - ${round.bookCloser}</td>
+                <td><span class="verdict-badge ${winnerClass}">${winnerLabel}</span></td>
+            </tr>
+        `;
+    }).join("");
+}
+
 function renderUpcomingFixtures() {
     if (!upcomingBody) {
         return;
@@ -379,6 +709,7 @@ function renderUpcomingFixtures() {
                 ${probabilityBlock("X", fixture.draw, "draw")}
                 ${probabilityBlock("2", fixture.awayWin, "away-win")}
             </div>
+            ${renderOddsBlock(oddsForFixture(fixture.fixture), modelProbabilities(fixture))}
         </article>
     `).join("");
 }
@@ -479,6 +810,8 @@ function renderResults() {
                 ${probabilityBlock("X", match.draw, "draw", match.outcome === "draw" ? "is-hit" : "")}
                 ${probabilityBlock("2", match.awayWin, "away-win", match.outcome === "away" ? "is-hit" : "")}
             </div>
+            ${renderOddsBlock(oddsForFixture(match.fixture), modelProbabilities(match))}
+            ${renderVerdict(match, oddsForFixture(match.fixture))}
         </article>
     `).join("");
 }
@@ -697,6 +1030,15 @@ if (resultsSelect) {
     });
 }
 
+if (bookmakerSelect) {
+    bookmakerSelect.addEventListener("change", () => {
+        state.bookmaker = bookmakerSelect.value || "";
+        renderBookmakerComparison();
+        renderResults();
+        renderUpcomingFixtures();
+    });
+}
+
 if (randomSimulationButton) {
     randomSimulationButton.disabled = !sampleTables.length;
     randomSimulationButton.addEventListener("click", renderRandomSampleTable);
@@ -721,5 +1063,7 @@ renderTable();
 renderStandings();
 renderUpcomingFixtures();
 renderResultsTab();
+renderBookmakerControls();
+renderBookmakerComparison();
 renderHistory();
 renderCharts();
