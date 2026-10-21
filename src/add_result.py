@@ -7,7 +7,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from run_forecast import DEFAULT_FIXTURE_PATH, normalize_team_name
+from features import normalize_team_name
+from run_forecast import DEFAULT_FIXTURE_PATH
 
 RUN_FORECAST_PATH = Path(__file__).resolve().parent / "run_forecast.py"
 

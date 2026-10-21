@@ -8,7 +8,7 @@ To nie jest gotowy bukmacherski model. Bardziej roboczy predictor: ma dawac sens
 
 Dane sa trzymane w `data/raw/pl_seasons/`. Historyczne sezony maja realne wyniki meczow, a przyszly sezon (`season-2627.csv`) jest terminarzem bez wynikow.
 
-Skrypt `src/features.py` skleja historyczne sezony i liczy dla kazdego meczu cechy przedmeczowe, m.in. ELO, forme i H2H:
+Skrypt `src/features.py` skleja historyczne sezony i liczy dla kazdego meczu cechy przedmeczowe, m.in. ELO, forme i H2H. Jesli istnieje `data/raw/squad_values_by_season.csv` (z `src/scrape_transfermarkt_squad_values.py`), dodaje tez roznice wartosci kadr:
 
 ```powershell
 .\venv\Scripts\python.exe src\features.py

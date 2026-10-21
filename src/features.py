@@ -7,14 +7,29 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from run_forecast import normalize_team_name
-
 # przebudowa cech z surowych sezonow: .\venv\Scripts\python.exe src\features.py
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SEASONS_DIR = ROOT / "data" / "raw" / "pl_seasons"
+DEFAULT_SQUAD_VALUES_PATH = ROOT / "data" / "raw" / "squad_values_by_season.csv"
 DEFAULT_OUTPUT_PATH = ROOT / "data" / "processed" / "PL_base_with_traits.csv"
 CURRENT_SEASON_FILE = "season-2627.csv"
+
+TEAM_NAME_MAP = {
+    "AFC Bournemouth": "Bournemouth",
+    "Brighton & Hove Albion": "Brighton",
+    "Brighton and Hove Albion": "Brighton",
+    "Hull City": "Hull",
+    "Manchester City": "Man City",
+    "Manchester United": "Man United",
+    "Newcastle United": "Newcastle",
+    "Nottingham Forest": "Nott'm Forest",
+    "Tottenham Hotspur": "Tottenham",
+    "West Ham United": "West Ham",
+    "Wolverhampton Wanderers": "Wolves",
+    "Leeds United": "Leeds",
+    "Cardiff City": "Cardiff",
+}
 
 START_ELO = 1500.0
 ELO_K = 20
@@ -108,6 +123,11 @@ class TeamState:
         self.h2h_points[(away_team, home_team)].append(away_points)
 
 
+def normalize_team_name(name: object) -> str:
+    cleaned_name = str(name).strip()
+    return TEAM_NAME_MAP.get(cleaned_name, cleaned_name)
+
+
 def normalize_names(matches: pd.DataFrame) -> pd.DataFrame:
     normalized = matches.copy()
     normalized["HomeTeam"] = normalized["HomeTeam"].map(normalize_team_name)
@@ -144,6 +164,21 @@ def validate_matches(matches: pd.DataFrame) -> None:
         raise ValueError(f"Mecz wystepuje dwa razy: {first['HomeTeam']} - {first['AwayTeam']} ({first['SeasonFile']}).")
     if (matches[["FTHG", "FTAG"]] < 0).any().any():
         raise ValueError("Ujemna liczba goli w danych historycznych.")
+
+
+def load_squad_values(squad_values_path: Path) -> dict[tuple[str, str], float]:
+    if not squad_values_path.exists():
+        return {}
+    squad_values = pd.read_csv(squad_values_path)
+    squad_values["Team"] = squad_values["Team"].map(normalize_team_name)
+    squad_values = squad_values.drop_duplicates(["SeasonFile", "Team"])
+    return {(row.SeasonFile, row.Team): float(row.SquadValueEUR) for row in squad_values.itertuples(index=False)}
+
+
+def squad_value_diff(matches: pd.DataFrame, squad_values: dict[tuple[str, str], float]) -> pd.Series:
+    home_values = [squad_values.get(key, np.nan) for key in zip(matches["SeasonFile"], matches["HomeTeam"])]
+    away_values = [squad_values.get(key, np.nan) for key in zip(matches["SeasonFile"], matches["AwayTeam"])]
+    return pd.Series(np.log(home_values) - np.log(away_values), index=matches.index, dtype=float)
 
 
 def build_features(history: pd.DataFrame) -> tuple[pd.DataFrame, TeamState]:
@@ -184,6 +219,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build pre-match features (ELO, form, H2H) from raw season files.")
     parser.add_argument("--seasons-dir", type=Path, default=DEFAULT_SEASONS_DIR)
     parser.add_argument("--current-season", default=CURRENT_SEASON_FILE, help="Season file skipped in history, e.g. season-2627.csv.")
+    parser.add_argument("--squad-values", type=Path, default=DEFAULT_SQUAD_VALUES_PATH)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT_PATH)
     return parser.parse_args()
 
@@ -192,6 +228,11 @@ def main() -> None:
     args = parse_args()
     history = load_seasons(args.seasons_dir, args.current_season)
     features, _state = build_features(history)
+    # wartosc kadry wchodzi do modelu tylko wtedy, gdy jest znana dla kazdego meczu historii
+    squad_values = load_squad_values(args.squad_values)
+    value_diff = squad_value_diff(features, squad_values)
+    if squad_values and value_diff.notna().all():
+        features["SquadValueDiff"] = value_diff
     args.output.parent.mkdir(parents=True, exist_ok=True)
     features.to_csv(args.output, index=False)
     print(f"Zapisano cechy: {args.output}")

@@ -14,6 +14,8 @@ from sklearn.linear_model import PoissonRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
+from features import DEFAULT_SQUAD_VALUES_PATH, load_squad_values, normalize_names, squad_value_diff
+
 # zmiana liczby symulacji: .\venv\Scripts\python.exe src\run_forecast.py --simulations 10000
 
 # procedura dodawania meczow:
@@ -24,25 +26,8 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_HISTORY_PATH = ROOT / "data" / "processed" / "PL_base_with_traits.csv"
 DEFAULT_FIXTURE_PATH = ROOT / "data" / "raw" / "pl_seasons" / "season-2627.csv"
-DEFAULT_SQUAD_VALUES_PATH = ROOT / "data" / "raw" / "squad_values_by_season.csv"
 DEFAULT_OUTPUT_PATH = ROOT / "web" / "forecast-data.js"
 DEFAULT_FORECAST_HISTORY_PATH = ROOT / "web" / "forecast-history.js"
-
-TEAM_NAME_MAP = {
-    "AFC Bournemouth": "Bournemouth",
-    "Brighton & Hove Albion": "Brighton",
-    "Brighton and Hove Albion": "Brighton",
-    "Hull City": "Hull",
-    "Manchester City": "Man City",
-    "Manchester United": "Man United",
-    "Newcastle United": "Newcastle",
-    "Nottingham Forest": "Nott'm Forest",
-    "Tottenham Hotspur": "Tottenham",
-    "West Ham United": "West Ham",
-    "Wolverhampton Wanderers": "Wolves",
-    "Leeds United": "Leeds",
-    "Cardiff City": "Cardiff",
-}
 
 DISPLAY_NAME_MAP = {
     "Man City": "Manchester City",
@@ -68,24 +53,12 @@ HISTORY_TEAM_FIELDS = [
 ]
 
 
-def normalize_team_name(name: object) -> str:
-    cleaned_name = str(name).strip()
-    return TEAM_NAME_MAP.get(cleaned_name, cleaned_name)
-
-
 def display_name(team: str) -> str:
     return DISPLAY_NAME_MAP.get(team, team)
 
 
 def slug_for_team(team: str) -> str:
     return team.lower().replace("'", "").replace(".", "").replace(" ", "-")
-
-
-def normalize_match_names(matches: pd.DataFrame) -> pd.DataFrame:
-    normalized_matches = matches.copy()
-    normalized_matches["HomeTeam"] = normalized_matches["HomeTeam"].map(normalize_team_name)
-    normalized_matches["AwayTeam"] = normalized_matches["AwayTeam"].map(normalize_team_name)
-    return normalized_matches
 
 
 def result_points(home_goals: int, away_goals: int) -> tuple[int, int]:
@@ -123,29 +96,9 @@ def add_score_to_histories(point_history: dict[str, list[int]], home_point_histo
     h2h_history[(away_team, home_team)] = h2h_history[(away_team, home_team)][-5:]
 
 
-def load_squad_values(squad_values_path: Path) -> dict[tuple[str, str], float]:
-    if not squad_values_path.exists():
-        return {}
-    squad_values = pd.read_csv(squad_values_path)
-    squad_values["Team"] = squad_values["Team"].map(normalize_team_name)
-    squad_values = squad_values.drop_duplicates(["SeasonFile", "Team"])
-    return {(row.SeasonFile, row.Team): float(row.SquadValueEUR) for row in squad_values.itertuples(index=False)}
-
-
-def squad_value_diff(matches: pd.DataFrame, squad_values: dict[tuple[str, str], float], seasons) -> pd.Series:
-    home_values = [squad_values.get(key, np.nan) for key in zip(seasons, matches["HomeTeam"])]
-    away_values = [squad_values.get(key, np.nan) for key in zip(seasons, matches["AwayTeam"])]
-    return pd.Series(np.log(home_values) - np.log(away_values), index=matches.index, dtype=float)
-
-
-def load_history(history_path: Path, squad_values: dict[tuple[str, str], float]) -> pd.DataFrame:
+def load_history(history_path: Path) -> pd.DataFrame:
     history = pd.read_csv(history_path)
-    history = normalize_match_names(history.dropna(subset=["HomeTeam", "AwayTeam", "FTHG", "FTAG"]).copy())
-    # wartosc kadry wchodzi do modelu tylko wtedy, gdy jest znana dla kazdego meczu historii
-    value_diff = squad_value_diff(history, squad_values, history["SeasonFile"])
-    if squad_values and value_diff.notna().all():
-        history[VALUE_FEATURE] = value_diff
-    return history
+    return normalize_names(history.dropna(subset=["HomeTeam", "AwayTeam", "FTHG", "FTAG"]))
 
 
 def model_diff_features(frame: pd.DataFrame) -> list[str]:
@@ -314,54 +267,24 @@ def sort_table_teams(teams: list[str], table: dict[str, dict[str, int]]) -> list
 
 
 def build_standings(teams: list[str], played_matches: pd.DataFrame) -> list[dict[str, object]]:
-    stats = {team: {"Pts": 0, "GF": 0, "GA": 0, "Played": 0, "Wins": 0, "Draws": 0, "Losses": 0} for team in teams}
+    home_rows = pd.DataFrame({"teamKey": played_matches["HomeTeam"], "gf": played_matches["FTHG"], "ga": played_matches["FTAG"]})
+    away_rows = pd.DataFrame({"teamKey": played_matches["AwayTeam"], "gf": played_matches["FTAG"], "ga": played_matches["FTHG"]})
+    team_rows = pd.concat([home_rows, away_rows])
+    team_rows["wins"] = team_rows["gf"] > team_rows["ga"]
+    team_rows["draws"] = team_rows["gf"] == team_rows["ga"]
+    team_rows["losses"] = team_rows["gf"] < team_rows["ga"]
 
-    for match in played_matches.itertuples(index=False):
-        home_team = match.HomeTeam
-        away_team = match.AwayTeam
-        home_goals = int(match.FTHG)
-        away_goals = int(match.FTAG)
-        stats.setdefault(home_team, {"Pts": 0, "GF": 0, "GA": 0, "Played": 0, "Wins": 0, "Draws": 0, "Losses": 0})
-        stats.setdefault(away_team, {"Pts": 0, "GF": 0, "GA": 0, "Played": 0, "Wins": 0, "Draws": 0, "Losses": 0})
-        home_points, away_points = result_points(home_goals, away_goals)
-        stats[home_team]["Played"] += 1
-        stats[away_team]["Played"] += 1
-        stats[home_team]["Pts"] += home_points
-        stats[away_team]["Pts"] += away_points
-        stats[home_team]["GF"] += home_goals
-        stats[home_team]["GA"] += away_goals
-        stats[away_team]["GF"] += away_goals
-        stats[away_team]["GA"] += home_goals
-
-        if home_goals > away_goals:
-            stats[home_team]["Wins"] += 1
-            stats[away_team]["Losses"] += 1
-        elif away_goals > home_goals:
-            stats[away_team]["Wins"] += 1
-            stats[home_team]["Losses"] += 1
-        else:
-            stats[home_team]["Draws"] += 1
-            stats[away_team]["Draws"] += 1
-
-    rows = []
-    for rank, team in enumerate(sort_table_teams(list(stats.keys()), stats), start=1):
-        team_stats = stats[team]
-        rows.append({
-            "rank": rank,
-            "teamKey": team,
-            "team": display_name(team),
-            "slug": slug_for_team(team),
-            "played": team_stats["Played"],
-            "wins": team_stats["Wins"],
-            "draws": team_stats["Draws"],
-            "losses": team_stats["Losses"],
-            "gf": team_stats["GF"],
-            "ga": team_stats["GA"],
-            "gd": team_stats["GF"] - team_stats["GA"],
-            "pts": team_stats["Pts"],
-        })
-
-    return rows
+    table = team_rows.groupby("teamKey").sum().reindex(teams, fill_value=0).astype(int)
+    table["played"] = table["wins"] + table["draws"] + table["losses"]
+    table["gd"] = table["gf"] - table["ga"]
+    table["pts"] = 3 * table["wins"] + table["draws"]
+    # przy rownej liczbie punktow, bilansie i golach zostaje kolejnosc alfabetyczna
+    table = table.sort_values(["pts", "gd", "gf"], ascending=False, kind="stable").reset_index()
+    table.insert(0, "rank", table.index + 1)
+    table.insert(2, "team", table["teamKey"].map(display_name))
+    table.insert(3, "slug", table["teamKey"].map(slug_for_team))
+    columns = ["rank", "teamKey", "team", "slug", "played", "wins", "draws", "losses", "gf", "ga", "gd", "pts"]
+    return table[columns].to_dict(orient="records")
 
 
 def team_uncertainty(history: pd.DataFrame, teams: list[str]) -> tuple[dict[str, float], dict[str, float]]:
@@ -522,31 +445,29 @@ def poisson_result_probs(lambda_home: float, lambda_away: float, max_goals: int 
     return round(home_win, 1), round(draw, 1), round(away_win, 1)
 
 
+def match_forecast(match, round_number: int) -> dict[str, object]:
+    home_win, draw, away_win = poisson_result_probs(float(match.lambda_home), float(match.lambda_away))
+    return {
+        "fixture": int(match.FixtureIndex) + 1,
+        "round": round_number,
+        "homeTeam": display_name(match.HomeTeam),
+        "awayTeam": display_name(match.AwayTeam),
+        "homeSlug": slug_for_team(match.HomeTeam),
+        "awaySlug": slug_for_team(match.AwayTeam),
+        "lambdaHome": round(float(match.lambda_home), 2),
+        "lambdaAway": round(float(match.lambda_away), 2),
+        "homeWin": home_win,
+        "draw": draw,
+        "awayWin": away_win,
+    }
+
+
 def build_upcoming_fixtures(adjusted_matches: pd.DataFrame) -> list[dict[str, object]]:
     if adjusted_matches.empty:
         return []
-
     next_round = int(adjusted_matches["ForecastRound"].min())
-    round_matches = adjusted_matches[adjusted_matches["ForecastRound"] == next_round].copy()
-    upcoming_fixtures = []
-
-    for match in round_matches.itertuples(index=False):
-        home_win, draw, away_win = poisson_result_probs(float(match.lambda_home), float(match.lambda_away))
-        upcoming_fixtures.append({
-            "fixture": int(match.FixtureIndex) + 1,
-            "round": next_round,
-            "homeTeam": display_name(match.HomeTeam),
-            "awayTeam": display_name(match.AwayTeam),
-            "homeSlug": slug_for_team(match.HomeTeam),
-            "awaySlug": slug_for_team(match.AwayTeam),
-            "lambdaHome": round(float(match.lambda_home), 2),
-            "lambdaAway": round(float(match.lambda_away), 2),
-            "homeWin": home_win,
-            "draw": draw,
-            "awayWin": away_win,
-        })
-
-    return upcoming_fixtures
+    round_matches = adjusted_matches[adjusted_matches["ForecastRound"] == next_round]
+    return [match_forecast(match, next_round) for match in round_matches.itertuples(index=False)]
 
 
 def build_results(fixtures: pd.DataFrame, history: pd.DataFrame, poisson_model: Pipeline, team_shrinkage: dict[str, float], home_goal_mean: float, away_goal_mean: float) -> list[dict[str, object]]:
@@ -569,30 +490,8 @@ def build_results(fixtures: pd.DataFrame, history: pd.DataFrame, poisson_model: 
 
         for match in adjusted_matches.itertuples(index=False):
             home_goals, away_goals = actual_scores[int(match.FixtureIndex)]
-            home_win, draw, away_win = poisson_result_probs(float(match.lambda_home), float(match.lambda_away))
-            if home_goals > away_goals:
-                outcome = "home"
-            elif away_goals > home_goals:
-                outcome = "away"
-            else:
-                outcome = "draw"
-
-            results.append({
-                "fixture": int(match.FixtureIndex) + 1,
-                "round": int(round_number),
-                "homeTeam": display_name(match.HomeTeam),
-                "awayTeam": display_name(match.AwayTeam),
-                "homeSlug": slug_for_team(match.HomeTeam),
-                "awaySlug": slug_for_team(match.AwayTeam),
-                "homeGoals": home_goals,
-                "awayGoals": away_goals,
-                "outcome": outcome,
-                "lambdaHome": round(float(match.lambda_home), 2),
-                "lambdaAway": round(float(match.lambda_away), 2),
-                "homeWin": home_win,
-                "draw": draw,
-                "awayWin": away_win,
-            })
+            outcome = "home" if home_goals > away_goals else "away" if away_goals > home_goals else "draw"
+            results.append({**match_forecast(match, int(round_number)), "homeGoals": home_goals, "awayGoals": away_goals, "outcome": outcome})
 
     return results
 
@@ -614,19 +513,19 @@ def snapshot_id_and_label(played_rounds: int, played_matches: int, total_matches
 
 
 def build_payload(args: argparse.Namespace) -> dict[str, object]:
-    squad_values = load_squad_values(args.squad_values)
-    history = load_history(args.history, squad_values)
+    history = load_history(args.history)
     model_rows = make_poisson_rows(history)
     poisson_model = train_poisson_model(model_rows)
     home_goal_mean, away_goal_mean = venue_goal_means(model_rows)
 
     fixtures = pd.read_csv(args.fixtures)
     fixtures.insert(0, "FixtureIndex", range(len(fixtures)))
-    fixtures = normalize_match_names(fixtures)
+    fixtures = normalize_names(fixtures)
     fixtures["FTHG"] = pd.to_numeric(fixtures["FTHG"], errors="coerce")
     fixtures["FTAG"] = pd.to_numeric(fixtures["FTAG"], errors="coerce")
     fixtures["ForecastRound"] = forecast_rounds(fixtures, args.round_size)
-    fixtures[VALUE_FEATURE] = squad_value_diff(fixtures, squad_values, [args.fixtures.name] * len(fixtures)).fillna(0.0)
+    fixtures["SeasonFile"] = args.fixtures.name
+    fixtures[VALUE_FEATURE] = squad_value_diff(fixtures, load_squad_values(args.squad_values)).fillna(0.0)
 
     played_matches = fixtures[played_mask(fixtures)].copy()
     remaining_matches = fixtures[~played_mask(fixtures)].copy()
