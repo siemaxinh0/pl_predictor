@@ -1,59 +1,80 @@
 # Premier League Predictor
 
-Projekt do symulowania tabeli Premier League na podstawie danych historycznych. Aktualnie glowny model w notebooku liczy oczekiwane gole przez regresje Poissona, a potem losuje wiele sezonow metoda Monte Carlo.
+Side project where I try to forecast the final Premier League table. It's built around a Poisson goals model and a Monte Carlo simulation of the rest of the season, and the output is a small static website with the predicted table, title / top 4 / relegation chances and predictions for upcoming matches.
 
-To nie jest gotowy bukmacherski model. Bardziej roboczy predictor: ma dawac sensowna, latwa do przejrzenia prognoze tabeli i pokazywac, skad biora sie punkty, gole oraz procenty typu mistrzostwo/top 4/spadek.
+It's not a betting model and I wouldn't use it as one. The goal was something I can actually understand end to end - where the expected points come from, why a team has 12% relegation chance and not 30%, etc.
 
-## Dane
+## How it works (short version)
 
-Dane sa trzymane w `data/raw/pl_seasons/`. Historyczne sezony maja realne wyniki meczow, a przyszly sezon (`season-2627.csv`) jest terminarzem bez wynikow.
+1. Historical seasons (2015/16 - 2025/26) are combined and every match gets pre-match features: ELO, form, home/away form, head to head and squad value difference.
+2. A Poisson regression learns how many goals a team scores against a given opponent.
+3. For every remaining fixture the model predicts expected goals for both sides (the lambdas).
+4. The rest of the season is simulated 10 000 times. Every simulation draws scores from Poisson(lambda), builds the final table and counts who finished where.
+5. The results are written to JS files that the website reads.
 
-Skrypt `src/features.py` skleja historyczne sezony i liczy dla kazdego meczu cechy przedmeczowe, m.in. ELO, forme i H2H. Jesli istnieje `data/raw/squad_values_by_season.csv` (z `src/scrape_transfermarkt_squad_values.py`), dodaje tez roznice wartosci kadr:
+## Project structure
+
+```text
+data/raw/pl_seasons/        one CSV per season, season-2627.csv is the current one (fixtures + results so far)
+data/raw/squad_values_by_season.csv   squad values from Transfermarkt (gitignored, see below)
+data/processed/             PL_base_with_traits.csv - historical matches with features
+src/features.py             builds the features CSV from raw seasons
+src/run_forecast.py         trains the model, runs the simulation, writes the website data
+src/update_results.py       downloads new results and reruns the forecast
+src/add_result.py           manual result entry / corrections
+src/scrape_transfermarkt_squad_values.py
+src/model.ipynb             notebook I used while building the model
+web/                        the website (plain HTML/CSS/JS, no build step)
+```
+
+## Setup
+
+```powershell
+python -m venv venv
+.\venv\Scripts\pip install -r requirements.txt
+```
+
+I run everything on Windows from PowerShell, so the commands below use `.\venv\Scripts\python.exe`. On Linux/Mac it's just `venv/bin/python` and forward slashes.
+
+## Data
+
+Match data comes from [football-data.co.uk](https://www.football-data.co.uk/englandm.php) (results, shots, cards etc. - only goals are used for now).
+
+Squad values are scraped from Transfermarkt. The CSV is gitignored, so on a fresh clone you have to run the scraper first, otherwise the model just trains without the squad value feature:
+
+```powershell
+.\venv\Scripts\python.exe src\scrape_transfermarkt_squad_values.py
+```
+
+Then build the features:
 
 ```powershell
 .\venv\Scripts\python.exe src\features.py
 ```
 
-Wynik trafia do:
+This writes `data/processed/PL_base_with_traits.csv`. Only needed again when the historical data changes, not after every matchweek.
+
+## Features
+
+**ELO** - every team starts at 1500 and after each match:
 
 ```text
-data/processed/PL_base_with_traits.csv
+new_elo = old_elo + K * (actual - expected)
 ```
 
-Wazne: mecze bez `FTHG` i `FTAG` sa wyrzucane z treningu, zeby przyszly terminarz nie udawal historycznych wynikow.
+`actual` is 1 / 0.5 / 0 for win / draw / loss, `expected` comes from the ELO difference with a home advantage bonus. K = 20, home advantage = 90 ELO points. Between seasons ratings are pulled 5% back to 1500. Promoted teams get the average ELO of the teams that went down (or something in between if they were in the league before).
 
-## ELO
+**Form** - average points from the last 5 matches, in three versions: overall, home only and away only.
 
-ELO opisuje aktualna sile druzyny. Kazdy mecz aktualizuje ranking wedlug wzoru:
+**H2H** - average points from the last 5 meetings of the two teams.
 
-```text
-new_elo = old_elo + K * (actual_score - expected_score)
-```
+**Squad value** - log difference of the two squad values for that season.
 
-Gdzie:
+All of these are calculated from the state *before* the match, otherwise the model would be peeking at the result.
 
-- `actual_score` to `1` za wygrana, `0.5` za remis, `0` za porazke,
-- `expected_score` wynika z roznicy ELO obu druzyn,
-- gospodarz dostaje bonus `HOME_ADVANTAGE`,
-- `K` ustala jak mocno jeden mecz rusza ranking.
+## Model
 
-Miedzy sezonami jest mala regresja do sredniej, zeby stara sila druzyny nie byla przenoszona w 100% na kolejny sezon.
-
-## Forma i H2H
-
-Forma jest liczona jako srednia punktow z ostatnich 5 meczow. Sa trzy warianty:
-
-- forma ogolna,
-- forma u siebie,
-- forma na wyjezdzie.
-
-H2H dziala podobnie, tylko dla konkretnej pary druzyn. Model dostaje roznice H2H z perspektywy aktualnej druzyny.
-
-## Model Poissona
-
-Wczesniejsza wersja modelu przewidywala od razu `1/X/2`. Aktualna wersja robi cos blizszego pilce: przewiduje liczbe goli.
-
-Mecz jest zamieniany na dwa wiersze treningowe:
+Every match becomes two training rows, one from each team's perspective:
 
 ```text
 Arsenal - Chelsea 2:1
@@ -62,156 +83,87 @@ Arsenal | Chelsea | IsHome=1 | Goals=2
 Chelsea | Arsenal | IsHome=0 | Goals=1
 ```
 
-Model uczy sie:
+and the model is
 
 ```text
-Goals ~ Team + Opponent + IsHome + EloDiff + FormDiff + VenueFormDiff + H2HDiff
+Goals ~ Team + Opponent + IsHome + EloDiff + FormDiff + VenueFormDiff + H2HDiff + SquadValueDiff
 ```
 
-`Team` i `Opponent` sa kodowane przez one-hot encoding. Numeryczne cechy sa skalowane. Na koncu `PoissonRegressor` zwraca lambde, czyli oczekiwana liczbe goli.
+Team and opponent are one-hot encoded, numeric features are scaled, and it's fitted with sklearn's `PoissonRegressor` (small L2 penalty). The prediction is a lambda = expected goals, e.g. Man City vs Leeds might come out as 2.65 vs 0.80.
 
-Przyklad:
+On top of that there are two adjustments for teams without much recent PL history (mostly promoted sides):
 
-```text
-Man City - Leeds
-lambda_home = 2.65
-lambda_away = 0.80
-```
+- their lambdas are shrunk towards the league average home/away goals,
+- in every simulation each team gets a random strength "noise", bigger for teams with less history. So the simulation also covers "this team is just better/worse than the model thinks", not only bad luck in single matches.
 
-To znaczy: model oczekuje srednio 2.65 gola City i 0.80 gola Leeds.
+## Simulation
 
-## Monte Carlo
+Already played matches are taken as facts - they go into the starting table and update ELO/form/H2H. Only the remaining fixtures are simulated.
 
-Dla kazdego meczu terminarza najpierw liczone sa lambdy:
-
-```text
-lambda_home
-lambda_away
-```
-
-Potem w kazdej symulacji losowany jest wynik:
-
-```text
-home_goals ~ Poisson(lambda_home)
-away_goals ~ Poisson(lambda_away)
-```
-
-Z wyniku bramkowego liczone sa:
-
-- punkty,
-- gole strzelone (`GF`),
-- gole stracone (`GA`),
-- bilans (`GD`).
-
-Sezon jest powtarzany wiele razy (`N_SIMS`). Finalna tabela pokazuje srednie punkty i gole oraz procenty:
-
-- `Tytul (%)`,
-- `Top 4 (%)`,
-- `Spadek (%)`.
-
-## Jak aktualizowac strone
-
-Strona nie ma juz recznie wpisanej tabeli w `web/app.js`. Dane dla frontendu sa generowane przez Monte Carlo do pliku:
-
-```text
-web/forecast-data.js
-```
-
-Po kazdym uruchomieniu prognozy strona bierze nowa tabele, liczbe rozegranych meczow i zakladke najblizszej kolejki wlasnie z tego pliku.
-
-Zwykle odswiezenie prognozy:
+The simulation is vectorised with NumPy (all 10 000 seasons at once), so a full run takes a few seconds. Sorting is by points, then goal difference, then goals scored.
 
 ```powershell
 .\venv\Scripts\python.exe src\run_forecast.py
-```
-
-Domyslnie skrypt wykonuje `10000` symulacji i zapisuje do strony ograniczona pule pojedynczych przebiegow dla przycisku `Losowa symulacja`. Liczbe symulacji i liczbe zapisanych przykladow mozna zmienic tak:
-
-```powershell
 .\venv\Scripts\python.exe src\run_forecast.py --simulations 20000 --sample-tables 120
 ```
 
-Model traktuje mecze z wypelnionymi `FTHG` i `FTAG` jako fakty. Te spotkania sa dodawane do startowej tabeli, aktualizuja ELO, forme i H2H, a Monte Carlo losuje tylko pozostale mecze.
+`--sample-tables` is how many single simulated seasons get saved for the "Losowa symulacja" (random simulation) button on the site. Seed is fixed (42), so the same data gives the same numbers.
 
-Procenty w tabeli maja tez dokladne liczniki. Po najechaniu albo kliknieciu procentu widac, w ilu symulacjach dana sytuacja wystapila, np. `Tytul: 6321 z 10000 symulacji`.
+## Website
 
-Oprocz biezacego pliku `web/forecast-data.js` generator aktualizuje tez:
+Everything is in `web/`. Just open `web/index.html` in a browser (Ctrl+F5 after regenerating data, the browser likes to cache the JS files). The UI is in Polish.
 
-```text
-web/forecast-history.js
-```
+Tabs:
 
-Ten plik przechowuje snapshoty prognozy przed sezonem i po kazdej pelnej kolejce. Zakladka `Historia` pozwala przelaczac zapisane tabele prawdopodobienstw, a zakladka `Wykresy` rysuje trendy dla tytulu, Top 4 i spadku na podstawie tych snapshotow oraz aktualnej prognozy.
+- predicted table with xPts, xG and title / top 4 / relegation % (hover a percentage to see the exact count out of 10 000)
+- current table
+- next matchweek with 1/X/2 probabilities
+- results - what the model predicted for each played match, using only data from before that matchweek
+- history + charts - how the chances changed week by week
 
-## Pobieranie wynikow
+Data comes from two generated files:
 
-Nowe wyniki mozna pobrac automatycznie z [football-data.co.uk](https://www.football-data.co.uk/englandm.php). Skrypt sam dopasuje mecze do terminarza, dopisze brakujace wyniki i przeliczy strone:
+- `web/forecast-data.js` - current forecast, overwritten on every run
+- `web/forecast-history.js` - one snapshot before the season and after every complete matchweek
+
+## Adding new results
+
+Normally just:
 
 ```powershell
 .\venv\Scripts\python.exe src\update_results.py
 ```
 
-Podglad bez zapisywania:
+It downloads the current season CSV from football-data, matches games to the fixture list by home/away team, fills in missing scores and reruns the forecast. `--dry-run` shows what would be added without saving anything.
 
-```powershell
-.\venv\Scripts\python.exe src\update_results.py --dry-run
-```
+Some notes:
 
-Wpisanych juz wynikow skrypt nie nadpisuje. Jesli zrodlo podaje inny wynik, wypisze tylko ostrzezenie. Gdy naraz dochodzi kilka pelnych kolejek, prognoza jest liczona po kazdej z nich, zeby w historii nie bylo dziur. Jesli zrodlo uzywa nazwy druzyny, ktorej nie zna `TEAM_NAME_MAP` w `src/features.py`, skrypt konczy sie bledem i niczego nie zapisuje.
+- football-data usually updates within a day or two after the games.
+- scores that are already in the fixture file are never overwritten - if the source has a different score it just prints a warning.
+- if a few complete matchweeks come in at once, the forecast is run after each of them so the history doesn't have gaps.
+- if the source uses a team name the project doesn't know, the script stops with an error and saves nothing. Fix: add the name to `TEAM_NAME_MAP` in `src/features.py` (that's how "Coventry" -> "Coventry City" got there).
 
-## Reczne dodawanie wyniku
-
-Najpierw mozna wyswietlic terminarz z numerami wierszy:
+For manual fixes there's still `add_result.py`:
 
 ```powershell
 .\venv\Scripts\python.exe src\add_result.py --list
-```
-
-Dodanie wyniku po numerze meczu i automatyczna regeneracja strony:
-
-```powershell
-.\venv\Scripts\python.exe src\add_result.py --fixture 1 --score 2-0 --run-forecast
-```
-
-Przy dodawaniu wyniku mozna uzyc tych samych ustawien Monte Carlo:
-
-```powershell
-.\venv\Scripts\python.exe src\add_result.py --fixture 1 --score 2-0 --run-forecast --simulations 20000 --sample-tables 120
-```
-
-Mozna tez wpisac druzyny:
-
-```powershell
+.\venv\Scripts\python.exe src\add_result.py --fixture 12 --score 1-1 --force --run-forecast
 .\venv\Scripts\python.exe src\add_result.py --home Arsenal --away "Coventry City" --score 2-0 --run-forecast
 ```
 
-Jesli mecz ma juz wynik, skrypt nie nadpisze go przypadkiem. Do poprawki wyniku trzeba dodac `--force`.
+`--force` is needed to overwrite a score that's already there.
 
-Zakladka `Nadchodzace mecze` pokazuje tylko najblizsza nierozgrana kolejke. Jesli plik terminarza nie ma kolumny `Round` albo `Matchweek`, skrypt liczy kolejki blokami po 10 meczow wedlug kolejnosci w CSV.
+Matchweeks are just blocks of 10 rows in the fixture CSV, so the order of rows in `season-2627.csv` matters. A postponed match keeps its matchweek incomplete until it's played.
 
 ## Notebook
 
-Najprosciej odpalic notebook:
+`src/model.ipynb` is where I originally built and tested the model. It's a bit behind the scripts now (it has its own copy of the pipeline), so treat it as a playground. The website is always generated by `run_forecast.py`.
 
-```text
-src/model.ipynb
-```
+## TODO / known issues
 
-Notebook zostaje dobry do eksperymentow i sprawdzania modelu, ale aktualizacja strony idzie przez `src/run_forecast.py`, zeby frontend zawsze dostawal gotowy plik danych.
-
-Kolejnosc komorek ma znaczenie:
-
-1. Importy i przygotowanie danych.
-2. Liczenie albo wczytanie `PL_base_with_traits.csv`.
-3. Sekcja Poissona.
-4. Sanity check lambd.
-5. Poisson Monte Carlo.
-
-Jesli zmieniasz dane historyczne, najpierw przebuduj pliki w `data/processed/`, a dopiero potem uruchamiaj model Poissona.
-
-## Rzeczy do poprawy pozniej
-
-- Dopasowanie parametru Dixon-Coles dla niskich wynikow typu 0-0, 1-0, 1-1.
-- Lepsze traktowanie beniaminkow, ktorzy nie maja historii w Premier League.
-- Wagi czasowe, zeby nowsze sezony mocniej wplywaly na model.
-- Backtest po sezonach dla samego modelu bramkowego, nie tylko sanity check.
+- `run_forecast.py` still calculates the current ELO/form on its own and uses slightly different rules than `features.py` (home advantage 60 instead of 90, no regression between seasons). Should just reuse `features.py`, but it will change the numbers a bit so I'm leaving it for a separate change.
+- slim down the notebook so it imports from the scripts instead of duplicating them
+- Dixon-Coles correction for low scores (0-0, 1-0, 1-1 are usually underestimated by plain Poisson)
+- time weighting so recent seasons matter more
+- proper backtest on past seasons (right now it's mostly sanity checks)
+- football-data also has xG columns now, could be worth trying as a feature
