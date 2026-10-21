@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from scipy.stats import poisson
 from sklearn.compose import ColumnTransformer
 from sklearn.linear_model import PoissonRegressor
 from sklearn.pipeline import Pipeline
@@ -238,7 +238,7 @@ def build_fixture_features(fixtures: pd.DataFrame, state: tuple) -> tuple[pd.Dat
 
 
 def predict_fixture_lambdas(fixtures: pd.DataFrame, poisson_model: Pipeline, state: tuple) -> pd.DataFrame:
-    match_lambdas = fixtures[["FixtureIndex", "ForecastRound", "HomeTeam", "AwayTeam"]].copy()
+    match_lambdas = fixtures[["FixtureIndex", "ForecastRound", "HomeTeam", "AwayTeam", "FTHG", "FTAG"]].copy()
     if fixtures.empty:
         match_lambdas["lambda_home"] = []
         match_lambdas["lambda_away"] = []
@@ -251,19 +251,8 @@ def predict_fixture_lambdas(fixtures: pd.DataFrame, poisson_model: Pipeline, sta
     return match_lambdas
 
 
-def forecast_rounds(fixtures: pd.DataFrame, fallback_round_size: int) -> pd.Series:
-    for column in ["Round", "Matchweek", "Gameweek", "GW"]:
-        if column in fixtures.columns:
-            return pd.to_numeric(fixtures[column], errors="coerce")
-    return pd.Series((np.arange(len(fixtures)) // fallback_round_size) + 1, index=fixtures.index)
-
-
 def played_mask(fixtures: pd.DataFrame) -> pd.Series:
     return fixtures["FTHG"].notna() & fixtures["FTAG"].notna()
-
-
-def sort_table_teams(teams: list[str], table: dict[str, dict[str, int]]) -> list[str]:
-    return sorted(teams, key=lambda team: (table[team]["Pts"], table[team]["GF"] - table[team]["GA"], table[team]["GF"]), reverse=True)
 
 
 def build_standings(teams: list[str], played_matches: pd.DataFrame) -> list[dict[str, object]]:
@@ -290,18 +279,11 @@ def build_standings(teams: list[str], played_matches: pd.DataFrame) -> list[dict
 def team_uncertainty(history: pd.DataFrame, teams: list[str]) -> tuple[dict[str, float], dict[str, float]]:
     recent_seasons = sorted(history["SeasonFile"].unique())[-RECENT_HISTORY_SEASONS:]
     recent_history = history[history["SeasonFile"].isin(recent_seasons)]
-    recent_match_count = {
-        team: int(((recent_history["HomeTeam"] == team) | (recent_history["AwayTeam"] == team)).sum())
-        for team in teams
-    }
-    uncertainty_sigma = {
-        team: MIN_TEAM_UNCERTAINTY_SIGMA + (MAX_TEAM_UNCERTAINTY_SIGMA - MIN_TEAM_UNCERTAINTY_SIGMA) * np.exp(-recent_match_count[team] / HISTORY_SCALE_MATCHES)
-        for team in teams
-    }
-    shrinkage = {
-        team: MAX_LOW_HISTORY_SHRINKAGE * np.exp(-recent_match_count[team] / HISTORY_SCALE_MATCHES)
-        for team in teams
-    }
+    match_counts = pd.concat([recent_history["HomeTeam"], recent_history["AwayTeam"]]).value_counts()
+    # 1 dla druzyny bez meczow w ostatnich sezonach, blisko 0 dla stalego bywalca ligi
+    low_history = {team: np.exp(-match_counts.get(team, 0) / HISTORY_SCALE_MATCHES) for team in teams}
+    uncertainty_sigma = {team: MIN_TEAM_UNCERTAINTY_SIGMA + (MAX_TEAM_UNCERTAINTY_SIGMA - MIN_TEAM_UNCERTAINTY_SIGMA) * weight for team, weight in low_history.items()}
+    shrinkage = {team: MAX_LOW_HISTORY_SHRINKAGE * weight for team, weight in low_history.items()}
     return uncertainty_sigma, shrinkage
 
 
@@ -311,133 +293,88 @@ def venue_goal_means(model_rows: pd.DataFrame) -> tuple[float, float]:
     return home_mean, away_mean
 
 
-def adjusted_lambdas(
-    match_lambdas: pd.DataFrame,
-    team_shrinkage: dict[str, float],
-    home_goal_mean: float,
-    away_goal_mean: float,
-) -> pd.DataFrame:
+def adjusted_lambdas(match_lambdas: pd.DataFrame, team_shrinkage: dict[str, float], home_goal_mean: float, away_goal_mean: float) -> pd.DataFrame:
     adjusted_matches = match_lambdas.copy()
-    if adjusted_matches.empty:
-        return adjusted_matches
-
-    home_lambdas = []
-    away_lambdas = []
-    for match in match_lambdas.itertuples(index=False):
-        fixture_shrinkage = max(team_shrinkage[match.HomeTeam], team_shrinkage[match.AwayTeam])
-        home_lambdas.append((1 - fixture_shrinkage) * match.lambda_home + fixture_shrinkage * home_goal_mean)
-        away_lambdas.append((1 - fixture_shrinkage) * match.lambda_away + fixture_shrinkage * away_goal_mean)
-
-    adjusted_matches["lambda_home"] = home_lambdas
-    adjusted_matches["lambda_away"] = away_lambdas
+    shrinkage = np.maximum(adjusted_matches["HomeTeam"].map(team_shrinkage), adjusted_matches["AwayTeam"].map(team_shrinkage))
+    adjusted_matches["lambda_home"] = (1 - shrinkage) * adjusted_matches["lambda_home"] + shrinkage * home_goal_mean
+    adjusted_matches["lambda_away"] = (1 - shrinkage) * adjusted_matches["lambda_away"] + shrinkage * away_goal_mean
     return adjusted_matches
 
 
-def make_table_snapshot(sorted_teams: list[str], table: dict[str, dict[str, int]], simulation_number: int) -> dict[str, object]:
-    rows = []
-    for rank, team in enumerate(sorted_teams, start=1):
-        goals_for = table[team]["GF"]
-        goals_against = table[team]["GA"]
-        rows.append({
-            "rank": rank,
-            "team": display_name(team),
-            "slug": slug_for_team(team),
-            "pts": table[team]["Pts"],
-            "gf": goals_for,
-            "ga": goals_against,
-            "gd": goals_for - goals_against,
-        })
-
-    return {
-        "simulation": simulation_number,
-        "teams": rows,
-    }
+def make_table_snapshot(teams: list[str], order: np.ndarray, points: np.ndarray, goals_for: np.ndarray, goals_against: np.ndarray, simulation_number: int) -> dict[str, object]:
+    rows = [{
+        "rank": rank,
+        "team": display_name(teams[team]),
+        "slug": slug_for_team(teams[team]),
+        "pts": int(points[team]),
+        "gf": int(goals_for[team]),
+        "ga": int(goals_against[team]),
+        "gd": int(goals_for[team] - goals_against[team]),
+    } for rank, team in enumerate(order, start=1)]
+    return {"simulation": simulation_number, "teams": rows}
 
 
-def simulate_table(base_table: dict[str, dict[str, int]], teams: list[str], adjusted_matches: pd.DataFrame, uncertainty_sigma: dict[str, float], simulations: int, seed: int, sample_tables: int) -> tuple[pd.DataFrame, list[dict[str, object]]]:
+def simulate_table(standings: list[dict[str, object]], teams: list[str], adjusted_matches: pd.DataFrame, uncertainty_sigma: dict[str, float], simulations: int, seed: int, sample_tables: int) -> tuple[pd.DataFrame, list[dict[str, object]]]:
+    # wiersz macierzy to jeden symulowany sezon, kolumna to mecz albo druzyna
     random_generator = np.random.default_rng(seed)
-    sample_generator = np.random.default_rng(seed + 1)
-    sample_size = min(max(sample_tables, 0), simulations)
-    sample_indices = set(sample_generator.choice(simulations, size=sample_size, replace=False).tolist()) if sample_size else set()
-    sampled_tables = []
-    positions_count = {team: np.zeros(len(teams), dtype=int) for team in teams}
-    total_points = {team: 0 for team in teams}
-    total_goals_for = {team: 0 for team in teams}
-    total_goals_against = {team: 0 for team in teams}
+    team_index = {team: index for index, team in enumerate(teams)}
+    home = adjusted_matches["HomeTeam"].map(team_index).to_numpy(dtype=int)
+    away = adjusted_matches["AwayTeam"].map(team_index).to_numpy(dtype=int)
+    home_team_matrix = np.eye(len(teams), dtype=int)[home]
+    away_team_matrix = np.eye(len(teams), dtype=int)[away]
 
-    for simulation_index in range(simulations):
-        table = {team: stats.copy() for team, stats in base_table.items()}
-        strength_noise = {
-            team: float(np.clip(random_generator.normal(0, uncertainty_sigma[team]), -MAX_STRENGTH_NOISE, MAX_STRENGTH_NOISE))
-            for team in teams
-        }
+    sigma = np.array([uncertainty_sigma[team] for team in teams])
+    noise = np.clip(random_generator.normal(0.0, sigma, size=(simulations, len(teams))), -MAX_STRENGTH_NOISE, MAX_STRENGTH_NOISE)
+    lambda_home = np.clip(adjusted_matches["lambda_home"].to_numpy() * np.exp(noise[:, home] - OPPONENT_NOISE_WEIGHT * noise[:, away]), 0.05, 5.0)
+    lambda_away = np.clip(adjusted_matches["lambda_away"].to_numpy() * np.exp(noise[:, away] - OPPONENT_NOISE_WEIGHT * noise[:, home]), 0.05, 5.0)
+    home_goals = random_generator.poisson(lambda_home)
+    away_goals = random_generator.poisson(lambda_away)
+    home_points = np.select([home_goals > away_goals, home_goals == away_goals], [3, 1], 0)
+    away_points = np.select([away_goals > home_goals, home_goals == away_goals], [3, 1], 0)
 
-        for match in adjusted_matches.itertuples(index=False):
-            home_team = match.HomeTeam
-            away_team = match.AwayTeam
-            lambda_home = match.lambda_home * np.exp(strength_noise[home_team] - OPPONENT_NOISE_WEIGHT * strength_noise[away_team])
-            lambda_away = match.lambda_away * np.exp(strength_noise[away_team] - OPPONENT_NOISE_WEIGHT * strength_noise[home_team])
-            lambda_home = float(np.clip(lambda_home, 0.05, 5.0))
-            lambda_away = float(np.clip(lambda_away, 0.05, 5.0))
-            home_goals = int(random_generator.poisson(lambda_home))
-            away_goals = int(random_generator.poisson(lambda_away))
-            home_points, away_points = result_points(home_goals, away_goals)
+    current = {row["teamKey"]: row for row in standings}
+    points = np.array([current[team]["pts"] for team in teams]) + home_points @ home_team_matrix + away_points @ away_team_matrix
+    goals_for = np.array([current[team]["gf"] for team in teams]) + home_goals @ home_team_matrix + away_goals @ away_team_matrix
+    goals_against = np.array([current[team]["ga"] for team in teams]) + away_goals @ home_team_matrix + home_goals @ away_team_matrix
 
-            table[home_team]["Pts"] += home_points
-            table[away_team]["Pts"] += away_points
-            table[home_team]["GF"] += home_goals
-            table[home_team]["GA"] += away_goals
-            table[away_team]["GF"] += away_goals
-            table[away_team]["GA"] += home_goals
+    # lexsort jest stabilny, wiec przy rownych punktach, bilansie i golach zostaje kolejnosc alfabetyczna
+    order = np.lexsort((-goals_for, -(goals_for - goals_against), -points))
+    position_counts = np.zeros((len(teams), len(teams)), dtype=int)
+    np.add.at(position_counts, (order, np.arange(len(teams))), 1)
 
-        sorted_teams = sort_table_teams(teams, table)
-        for rank, team in enumerate(sorted_teams):
-            positions_count[team][rank] += 1
-
-        if simulation_index in sample_indices:
-            sampled_tables.append(make_table_snapshot(sorted_teams, table, simulation_index + 1))
-
-        for team in teams:
-            total_points[team] += table[team]["Pts"]
-            total_goals_for[team] += table[team]["GF"]
-            total_goals_against[team] += table[team]["GA"]
-
-    rows = []
-    for team in teams:
-        chances = positions_count[team] / simulations
-        title_count = int(positions_count[team][0])
-        top4_count = int(np.sum(positions_count[team][:4]))
-        relegation_count = int(np.sum(positions_count[team][-3:]))
-        expected_goals_for = total_goals_for[team] / simulations
-        expected_goals_against = total_goals_against[team] / simulations
-        rows.append({
-            "teamKey": team,
-            "team": display_name(team),
-            "slug": slug_for_team(team),
-            "xPts": round(total_points[team] / simulations, 1),
-            "xGF": round(expected_goals_for, 1),
-            "xGA": round(expected_goals_against, 1),
-            "xGD": round(expected_goals_for - expected_goals_against, 1),
-            "title": round(float(chances[0] * 100), 1),
-            "top4": round(float(np.sum(chances[:4]) * 100), 1),
-            "relegation": round(float(np.sum(chances[-3:]) * 100), 1),
-            "titleCount": title_count,
-            "top4Count": top4_count,
-            "relegationCount": relegation_count,
-        })
-
-    forecast_table = pd.DataFrame(rows).sort_values(by=["xPts", "xGD", "xGF"], ascending=False).reset_index(drop=True)
+    title_count = position_counts[:, 0]
+    top4_count = position_counts[:, :4].sum(axis=1)
+    relegation_count = position_counts[:, -3:].sum(axis=1)
+    forecast_table = pd.DataFrame({
+        "teamKey": teams,
+        "team": [display_name(team) for team in teams],
+        "slug": [slug_for_team(team) for team in teams],
+        "xPts": points.mean(axis=0).round(1),
+        "xGF": goals_for.mean(axis=0).round(1),
+        "xGA": goals_against.mean(axis=0).round(1),
+        "xGD": (goals_for - goals_against).mean(axis=0).round(1),
+        "title": (100 * title_count / simulations).round(1),
+        "top4": (100 * top4_count / simulations).round(1),
+        "relegation": (100 * relegation_count / simulations).round(1),
+        "titleCount": title_count,
+        "top4Count": top4_count,
+        "relegationCount": relegation_count,
+    })
+    forecast_table = forecast_table.sort_values(by=["xPts", "xGD", "xGF"], ascending=False).reset_index(drop=True)
     forecast_table["rank"] = forecast_table.index + 1
-    sampled_tables = sorted(sampled_tables, key=lambda item: int(item["simulation"]))
+
+    sample_generator = np.random.default_rng(seed + 1)
+    sample_indices = sorted(sample_generator.choice(simulations, size=min(max(sample_tables, 0), simulations), replace=False))
+    sampled_tables = [
+        make_table_snapshot(teams, order[index], points[index], goals_for[index], goals_against[index], int(index) + 1)
+        for index in sample_indices
+    ]
     return forecast_table, sampled_tables
 
 
 def poisson_result_probs(lambda_home: float, lambda_away: float, max_goals: int = 12) -> tuple[float, float, float]:
     goals_axis = np.arange(max_goals + 1)
-    factorials = np.array([math.factorial(int(goal)) for goal in goals_axis])
-    home_pmf = np.exp(-lambda_home) * np.power(lambda_home, goals_axis) / factorials
-    away_pmf = np.exp(-lambda_away) * np.power(lambda_away, goals_axis) / factorials
-    score_matrix = np.outer(home_pmf, away_pmf)
+    score_matrix = np.outer(poisson.pmf(goals_axis, lambda_home), poisson.pmf(goals_axis, lambda_away))
     score_matrix = score_matrix / score_matrix.sum()
     home_win = float(np.tril(score_matrix, -1).sum() * 100)
     draw = float(np.trace(score_matrix) * 100)
@@ -471,14 +408,7 @@ def build_upcoming_fixtures(adjusted_matches: pd.DataFrame) -> list[dict[str, ob
 
 
 def build_results(fixtures: pd.DataFrame, history: pd.DataFrame, poisson_model: Pipeline, team_shrinkage: dict[str, float], home_goal_mean: float, away_goal_mean: float) -> list[dict[str, object]]:
-    played_fixtures = fixtures[played_mask(fixtures)].copy()
-    if played_fixtures.empty:
-        return []
-
-    actual_scores = {
-        int(match.FixtureIndex): (int(match.FTHG), int(match.FTAG))
-        for match in played_fixtures.itertuples(index=False)
-    }
+    played_fixtures = fixtures[played_mask(fixtures)]
     results: list[dict[str, object]] = []
 
     # prognoza kazdej kolejki liczona jest wylacznie na stanie sprzed jej rozegrania
@@ -489,19 +419,11 @@ def build_results(fixtures: pd.DataFrame, history: pd.DataFrame, poisson_model: 
         adjusted_matches = adjusted_lambdas(match_lambdas, team_shrinkage, home_goal_mean, away_goal_mean)
 
         for match in adjusted_matches.itertuples(index=False):
-            home_goals, away_goals = actual_scores[int(match.FixtureIndex)]
+            home_goals, away_goals = int(match.FTHG), int(match.FTAG)
             outcome = "home" if home_goals > away_goals else "away" if away_goals > home_goals else "draw"
             results.append({**match_forecast(match, int(round_number)), "homeGoals": home_goals, "awayGoals": away_goals, "outcome": outcome})
 
     return results
-
-
-def complete_rounds_count(fixtures: pd.DataFrame) -> int:
-    full_rounds = 0
-    for _round_number, round_matches in fixtures.groupby("ForecastRound"):
-        if played_mask(round_matches).all():
-            full_rounds += 1
-    return full_rounds
 
 
 def snapshot_id_and_label(played_rounds: int, played_matches: int, total_matches: int) -> tuple[str, str]:
@@ -523,7 +445,7 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
     fixtures = normalize_names(fixtures)
     fixtures["FTHG"] = pd.to_numeric(fixtures["FTHG"], errors="coerce")
     fixtures["FTAG"] = pd.to_numeric(fixtures["FTAG"], errors="coerce")
-    fixtures["ForecastRound"] = forecast_rounds(fixtures, args.round_size)
+    fixtures["ForecastRound"] = fixtures.index // args.round_size + 1
     fixtures["SeasonFile"] = args.fixtures.name
     fixtures[VALUE_FEATURE] = squad_value_diff(fixtures, load_squad_values(args.squad_values)).fillna(0.0)
 
@@ -533,15 +455,14 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
 
     teams = sorted(set(fixtures["HomeTeam"]) | set(fixtures["AwayTeam"]))
     standings = build_standings(teams, played_matches)
-    base_table = {row["teamKey"]: {"Pts": row["pts"], "GF": row["gf"], "GA": row["ga"]} for row in standings}
     uncertainty_sigma, shrinkage = team_uncertainty(history, teams)
     adjusted_matches = adjusted_lambdas(match_lambdas, shrinkage, home_goal_mean, away_goal_mean)
-    forecast_table, sample_tables = simulate_table(base_table, teams, adjusted_matches, uncertainty_sigma, args.simulations, args.seed, args.sample_tables)
+    forecast_table, sample_tables = simulate_table(standings, teams, adjusted_matches, uncertainty_sigma, args.simulations, args.seed, args.sample_tables)
     upcoming_fixtures = build_upcoming_fixtures(adjusted_matches)
     results = build_results(fixtures, history, poisson_model, shrinkage, home_goal_mean, away_goal_mean)
     total_matches = len(fixtures)
     played_matches_count = int(len(played_matches))
-    played_rounds = complete_rounds_count(fixtures)
+    played_rounds = int(played_mask(fixtures).groupby(fixtures["ForecastRound"]).all().sum())
     snapshot_id, snapshot_label = snapshot_id_and_label(played_rounds, played_matches_count, total_matches)
 
     return {
@@ -563,10 +484,9 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
     }
 
 
-def write_forecast_data(payload: dict[str, object], output_path: Path) -> None:
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    json_payload = json.dumps(payload, ensure_ascii=False, indent=4)
-    output_path.write_text(f"window.forecastData = {json_payload};\n", encoding="utf-8")
+def write_js_data(path: Path, variable: str, payload: dict[str, object]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(f"window.{variable} = {json.dumps(payload, ensure_ascii=False, indent=4)};\n", encoding="utf-8")
 
 
 def make_history_snapshot(payload: dict[str, object]) -> dict[str, object]:
@@ -600,10 +520,7 @@ def write_forecast_history(payload: dict[str, object], history_path: Path) -> di
     snapshots.append(snapshot)
     snapshots.sort(key=lambda item: int(item.get("playedRounds") or 0))
     history_payload["snapshots"] = snapshots
-
-    history_path.parent.mkdir(parents=True, exist_ok=True)
-    json_payload = json.dumps(history_payload, ensure_ascii=False, indent=4)
-    history_path.write_text(f"window.forecastHistory = {json_payload};\n", encoding="utf-8")
+    write_js_data(history_path, "forecastHistory", history_payload)
     return history_payload
 
 
@@ -624,7 +541,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     payload = build_payload(args)
-    write_forecast_data(payload, args.output)
+    write_js_data(args.output, "forecastData", payload)
     history_payload = write_forecast_history(payload, args.forecast_history_output)
     meta = payload["meta"]
     print(f"Zapisano dane strony: {args.output}")
