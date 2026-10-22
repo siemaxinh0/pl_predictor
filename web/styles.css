@@ -732,9 +732,17 @@ thead th {
     top: 0;
     z-index: 1;
     color: #fff;
+    padding: 14px 12px;
     background: var(--purple);
-    text-align: right;
+    font-size: 0.77rem;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
     white-space: nowrap;
+}
+
+thead th:has(button) {
+    padding: 0;
 }
 
 th button {
@@ -743,10 +751,8 @@ th button {
     padding: 14px 12px;
     color: inherit;
     background: transparent;
-    font-size: 0.77rem;
-    font-weight: 900;
     text-align: inherit;
-    text-transform: uppercase;
+    text-transform: inherit;
     cursor: pointer;
 }
 
@@ -779,7 +785,7 @@ tbody tr.relegation-row:hover {
 
 td {
     padding: 12px;
-    text-align: right;
+    text-align: center;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
 }
@@ -791,8 +797,7 @@ td {
 }
 
 .team-col,
-.team-cell,
-.rank-col {
+.team-cell {
     text-align: left;
 }
 
