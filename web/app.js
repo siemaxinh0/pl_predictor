@@ -238,6 +238,44 @@ function probabilityBlock(label, value, className, extraClass = "") {
     `;
 }
 
+const formLabels = {
+    win: { letter: "Z", label: "Zwycięstwo" },
+    draw: { letter: "R", label: "Remis" },
+    loss: { letter: "P", label: "Porażka" }
+};
+
+function recentForm(slug, count = 5) {
+    return results
+        .filter(match => match.homeSlug === slug || match.awaySlug === slug)
+        .slice(-count)
+        .map(match => {
+            const isHome = match.homeSlug === slug;
+            const outcome = match.outcome === "draw" ? "draw" : (match.outcome === "home") === isHome ? "win" : "loss";
+            const { letter, label } = formLabels[outcome];
+            const detail = `Kolejka ${match.round}: ${match.homeTeam} ${match.homeGoals}-${match.awayGoals} ${match.awayTeam} (${label})`;
+            return `<span class="form-badge is-${outcome}" title="${escapeHtml(detail)}">${letter}</span>`;
+        })
+        .join("");
+}
+
+function fixtureTeam(name, slug, isAway) {
+    const position = standings.find(team => team.slug === slug)?.rank;
+    const form = recentForm(slug);
+    return `
+        <div class="fixture-team ${isAway ? "is-away" : ""}">
+            ${isAway ? "" : createLogo({ slug })}
+            <div class="fixture-team-info">
+                <div class="fixture-team-name">
+                    <strong>${escapeHtml(name)}</strong>
+                    ${position ? `<span class="team-position" title="Pozycja w tabeli">${position}.</span>` : ""}
+                </div>
+                ${form ? `<div class="team-form" aria-label="Ostatnie mecze">${form}</div>` : ""}
+            </div>
+            ${isAway ? createLogo({ slug }) : ""}
+        </div>
+    `;
+}
+
 function renderUpcomingFixtures() {
     const upcomingRound = document.querySelector("#upcoming-round");
     upcomingRound.textContent = forecastMeta.nextRound ? `Kolejka ${forecastMeta.nextRound}` : "Brak nadchodzących spotkań";
@@ -250,15 +288,9 @@ function renderUpcomingFixtures() {
     upcomingBody.innerHTML = upcomingFixtures.map(fixture => `
         <article class="fixture-card">
             <div class="fixture-teams">
-                <div class="fixture-team">
-                    ${createLogo({ slug: fixture.homeSlug })}
-                    <strong>${escapeHtml(fixture.homeTeam)}</strong>
-                </div>
+                ${fixtureTeam(fixture.homeTeam, fixture.homeSlug, false)}
                 <span class="versus">vs</span>
-                <div class="fixture-team is-away">
-                    <strong>${escapeHtml(fixture.awayTeam)}</strong>
-                    ${createLogo({ slug: fixture.awaySlug })}
-                </div>
+                ${fixtureTeam(fixture.awayTeam, fixture.awaySlug, true)}
             </div>
             <div class="fixture-lambdas">
                 <span>xG ${formatLambda(fixture.lambdaHome)}</span>

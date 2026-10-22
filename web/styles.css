@@ -620,6 +620,59 @@ h2 {
     text-align: right;
 }
 
+.fixture-team-info {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+}
+
+.fixture-team-name {
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+    min-width: 0;
+}
+
+.fixture-team.is-away .fixture-team-name,
+.fixture-team.is-away .team-form {
+    justify-content: end;
+}
+
+.team-position {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 900;
+}
+
+.team-form {
+    display: flex;
+    gap: 3px;
+}
+
+.form-badge {
+    display: grid;
+    place-items: center;
+    width: 17px;
+    height: 17px;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 0.66rem;
+    font-weight: 900;
+    cursor: default;
+}
+
+.form-badge.is-win {
+    background: var(--mint);
+}
+
+.form-badge.is-draw {
+    background: #f2a900;
+}
+
+.form-badge.is-loss {
+    background: var(--rose);
+}
+
 .versus {
     color: var(--muted);
     font-size: 0.78rem;
@@ -1094,7 +1147,9 @@ td {
         justify-self: start;
     }
 
-    .fixture-team.is-away {
+    .fixture-team.is-away,
+    .fixture-team.is-away .fixture-team-name,
+    .fixture-team.is-away .team-form {
         justify-content: start;
         text-align: left;
     }
