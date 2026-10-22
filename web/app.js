@@ -464,7 +464,7 @@ function renderChartCard(config) {
         }).join(" ");
         const dots = historySnapshots.map((snapshot, snapshotIndex) => {
             const point = pointsData[snapshotIndex];
-            return `<circle cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="4" fill="${color}"></circle>`;
+            return `<circle class="chart-dot" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="4" fill="${color}" data-team="${teamIndex}" data-snapshot="${snapshotIndex}"></circle>`;
         }).join("");
         const finalPoint = pointsData[pointsData.length - 1];
         const logo = `<image class="chart-logo" href="assets/logos/${escapeHtml(team.slug)}.svg" x="${(finalPoint.x - 14).toFixed(1)}" y="${(finalPoint.y - 14).toFixed(1)}" width="28" height="28"></image>`;
@@ -482,7 +482,7 @@ function renderChartCard(config) {
     `).join("");
 
     return `
-        <article class="chart-card">
+        <article class="chart-card" data-metric="${config.key}">
             <div class="chart-card-header">
                 <h3>${escapeHtml(config.label)}</h3>
                 <span>0-${formatPercent(maxValue)}</span>
@@ -497,12 +497,74 @@ function renderChartCard(config) {
                 ${lines}
             </svg>
             <div class="chart-legend">${legend}</div>
+            <div class="chart-tooltip" hidden></div>
         </article>
     `;
 }
 
 function renderCharts() {
     chartsBody.innerHTML = metricConfigs.map(renderChartCard).join("");
+}
+
+function matchForSnapshot(snapshot, team) {
+    const teamMatches = results.filter(match => match.homeSlug === team.slug || match.awaySlug === team.slug);
+    if (String(snapshot.id).startsWith("round-")) {
+        return teamMatches.find(match => Number(match.round) === Number(snapshot.playedRounds));
+    }
+    return teamMatches[teamMatches.length - 1];
+}
+
+function chartTooltipHtml(team, snapshot, metric) {
+    const value = `<div class="chart-tooltip-value"><i style="background:${team.color || chartColors[0]}"></i>${escapeHtml(metric.label)}: <strong>${formatPercent(valueForTeam(snapshot, team.key, metric.key))}</strong></div>`;
+    if (!Number(snapshot.playedMatches)) {
+        return `<div class="chart-tooltip-head"><span>${escapeHtml(snapshot.label)}</span></div>${value}`;
+    }
+
+    const match = matchForSnapshot(snapshot, team);
+    if (!match) {
+        return `<div class="chart-tooltip-head"><span>${escapeHtml(snapshot.label)}</span></div><p class="chart-tooltip-empty">Brak meczu w tej kolejce</p>${value}`;
+    }
+
+    const isHome = match.homeSlug === team.slug;
+    const goalsFor = isHome ? match.homeGoals : match.awayGoals;
+    const goalsAgainst = isHome ? match.awayGoals : match.homeGoals;
+    const [outcomeLabel, outcomeClass] = goalsFor > goalsAgainst ? ["Wygrana", "is-win"] : goalsFor === goalsAgainst ? ["Remis", "is-draw"] : ["Porażka", "is-loss"];
+    return `
+        <div class="chart-tooltip-head"><span>Kolejka ${match.round}</span><b class="chart-tooltip-outcome ${outcomeClass}">${outcomeLabel}</b></div>
+        <div class="chart-tooltip-match">
+            <span class="${isHome ? "is-team" : ""}"><img src="assets/logos/${escapeHtml(match.homeSlug)}.svg" alt="">${escapeHtml(match.homeTeam)}</span>
+            <strong>${match.homeGoals}-${match.awayGoals}</strong>
+            <span class="${isHome ? "" : "is-team"}">${escapeHtml(match.awayTeam)}<img src="assets/logos/${escapeHtml(match.awaySlug)}.svg" alt=""></span>
+        </div>
+        ${value}
+    `;
+}
+
+function showChartTooltip(dot) {
+    const card = dot.closest(".chart-card");
+    const tooltip = card.querySelector(".chart-tooltip");
+    const metric = metricConfigs.find(item => item.key === card.dataset.metric);
+    const team = teamsForMetric(metric.key)[Number(dot.dataset.team)];
+    tooltip.innerHTML = chartTooltipHtml(team, historySnapshots[Number(dot.dataset.snapshot)], metric);
+    tooltip.hidden = false;
+
+    const cardRect = card.getBoundingClientRect();
+    const dotRect = dot.getBoundingClientRect();
+    const dotX = dotRect.left + dotRect.width / 2 - cardRect.left;
+    const dotY = dotRect.top + dotRect.height / 2 - cardRect.top;
+    const halfWidth = tooltip.offsetWidth / 2;
+    // dymek nie moze wyjsc poza karte wykresu, strzalka i tak wskazuje kropke
+    const left = Math.min(Math.max(dotX, halfWidth + 8), cardRect.width - halfWidth - 8);
+    tooltip.classList.toggle("is-below", dotY - tooltip.offsetHeight - 16 < 0);
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${dotY}px`;
+    tooltip.style.setProperty("--arrow-x", `${dotX - left + halfWidth}px`);
+}
+
+function hideChartTooltips() {
+    chartsBody.querySelectorAll(".chart-tooltip").forEach(tooltip => {
+        tooltip.hidden = true;
+    });
 }
 
 document.querySelectorAll("th button").forEach(button => {
@@ -543,6 +605,26 @@ hideRandomSimulationButton.addEventListener("click", closeRandomSimulation);
 
 document.querySelectorAll("[data-random-close]").forEach(element => {
     element.addEventListener("click", closeRandomSimulation);
+});
+
+chartsBody.addEventListener("pointerover", event => {
+    const dot = event.target.closest(".chart-dot");
+    if (dot) {
+        showChartTooltip(dot);
+    }
+});
+
+chartsBody.addEventListener("pointerout", event => {
+    // na ekranie dotykowym dymek zostaje po puszczeniu palca i znika dopiero po dotknieciu obok
+    if (event.pointerType !== "touch" && event.target.closest(".chart-dot")) {
+        hideChartTooltips();
+    }
+});
+
+document.addEventListener("pointerdown", event => {
+    if (!event.target.closest(".chart-dot")) {
+        hideChartTooltips();
+    }
 });
 
 document.addEventListener("keydown", event => {
