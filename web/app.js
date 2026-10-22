@@ -473,7 +473,7 @@ function renderChartCard(config) {
 
     const labels = historySnapshots.map((snapshot, snapshotIndex) => {
         const point = chartPoint(snapshotIndex, 0, maxValue, width, height, margin);
-        const label = snapshot.label.replace("Przed ", "0: ").replace("Po ", "");
+        const label = snapshot.label.replace(/^Po (\d+)\. kolejce$/, "$1. kolejka");
         return `<text x="${point.x.toFixed(1)}" y="${height - 16}" text-anchor="middle">${escapeHtml(label)}</text>`;
     }).join("");
 
