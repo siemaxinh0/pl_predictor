@@ -519,6 +519,7 @@ function renderChartCard(config) {
                 <h3>${escapeHtml(config.label)}</h3>
                 <span>0-${formatPercent(maxValue)}</span>
             </div>
+            <div class="chart-scroll">
             <svg class="trend-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(config.label)}">
                 <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}" class="chart-axis"></line>
                 <line x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}" class="chart-axis"></line>
@@ -528,6 +529,7 @@ function renderChartCard(config) {
                 ${labels}
                 ${lines}
             </svg>
+            </div>
             <div class="chart-legend">${legend}</div>
             <div class="chart-tooltip" hidden></div>
         </article>
