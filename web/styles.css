@@ -92,15 +92,6 @@ input {
     padding: 28px 0 22px;
 }
 
-.section-kicker {
-    margin: 0 0 8px;
-    color: var(--purple-soft);
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
 h1,
 h2,
 h3 {
