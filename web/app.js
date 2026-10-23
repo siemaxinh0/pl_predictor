@@ -166,6 +166,15 @@ function renderTable() {
         return;
     }
 
+    document.querySelectorAll("th button[data-sort]").forEach(button => {
+        const header = button.parentElement;
+        if (button.dataset.sort === state.sortKey) {
+            header.setAttribute("aria-sort", state.sortDirection === "asc" ? "ascending" : "descending");
+        } else {
+            header.removeAttribute("aria-sort");
+        }
+    });
+
     const rows = sortTeams(teams);
     tableBody.innerHTML = rows.map(team => `
         <tr class="${team.rank >= 18 ? "relegation-row" : ""}">

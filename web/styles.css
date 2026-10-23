@@ -803,6 +803,16 @@ th button:focus-visible {
     outline: none;
 }
 
+th[aria-sort] button::after {
+    content: "\25B2";
+    margin-left: 5px;
+    font-size: 0.7em;
+}
+
+th[aria-sort="descending"] button::after {
+    content: "\25BC";
+}
+
 tbody tr {
     border-bottom: 1px solid var(--line);
 }
