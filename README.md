@@ -16,7 +16,7 @@ It's not a betting model and I wouldn't use it as one. The goal was something I 
 
 ```text
 data/raw/pl_seasons/        one CSV per season, season-2627.csv is the current one (fixtures + results so far)
-data/raw/squad_values_by_season.csv   squad values from Transfermarkt (gitignored, see below)
+data/raw/squad_values_by_season.csv   squad values from Transfermarkt (see below)
 data/processed/             PL_base_with_traits.csv - historical matches with features
 src/features.py             builds the features CSV from raw seasons
 src/run_forecast.py         trains the model, runs the simulation, writes the website data
@@ -40,7 +40,7 @@ I run everything on Windows from PowerShell, so the commands below use `.\venv\S
 
 Match data comes from [football-data.co.uk](https://www.football-data.co.uk/englandm.php) (results, shots, cards etc. - only goals are used for now).
 
-Squad values are scraped from Transfermarkt. The CSV is gitignored, so on a fresh clone you have to run the scraper first, otherwise the model just trains without the squad value feature:
+Squad values are scraped from Transfermarkt and the CSV is committed, because the forecast needs it (without it every upcoming match gets a squad value difference of 0). The scraper only has to be run again for a new season:
 
 ```powershell
 .\venv\Scripts\python.exe src\scrape_transfermarkt_squad_values.py
@@ -142,6 +142,8 @@ Some notes:
 - scores that are already in the fixture file are never overwritten - if the source has a different score it just prints a warning.
 - if a few complete matchweeks come in at once, the forecast is run after each of them so the history doesn't have gaps.
 - if the source uses a team name the project doesn't know, the script stops with an error and saves nothing. Fix: add the name to `TEAM_NAME_MAP` in `src/features.py` (that's how "Coventry" -> "Coventry City" got there).
+
+The live site doesn't need this, though. `.github/workflows/pages.yml` runs `update_results.py` before every deploy - on every push, every day at 07:00 UTC, or by hand (Actions -> Deploy website -> Run workflow) - and publishes the fresh `web/` folder straight to GitHub Pages. Nothing gets committed, so the data in the repo can be a few matchweeks behind the site. That's fine, the repo is just the starting point, the script fills in whatever is missing (and the fixed seed means the history snapshots come out the same as if they were generated one by one). Run it locally only when you want the newest data on your machine.
 
 For manual fixes there's still `add_result.py`:
 

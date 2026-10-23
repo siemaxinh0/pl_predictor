@@ -2,4 +2,5 @@ venv/
 __pycache__/
 *.ipynb_checkpoints
 data/raw/*.csv
+!data/raw/squad_values_by_season.csv
 .DS_Store
