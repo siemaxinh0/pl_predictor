@@ -234,14 +234,6 @@ h2 {
         var(--panel-strong);
 }
 
-.table-note {
-    max-width: 320px;
-    margin: 0;
-    color: var(--muted);
-    font-size: 0.92rem;
-    line-height: 1.45;
-}
-
 .table-actions {
     display: flex;
     gap: 12px;
@@ -1211,10 +1203,6 @@ td {
     .trend-chart {
         min-width: 600px;
         min-height: 0;
-    }
-
-    .table-note {
-        max-width: none;
     }
 
     .table-actions,

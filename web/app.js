@@ -46,7 +46,6 @@ const teamColors = {
 
 const tableBody = document.querySelector("#table-body");
 const standingsBody = document.querySelector("#standings-body");
-const standingsNote = document.querySelector("#standings-note");
 const resultsBody = document.querySelector("#results-body");
 const resultsSelect = document.querySelector("#results-select");
 const resultsTitle = document.querySelector("#results-title");
@@ -310,8 +309,6 @@ function renderStandings() {
         standingsBody.innerHTML = `<tr><td colspan="10">Brak rozegranych meczów w tym sezonie.</td></tr>`;
         return;
     }
-
-    standingsNote.textContent = `Stan po ${formatInteger(forecastMeta.playedMatches || 0)} rozegranych meczach, sortowanie po punktach, różnicy bramek i golach zdobytych.`;
 
     standingsBody.innerHTML = standings.map(team => `
         <tr class="${team.rank >= 18 ? "relegation-row" : ""}">
