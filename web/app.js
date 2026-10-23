@@ -554,8 +554,20 @@ function matchForSnapshot(snapshot, team) {
     return teamMatches[teamMatches.length - 1];
 }
 
+function chartChangeHtml(team, snapshot, metric) {
+    const previous = historySnapshots[historySnapshots.indexOf(snapshot) - 1];
+    if (!previous) {
+        return "";
+    }
+    const change = Math.round((valueForTeam(snapshot, team.key, metric.key) - valueForTeam(previous, team.key, metric.key)) * 10) / 10;
+    // wiekszy procent spadku to zla wiadomosc, wiec tam kolory sa odwrotne
+    const isGood = metric.key === "relegation" ? change < 0 : change > 0;
+    const className = change === 0 ? "is-flat" : isGood ? "is-good" : "is-bad";
+    return `<em class="chart-tooltip-change ${className}">(${change > 0 ? "+" : ""}${formatPercent(change)})</em>`;
+}
+
 function chartTooltipHtml(team, snapshot, metric) {
-    const value = `<div class="chart-tooltip-value"><i style="background:${team.color || chartColors[0]}"></i>${escapeHtml(metric.label)}: <strong>${formatPercent(valueForTeam(snapshot, team.key, metric.key))}</strong></div>`;
+    const value = `<div class="chart-tooltip-value"><i style="background:${team.color || chartColors[0]}"></i>${escapeHtml(metric.label)}: <strong>${formatPercent(valueForTeam(snapshot, team.key, metric.key))}${chartChangeHtml(team, snapshot, metric)}</strong></div>`;
     if (!Number(snapshot.playedMatches)) {
         return `<div class="chart-tooltip-head"><span>${escapeHtml(snapshot.label)}</span></div>${value}`;
     }
