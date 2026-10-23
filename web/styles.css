@@ -226,7 +226,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     gap: 18px;
-    align-items: end;
+    align-items: center;
     padding: 20px 22px;
     border-bottom: 1px solid var(--line);
     background:
