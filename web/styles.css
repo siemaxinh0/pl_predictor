@@ -681,6 +681,372 @@ h2 {
     font-size: 0.92rem;
 }
 
+.team-card-link {
+    justify-self: start;
+    color: var(--pink);
+    font-size: 0.88rem;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.team-card-link:hover,
+.team-card-link:focus-visible {
+    text-decoration: underline;
+    outline: none;
+}
+
+.team-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: end;
+    margin-right: 110px;
+    padding: 4px 0 18px;
+}
+
+.team-nav .action-button {
+    text-decoration: none;
+}
+
+.team-switch {
+    display: grid;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.team-switch .history-select {
+    width: 260px;
+    margin-bottom: 0;
+    font-size: 1rem;
+    text-transform: none;
+}
+
+.team-page {
+    display: grid;
+    gap: 18px;
+}
+
+.team-hero,
+.team-panel {
+    display: grid;
+    gap: 18px;
+    min-width: 0;
+    border: 1px solid rgba(61, 25, 91, 0.1);
+    border-radius: 10px;
+    padding: 24px;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+}
+
+.team-hero > *,
+.team-panel > * {
+    min-width: 0;
+}
+
+.team-hero {
+    background:
+        linear-gradient(135deg, rgba(114, 215, 255, 0.35), rgba(233, 64, 145, 0.08) 55%, transparent),
+        var(--panel);
+}
+
+.team-hero-main {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.team-hero-main .crest {
+    width: 96px;
+    height: 96px;
+    flex-basis: 96px;
+}
+
+.team-hero-copy {
+    display: grid;
+    gap: 10px;
+    min-width: 0;
+}
+
+.team-hero h1 {
+    max-width: none;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    line-height: 1;
+}
+
+.team-hero-copy p,
+.team-panel-header p,
+.team-hero-note {
+    margin: 0;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.team-hero-copy p {
+    font-weight: 900;
+}
+
+.team-hero-note {
+    font-size: 0.86rem;
+    line-height: 1.4;
+}
+
+.team-hero-note .team-note-mark {
+    cursor: default;
+}
+
+.team-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+}
+
+.team-fact {
+    display: grid;
+    align-content: start;
+    gap: 4px;
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #ffffff;
+}
+
+.team-fact span {
+    color: var(--muted);
+    font-size: 0.74rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.team-fact strong {
+    color: var(--purple);
+    font-size: 1.25rem;
+    line-height: 1.15;
+}
+
+.team-fact small {
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.team-chances .probability strong {
+    font-size: 1.3rem;
+}
+
+.team-panel-header {
+    display: grid;
+    gap: 6px;
+}
+
+.dist-scroll {
+    overflow-x: auto;
+}
+
+.dist-chart {
+    display: flex;
+    gap: 4px;
+    min-width: 520px;
+    height: 230px;
+    padding-top: 20px;
+}
+
+.dist-points {
+    gap: 2px;
+}
+
+.dist-col {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.dist-track {
+    position: relative;
+    flex: 1;
+}
+
+.dist-bar {
+    position: absolute;
+    inset: auto 0 0;
+    min-height: 1px;
+    border-radius: 4px 4px 0 0;
+    background: rgba(61, 25, 91, 0.2);
+}
+
+.dist-value {
+    position: absolute;
+    left: 50%;
+    color: var(--purple);
+    font-size: 0.68rem;
+    font-weight: 900;
+    white-space: nowrap;
+    transform: translateX(-50%);
+}
+
+.dist-label {
+    height: 20px;
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.dist-col.is-current .dist-label {
+    color: #ffffff;
+    background: var(--pink);
+}
+
+.dist-col.is-title .dist-bar,
+.dist-legend .is-title::before {
+    background: var(--purple);
+}
+
+.dist-col.is-top4 .dist-bar,
+.dist-col.is-range .dist-bar,
+.dist-legend .is-top4::before,
+.dist-legend .is-range::before {
+    background: var(--sky);
+}
+
+.dist-col.is-relegation .dist-bar,
+.dist-legend .is-relegation::before {
+    background: var(--rose);
+}
+
+.dist-col.is-median .dist-bar,
+.dist-legend .is-median::before,
+.dist-legend .is-current::before {
+    background: var(--pink);
+}
+
+.dist-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.dist-legend span {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.dist-legend span::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.team-charts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.team-table-wrap {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.team-table {
+    min-width: 760px;
+}
+
+.team-match-col,
+.team-match-cell {
+    text-align: left;
+}
+
+.team-opponent {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    color: inherit;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.team-opponent .crest {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+}
+
+.team-opponent:hover span,
+.team-opponent:focus-visible span {
+    color: var(--pink);
+}
+
+.team-score {
+    display: inline-block;
+    min-width: 46px;
+    border-radius: 6px;
+    padding: 4px 8px;
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.team-score.is-win {
+    background: var(--mint);
+}
+
+.team-score.is-draw {
+    background: #f2a900;
+}
+
+.team-score.is-loss {
+    background: var(--rose);
+}
+
+.team-odds-hit {
+    color: var(--purple);
+    font-weight: 900;
+    box-shadow: inset 0 -3px 0 var(--sky);
+}
+
+.team-pick {
+    font-size: 1.1rem;
+    font-weight: 900;
+    cursor: help;
+}
+
+.team-pick.is-hit {
+    color: var(--mint);
+}
+
+.team-pick.is-miss {
+    color: var(--rose);
+}
+
+.team-odds {
+    display: inline-block;
+    min-width: 66px;
+    border-radius: 6px;
+    padding: 4px 6px;
+    font-weight: 900;
+    background: linear-gradient(90deg, rgba(114, 215, 255, 0.45) var(--probability), rgba(61, 25, 91, 0.05) var(--probability));
+}
+
+.team-odds.is-draw {
+    background: linear-gradient(90deg, rgba(106, 55, 168, 0.25) var(--probability), rgba(61, 25, 91, 0.05) var(--probability));
+}
+
+.team-odds.is-loss {
+    background: linear-gradient(90deg, rgba(233, 64, 145, 0.3) var(--probability), rgba(61, 25, 91, 0.05) var(--probability));
+}
+
 .chart-tooltip-head {
     display: flex;
     justify-content: space-between;
@@ -1145,6 +1511,7 @@ td {
     color: inherit;
     background: transparent;
     text-align: left;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -1388,6 +1755,21 @@ td {
         line-height: 1.15;
         white-space: normal;
     }
+
+    .team-nav {
+        margin-right: 0;
+        padding-top: 58px;
+    }
+
+    .team-charts {
+        grid-template-columns: 1fr;
+    }
+
+    .team-hero-main .crest {
+        width: 64px;
+        height: 64px;
+        flex-basis: 64px;
+    }
 }
 
 @media (max-width: 560px) {
@@ -1486,5 +1868,42 @@ td {
     .versus,
     .result-score {
         margin-top: 12px;
+    }
+
+    .team-nav {
+        display: grid;
+    }
+
+    .team-nav .action-button {
+        text-align: center;
+    }
+
+    .team-switch .history-select {
+        width: 100%;
+    }
+
+    .team-hero,
+    .team-panel {
+        padding: 14px;
+    }
+
+    .team-hero-main {
+        gap: 14px;
+    }
+
+    .team-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .team-fact {
+        padding: 10px;
+    }
+
+    .team-fact strong {
+        font-size: 1.05rem;
+    }
+
+    .team-chances .probability strong {
+        font-size: 1.05rem;
     }
 }

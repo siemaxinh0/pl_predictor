@@ -33,7 +33,7 @@ jobs:
       # the fresh results only live in this run, nothing is committed back to the repo
       - run: python src/update_results.py
       # browsers cache Pages files for 10 minutes, a new version in the url makes them fetch the fresh ones
-      - run: sed -i "s/?v=dev/?v=${{ github.run_id }}/g" web/index.html
+      - run: sed -i "s/?v=dev/?v=${{ github.run_id }}/g" web/*.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v5
         with:

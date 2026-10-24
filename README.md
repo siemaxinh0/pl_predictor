@@ -121,10 +121,12 @@ Tabs:
 - results - what the model predicted for each played match, using only data from before that matchweek
 - history + charts - how the chances changed week by week
 
+Clicking a team name opens `web/team.html?club=<slug>`, a page for one club: distribution of final positions and points across the 10 000 simulations, how its forecast changed, every played match with the pre-match odds and the whole remaining schedule.
+
 Data comes from two generated files:
 
 - `web/forecast-data.js` - current forecast, overwritten on every run
-- `web/forecast-history.js` - one snapshot before the season and after every complete matchweek
+- `web/forecast-history.js` - one snapshot before the season and after every complete matchweek, the state in the middle of a matchweek is only shown on the site and never saved here
 
 ## Adding new results
 

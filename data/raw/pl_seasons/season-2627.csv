@@ -69,13 +69,13 @@ Man City,Ipswich,3.0,2.0
 Newcastle,Aston Villa,0.0,1.0
 Nott'm Forest,Arsenal,0.0,1.0
 Tottenham,Coventry City,3.0,1.0
-Arsenal,Everton,,
-Aston Villa,Man City,,
-Chelsea,Tottenham,,
-Coventry City,Fulham,,
+Arsenal,Everton,2.0,0.0
+Aston Villa,Man City,2.0,1.0
+Chelsea,Tottenham,0.0,2.0
+Coventry City,Fulham,0.0,1.0
 Crystal Palace,Newcastle,,
 Hull City,Brentford,,
-Ipswich,Nott'm Forest,,
+Ipswich,Nott'm Forest,1.0,1.0
 Liverpool,Brighton,,
 Man United,Bournemouth,,
 Sunderland,Leeds United,,

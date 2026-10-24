@@ -317,7 +317,20 @@ def make_table_snapshot(teams: list[str], order: np.ndarray, points: np.ndarray,
     return {"simulation": simulation_number, "teams": rows}
 
 
-def simulate_table(standings: list[dict[str, object]], teams: list[str], adjusted_matches: pd.DataFrame, uncertainty_sigma: dict[str, float], simulations: int, seed: int, sample_tables: int) -> tuple[pd.DataFrame, list[dict[str, object]]]:
+def team_distributions(teams: list[str], position_counts: np.ndarray, points: np.ndarray) -> dict[str, dict[str, object]]:
+    details = {}
+    for index, team in enumerate(teams):
+        team_points = points[:, index]
+        lowest = int(team_points.min())
+        details[slug_for_team(team)] = {
+            "positionCounts": position_counts[index].tolist(),
+            "pointsMin": lowest,
+            "pointsCounts": np.bincount(team_points - lowest).tolist(),
+        }
+    return details
+
+
+def simulate_table(standings: list[dict[str, object]], teams: list[str], adjusted_matches: pd.DataFrame, uncertainty_sigma: dict[str, float], simulations: int, seed: int, sample_tables: int) -> tuple[pd.DataFrame, list[dict[str, object]], dict[str, dict[str, object]]]:
     # wiersz macierzy to jeden symulowany sezon, kolumna to mecz albo druzyna
     random_generator = np.random.default_rng(seed)
     team_index = {team: index for index, team in enumerate(teams)}
@@ -372,7 +385,7 @@ def simulate_table(standings: list[dict[str, object]], teams: list[str], adjuste
         make_table_snapshot(teams, order[index], points[index], goals_for[index], goals_against[index], int(index) + 1)
         for index in sample_indices
     ]
-    return forecast_table, sampled_tables
+    return forecast_table, sampled_tables, team_distributions(teams, position_counts, points)
 
 
 def poisson_result_probs(lambda_home: float, lambda_away: float, max_goals: int = 12) -> tuple[float, float, float]:
@@ -410,6 +423,10 @@ def build_upcoming_fixtures(adjusted_matches: pd.DataFrame) -> list[dict[str, ob
     return [match_forecast(match, next_round) for match in round_matches.itertuples(index=False)]
 
 
+def build_remaining_fixtures(adjusted_matches: pd.DataFrame) -> list[dict[str, object]]:
+    return [match_forecast(match, int(match.ForecastRound)) for match in adjusted_matches.itertuples(index=False)]
+
+
 def build_results(fixtures: pd.DataFrame, history: pd.DataFrame, poisson_model: Pipeline, team_shrinkage: dict[str, float], home_goal_mean: float, away_goal_mean: float) -> list[dict[str, object]]:
     played_fixtures = fixtures[played_mask(fixtures)]
     results: list[dict[str, object]] = []
@@ -429,10 +446,10 @@ def build_results(fixtures: pd.DataFrame, history: pd.DataFrame, poisson_model: 
     return results
 
 
-def snapshot_id_and_label(played_rounds: int, played_matches: int, total_matches: int) -> tuple[str, str]:
+def snapshot_id_and_label(played_rounds: int, played_matches: int, total_matches: int, round_size: int) -> tuple[str, str]:
     if played_matches == 0:
         return "round-0", "Przed sezonem"
-    if played_rounds > 0:
+    if played_rounds > 0 and played_matches == played_rounds * round_size:
         return f"round-{played_rounds}", f"Po {played_rounds}. kolejce"
     return f"current-{played_matches}", f"Aktualnie: {played_matches}/{total_matches} meczów"
 
@@ -460,13 +477,13 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
     standings = build_standings(teams, played_matches)
     uncertainty_sigma, shrinkage = team_uncertainty(history, teams)
     adjusted_matches = adjusted_lambdas(match_lambdas, shrinkage, home_goal_mean, away_goal_mean)
-    forecast_table, sample_tables = simulate_table(standings, teams, adjusted_matches, uncertainty_sigma, args.simulations, args.seed, args.sample_tables)
+    forecast_table, sample_tables, team_details = simulate_table(standings, teams, adjusted_matches, uncertainty_sigma, args.simulations, args.seed, args.sample_tables)
     upcoming_fixtures = build_upcoming_fixtures(adjusted_matches)
     results = build_results(fixtures, history, poisson_model, shrinkage, home_goal_mean, away_goal_mean)
     total_matches = len(fixtures)
     played_matches_count = int(len(played_matches))
     played_rounds = int(played_mask(fixtures).groupby(fixtures["ForecastRound"]).all().sum())
-    snapshot_id, snapshot_label = snapshot_id_and_label(played_rounds, played_matches_count, total_matches)
+    snapshot_id, snapshot_label = snapshot_id_and_label(played_rounds, played_matches_count, total_matches, args.round_size)
 
     return {
         "meta": {
@@ -483,6 +500,8 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
         "standings": standings,
         "results": results,
         "upcomingFixtures": upcoming_fixtures,
+        "remainingFixtures": build_remaining_fixtures(adjusted_matches),
+        "teamDetails": team_details,
         "sampleTables": sample_tables,
     }
 
