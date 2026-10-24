@@ -1,5 +1,4 @@
 const teamPage = document.querySelector("#team-page");
-const teamSelect = document.querySelector("#team-select");
 const clubSlug = new URLSearchParams(location.search).get("club");
 const club = teams.find(team => team.slug === clubSlug);
 
@@ -408,17 +407,9 @@ function scheduleHtml(team) {
     `;
 }
 
-function renderTeamSelect() {
-    const options = [...teams]
-        .sort((first, second) => first.team.localeCompare(second.team, "pl"))
-        .map(team => `<option value="${escapeHtml(team.slug)}" ${team === club ? "selected" : ""}>${escapeHtml(team.team)}</option>`)
-        .join("");
-    teamSelect.innerHTML = `${club ? "" : `<option value="" selected disabled>Wybierz klub</option>`}${options}`;
-}
-
 function renderTeamPage() {
     if (!club) {
-        teamPage.innerHTML = `<section class="team-panel"><p class="empty-state">Nie znaleziono klubu. Wybierz go z listy powyżej.</p></section>`;
+        teamPage.innerHTML = `<section class="team-panel"><p class="empty-state">Nie znaleziono klubu. Wróć do tabeli i kliknij nazwę drużyny.</p></section>`;
         return;
     }
     document.title = `${club.team} - Premier League Predictor`;
@@ -432,11 +423,6 @@ function renderTeamPage() {
     ].join("");
 }
 
-teamSelect.addEventListener("change", () => {
-    location.href = teamPageUrl(teamSelect.value);
-});
-
 bindChartTooltips(teamPage);
 
-renderTeamSelect();
 renderTeamPage();

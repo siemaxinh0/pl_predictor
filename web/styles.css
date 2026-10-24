@@ -709,22 +709,6 @@ h2 {
     text-decoration: none;
 }
 
-.team-switch {
-    display: grid;
-    gap: 6px;
-    color: var(--muted);
-    font-size: 0.78rem;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-.team-switch .history-select {
-    width: 260px;
-    margin-bottom: 0;
-    font-size: 1rem;
-    text-transform: none;
-}
-
 .team-page {
     display: grid;
     gap: 18px;
@@ -1876,10 +1860,6 @@ td {
 
     .team-nav .action-button {
         text-align: center;
-    }
-
-    .team-switch .history-select {
-        width: 100%;
     }
 
     .team-hero,
