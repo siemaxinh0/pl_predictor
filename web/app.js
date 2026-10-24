@@ -11,7 +11,10 @@ const state = {
     sortKey: "rank",
     sortDirection: "asc",
     historyIndex: 0,
-    resultsRound: 0
+    resultsRound: 0,
+    teamCardSlug: "",
+    teamCardPinned: false,
+    teamCardTimer: 0
 };
 
 const metricConfigs = [
@@ -25,6 +28,33 @@ const metricConfigs = [
     { key: "rank", label: "Prognozowane miejsce w tabeli", lowerIsBetter: true }
 ];
 const presetChartKeys = ["title", "top4", "relegation"];
+
+const tips = {
+    rank: ["Prognozowane miejsce", "Kolejność według xPts, przy równych xPts decyduje xGD, a potem xGF."],
+    xPts: ["Oczekiwane punkty", "Średnia liczba punktów na koniec sezonu z 10 000 symulacji, razem z punktami już zdobytymi."],
+    xGF: ["Oczekiwane gole strzelone", "Średnia liczba goli strzelonych w całym sezonie, razem z golami już strzelonymi."],
+    xGA: ["Oczekiwane gole stracone", "Średnia liczba goli straconych w całym sezonie, razem z golami już straconymi."],
+    xGD: ["Oczekiwana różnica bramek", "Średni bilans bramek na koniec sezonu, czyli xGF minus xGA."],
+    title: ["Szansa na mistrzostwo", "W ilu procentach symulacji drużyna skończyła sezon na 1. miejscu."],
+    top4: ["Szansa na Top 4", "W ilu procentach symulacji drużyna skończyła sezon na miejscach 1–4."],
+    relegation: ["Ryzyko spadku", "W ilu procentach symulacji drużyna skończyła sezon na miejscach 18–20, czyli spadła z ligi."],
+    position: ["Miejsce w tabeli", "Obecna pozycja po rozegranych meczach."],
+    played: ["Mecze", "Liczba rozegranych meczów."],
+    wins: ["Wygrane", "Liczba wygranych meczów, każda daje 3 punkty."],
+    draws: ["Remisy", "Liczba zremisowanych meczów, każdy daje 1 punkt."],
+    losses: ["Porażki", "Liczba przegranych meczów."],
+    goalsFor: ["Gole strzelone", "Wszystkie gole strzelone w rozegranych meczach."],
+    goalsAgainst: ["Gole stracone", "Wszystkie gole stracone w rozegranych meczach."],
+    goalDiff: ["Różnica bramek", "Gole strzelone minus gole stracone. Rozstrzyga przy równej liczbie punktów."],
+    points: ["Punkty", "3 za wygraną, 1 za remis, 0 za porażkę."],
+    simPosition: ["Miejsce w tej symulacji", "Pozycja na koniec jednego wylosowanego sezonu."],
+    simPoints: ["Punkty", "Punkty na koniec sezonu w tej jednej symulacji."],
+    simGoalsFor: ["Gole strzelone", "Gole strzelone w całym sezonie w tej jednej symulacji."],
+    simGoalsAgainst: ["Gole stracone", "Gole stracone w całym sezonie w tej jednej symulacji."],
+    simGoalDiff: ["Różnica bramek", "Gole strzelone minus stracone w tej jednej symulacji."],
+    cityPenalty: ["Bez możliwej kary punktowej", "Prognoza zakłada, że Manchester City zachowa wszystkie zdobyte punkty. Ewentualne odjęcie punktów za naruszenie przepisów finansowych Premier League nie jest uwzględnione."]
+};
+const teamTips = { "Man City": "cityPenalty" };
 
 const chartColors = ["#3d195b", "#e94091", "#00a3ff", "#00a878", "#f2a900", "#6a37a8"];
 const teamColors = {
@@ -69,6 +99,8 @@ const randomSimulationModal = document.querySelector("#random-simulation-modal")
 const randomSimulationTitle = document.querySelector("#random-simulation-title");
 const randomSimulationBody = document.querySelector("#random-simulation-body");
 const hideRandomSimulationButton = document.querySelector("#hide-random-simulation");
+const tipBox = document.querySelector("#tip-box");
+const teamCard = document.querySelector("#team-card");
 
 function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, character => ({
@@ -135,11 +167,6 @@ function sortTeams(rows) {
         const firstValue = first[state.sortKey];
         const secondValue = second[state.sortKey];
         const direction = state.sortDirection === "asc" ? 1 : -1;
-
-        if (typeof firstValue === "string") {
-            return firstValue.localeCompare(secondValue, "pl") * direction;
-        }
-
         return (firstValue - secondValue) * direction;
     });
 }
@@ -148,6 +175,18 @@ function createLogo(team) {
     return `
         <span class="crest" aria-hidden="true">
             <img src="assets/logos/${escapeHtml(team.slug)}.svg" alt="" onerror="this.classList.add('is-missing')">
+        </span>
+    `;
+}
+
+function teamNameButton(team) {
+    const tip = teamTips[teamKey(team)];
+    return `
+        <span class="team-name">
+            <button class="team-link" type="button" data-team-slug="${escapeHtml(team.slug)}">
+                <strong>${escapeHtml(team.team)}</strong>
+            </button>
+            ${tip ? `<sup class="team-note-mark" data-tip="${tip}" tabindex="0">*</sup>` : ""}
         </span>
     `;
 }
@@ -162,19 +201,14 @@ function renderPercent(team, key, simulations, label) {
 }
 
 function renderMeta() {
-    const lead = document.querySelector("#forecast-lead");
     const playedMatches = document.querySelector("#played-matches");
     const matchProgressFill = document.querySelector("#match-progress-fill");
-    const matchProgressCaption = document.querySelector("#match-progress-caption");
     const played = Number(forecastMeta.playedMatches || 0);
     const total = Number(forecastMeta.totalMatches || 380);
     const progress = total > 0 ? Math.max(0, Math.min(100, (played / total) * 100)) : 0;
 
-    lead.textContent = `Prognoza tabeli po ${forecastMeta.simulations || "?"} symulacjach sezonu, oparta na oczekiwanych golach i rozkładach wyników.`;
     playedMatches.textContent = `${formatInteger(played)}/${formatInteger(total)}`;
-    matchProgressFill.style.width = `${progress}%`;
-    matchProgressCaption.textContent = `${formatInteger(played)} z ${formatInteger(total)} meczów Premier League zostało uwzględnionych jako fakty.`;
-}
+    matchProgressFill.style.width = `${progress}%`;}
 
 function renderTable() {
     if (!teams.length) {
@@ -198,9 +232,7 @@ function renderTable() {
             <td class="team-cell">
                 <div class="team-entry">
                     ${createLogo(team)}
-                    <span class="team-name">
-                        <strong>${escapeHtml(team.team)}</strong>
-                    </span>
+                    ${teamNameButton(team)}
                 </div>
             </td>
             <td class="xpts-cell"><strong>${formatNumber(team.xPts)}</strong></td>
@@ -267,6 +299,19 @@ const formLabels = {
     draw: { letter: "R", label: "Remis" },
     loss: { letter: "P", label: "Porażka" }
 };
+
+function matchesForTeam(slug) {
+    return results.filter(match => match.homeSlug === slug || match.awaySlug === slug);
+}
+
+function matchOutcomeForTeam(match, slug) {
+    const isHome = match.homeSlug === slug;
+    return match.outcome === "draw" ? "draw" : (match.outcome === "home") === isHome ? "win" : "loss";
+}
+
+function nextFixtureForTeam(slug) {
+    return upcomingFixtures.find(match => match.homeSlug === slug || match.awaySlug === slug);
+}
 
 function recentForm(slug, count = 5) {
     return results
@@ -341,7 +386,7 @@ function renderStandings() {
             <td class="team-cell">
                 <div class="team-entry">
                     ${createLogo(team)}
-                    <span class="team-name"><strong>${escapeHtml(team.team)}</strong></span>
+                    ${teamNameButton(team)}
                 </div>
             </td>
             <td>${team.played}</td>
@@ -441,7 +486,7 @@ function renderHistoryTable() {
             <td class="team-cell">
                 <div class="team-entry">
                     ${createLogo(team)}
-                    <span class="team-name"><strong>${escapeHtml(team.team)}</strong></span>
+                    ${teamNameButton(team)}
                 </div>
             </td>
             <td class="xpts-cell"><strong>${formatNumber(team.xPts)}</strong></td>
@@ -747,13 +792,14 @@ function chartChangeHtml(team, snapshot, metric) {
 
 function chartTooltipHtml(team, snapshot, metric) {
     const value = `<div class="chart-tooltip-value"><i style="background:${team.color || chartColors[0]}"></i>${escapeHtml(metric.label)}: <strong>${formatMetric(metric, valueForTeam(snapshot, team.key, metric.key))}${chartChangeHtml(team, snapshot, metric)}</strong></div>`;
+    const teamRow = `<div class="chart-tooltip-team"><img src="assets/logos/${escapeHtml(team.slug)}.svg" alt="">${escapeHtml(team.name)}</div>`;
     if (!Number(snapshot.playedMatches)) {
-        return `<div class="chart-tooltip-head"><span>${escapeHtml(snapshot.label)}</span></div>${value}`;
+        return `<div class="chart-tooltip-head"><span>${escapeHtml(snapshot.label)}</span></div>${teamRow}${value}`;
     }
 
     const match = matchForSnapshot(snapshot, team);
     if (!match) {
-        return `<div class="chart-tooltip-head"><span>${escapeHtml(snapshot.label)}</span></div><p class="chart-tooltip-empty">Brak meczu w tej kolejce</p>${value}`;
+        return `<div class="chart-tooltip-head"><span>${escapeHtml(snapshot.label)}</span></div>${teamRow}<p class="chart-tooltip-empty">Brak meczu w tej kolejce</p>${value}`;
     }
 
     const isHome = match.homeSlug === team.slug;
@@ -791,6 +837,153 @@ function showChartTooltip(dot) {
     tooltip.style.setProperty("--arrow-x", `${dotX - left + halfWidth}px`);
 }
 
+function showTip(target) {
+    const [title, text] = tips[target.dataset.tip];
+    tipBox.innerHTML = `<strong>${escapeHtml(title)}</strong><span>${escapeHtml(text)}</span>`;
+    tipBox.hidden = false;
+
+    // dymek jest przypiety do okna, bo tabele przewijaja sie w poziomie i obcinalyby go
+    const targetRect = target.getBoundingClientRect();
+    const targetX = targetRect.left + targetRect.width / 2;
+    const halfWidth = tipBox.offsetWidth / 2;
+    const left = Math.min(Math.max(targetX, halfWidth + 8), window.innerWidth - halfWidth - 8);
+    tipBox.style.left = `${left}px`;
+    tipBox.style.top = `${targetRect.bottom}px`;
+    tipBox.style.setProperty("--arrow-x", `${targetX - left + halfWidth}px`);
+}
+
+function hideTip() {
+    tipBox.hidden = true;
+}
+
+function teamCardMatchesHtml(slug) {
+    const matches = matchesForTeam(slug).slice(-5).reverse();
+    if (!matches.length) {
+        return `<p class="team-card-empty">Brak rozegranych meczów.</p>`;
+    }
+
+    return matches.map(match => {
+        const isHome = match.homeSlug === slug;
+        const outcome = matchOutcomeForTeam(match, slug);
+        const { letter, label } = formLabels[outcome];
+        const opponent = isHome ? match.awayTeam : match.homeTeam;
+        const opponentSlug = isHome ? match.awaySlug : match.homeSlug;
+        const goalsFor = isHome ? match.homeGoals : match.awayGoals;
+        const goalsAgainst = isHome ? match.awayGoals : match.homeGoals;
+        return `
+            <div class="team-card-match">
+                <span class="form-badge is-${outcome}" title="${escapeHtml(label)}">${letter}</span>
+                <strong>${goalsFor}-${goalsAgainst}</strong>
+                <span class="team-card-opponent">${createLogo({ slug: opponentSlug })}${escapeHtml(opponent)}</span>
+                <span class="team-card-meta">K${match.round} · ${isHome ? "dom" : "wyjazd"}</span>
+            </div>
+        `;
+    }).join("");
+}
+
+function teamCardFixtureHtml(slug) {
+    const fixture = nextFixtureForTeam(slug);
+    if (!fixture) {
+        return `<p class="team-card-empty">Brak meczu w najbliższej kolejce.</p>`;
+    }
+
+    const isHome = fixture.homeSlug === slug;
+    const opponent = isHome ? fixture.awayTeam : fixture.homeTeam;
+    const opponentSlug = isHome ? fixture.awaySlug : fixture.homeSlug;
+    const win = isHome ? fixture.homeWin : fixture.awayWin;
+    const loss = isHome ? fixture.awayWin : fixture.homeWin;
+    return `
+        <div class="team-card-next">
+            <div class="team-card-opponent">${createLogo({ slug: opponentSlug })}<strong>${escapeHtml(opponent)}</strong></div>
+            <span class="team-card-meta">Kolejka ${fixture.round} · ${isHome ? "u siebie" : "na wyjeździe"}</span>
+        </div>
+        <div class="probability-grid">
+            ${probabilityBlock("W", win, "home-win")}
+            ${probabilityBlock("R", fixture.draw, "draw")}
+            ${probabilityBlock("P", loss, "away-win")}
+        </div>
+    `;
+}
+
+function teamCardHtml(slug) {
+    const forecast = teams.find(team => team.slug === slug);
+    const current = standings.find(team => team.slug === slug);
+    const name = forecast?.team || current?.team || slug;
+    const tip = forecast ? teamTips[teamKey(forecast)] : "";
+    const facts = [
+        current ? `${current.rank}. w tabeli` : "",
+        forecast ? `${forecast.rank}. w prognozie` : "",
+        current ? `${current.wins}-${current.draws}-${current.losses}` : "",
+        current ? `${current.pts} pkt` : ""
+    ].filter(Boolean);
+
+    return `
+        <div class="team-card-head">
+            ${createLogo({ slug })}
+            <div>
+                <h3>${escapeHtml(name)}${tip ? `<sup class="team-note-mark" data-tip="${tip}">*</sup>` : ""}</h3>
+                ${facts.length ? `<p>${facts.map(escapeHtml).join(" · ")}</p>` : ""}
+            </div>
+        </div>
+        ${forecast ? `
+            <div class="team-card-chances">
+                <span>Tytuł <strong>${formatPercent(forecast.title)}</strong></span>
+                <span>Top 4 <strong>${formatPercent(forecast.top4)}</strong></span>
+                <span>Spadek <strong>${formatPercent(forecast.relegation)}</strong></span>
+                <span>xPts <strong>${formatNumber(forecast.xPts)}</strong></span>
+            </div>
+        ` : ""}
+        <section>
+            <h4>Ostatnie mecze</h4>
+            ${teamCardMatchesHtml(slug)}
+        </section>
+        <section>
+            <h4>Następny mecz</h4>
+            ${teamCardFixtureHtml(slug)}
+        </section>
+    `;
+}
+
+function placeTeamCard(anchor) {
+    const rect = anchor.getBoundingClientRect();
+    const pad = 8;
+    const width = teamCard.offsetWidth;
+    const height = teamCard.offsetHeight;
+    const left = Math.min(Math.max(rect.left, pad), window.innerWidth - width - pad);
+    const below = rect.bottom + 8;
+    const top = below + height > window.innerHeight - pad
+        ? Math.max(pad, rect.top - height - 8)
+        : below;
+    teamCard.style.left = `${Math.max(pad, left)}px`;
+    teamCard.style.top = `${top}px`;
+}
+
+function openTeamCard(slug, anchor, pinned) {
+    clearTimeout(state.teamCardTimer);
+    if (pinned) {
+        state.teamCardPinned = true;
+    }
+    if (state.teamCardSlug !== slug) {
+        state.teamCardSlug = slug;
+        teamCard.innerHTML = teamCardHtml(slug);
+    }
+    teamCard.hidden = false;
+    placeTeamCard(anchor);
+}
+
+function closeTeamCard() {
+    clearTimeout(state.teamCardTimer);
+    state.teamCardSlug = "";
+    state.teamCardPinned = false;
+    teamCard.hidden = true;
+}
+
+function scheduleCloseTeamCard() {
+    if (!state.teamCardPinned) {
+        state.teamCardTimer = setTimeout(closeTeamCard, 160);
+    }
+}
+
 function hideChartTooltips() {
     chartsPanel.querySelectorAll(".chart-tooltip").forEach(tooltip => {
         tooltip.hidden = true;
@@ -804,7 +997,7 @@ document.querySelectorAll("th button").forEach(button => {
             state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
         } else {
             state.sortKey = sortKey;
-            state.sortDirection = sortKey === "team" ? "asc" : "desc";
+            state.sortDirection = "desc";
         }
         renderTable();
     });
@@ -815,6 +1008,7 @@ document.querySelectorAll(".tab-button").forEach(button => {
         const tab = button.dataset.tab;
         document.querySelectorAll(".tab-button").forEach(item => item.classList.toggle("is-active", item === button));
         document.querySelectorAll(".tab-view").forEach(view => view.classList.toggle("is-active", view.dataset.view === tab));
+        closeTeamCard();
     });
 });
 
@@ -877,10 +1071,68 @@ document.addEventListener("pointerdown", event => {
     if (!event.target.closest(".chart-dot")) {
         hideChartTooltips();
     }
+    if (!event.target.closest("[data-tip]")) {
+        hideTip();
+    }
+    if (!event.target.closest(".team-link, #team-card")) {
+        closeTeamCard();
+    }
 });
 
+document.addEventListener("pointerover", event => {
+    const target = event.target.closest("[data-tip]");
+    if (target) {
+        showTip(target);
+    }
+    const link = event.target.closest(".team-link");
+    if (event.pointerType !== "touch" && link) {
+        openTeamCard(link.dataset.teamSlug, link, false);
+    } else if (event.target.closest("#team-card")) {
+        clearTimeout(state.teamCardTimer);
+    }
+});
+
+document.addEventListener("pointerout", event => {
+    const target = event.target.closest("[data-tip]");
+    if (event.pointerType !== "touch" && target && !target.contains(event.relatedTarget)) {
+        hideTip();
+    }
+    const fromTeam = event.target.closest(".team-link, #team-card");
+    if (event.pointerType !== "touch" && fromTeam && !event.relatedTarget?.closest(".team-link, #team-card")) {
+        scheduleCloseTeamCard();
+    }
+});
+
+document.addEventListener("click", event => {
+    const link = event.target.closest(".team-link");
+    if (link) {
+        openTeamCard(link.dataset.teamSlug, link, true);
+    }
+});
+
+document.addEventListener("focusin", event => {
+    const target = event.target.closest("[data-tip]");
+    if (target) {
+        showTip(target);
+    } else {
+        hideTip();
+    }
+});
+
+document.addEventListener("scroll", () => {
+    hideTip();
+    closeTeamCard();
+}, true);
+
 document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && !randomSimulationModal.hidden) {
+    if (event.key !== "Escape") {
+        return;
+    }
+    if (!teamCard.hidden) {
+        closeTeamCard();
+        return;
+    }
+    if (!randomSimulationModal.hidden) {
         closeRandomSimulation();
     }
 });

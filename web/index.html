@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Premier League Predictor</title>
     <link rel="icon" href="assets/favicon.png" type="image">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=dev">
 </head>
 <body>
     <div class="social-links" aria-label="Linki społecznościowe">
@@ -15,7 +15,7 @@
             </svg>
         </a>
         <a class="social-link linkedin-link" href="https://linkedin.com/in/siemek" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
+            <svg viewBox="-1.475 0 24 24" aria-hidden="true">
                 <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.34 8.18h4.32V23H.34V8.18ZM7.56 8.18h4.14v2.02h.06c.58-1.1 1.99-2.26 4.1-2.26 4.38 0 5.19 2.88 5.19 6.63V23h-4.32v-7.47c0-1.78-.03-4.07-2.48-4.07-2.49 0-2.87 1.94-2.87 3.94V23H7.56V8.18Z"/>
             </svg>
         </a>
@@ -25,7 +25,6 @@
         <section class="topbar" aria-labelledby="page-title">
             <div>
                 <h1 id="page-title">Premier League 2026/2027</h1>
-                <p class="lead" id="forecast-lead">Prognoza tabeli po symulacjach sezonu, oparta na oczekiwanych golach i rozkładach wyników.</p>
             </div>
             <div class="match-progress" aria-label="Postęp sezonu">
                 <div class="match-progress-copy">
@@ -34,19 +33,16 @@
                 </div>
                 <div class="match-progress-track" aria-hidden="true">
                     <span id="match-progress-fill"></span>
-                </div>
-                <p id="match-progress-caption">0 z 380 meczów Premier League zostało uwzględnionych jako fakty.</p>
-            </div>
+                </div>            </div>
         </section>
 
         <nav class="tabs" aria-label="Widoki strony">
-            <button class="tab-button is-active" type="button" data-tab="table">Tabela</button>
-            <button class="tab-button" type="button" data-tab="standings">Tabela ligowa</button>
+            <button class="tab-button is-active" type="button" data-tab="table">Przewidywana tabela</button>
+            <button class="tab-button" type="button" data-tab="standings">Rzeczywista tabela</button>
             <button class="tab-button" type="button" data-tab="upcoming">Nadchodzące mecze</button>
             <button class="tab-button" type="button" data-tab="results">Wyniki</button>
-            <button class="tab-button" type="button" data-tab="history">Historia</button>
+            <button class="tab-button" type="button" data-tab="history">Historia prognoz</button>
             <button class="tab-button" type="button" data-tab="charts">Wykresy</button>
-            <button class="tab-button" type="button" data-tab="how">Jak to działa</button>
         </nav>
 
         <section class="table-panel tab-view is-active" data-view="table" aria-label="Predicted Premier League table">
@@ -63,15 +59,15 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="rank-col"><button type="button" data-sort="rank">#</button></th>
-                            <th class="team-col"><button type="button" data-sort="team">Drużyna</button></th>
-                            <th class="xpts-header"><button type="button" data-sort="xPts">xPts</button></th>
-                            <th><button type="button" data-sort="xGF">xGF</button></th>
-                            <th><button type="button" data-sort="xGA">xGA</button></th>
-                            <th><button type="button" data-sort="xGD">xGD</button></th>
-                            <th><button type="button" data-sort="title">Tytuł</button></th>
-                            <th><button type="button" data-sort="top4">Top 4</button></th>
-                            <th><button type="button" data-sort="relegation">Spadek</button></th>
+                            <th class="rank-col" data-tip="rank"><button type="button" data-sort="rank">#</button></th>
+                            <th class="team-col">Drużyna</th>
+                            <th class="xpts-header" data-tip="xPts"><button type="button" data-sort="xPts">xPts</button></th>
+                            <th data-tip="xGF"><button type="button" data-sort="xGF">xGF</button></th>
+                            <th data-tip="xGA"><button type="button" data-sort="xGA">xGA</button></th>
+                            <th data-tip="xGD"><button type="button" data-sort="xGD">xGD</button></th>
+                            <th data-tip="title"><button type="button" data-sort="title">Tytuł</button></th>
+                            <th data-tip="top4"><button type="button" data-sort="top4">Top 4</button></th>
+                            <th data-tip="relegation"><button type="button" data-sort="relegation">Spadek</button></th>
                         </tr>
                     </thead>
                     <tbody id="table-body"></tbody>
@@ -90,16 +86,16 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="rank-col">#</th>
+                            <th class="rank-col" data-tip="position">#</th>
                             <th class="team-col">Drużyna</th>
-                            <th>M</th>
-                            <th>W</th>
-                            <th>R</th>
-                            <th>P</th>
-                            <th>G+</th>
-                            <th>G-</th>
-                            <th>+/-</th>
-                            <th class="xpts-header">Pkt</th>
+                            <th data-tip="played">M</th>
+                            <th data-tip="wins">W</th>
+                            <th data-tip="draws">R</th>
+                            <th data-tip="losses">P</th>
+                            <th data-tip="goalsFor">G+</th>
+                            <th data-tip="goalsAgainst">G-</th>
+                            <th data-tip="goalDiff">+/-</th>
+                            <th class="xpts-header" data-tip="points">Pkt</th>
                         </tr>
                     </thead>
                     <tbody id="standings-body"></tbody>
@@ -140,15 +136,15 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="rank-col">#</th>
+                            <th class="rank-col" data-tip="rank">#</th>
                             <th class="team-col">Drużyna</th>
-                            <th>xPts</th>
-                            <th>xGF</th>
-                            <th>xGA</th>
-                            <th>xGD</th>
-                            <th>Tytuł</th>
-                            <th>Top 4</th>
-                            <th>Spadek</th>
+                            <th data-tip="xPts">xPts</th>
+                            <th data-tip="xGF">xGF</th>
+                            <th data-tip="xGA">xGA</th>
+                            <th data-tip="xGD">xGD</th>
+                            <th data-tip="title">Tytuł</th>
+                            <th data-tip="top4">Top 4</th>
+                            <th data-tip="relegation">Spadek</th>
                         </tr>
                     </thead>
                     <tbody id="history-body"></tbody>
@@ -165,45 +161,11 @@
             <div class="charts-grid" id="charts-body"></div>
             <div class="custom-chart">
                 <div class="custom-chart-header">
-                    <h3>Własny wykres</h3>
+                    <h3>Kreator wykresów</h3>
                     <button class="action-button action-button-secondary" id="custom-chart-download" type="button">Zapisz jako PNG</button>
                 </div>
                 <div class="custom-chart-controls" id="custom-chart-controls"></div>
                 <div id="custom-chart-view"></div>
-            </div>
-        </section>
-
-        <section class="how-panel tab-view" data-view="how" aria-label="Jak działa model">
-            <div class="how-header">
-                <h2>Model najpierw uczy się goli, potem symuluje cały sezon.</h2>
-            </div>
-
-            <div class="steps-grid">
-                <article class="step-card">
-                    <span>1</span>
-                    <h3>Dane meczowe</h3>
-                    <p>Model korzysta z poprzednich sezonów Premier League: wyników, gospodarza, gościa, formy, ELO, historii bezpośrednich meczów i wartości kadry.</p>
-                </article>
-                <article class="step-card">
-                    <span>2</span>
-                    <h3>Oczekiwane gole</h3>
-                    <p>Dla każdego meczu osobno przewidywane są gole gospodarza i gościa. To są lambdy, czyli średnia liczba goli w rozkładzie Poissona.</p>
-                </article>
-                <article class="step-card">
-                    <span>3</span>
-                    <h3>Symulacje</h3>
-                    <p>Sezon jest rozgrywany tysiące razy. W każdym meczu wynik jest losowany z rozkładu Poissona, a potem liczona jest tabela.</p>
-                </article>
-                <article class="step-card">
-                    <span>4</span>
-                    <h3>Szanse</h3>
-                    <p>xPts to średnia punktów ze wszystkich symulacji. Procenty tytułu, Top 4 i spadku mówią, jak często dana sytuacja wystąpiła.</p>
-                </article>
-            </div>
-
-            <div class="model-note">
-                <strong>W praktyce:</strong>
-                <p>Model nie zgaduje jednej tabeli. Buduje wiele możliwych sezonów i pokazuje średni obraz: kto najczęściej kończy wysoko, kto ma największe ryzyko spadku i jak szeroki jest margines niepewności.</p>
             </div>
         </section>
     </main>
@@ -221,12 +183,12 @@
                 <table class="random-table">
                     <thead>
                         <tr>
-                            <th class="rank-col">#</th>
+                            <th class="rank-col" data-tip="simPosition">#</th>
                             <th class="team-col">Drużyna</th>
-                            <th>Pts</th>
-                            <th>GF</th>
-                            <th>GA</th>
-                            <th>GD</th>
+                            <th data-tip="simPoints">Pts</th>
+                            <th data-tip="simGoalsFor">GF</th>
+                            <th data-tip="simGoalsAgainst">GA</th>
+                            <th data-tip="simGoalDiff">GD</th>
                         </tr>
                     </thead>
                     <tbody id="random-simulation-body"></tbody>
@@ -235,8 +197,11 @@
         </section>
     </div>
 
-    <script src="forecast-data.js"></script>
-    <script src="forecast-history.js"></script>
-    <script src="app.js"></script>
+    <div class="tip-box" id="tip-box" role="tooltip" hidden></div>
+    <div class="team-card" id="team-card" role="dialog" aria-label="Karta drużyny" hidden></div>
+
+    <script src="forecast-data.js?v=dev"></script>
+    <script src="forecast-history.js?v=dev"></script>
+    <script src="app.js?v=dev"></script>
 </body>
 </html>
