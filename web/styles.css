@@ -761,19 +761,21 @@ h2 {
     line-height: 1;
 }
 
-.team-hero-copy p,
-.team-panel-header p,
+.team-hero .team-form {
+    gap: 8px;
+}
+
+.team-hero .form-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    font-size: 1.25rem;
+}
+
 .team-hero-note {
     margin: 0;
     color: var(--muted);
     font-weight: 700;
-}
-
-.team-hero-copy p {
-    font-weight: 900;
-}
-
-.team-hero-note {
     font-size: 0.86rem;
     line-height: 1.4;
 }
@@ -820,11 +822,6 @@ h2 {
 
 .team-chances .probability strong {
     font-size: 1.3rem;
-}
-
-.team-panel-header {
-    display: grid;
-    gap: 6px;
 }
 
 .dist-scroll {

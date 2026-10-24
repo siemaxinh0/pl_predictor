@@ -79,19 +79,12 @@ function recordText(matches, slug) {
 }
 
 function teamHeroHtml(team) {
-    const current = standings.find(row => row.slug === team.slug);
     const counts = teamDetails[team.slug]?.positionCounts || [];
     const note = teamNotes[teamKey(team)];
     const form = matchesForTeam(team.slug).slice(-5).map(match => {
         const outcome = matchOutcomeForTeam(match, team.slug);
         return `<span class="form-badge is-${outcome}" title="${escapeHtml(formLabels[outcome].label)}">${formLabels[outcome].letter}</span>`;
     }).join("");
-    const facts = current ? [
-        `${current.rank}. miejsce w tabeli`,
-        `${current.pts} pkt po ${current.played} meczach`,
-        `bilans ${current.wins}-${current.draws}-${current.losses}`,
-        `bramki ${current.gf}:${current.ga}`
-    ] : [];
 
     return `
         <section class="team-hero">
@@ -99,7 +92,6 @@ function teamHeroHtml(team) {
                 ${createLogo(team)}
                 <div class="team-hero-copy">
                     <h1>${escapeHtml(team.team)}</h1>
-                    ${facts.length ? `<p>${facts.join(" · ")}</p>` : ""}
                     ${form ? `<div class="team-form" aria-label="Ostatnie mecze">${form}</div>` : ""}
                 </div>
             </div>
@@ -162,10 +154,7 @@ function positionsHtml(team) {
 
     return `
         <section class="team-panel">
-            <div class="team-panel-header">
-                <h2>Na którym miejscu skończy sezon</h2>
-                <p>Jak często drużyna kończyła na każdym miejscu w 10 000 symulacji sezonu.</p>
-            </div>
+            <h2>Na którym miejscu skończy sezon</h2>
             <div class="team-facts">
                 ${fact("Najczęściej", `${likely + 1}. miejsce`, `${shareText(maxCount, total)} symulacji`)}
                 ${fact("8 na 10 symulacji", `${countsQuantile(counts, 0.1) + 1}.–${countsQuantile(counts, 0.9) + 1}. miejsce`)}
@@ -211,10 +200,7 @@ function pointsHtml(team) {
 
     return `
         <section class="team-panel">
-            <div class="team-panel-header">
-                <h2>Ile punktów zdobędzie</h2>
-                <p>Rozkład liczby punktów na koniec sezonu, razem z punktami już zdobytymi.</p>
-            </div>
+            <h2>Ile punktów zdobędzie</h2>
             <div class="team-facts">
                 ${fact("Mediana", `${details.pointsMin + median} pkt`, "połowa symulacji kończy wyżej")}
                 ${fact("8 na 10 symulacji", `${details.pointsMin + low}–${details.pointsMin + high} pkt`)}
@@ -242,10 +228,7 @@ function historyChartsHtml(team) {
 
     return `
         <section class="team-panel">
-            <div class="team-panel-header">
-                <h2>Jak zmieniała się prognoza</h2>
-                <p>Prognoza po każdej kolejce. Najedź na punkt, żeby zobaczyć mecz z tej kolejki.</p>
-            </div>
+            <h2>Jak zmieniała się prognoza</h2>
             <div class="charts-grid team-charts">${cards}</div>
         </section>
     `;
@@ -256,7 +239,7 @@ function playedHtml(team) {
     if (!matches.length) {
         return `
             <section class="team-panel">
-                <div class="team-panel-header"><h2>Rozegrane mecze</h2></div>
+                <h2>Rozegrane mecze</h2>
                 <p class="empty-state">Brak rozegranych meczów.</p>
             </section>
         `;
@@ -288,10 +271,7 @@ function playedHtml(team) {
 
     return `
         <section class="team-panel">
-            <div class="team-panel-header">
-                <h2>Rozegrane mecze</h2>
-                <p>Wyniki razem z szansami, jakie model dawał przed meczem.</p>
-            </div>
+            <h2>Rozegrane mecze</h2>
             <div class="team-facts">
                 ${fact("U siebie", home.text, `${home.points} pkt`)}
                 ${fact("Na wyjeździe", away.text, `${away.points} pkt`)}
@@ -343,7 +323,7 @@ function scheduleHtml(team) {
     if (!fixtures.length) {
         return `
             <section class="team-panel">
-                <div class="team-panel-header"><h2>Pozostałe mecze</h2></div>
+                <h2>Pozostałe mecze</h2>
                 <p class="empty-state">Sezon zakończony, brak meczów do rozegrania.</p>
             </section>
         `;
@@ -375,10 +355,7 @@ function scheduleHtml(team) {
 
     return `
         <section class="team-panel">
-            <div class="team-panel-header">
-                <h2>Pozostałe mecze</h2>
-                <p>Cały terminarz do końca sezonu z szansami z perspektywy drużyny.</p>
-            </div>
+            <h2>Pozostałe mecze</h2>
             <div class="team-facts">
                 ${fact("Mecze do rozegrania", fixtures.length)}
                 ${fact("Oczekiwane punkty", formatNumber(totalPoints), `${formatLambda(totalPoints / fixtures.length)} na mecz`)}
