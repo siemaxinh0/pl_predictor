@@ -15,10 +15,16 @@ const state = {
 };
 
 const metricConfigs = [
-    { key: "title", label: "Szansa na tytuł" },
-    { key: "top4", label: "Szansa na Top 4" },
-    { key: "relegation", label: "Ryzyko spadku" }
+    { key: "title", label: "Szansa na tytuł", percent: true },
+    { key: "top4", label: "Szansa na Top 4", percent: true },
+    { key: "relegation", label: "Ryzyko spadku", percent: true, lowerIsBetter: true },
+    { key: "xPts", label: "Prognozowane punkty (xPts)" },
+    { key: "xGD", label: "Prognozowana różnica bramek (xGD)" },
+    { key: "xGF", label: "Prognozowane gole strzelone (xGF)" },
+    { key: "xGA", label: "Prognozowane gole stracone (xGA)", lowerIsBetter: true },
+    { key: "rank", label: "Prognozowane miejsce w tabeli", lowerIsBetter: true }
 ];
+const presetChartKeys = ["title", "top4", "relegation"];
 
 const chartColors = ["#3d195b", "#e94091", "#00a3ff", "#00a878", "#f2a900", "#6a37a8"];
 const teamColors = {
@@ -53,7 +59,11 @@ const upcomingBody = document.querySelector("#upcoming-body");
 const historySelect = document.querySelector("#history-select");
 const historyBody = document.querySelector("#history-body");
 const historyTitle = document.querySelector("#history-title");
+const chartsPanel = document.querySelector("[data-view='charts']");
 const chartsBody = document.querySelector("#charts-body");
+const customChartControls = document.querySelector("#custom-chart-controls");
+const customChartView = document.querySelector("#custom-chart-view");
+const customChartDownload = document.querySelector("#custom-chart-download");
 const randomSimulationButton = document.querySelector("#random-simulation-button");
 const randomSimulationModal = document.querySelector("#random-simulation-modal");
 const randomSimulationTitle = document.querySelector("#random-simulation-title");
@@ -112,6 +122,12 @@ function buildTimelineSnapshots() {
 
 const historySnapshots = buildTimelineSnapshots();
 state.historyIndex = Math.max(historySnapshots.length - 1, 0);
+state.customChart = {
+    metric: "title",
+    from: 0,
+    to: state.historyIndex,
+    teams: latestTeams().slice(0, 4).map(teamKey)
+};
 state.resultsRound = results.length ? Math.max(...results.map(match => Number(match.round))) : 0;
 
 function sortTeams(rows) {
@@ -453,85 +469,113 @@ function valueForTeam(snapshot, wantedTeamKey, metricKey) {
     return Number(team?.[metricKey] || 0);
 }
 
-function teamsForMetric(metricKey) {
-    const latestSnapshot = historySnapshots[historySnapshots.length - 1];
-    if (!latestSnapshot) {
-        return [];
-    }
-
-    const rankedTeams = [...latestSnapshot.teams]
-        .sort((first, second) => Number(second[metricKey] || 0) - Number(first[metricKey] || 0))
-        .slice(0, 5);
-
-    return rankedTeams.map(team => ({
-        key: teamKey(team),
-        name: team.team,
-        slug: team.slug,
-        color: teamColors[teamKey(team)]
-    }));
+function metricByKey(key) {
+    return metricConfigs.find(metric => metric.key === key);
 }
 
-function chartPoint(snapshotIndex, value, maxValue, width, height, margin) {
+function formatMetric(metric, value) {
+    if (metric.percent) {
+        return formatPercent(value);
+    }
+    return metric.key === "rank" ? `${Math.round(value)}.` : formatNumber(value);
+}
+
+function axisLabel(snapshot) {
+    return snapshot.label.replace(/^Po (\d+)\. kolejce$/, "$1. kolejka");
+}
+
+function chartTeam(team) {
+    return { key: teamKey(team), name: team.team, slug: team.slug, color: teamColors[teamKey(team)] };
+}
+
+function latestTeams() {
+    const latestSnapshot = historySnapshots[historySnapshots.length - 1];
+    return latestSnapshot ? [...latestSnapshot.teams].sort((first, second) => Number(first.rank) - Number(second.rank)) : [];
+}
+
+function teamsForMetric(metricKey) {
+    return latestTeams()
+        .sort((first, second) => Number(second[metricKey] || 0) - Number(first[metricKey] || 0))
+        .slice(0, 5)
+        .map(chartTeam);
+}
+
+function chartScale(metric, values) {
+    if (metric.key === "rank") {
+        return { min: 1, max: Math.max(20, ...values), invert: true };
+    }
+    if (metric.percent) {
+        const maxObserved = Math.max(1, ...values);
+        return { min: 0, max: Math.min(100, Math.max(10, Math.ceil(maxObserved / 10) * 10)) };
+    }
+    const low = Math.min(...values);
+    const high = Math.max(...values);
+    const step = high - low > 20 ? 10 : 5;
+    const min = Math.floor(low / step) * step;
+    return { min, max: Math.max(Math.ceil(high / step) * step, min + step) };
+}
+
+function chartPoint(index, count, value, scale, width, height, margin) {
     const plotWidth = width - margin.left - margin.right;
     const plotHeight = height - margin.top - margin.bottom;
-    const x = historySnapshots.length === 1
-        ? margin.left + plotWidth / 2
-        : margin.left + (snapshotIndex * plotWidth) / (historySnapshots.length - 1);
-    const y = margin.top + ((maxValue - value) / maxValue) * plotHeight;
+    const x = count === 1 ? margin.left + plotWidth / 2 : margin.left + (index * plotWidth) / (count - 1);
+    const share = (value - scale.min) / (scale.max - scale.min);
+    const y = margin.top + (scale.invert ? share : 1 - share) * plotHeight;
     return { x, y };
 }
 
-function renderChartCard(config) {
-    if (!historySnapshots.length) {
+const chartViews = new Map();
+
+function renderChartCard(id, metric, teams, snapshots) {
+    if (!snapshots.length) {
         return `<article class="chart-card"><p class="empty-state">Brak danych do wykresu.</p></article>`;
     }
+    if (!teams.length) {
+        return `<article class="chart-card"><p class="empty-state">Wybierz co najmniej jedną drużynę.</p></article>`;
+    }
 
+    chartViews.set(id, { metric, teams, snapshots });
     const width = 720;
     const height = 300;
     const margin = { top: 28, right: 28, bottom: 48, left: 48 };
-    const selectedTeams = teamsForMetric(config.key);
-    const maxObserved = Math.max(1, ...selectedTeams.flatMap(team => historySnapshots.map(snapshot => valueForTeam(snapshot, team.key, config.key))));
-    const maxValue = Math.min(100, Math.max(10, Math.ceil(maxObserved / 10) * 10));
+    const scale = chartScale(metric, teams.flatMap(team => snapshots.map(snapshot => valueForTeam(snapshot, team.key, metric.key))));
 
-    const lines = selectedTeams.map((team, teamIndex) => {
+    const lines = teams.map((team, teamIndex) => {
         const color = team.color || chartColors[teamIndex % chartColors.length];
-        const pointsData = historySnapshots.map((snapshot, snapshotIndex) => chartPoint(snapshotIndex, valueForTeam(snapshot, team.key, config.key), maxValue, width, height, margin));
-        const points = historySnapshots.map((snapshot, snapshotIndex) => {
-            const point = pointsData[snapshotIndex];
-            return `${point.x.toFixed(1)},${point.y.toFixed(1)}`;
-        }).join(" ");
-        const dots = historySnapshots.map((snapshot, snapshotIndex) => {
-            const point = pointsData[snapshotIndex];
-            return `<circle class="chart-dot" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="4" fill="${color}" data-team="${teamIndex}" data-snapshot="${snapshotIndex}"></circle>`;
-        }).join("");
+        const pointsData = snapshots.map((snapshot, snapshotIndex) => chartPoint(snapshotIndex, snapshots.length, valueForTeam(snapshot, team.key, metric.key), scale, width, height, margin));
+        const points = pointsData.map(point => `${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
+        const dots = pointsData.map((point, snapshotIndex) => `<circle class="chart-dot" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="4" fill="${color}" data-team="${teamIndex}" data-snapshot="${snapshotIndex}"></circle>`).join("");
         const finalPoint = pointsData[pointsData.length - 1];
         const logo = `<image class="chart-logo" href="assets/logos/${escapeHtml(team.slug)}.svg" x="${(finalPoint.x - 14).toFixed(1)}" y="${(finalPoint.y - 14).toFixed(1)}" width="28" height="28"></image>`;
         return `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></polyline>${dots}${logo}`;
     }).join("");
 
-    const labels = historySnapshots.map((snapshot, snapshotIndex) => {
-        const point = chartPoint(snapshotIndex, 0, maxValue, width, height, margin);
-        const label = snapshot.label.replace(/^Po (\d+)\. kolejce$/, "$1. kolejka");
-        return `<text x="${point.x.toFixed(1)}" y="${height - 16}" text-anchor="middle">${escapeHtml(label)}</text>`;
+    // przy calym sezonie podpisy kolejek by na siebie nachodzily, wiec zostaje co n-ty
+    const labelStep = Math.ceil(snapshots.length / 10);
+    const labels = snapshots.map((snapshot, snapshotIndex) => {
+        if (snapshotIndex % labelStep !== 0) {
+            return "";
+        }
+        const point = chartPoint(snapshotIndex, snapshots.length, scale.min, scale, width, height, margin);
+        return `<text x="${point.x.toFixed(1)}" y="${height - 16}" text-anchor="middle">${escapeHtml(axisLabel(snapshot))}</text>`;
     }).join("");
 
-    const legend = selectedTeams.map((team, teamIndex) => `
+    const legend = teams.map((team, teamIndex) => `
         <span><img src="assets/logos/${escapeHtml(team.slug)}.svg" alt=""><i style="background:${team.color || chartColors[teamIndex % chartColors.length]}"></i>${escapeHtml(team.name)}</span>
     `).join("");
 
     return `
-        <article class="chart-card" data-metric="${config.key}">
+        <article class="chart-card" data-chart="${id}">
             <div class="chart-card-header">
-                <h3>${escapeHtml(config.label)}</h3>
-                <span>0-${formatPercent(maxValue)}</span>
+                <h3>${escapeHtml(metric.label)}</h3>
             </div>
             <div class="chart-scroll">
-            <svg class="trend-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(config.label)}">
+            <svg class="trend-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(metric.label)}">
                 <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}" class="chart-axis"></line>
                 <line x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}" class="chart-axis"></line>
                 <line x1="${margin.left}" y1="${margin.top}" x2="${width - margin.right}" y2="${margin.top}" class="chart-grid"></line>
-                <text x="12" y="${margin.top + 4}">${formatPercent(maxValue)}</text>
-                <text x="24" y="${height - margin.bottom + 4}">0%</text>
+                <text x="${margin.left - 8}" y="${margin.top + 4}" text-anchor="end">${formatMetric(metric, scale.invert ? scale.min : scale.max)}</text>
+                <text x="${margin.left - 8}" y="${height - margin.bottom + 4}" text-anchor="end">${formatMetric(metric, scale.invert ? scale.max : scale.min)}</text>
                 ${labels}
                 ${lines}
             </svg>
@@ -543,7 +587,138 @@ function renderChartCard(config) {
 }
 
 function renderCharts() {
-    chartsBody.innerHTML = metricConfigs.map(renderChartCard).join("");
+    chartsBody.innerHTML = presetChartKeys.map(key => renderChartCard(key, metricByKey(key), teamsForMetric(key), historySnapshots)).join("");
+}
+
+function renderCustomChartControls() {
+    const { metric, from, to, teams } = state.customChart;
+    const snapshotOptions = selected => historySnapshots.map((snapshot, index) => `<option value="${index}" ${index === selected ? "selected" : ""}>${escapeHtml(axisLabel(snapshot))}</option>`).join("");
+    customChartControls.innerHTML = `
+        <label class="custom-chart-metric">Statystyka
+            <select class="history-select" data-custom="metric">
+                ${metricConfigs.map(item => `<option value="${item.key}" ${item.key === metric ? "selected" : ""}>${escapeHtml(item.label)}</option>`).join("")}
+            </select>
+        </label>
+        <label>Od<select class="history-select" data-custom="from">${snapshotOptions(from)}</select></label>
+        <label>Do<select class="history-select" data-custom="to">${snapshotOptions(to)}</select></label>
+        <div class="team-picker" role="group" aria-label="Drużyny na wykresie">
+            ${latestTeams().map(team => `
+                <button class="team-chip" type="button" data-team-key="${escapeHtml(teamKey(team))}" aria-pressed="${teams.includes(teamKey(team))}">
+                    <img src="assets/logos/${escapeHtml(team.slug)}.svg" alt="">${escapeHtml(team.team)}
+                </button>
+            `).join("")}
+        </div>
+    `;
+}
+
+function renderCustomChart() {
+    const { metric, from, to, teams } = state.customChart;
+    const snapshots = historySnapshots.slice(Math.min(from, to), Math.max(from, to) + 1);
+    const selectedTeams = latestTeams().filter(team => teams.includes(teamKey(team))).map(chartTeam);
+    customChartView.innerHTML = renderChartCard("custom", metricByKey(metric), selectedTeams, snapshots);
+    customChartDownload.disabled = !selectedTeams.length;
+}
+
+const logoDataUrls = new Map();
+
+function logoDataUrl(href) {
+    if (!logoDataUrls.has(href)) {
+        // wykres zapisany jako obrazek nie pobiera zewnetrznych plikow, wiec herby musza byc wklejone w srodek
+        logoDataUrls.set(href, fetch(href)
+            .then(response => response.ok ? response.text() : Promise.reject())
+            .then(text => `data:image/svg+xml;charset=utf-8,${encodeURIComponent(text)}`)
+            .catch(() => null));
+    }
+    return logoDataUrls.get(href);
+}
+
+function loadImage(src) {
+    return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = reject;
+        image.src = src;
+    });
+}
+
+async function exportChartSvg(svg, view) {
+    const clone = svg.cloneNode(true);
+    const sources = [...svg.querySelectorAll("*")];
+    const properties = ["fill", "stroke", "stroke-width", "stroke-dasharray", "font-family", "font-size", "font-weight"];
+    [...clone.querySelectorAll("*")].forEach((element, index) => {
+        const computed = getComputedStyle(sources[index]);
+        element.setAttribute("style", properties.map(property => `${property}:${computed.getPropertyValue(property)}`).join(";"));
+    });
+    await Promise.all([...clone.querySelectorAll("image")].map(async image => {
+        const dataUrl = await logoDataUrl(image.getAttribute("href"));
+        dataUrl ? image.setAttribute("href", dataUrl) : image.remove();
+    }));
+
+    const width = 720;
+    const padding = 24;
+    const font = "font-family:'Trebuchet MS',sans-serif;font-weight:900";
+    const measure = document.createElement("canvas").getContext("2d");
+    measure.font = "900 14px 'Trebuchet MS', sans-serif";
+    let x = padding;
+    let y = 380;
+    const legend = [];
+    for (const [index, team] of view.teams.entries()) {
+        const itemWidth = 44 + measure.measureText(team.name).width + 18;
+        if (x + itemWidth > width - padding && x > padding) {
+            x = padding;
+            y += 30;
+        }
+        const logo = await logoDataUrl(`assets/logos/${team.slug}.svg`);
+        legend.push(`
+            ${logo ? `<image href="${logo}" x="${x}" y="${y - 15}" width="20" height="20"></image>` : ""}
+            <circle cx="${x + 31}" cy="${y - 5}" r="5" fill="${team.color || chartColors[index % chartColors.length]}"></circle>
+            <text x="${x + 42}" y="${y}" style="${font};font-size:14px;fill:#69758b">${escapeHtml(team.name)}</text>
+        `);
+        x += itemWidth;
+    }
+
+    const first = view.snapshots[0];
+    const last = view.snapshots[view.snapshots.length - 1];
+    const title = `${view.metric.label}: ${axisLabel(first)} – ${axisLabel(last)}`;
+    const height = y + 28;
+    const content = [...clone.childNodes].map(node => new XMLSerializer().serializeToString(node)).join("");
+    return {
+        width,
+        height,
+        markup: `
+            <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+                <rect width="${width}" height="${height}" fill="#ffffff"></rect>
+                <text x="${padding}" y="38" style="${font};font-size:20px;fill:#240030">${escapeHtml(title)}</text>
+                <g transform="translate(0 52)">${content}</g>
+                ${legend.join("")}
+            </svg>
+        `
+    };
+}
+
+async function downloadCustomChart() {
+    const view = chartViews.get("custom");
+    const svg = customChartView.querySelector("svg");
+    if (!view || !svg) {
+        return;
+    }
+
+    const { width, height, markup } = await exportChartSvg(svg, view);
+    const image = await loadImage(`data:image/svg+xml;charset=utf-8,${encodeURIComponent(markup)}`);
+    const scale = 2;
+    const canvas = document.createElement("canvas");
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const context = canvas.getContext("2d");
+    context.scale(scale, scale);
+    context.drawImage(image, 0, 0, width, height);
+    canvas.toBlob(blob => {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = `wykres-${view.metric.key}.png`;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+    }, "image/png");
 }
 
 function matchForSnapshot(snapshot, team) {
@@ -560,14 +735,18 @@ function chartChangeHtml(team, snapshot, metric) {
         return "";
     }
     const change = Math.round((valueForTeam(snapshot, team.key, metric.key) - valueForTeam(previous, team.key, metric.key)) * 10) / 10;
-    // wiekszy procent spadku to zla wiadomosc, wiec tam kolory sa odwrotne
-    const isGood = metric.key === "relegation" ? change < 0 : change > 0;
+    const isGood = metric.lowerIsBetter ? change < 0 : change > 0;
     const className = change === 0 ? "is-flat" : isGood ? "is-good" : "is-bad";
-    return `<em class="chart-tooltip-change ${className}">(${change > 0 ? "+" : ""}${formatPercent(change)})</em>`;
+    if (metric.key === "rank") {
+        const places = Math.abs(Math.round(change));
+        return `<em class="chart-tooltip-change ${className}">(${change < 0 ? `▲${places}` : change > 0 ? `▼${places}` : "bez zmian"})</em>`;
+    }
+    const text = metric.percent ? formatPercent(change) : formatNumber(change);
+    return `<em class="chart-tooltip-change ${className}">(${change > 0 ? "+" : ""}${text})</em>`;
 }
 
 function chartTooltipHtml(team, snapshot, metric) {
-    const value = `<div class="chart-tooltip-value"><i style="background:${team.color || chartColors[0]}"></i>${escapeHtml(metric.label)}: <strong>${formatPercent(valueForTeam(snapshot, team.key, metric.key))}${chartChangeHtml(team, snapshot, metric)}</strong></div>`;
+    const value = `<div class="chart-tooltip-value"><i style="background:${team.color || chartColors[0]}"></i>${escapeHtml(metric.label)}: <strong>${formatMetric(metric, valueForTeam(snapshot, team.key, metric.key))}${chartChangeHtml(team, snapshot, metric)}</strong></div>`;
     if (!Number(snapshot.playedMatches)) {
         return `<div class="chart-tooltip-head"><span>${escapeHtml(snapshot.label)}</span></div>${value}`;
     }
@@ -595,9 +774,8 @@ function chartTooltipHtml(team, snapshot, metric) {
 function showChartTooltip(dot) {
     const card = dot.closest(".chart-card");
     const tooltip = card.querySelector(".chart-tooltip");
-    const metric = metricConfigs.find(item => item.key === card.dataset.metric);
-    const team = teamsForMetric(metric.key)[Number(dot.dataset.team)];
-    tooltip.innerHTML = chartTooltipHtml(team, historySnapshots[Number(dot.dataset.snapshot)], metric);
+    const view = chartViews.get(card.dataset.chart);
+    tooltip.innerHTML = chartTooltipHtml(view.teams[Number(dot.dataset.team)], view.snapshots[Number(dot.dataset.snapshot)], view.metric);
     tooltip.hidden = false;
 
     const cardRect = card.getBoundingClientRect();
@@ -614,7 +792,7 @@ function showChartTooltip(dot) {
 }
 
 function hideChartTooltips() {
-    chartsBody.querySelectorAll(".chart-tooltip").forEach(tooltip => {
+    chartsPanel.querySelectorAll(".chart-tooltip").forEach(tooltip => {
         tooltip.hidden = true;
     });
 }
@@ -659,14 +837,36 @@ document.querySelectorAll("[data-random-close]").forEach(element => {
     element.addEventListener("click", closeRandomSimulation);
 });
 
-chartsBody.addEventListener("pointerover", event => {
+customChartControls.addEventListener("change", event => {
+    const field = event.target.dataset.custom;
+    if (field) {
+        state.customChart[field] = field === "metric" ? event.target.value : Number(event.target.value);
+        renderCustomChart();
+    }
+});
+
+customChartDownload.addEventListener("click", downloadCustomChart);
+
+customChartControls.addEventListener("click", event => {
+    const chip = event.target.closest(".team-chip");
+    if (!chip) {
+        return;
+    }
+    const key = chip.dataset.teamKey;
+    const teams = state.customChart.teams;
+    state.customChart.teams = teams.includes(key) ? teams.filter(item => item !== key) : [...teams, key];
+    chip.setAttribute("aria-pressed", String(!teams.includes(key)));
+    renderCustomChart();
+});
+
+chartsPanel.addEventListener("pointerover", event => {
     const dot = event.target.closest(".chart-dot");
     if (dot) {
         showChartTooltip(dot);
     }
 });
 
-chartsBody.addEventListener("pointerout", event => {
+chartsPanel.addEventListener("pointerout", event => {
     // na ekranie dotykowym dymek zostaje po puszczeniu palca i znika dopiero po dotknieciu obok
     if (event.pointerType !== "touch" && event.target.closest(".chart-dot")) {
         hideChartTooltips();
@@ -692,4 +892,6 @@ renderUpcomingFixtures();
 renderResultsControls();
 renderResults();
 renderHistory();
+renderCustomChartControls();
+renderCustomChart();
 renderCharts();

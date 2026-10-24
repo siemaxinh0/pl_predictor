@@ -339,18 +339,85 @@ h2 {
     background: #ffffff;
 }
 
+.custom-chart {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    margin-top: 16px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px;
+    background: var(--panel-strong);
+}
+
+.custom-chart-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+.custom-chart-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+}
+
+.custom-chart-controls label {
+    display: grid;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.custom-chart-controls .history-select {
+    width: 100%;
+    margin: 0;
+    text-transform: none;
+}
+
+.team-picker {
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: 1 / -1;
+    gap: 6px;
+}
+
+.team-chip {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 10px 4px 5px;
+    color: var(--muted);
+    background: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.team-chip img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.team-chip[aria-pressed="true"] {
+    border-color: var(--purple);
+    color: #ffffff;
+    background: var(--purple);
+}
+
 .chart-card-header {
     display: flex;
     justify-content: space-between;
     gap: 14px;
     align-items: center;
     margin-bottom: 12px;
-}
-
-.chart-card-header span {
-    color: var(--muted);
-    font-size: 0.84rem;
-    font-weight: 900;
 }
 
 .chart-scroll {
@@ -1230,6 +1297,18 @@ td {
     .trend-chart {
         min-width: 600px;
         min-height: 0;
+    }
+
+    .custom-chart {
+        padding: 12px;
+    }
+
+    .custom-chart-controls {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .custom-chart-metric {
+        grid-column: 1 / -1;
     }
 
     .table-actions,
