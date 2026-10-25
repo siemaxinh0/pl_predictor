@@ -75,7 +75,7 @@ function recordText(matches, slug) {
     matches.forEach(match => {
         counts[matchOutcomeForTeam(match, slug)] += 1;
     });
-    return { text: `${counts.win}-${counts.draw}-${counts.loss}`, points: counts.win * 3 + counts.draw };
+    return `${counts.win}-${counts.draw}-${counts.loss}`;
 }
 
 function teamHeroHtml(team) {
@@ -265,8 +265,6 @@ function playedHtml(team) {
     const away = recordText(matches.filter(match => match.awaySlug === team.slug), team.slug);
     const goalsFor = sides.reduce((sum, item) => sum + item.side.goalsFor, 0);
     const goalsAgainst = sides.reduce((sum, item) => sum + item.side.goalsAgainst, 0);
-    const xgFor = sides.reduce((sum, item) => sum + item.side.xgFor, 0);
-    const xgAgainst = sides.reduce((sum, item) => sum + item.side.xgAgainst, 0);
     const hits = sides.filter(item => modelPick(item.side) === item.outcome).length;
     const surprise = sides.reduce((lowest, item) => (item.side[item.outcome] < lowest.side[lowest.outcome] ? item : lowest));
     const rows = [...sides].reverse().map(({ match, side, outcome }) => {
@@ -288,10 +286,10 @@ function playedHtml(team) {
         <section class="team-panel">
             <h2>Rozegrane mecze</h2>
             <div class="team-facts">
-                ${fact("U siebie", home.text, `${home.points} pkt`)}
-                ${fact("Na wyjeździe", away.text, `${away.points} pkt`)}
-                ${fact("Gole strzelone", goalsFor, `model spodziewał się ${formatNumber(xgFor)}`)}
-                ${fact("Gole stracone", goalsAgainst, `model spodziewał się ${formatNumber(xgAgainst)}`)}
+                ${fact("U siebie", home)}
+                ${fact("Na wyjeździe", away)}
+                ${fact("Gole strzelone", goalsFor)}
+                ${fact("Gole stracone", goalsAgainst)}
                 ${fact("Trafione typy modelu", `${hits} z ${sides.length}`)}
                 ${fact("Największa niespodzianka", `${escapeHtml(surprise.match.homeTeam)} ${surprise.match.homeGoals}-${surprise.match.awayGoals} ${escapeHtml(surprise.match.awayTeam)}`, `model dawał ${formatPercent(surprise.side[surprise.outcome])} na taki wynik`)}
             </div>
