@@ -81,9 +81,11 @@ function recordText(matches, slug) {
 function teamHeroHtml(team) {
     const counts = teamDetails[team.slug]?.positionCounts || [];
     const note = teamNotes[teamKey(team)];
-    const form = matchesForTeam(team.slug).slice(-5).map(match => {
+    const matches = matchesForTeam(team.slug);
+    const form = matches.slice(-5).map((match, index) => {
         const outcome = matchOutcomeForTeam(match, team.slug);
-        return `<span class="form-badge is-${outcome}" title="${escapeHtml(formLabels[outcome].label)}">${formLabels[outcome].letter}</span>`;
+        const label = `${formLabels[outcome].label}: ${match.homeTeam} ${match.homeGoals}-${match.awayGoals} ${match.awayTeam}`;
+        return `<button type="button" class="form-badge is-${outcome}" data-form-match="${Math.max(0, matches.length - 5) + index}" aria-label="${escapeHtml(label)}">${formLabels[outcome].letter}</button>`;
     }).join("");
 
     return `
@@ -122,8 +124,88 @@ function teamHeroHtml(team) {
                 ${probabilityBlock("Spadek", team.relegation, "away-win")}
             </div>
             ${note ? `<p class="team-hero-note"><span class="team-note-mark">*</span> <strong>${escapeHtml(note[0])}.</strong> ${escapeHtml(note[1])}</p>` : ""}
+            <div class="chart-tooltip form-tooltip is-below" hidden></div>
         </section>
     `;
+}
+
+function formTooltipHtml(match, slug) {
+    const side = teamSide(match, slug);
+    const outcome = matchOutcomeForTeam(match, slug);
+    const odds = ["win", "draw", "loss"].map(key => `
+        <div class="team-odds form-tooltip-odd is-${key} ${key === outcome ? "is-actual" : ""}" style="--probability: ${side[key]}%">
+            <span>${formLabels[key].label}</span>
+            <strong>${formatPercent(side[key])}</strong>
+        </div>
+    `).join("");
+    return `
+        <div class="chart-tooltip-head"><span>Kolejka ${match.round} · ${side.isHome ? "dom" : "wyjazd"}</span><b class="chart-tooltip-outcome is-${outcome}">${formLabels[outcome].label}</b></div>
+        ${tooltipMatchHtml(match, slug)}
+        <div class="form-tooltip-odds">${odds}</div>
+        <div class="chart-tooltip-value">Prognoza goli<strong>${formatLambda(side.xgFor)} - ${formatLambda(side.xgAgainst)}</strong></div>
+    `;
+}
+
+function showFormTooltip(badge) {
+    const hero = badge.closest(".team-hero");
+    const tooltip = hero.querySelector(".form-tooltip");
+    const match = matchesForTeam(club.slug)[Number(badge.dataset.formMatch)];
+    hero.querySelectorAll(".form-badge.is-active").forEach(item => item.classList.remove("is-active"));
+    badge.classList.add("is-active");
+    tooltip.innerHTML = formTooltipHtml(match, club.slug);
+    tooltip.hidden = false;
+
+    const heroRect = hero.getBoundingClientRect();
+    const badgeRect = badge.getBoundingClientRect();
+    const badgeX = badgeRect.left + badgeRect.width / 2 - heroRect.left;
+    const halfWidth = tooltip.offsetWidth / 2;
+    const left = Math.min(Math.max(badgeX, halfWidth + 8), heroRect.width - halfWidth - 8);
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${badgeRect.bottom - heroRect.top}px`;
+    tooltip.style.setProperty("--arrow-x", `${badgeX - left + halfWidth}px`);
+}
+
+function hideFormTooltip() {
+    teamPage.querySelectorAll(".form-badge.is-active").forEach(item => item.classList.remove("is-active"));
+    const tooltip = teamPage.querySelector(".form-tooltip");
+    if (tooltip) {
+        tooltip.hidden = true;
+    }
+}
+
+function bindFormTooltip() {
+    teamPage.addEventListener("pointerover", event => {
+        const badge = event.target.closest("[data-form-match]");
+        if (badge) {
+            showFormTooltip(badge);
+        }
+    });
+
+    teamPage.addEventListener("pointerout", event => {
+        // na telefonie dymek zostaje po puszczeniu palca i znika po dotknieciu obok
+        if (event.pointerType !== "touch" && event.target.closest("[data-form-match]")) {
+            hideFormTooltip();
+        }
+    });
+
+    teamPage.addEventListener("focusin", event => {
+        const badge = event.target.closest("[data-form-match]");
+        if (badge) {
+            showFormTooltip(badge);
+        }
+    });
+
+    teamPage.addEventListener("focusout", event => {
+        if (event.target.closest("[data-form-match]")) {
+            hideFormTooltip();
+        }
+    });
+
+    document.addEventListener("pointerdown", event => {
+        if (!event.target.closest("[data-form-match]")) {
+            hideFormTooltip();
+        }
+    });
 }
 
 function distBar(share, label = "") {
@@ -414,5 +496,6 @@ function renderTeamPage() {
 }
 
 bindChartTooltips(teamPage);
+bindFormTooltip();
 
 renderTeamPage();

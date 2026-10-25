@@ -317,12 +317,19 @@ function chartTooltipHtml(team, snapshot, metric) {
     const [outcomeLabel, outcomeClass] = goalsFor > goalsAgainst ? ["Wygrana", "is-win"] : goalsFor === goalsAgainst ? ["Remis", "is-draw"] : ["Porażka", "is-loss"];
     return `
         <div class="chart-tooltip-head"><span>Kolejka ${match.round}</span><b class="chart-tooltip-outcome ${outcomeClass}">${outcomeLabel}</b></div>
+        ${tooltipMatchHtml(match, team.slug)}
+        ${value}
+    `;
+}
+
+function tooltipMatchHtml(match, slug) {
+    const isHome = match.homeSlug === slug;
+    return `
         <div class="chart-tooltip-match">
             <span class="${isHome ? "is-team" : ""}"><img src="assets/logos/${escapeHtml(match.homeSlug)}.svg" alt="">${escapeHtml(match.homeTeam)}</span>
             <strong>${match.homeGoals}-${match.awayGoals}</strong>
             <span class="${isHome ? "" : "is-team"}">${escapeHtml(match.awayTeam)}<img src="assets/logos/${escapeHtml(match.awaySlug)}.svg" alt=""></span>
         </div>
-        ${value}
     `;
 }
 
@@ -347,7 +354,7 @@ function showChartTooltip(dot) {
 }
 
 function hideChartTooltips() {
-    document.querySelectorAll(".chart-tooltip").forEach(tooltip => {
+    document.querySelectorAll(".chart-card .chart-tooltip").forEach(tooltip => {
         tooltip.hidden = true;
     });
 }

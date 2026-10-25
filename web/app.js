@@ -83,8 +83,8 @@ function sortTeams(rows) {
     });
 }
 
-function teamNameLink(team) {
-    const tip = teamTip(team);
+function teamNameLink(team, { showNote = true } = {}) {
+    const tip = showNote ? teamTip(team) : "";
     return `
         <span class="team-name">
             <a class="team-link" href="${teamPageUrl(team.slug)}" data-team-slug="${escapeHtml(team.slug)}">
@@ -279,7 +279,7 @@ function renderStandings() {
             <td class="team-cell">
                 <div class="team-entry">
                     ${createLogo(team)}
-                    ${teamNameLink(team)}
+                    ${teamNameLink(team, { showNote: false })}
                 </div>
             </td>
             <td>${team.played}</td>

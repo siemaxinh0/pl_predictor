@@ -1,13 +1,13 @@
 window.forecastData = {
     "meta": {
-        "simulations": 10000,
-        "playedMatches": 79,
+        "simulations": 100000,
+        "playedMatches": 80,
         "totalMatches": 380,
-        "playedRounds": 7,
-        "nextRound": 8,
-        "generatedAtUTC": "2026-10-25T18:17:04+00:00",
-        "snapshotId": "current-79",
-        "snapshotLabel": "Aktualnie: 79/380 meczów"
+        "playedRounds": 8,
+        "nextRound": 9,
+        "generatedAtUTC": "2026-10-25T18:26:10+00:00",
+        "snapshotId": "round-8",
+        "snapshotLabel": "Po 8. kolejce"
     },
     "teams": [
         {
@@ -19,11 +19,11 @@ window.forecastData = {
             "xGF": 83.4,
             "xGA": 38.9,
             "xGD": 44.5,
-            "title": 63.6,
+            "title": 63.5,
             "top4": 99.6,
             "relegation": 0.0,
-            "titleCount": 6359,
-            "top4Count": 9961,
+            "titleCount": 63473,
+            "top4Count": 99600,
             "relegationCount": 0,
             "rank": 1
         },
@@ -32,15 +32,15 @@ window.forecastData = {
             "team": "Arsenal",
             "slug": "arsenal",
             "avgRank": 1.91,
-            "xPts": 79.3,
-            "xGF": 71.4,
+            "xPts": 79.4,
+            "xGF": 71.5,
             "xGA": 36.6,
-            "xGD": 34.8,
+            "xGD": 34.9,
             "title": 33.1,
-            "top4": 98.3,
+            "top4": 98.5,
             "relegation": 0.0,
-            "titleCount": 3309,
-            "top4Count": 9832,
+            "titleCount": 33084,
+            "top4Count": 98476,
             "relegationCount": 0,
             "rank": 2
         },
@@ -48,306 +48,306 @@ window.forecastData = {
             "teamKey": "Liverpool",
             "team": "Liverpool",
             "slug": "liverpool",
-            "avgRank": 4.03,
+            "avgRank": 4.01,
             "xPts": 67.4,
             "xGF": 64.0,
-            "xGA": 43.9,
+            "xGA": 43.8,
             "xGD": 20.1,
             "title": 2.3,
-            "top4": 71.1,
+            "top4": 71.9,
             "relegation": 0.0,
-            "titleCount": 233,
-            "top4Count": 7110,
-            "relegationCount": 1,
+            "titleCount": 2312,
+            "top4Count": 71852,
+            "relegationCount": 6,
             "rank": 3
         },
         {
             "teamKey": "Brighton",
             "team": "Brighton",
             "slug": "brighton",
-            "avgRank": 5.39,
-            "xPts": 62.3,
-            "xGF": 67.9,
+            "avgRank": 5.4,
+            "xPts": 62.2,
+            "xGF": 67.8,
             "xGA": 44.5,
-            "xGD": 23.4,
+            "xGD": 23.3,
             "title": 0.6,
-            "top4": 45.0,
+            "top4": 44.4,
             "relegation": 0.0,
-            "titleCount": 55,
-            "top4Count": 4501,
-            "relegationCount": 4,
+            "titleCount": 557,
+            "top4Count": 44447,
+            "relegationCount": 43,
             "rank": 4
         },
         {
             "teamKey": "Chelsea",
             "team": "Chelsea",
             "slug": "chelsea",
-            "avgRank": 5.62,
-            "xPts": 61.9,
-            "xGF": 65.4,
+            "avgRank": 5.63,
+            "xPts": 61.8,
+            "xGF": 65.3,
             "xGA": 51.9,
-            "xGD": 13.5,
-            "title": 0.4,
-            "top4": 39.5,
-            "relegation": 0.0,
-            "titleCount": 35,
-            "top4Count": 3950,
-            "relegationCount": 4,
+            "xGD": 13.4,
+            "title": 0.5,
+            "top4": 40.1,
+            "relegation": 0.1,
+            "titleCount": 491,
+            "top4Count": 40101,
+            "relegationCount": 80,
             "rank": 5
         },
         {
             "teamKey": "Brentford",
             "team": "Brentford",
             "slug": "brentford",
-            "avgRank": 8.6,
+            "avgRank": 8.57,
             "xPts": 54.5,
             "xGF": 58.3,
-            "xGA": 50.2,
-            "xGD": 8.1,
+            "xGA": 50.3,
+            "xGD": 8.0,
             "title": 0.0,
-            "top4": 10.4,
+            "top4": 10.3,
             "relegation": 1.1,
-            "titleCount": 5,
-            "top4Count": 1039,
-            "relegationCount": 114,
+            "titleCount": 37,
+            "top4Count": 10299,
+            "relegationCount": 1107,
             "rank": 6
+        },
+        {
+            "teamKey": "Aston Villa",
+            "team": "Aston Villa",
+            "slug": "aston-villa",
+            "avgRank": 9.35,
+            "xPts": 53.2,
+            "xGF": 51.8,
+            "xGA": 53.8,
+            "xGD": -2.0,
+            "title": 0.0,
+            "top4": 7.1,
+            "relegation": 1.9,
+            "titleCount": 11,
+            "top4Count": 7085,
+            "relegationCount": 1851,
+            "rank": 7
         },
         {
             "teamKey": "Newcastle",
             "team": "Newcastle",
             "slug": "newcastle",
             "avgRank": 9.36,
-            "xPts": 53.2,
-            "xGF": 54.5,
+            "xPts": 53.1,
+            "xGF": 54.4,
             "xGA": 55.5,
-            "xGD": -1.0,
+            "xGD": -1.1,
             "title": 0.0,
             "top4": 7.2,
-            "relegation": 1.7,
-            "titleCount": 1,
-            "top4Count": 721,
-            "relegationCount": 167,
-            "rank": 7
-        },
-        {
-            "teamKey": "Aston Villa",
-            "team": "Aston Villa",
-            "slug": "aston-villa",
-            "avgRank": 9.4,
-            "xPts": 53.2,
-            "xGF": 51.7,
-            "xGA": 53.8,
-            "xGD": -2.0,
-            "title": 0.0,
-            "top4": 7.3,
-            "relegation": 2.0,
-            "titleCount": 1,
-            "top4Count": 731,
-            "relegationCount": 197,
+            "relegation": 1.8,
+            "titleCount": 11,
+            "top4Count": 7175,
+            "relegationCount": 1793,
             "rank": 8
         },
         {
             "teamKey": "Bournemouth",
             "team": "Bournemouth",
             "slug": "bournemouth",
-            "avgRank": 9.73,
+            "avgRank": 9.72,
             "xPts": 52.2,
             "xGF": 56.6,
-            "xGA": 54.7,
-            "xGD": 1.9,
+            "xGA": 54.8,
+            "xGD": 1.8,
             "title": 0.0,
-            "top4": 6.0,
+            "top4": 5.9,
             "relegation": 2.4,
-            "titleCount": 0,
-            "top4Count": 595,
-            "relegationCount": 244,
+            "titleCount": 4,
+            "top4Count": 5867,
+            "relegationCount": 2414,
             "rank": 9
         },
         {
             "teamKey": "Tottenham",
             "team": "Tottenham",
             "slug": "tottenham",
-            "avgRank": 9.78,
+            "avgRank": 9.74,
             "xPts": 52.2,
-            "xGF": 52.9,
+            "xGF": 53.0,
             "xGA": 52.4,
-            "xGD": 0.5,
+            "xGD": 0.6,
             "title": 0.0,
-            "top4": 5.6,
-            "relegation": 2.4,
-            "titleCount": 1,
-            "top4Count": 555,
-            "relegationCount": 242,
+            "top4": 5.8,
+            "relegation": 2.5,
+            "titleCount": 16,
+            "top4Count": 5826,
+            "relegationCount": 2459,
             "rank": 10
         },
         {
             "teamKey": "Man United",
             "team": "Manchester United",
             "slug": "man-united",
-            "avgRank": 10.67,
-            "xPts": 50.3,
-            "xGF": 52.6,
+            "avgRank": 10.69,
+            "xPts": 50.2,
+            "xGF": 52.7,
             "xGA": 52.8,
             "xGD": -0.2,
             "title": 0.0,
             "top4": 3.7,
-            "relegation": 4.3,
-            "titleCount": 1,
-            "top4Count": 370,
-            "relegationCount": 432,
+            "relegation": 4.1,
+            "titleCount": 4,
+            "top4Count": 3681,
+            "relegationCount": 4131,
             "rank": 11
         },
         {
             "teamKey": "Leeds",
             "team": "Leeds",
             "slug": "leeds",
-            "avgRank": 11.18,
-            "xPts": 49.5,
-            "xGF": 51.3,
-            "xGA": 53.5,
+            "avgRank": 11.3,
+            "xPts": 49.2,
+            "xGF": 49.9,
+            "xGA": 52.1,
             "xGD": -2.2,
             "title": 0.0,
-            "top4": 4.0,
-            "relegation": 6.6,
+            "top4": 3.2,
+            "relegation": 6.5,
             "titleCount": 0,
-            "top4Count": 401,
-            "relegationCount": 664,
+            "top4Count": 3182,
+            "relegationCount": 6514,
             "rank": 12
         },
         {
             "teamKey": "Everton",
             "team": "Everton",
             "slug": "everton",
-            "avgRank": 13.04,
+            "avgRank": 13.01,
             "xPts": 46.0,
             "xGF": 44.5,
             "xGA": 53.7,
             "xGD": -9.2,
             "title": 0.0,
-            "top4": 1.0,
-            "relegation": 11.9,
+            "top4": 0.9,
+            "relegation": 12.1,
             "titleCount": 0,
-            "top4Count": 95,
-            "relegationCount": 1186,
+            "top4Count": 884,
+            "relegationCount": 12136,
             "rank": 13
         },
         {
             "teamKey": "Crystal Palace",
             "team": "Crystal Palace",
             "slug": "crystal-palace",
-            "avgRank": 13.92,
-            "xPts": 44.4,
-            "xGF": 46.6,
-            "xGA": 62.7,
-            "xGD": -16.1,
+            "avgRank": 13.88,
+            "xPts": 44.5,
+            "xGF": 46.7,
+            "xGA": 62.6,
+            "xGD": -16.0,
             "title": 0.0,
-            "top4": 0.4,
+            "top4": 0.5,
             "relegation": 17.9,
             "titleCount": 0,
-            "top4Count": 43,
-            "relegationCount": 1786,
+            "top4Count": 526,
+            "relegationCount": 17920,
             "rank": 14
         },
         {
             "teamKey": "Nott'm Forest",
             "team": "Nottingham Forest",
             "slug": "nottm-forest",
-            "avgRank": 14.15,
+            "avgRank": 14.13,
             "xPts": 43.6,
             "xGF": 44.9,
             "xGA": 54.9,
             "xGD": -10.0,
             "title": 0.0,
             "top4": 0.4,
-            "relegation": 19.6,
+            "relegation": 19.9,
             "titleCount": 0,
-            "top4Count": 35,
-            "relegationCount": 1955,
+            "top4Count": 448,
+            "relegationCount": 19940,
             "rank": 15
-        },
-        {
-            "teamKey": "Sunderland",
-            "team": "Sunderland",
-            "slug": "sunderland",
-            "avgRank": 15.55,
-            "xPts": 40.7,
-            "xGF": 44.4,
-            "xGA": 61.5,
-            "xGD": -17.2,
-            "title": 0.0,
-            "top4": 0.2,
-            "relegation": 36.2,
-            "titleCount": 0,
-            "top4Count": 24,
-            "relegationCount": 3623,
-            "rank": 16
         },
         {
             "teamKey": "Fulham",
             "team": "Fulham",
             "slug": "fulham",
-            "avgRank": 15.75,
+            "avgRank": 15.72,
             "xPts": 40.4,
-            "xGF": 42.8,
-            "xGA": 59.1,
+            "xGF": 42.9,
+            "xGA": 59.2,
             "xGD": -16.3,
             "title": 0.0,
             "top4": 0.1,
-            "relegation": 35.7,
+            "relegation": 35.3,
             "titleCount": 0,
-            "top4Count": 10,
-            "relegationCount": 3571,
+            "top4Count": 103,
+            "relegationCount": 35302,
+            "rank": 16
+        },
+        {
+            "teamKey": "Sunderland",
+            "team": "Sunderland",
+            "slug": "sunderland",
+            "avgRank": 15.76,
+            "xPts": 40.2,
+            "xGF": 42.9,
+            "xGA": 60.2,
+            "xGD": -17.3,
+            "title": 0.0,
+            "top4": 0.2,
+            "relegation": 37.8,
+            "titleCount": 0,
+            "top4Count": 161,
+            "relegationCount": 37800,
             "rank": 17
         },
         {
             "teamKey": "Ipswich",
             "team": "Ipswich",
             "slug": "ipswich",
-            "avgRank": 16.37,
+            "avgRank": 16.32,
             "xPts": 39.2,
             "xGF": 45.9,
             "xGA": 69.7,
             "xGD": -23.8,
             "title": 0.0,
             "top4": 0.1,
-            "relegation": 44.8,
+            "relegation": 44.2,
             "titleCount": 0,
-            "top4Count": 9,
-            "relegationCount": 4483,
+            "top4Count": 117,
+            "relegationCount": 44239,
             "rank": 18
         },
         {
             "teamKey": "Coventry City",
             "team": "Coventry City",
             "slug": "coventry-city",
-            "avgRank": 16.4,
-            "xPts": 38.7,
-            "xGF": 42.1,
-            "xGA": 64.5,
-            "xGD": -22.4,
+            "avgRank": 16.36,
+            "xPts": 38.8,
+            "xGF": 42.3,
+            "xGA": 64.6,
+            "xGD": -22.3,
             "title": 0.0,
-            "top4": 0.2,
-            "relegation": 47.8,
+            "top4": 0.1,
+            "relegation": 47.0,
             "titleCount": 0,
-            "top4Count": 15,
-            "relegationCount": 4782,
+            "top4Count": 148,
+            "relegationCount": 47042,
             "rank": 19
         },
         {
             "teamKey": "Hull",
             "team": "Hull",
             "slug": "hull",
-            "avgRank": 17.71,
+            "avgRank": 17.69,
             "xPts": 35.4,
-            "xGF": 41.6,
-            "xGA": 67.9,
-            "xGD": -26.3,
+            "xGF": 41.8,
+            "xGA": 68.0,
+            "xGD": -26.2,
             "title": 0.0,
             "top4": 0.0,
-            "relegation": 65.4,
+            "relegation": 65.2,
             "titleCount": 0,
-            "top4Count": 3,
-            "relegationCount": 6545,
+            "top4Count": 22,
+            "relegationCount": 65223,
             "rank": 20
         }
     ],
@@ -438,6 +438,20 @@ window.forecastData = {
         },
         {
             "rank": 7,
+            "teamKey": "Leeds",
+            "team": "Leeds",
+            "slug": "leeds",
+            "played": 8,
+            "wins": 2,
+            "draws": 5,
+            "losses": 1,
+            "gf": 9,
+            "ga": 6,
+            "gd": 3,
+            "pts": 11
+        },
+        {
+            "rank": 8,
             "teamKey": "Newcastle",
             "team": "Newcastle",
             "slug": "newcastle",
@@ -451,7 +465,7 @@ window.forecastData = {
             "pts": 11
         },
         {
-            "rank": 8,
+            "rank": 9,
             "teamKey": "Aston Villa",
             "team": "Aston Villa",
             "slug": "aston-villa",
@@ -463,20 +477,6 @@ window.forecastData = {
             "ga": 12,
             "gd": -3,
             "pts": 11
-        },
-        {
-            "rank": 9,
-            "teamKey": "Leeds",
-            "team": "Leeds",
-            "slug": "leeds",
-            "played": 7,
-            "wins": 2,
-            "draws": 4,
-            "losses": 1,
-            "gf": 9,
-            "ga": 6,
-            "gd": 3,
-            "pts": 10
         },
         {
             "rank": 10,
@@ -623,14 +623,14 @@ window.forecastData = {
             "teamKey": "Sunderland",
             "team": "Sunderland",
             "slug": "sunderland",
-            "played": 7,
+            "played": 8,
             "wins": 1,
-            "draws": 1,
+            "draws": 2,
             "losses": 5,
             "gf": 6,
             "ga": 14,
             "gd": -8,
-            "pts": 4
+            "pts": 5
         }
     ],
     "results": [
@@ -1897,37 +1897,25 @@ window.forecastData = {
             "homeGoals": 0,
             "awayGoals": 3,
             "outcome": "away"
+        },
+        {
+            "fixture": 80,
+            "round": 8,
+            "homeTeam": "Sunderland",
+            "awayTeam": "Leeds",
+            "homeSlug": "sunderland",
+            "awaySlug": "leeds",
+            "lambdaHome": 1.42,
+            "lambdaAway": 1.33,
+            "homeWin": 39.4,
+            "draw": 25.5,
+            "awayWin": 35.1,
+            "homeGoals": 0,
+            "awayGoals": 0,
+            "outcome": "draw"
         }
     ],
     "upcomingFixtures": [
-        {
-            "fixture": 80,
-            "round": 8,
-            "homeTeam": "Sunderland",
-            "awayTeam": "Leeds",
-            "homeSlug": "sunderland",
-            "awaySlug": "leeds",
-            "lambdaHome": 1.42,
-            "lambdaAway": 1.33,
-            "homeWin": 39.4,
-            "draw": 25.5,
-            "awayWin": 35.1
-        }
-    ],
-    "remainingFixtures": [
-        {
-            "fixture": 80,
-            "round": 8,
-            "homeTeam": "Sunderland",
-            "awayTeam": "Leeds",
-            "homeSlug": "sunderland",
-            "awaySlug": "leeds",
-            "lambdaHome": 1.42,
-            "lambdaAway": 1.33,
-            "homeWin": 39.4,
-            "draw": 25.5,
-            "awayWin": 35.1
-        },
         {
             "fixture": 81,
             "round": 9,
@@ -1937,7 +1925,139 @@ window.forecastData = {
             "awaySlug": "leeds",
             "lambdaHome": 1.75,
             "lambdaAway": 1.19,
-            "homeWin": 50.4,
+            "homeWin": 50.3,
+            "draw": 23.6,
+            "awayWin": 26.1
+        },
+        {
+            "fixture": 82,
+            "round": 9,
+            "homeTeam": "Aston Villa",
+            "awayTeam": "Fulham",
+            "homeSlug": "aston-villa",
+            "awaySlug": "fulham",
+            "lambdaHome": 1.69,
+            "lambdaAway": 1.07,
+            "homeWin": 51.8,
+            "draw": 24.1,
+            "awayWin": 24.1
+        },
+        {
+            "fixture": 83,
+            "round": 9,
+            "homeTeam": "Brentford",
+            "awayTeam": "Nottingham Forest",
+            "homeSlug": "brentford",
+            "awaySlug": "nottm-forest",
+            "lambdaHome": 1.71,
+            "lambdaAway": 1.12,
+            "homeWin": 51.3,
+            "draw": 23.9,
+            "awayWin": 24.8
+        },
+        {
+            "fixture": 84,
+            "round": 9,
+            "homeTeam": "Chelsea",
+            "awayTeam": "Manchester United",
+            "homeSlug": "chelsea",
+            "awaySlug": "man-united",
+            "lambdaHome": 1.61,
+            "lambdaAway": 1.11,
+            "homeWin": 49.0,
+            "draw": 24.8,
+            "awayWin": 26.2
+        },
+        {
+            "fixture": 85,
+            "round": 9,
+            "homeTeam": "Coventry City",
+            "awayTeam": "Sunderland",
+            "homeSlug": "coventry-city",
+            "awaySlug": "sunderland",
+            "lambdaHome": 1.38,
+            "lambdaAway": 1.32,
+            "homeWin": 38.6,
+            "draw": 25.8,
+            "awayWin": 35.6
+        },
+        {
+            "fixture": 86,
+            "round": 9,
+            "homeTeam": "Hull",
+            "awayTeam": "Ipswich",
+            "homeSlug": "hull",
+            "awaySlug": "ipswich",
+            "lambdaHome": 1.36,
+            "lambdaAway": 1.43,
+            "homeWin": 35.7,
+            "draw": 25.3,
+            "awayWin": 38.9
+        },
+        {
+            "fixture": 87,
+            "round": 9,
+            "homeTeam": "Liverpool",
+            "awayTeam": "Arsenal",
+            "homeSlug": "liverpool",
+            "awaySlug": "arsenal",
+            "lambdaHome": 1.37,
+            "lambdaAway": 1.49,
+            "homeWin": 34.9,
+            "draw": 24.9,
+            "awayWin": 40.2
+        },
+        {
+            "fixture": 88,
+            "round": 9,
+            "homeTeam": "Manchester City",
+            "awayTeam": "Brighton",
+            "homeSlug": "man-city",
+            "awaySlug": "brighton",
+            "lambdaHome": 2.07,
+            "lambdaAway": 0.9,
+            "homeWin": 64.6,
+            "draw": 20.1,
+            "awayWin": 15.3
+        },
+        {
+            "fixture": 89,
+            "round": 9,
+            "homeTeam": "Newcastle",
+            "awayTeam": "Everton",
+            "homeSlug": "newcastle",
+            "awaySlug": "everton",
+            "lambdaHome": 1.64,
+            "lambdaAway": 1.04,
+            "homeWin": 51.3,
+            "draw": 24.6,
+            "awayWin": 24.0
+        },
+        {
+            "fixture": 90,
+            "round": 9,
+            "homeTeam": "Tottenham",
+            "awayTeam": "Crystal Palace",
+            "homeSlug": "tottenham",
+            "awaySlug": "crystal-palace",
+            "lambdaHome": 1.65,
+            "lambdaAway": 1.1,
+            "homeWin": 50.1,
+            "draw": 24.4,
+            "awayWin": 25.4
+        }
+    ],
+    "remainingFixtures": [
+        {
+            "fixture": 81,
+            "round": 9,
+            "homeTeam": "Bournemouth",
+            "awayTeam": "Leeds",
+            "homeSlug": "bournemouth",
+            "awaySlug": "leeds",
+            "lambdaHome": 1.75,
+            "lambdaAway": 1.19,
+            "homeWin": 50.3,
             "draw": 23.6,
             "awayWin": 26.1
         },
@@ -2975,7 +3095,7 @@ window.forecastData = {
             "awayTeam": "Leeds",
             "homeSlug": "aston-villa",
             "awaySlug": "leeds",
-            "lambdaHome": 1.67,
+            "lambdaHome": 1.66,
             "lambdaAway": 1.2,
             "homeWin": 48.2,
             "draw": 24.2,
@@ -3874,7 +3994,7 @@ window.forecastData = {
             "awaySlug": "sunderland",
             "lambdaHome": 1.78,
             "lambdaAway": 1.08,
-            "homeWin": 53.6,
+            "homeWin": 53.7,
             "draw": 23.3,
             "awayWin": 23.0
         },
@@ -4084,7 +4204,7 @@ window.forecastData = {
             "lambdaAway": 1.51,
             "homeWin": 32.0,
             "draw": 25.2,
-            "awayWin": 42.9
+            "awayWin": 42.8
         },
         {
             "fixture": 247,
@@ -4979,7 +5099,7 @@ window.forecastData = {
             "awaySlug": "sunderland",
             "lambdaHome": 1.46,
             "lambdaAway": 1.19,
-            "homeWin": 43.3,
+            "homeWin": 43.4,
             "draw": 25.8,
             "awayWin": 30.8
         },
@@ -5642,9 +5762,9 @@ window.forecastData = {
             "awaySlug": "sunderland",
             "lambdaHome": 1.61,
             "lambdaAway": 1.17,
-            "homeWin": 47.6,
+            "homeWin": 47.4,
             "draw": 24.7,
-            "awayWin": 27.7
+            "awayWin": 27.9
         },
         {
             "fixture": 367,
@@ -5832,18 +5952,18 @@ window.forecastData = {
     "teamDetails": {
         "arsenal": {
             "positionCounts": [
-                3309,
-                5046,
-                1188,
-                289,
-                109,
-                33,
-                12,
-                9,
-                2,
+                33084,
+                50282,
+                11882,
+                3228,
+                976,
+                329,
+                132,
+                51,
+                19,
+                7,
+                8,
                 1,
-                1,
-                0,
                 1,
                 0,
                 0,
@@ -5853,472 +5973,498 @@ window.forecastData = {
                 0,
                 0
             ],
-            "pointsMin": 46,
+            "pointsMin": 47,
             "pointsCounts": [
                 1,
                 0,
-                0,
-                0,
-                1,
-                1,
-                0,
-                0,
-                2,
-                1,
-                5,
-                2,
-                7,
-                9,
-                13,
-                19,
-                28,
-                33,
-                52,
-                82,
-                86,
-                123,
-                154,
-                194,
-                269,
-                259,
-                315,
-                395,
-                414,
-                438,
-                504,
-                529,
-                550,
-                543,
-                557,
-                519,
-                556,
-                478,
-                495,
-                449,
-                386,
-                324,
-                286,
-                234,
-                180,
-                137,
-                111,
-                80,
-                66,
-                35,
-                34,
-                22,
-                7,
-                8,
                 1,
                 3,
-                3
+                1,
+                2,
+                2,
+                16,
+                17,
+                27,
+                54,
+                71,
+                91,
+                131,
+                183,
+                290,
+                375,
+                519,
+                730,
+                982,
+                1226,
+                1484,
+                1888,
+                2340,
+                2728,
+                3129,
+                3654,
+                4236,
+                4660,
+                4947,
+                5299,
+                5541,
+                5588,
+                5540,
+                5559,
+                5481,
+                5153,
+                4706,
+                4275,
+                3726,
+                3287,
+                2694,
+                2255,
+                1881,
+                1363,
+                1176,
+                888,
+                600,
+                422,
+                285,
+                210,
+                121,
+                63,
+                37,
+                31,
+                16,
+                6,
+                5,
+                3,
+                1
             ]
         },
         "aston-villa": {
             "positionCounts": [
-                1,
-                23,
-                202,
-                505,
-                723,
-                978,
-                1039,
-                1025,
-                984,
-                924,
-                847,
-                704,
-                546,
-                468,
-                390,
-                243,
-                201,
-                105,
-                61,
-                31
-            ],
-            "pointsMin": 27,
-            "pointsCounts": [
-                1,
-                1,
-                0,
-                0,
-                3,
-                4,
-                8,
-                18,
-                29,
-                34,
-                44,
-                70,
-                82,
-                96,
-                134,
-                186,
-                193,
-                250,
-                281,
-                323,
-                403,
-                421,
-                505,
-                476,
-                564,
-                524,
-                547,
-                554,
-                555,
-                514,
-                465,
-                420,
-                362,
-                362,
-                286,
-                273,
-                249,
-                189,
-                131,
-                125,
-                102,
-                68,
-                35,
-                36,
-                18,
-                17,
-                14,
                 11,
-                5,
-                3,
-                4,
-                1,
-                1,
+                191,
+                2073,
+                4810,
+                7429,
+                9661,
+                10513,
+                10598,
+                10245,
+                9139,
+                8186,
+                7072,
+                5863,
+                4656,
+                3401,
+                2517,
+                1784,
+                1096,
+                558,
+                197
+            ],
+            "pointsMin": 25,
+            "pointsCounts": [
                 2,
+                1,
+                1,
+                6,
+                12,
+                28,
+                32,
+                69,
+                85,
+                122,
+                175,
+                305,
+                392,
+                578,
+                814,
+                1037,
+                1339,
+                1711,
+                2015,
+                2435,
+                2917,
+                3481,
+                3763,
+                4333,
+                4762,
+                5054,
+                5336,
+                5451,
+                5559,
+                5661,
+                5303,
+                5051,
+                4799,
+                4499,
+                3957,
+                3427,
+                3116,
+                2577,
+                2124,
+                1859,
+                1377,
+                1217,
+                864,
+                677,
+                524,
+                387,
+                227,
+                179,
+                128,
+                84,
+                63,
+                34,
+                18,
+                14,
+                8,
+                5,
+                2,
+                3,
                 1
             ]
         },
         "bournemouth": {
             "positionCounts": [
-                0,
-                23,
-                186,
-                386,
-                683,
-                825,
-                969,
-                1048,
-                979,
-                978,
-                818,
-                763,
-                632,
-                570,
-                384,
-                296,
-                216,
-                121,
-                96,
-                27
+                4,
+                165,
+                1613,
+                4085,
+                6648,
+                8834,
+                9964,
+                10119,
+                9892,
+                9332,
+                8627,
+                7503,
+                6364,
+                5146,
+                4173,
+                2995,
+                2122,
+                1381,
+                737,
+                296
             ],
-            "pointsMin": 25,
+            "pointsMin": 23,
             "pointsCounts": [
                 1,
                 0,
-                1,
-                2,
-                3,
                 4,
-                4,
-                10,
-                19,
-                18,
-                23,
-                44,
-                67,
-                74,
-                103,
-                132,
-                150,
-                197,
-                239,
-                306,
-                337,
+                5,
+                6,
+                7,
+                21,
+                40,
+                70,
+                88,
+                143,
+                191,
+                314,
                 421,
-                423,
-                481,
-                539,
-                507,
-                573,
-                501,
-                546,
-                569,
-                491,
-                467,
-                416,
-                390,
-                349,
-                291,
-                260,
-                237,
-                179,
+                568,
+                805,
+                1093,
+                1316,
+                1672,
+                2023,
+                2495,
+                2984,
+                3456,
+                3847,
+                4280,
+                4636,
+                5069,
+                5298,
+                5366,
+                5378,
+                5338,
+                5357,
+                5094,
+                4723,
+                4566,
+                4037,
+                3575,
+                3072,
+                2629,
+                2202,
+                1816,
+                1495,
+                1118,
+                894,
+                716,
+                513,
+                450,
+                259,
+                182,
                 148,
-                139,
-                87,
-                68,
-                43,
-                41,
-                33,
-                25,
-                16,
-                13,
+                88,
+                45,
+                30,
+                29,
+                11,
+                4,
+                5,
                 5,
                 1,
-                4,
-                2,
                 1
             ]
         },
         "brentford": {
             "positionCounts": [
-                5,
-                44,
-                316,
-                674,
-                969,
-                1179,
-                1145,
-                1108,
-                952,
-                845,
-                703,
-                595,
-                457,
-                352,
-                228,
-                180,
-                134,
-                70,
                 37,
-                7
+                398,
+                3065,
+                6799,
+                9890,
+                11774,
+                11816,
+                10944,
+                9679,
+                8429,
+                6990,
+                5716,
+                4496,
+                3405,
+                2558,
+                1737,
+                1160,
+                639,
+                352,
+                116
             ],
-            "pointsMin": 30,
+            "pointsMin": 27,
             "pointsCounts": [
-                1,
                 2,
-                4,
-                0,
-                15,
-                8,
-                30,
-                31,
-                31,
-                47,
-                83,
-                113,
-                110,
-                150,
-                205,
-                227,
-                312,
-                329,
-                370,
-                414,
-                447,
-                530,
-                523,
-                523,
-                534,
-                558,
-                529,
-                512,
-                519,
-                441,
-                383,
-                341,
-                340,
-                271,
-                231,
-                199,
-                145,
-                112,
-                107,
-                69,
-                62,
-                43,
-                39,
+                6,
+                13,
+                13,
+                25,
+                40,
+                50,
+                86,
+                130,
+                178,
+                282,
+                353,
+                526,
+                781,
+                1006,
+                1323,
+                1593,
+                1948,
+                2355,
+                2779,
+                3323,
+                3650,
+                4266,
+                4516,
+                4975,
+                5216,
+                5233,
+                5455,
+                5549,
+                5516,
+                5272,
+                4957,
+                4493,
+                4163,
+                3578,
+                3166,
+                2774,
+                2323,
+                1894,
+                1501,
+                1220,
+                959,
+                720,
+                542,
+                392,
+                268,
+                209,
+                143,
+                76,
+                60,
+                41,
                 22,
                 14,
+                11,
                 6,
-                8,
-                1,
-                3,
                 4,
-                1,
+                3,
+                0,
                 1
             ]
         },
         "brighton": {
             "positionCounts": [
-                55,
-                396,
-                1742,
-                2308,
-                1760,
-                1219,
+                557,
+                3710,
+                17707,
+                22473,
+                17942,
+                12072,
+                8247,
+                5747,
+                3995,
+                2630,
+                1823,
+                1226,
                 801,
-                540,
-                413,
+                485,
                 279,
-                185,
-                127,
-                66,
-                50,
-                32,
+                172,
+                91,
+                28,
                 13,
-                10,
-                2,
-                1,
-                1
+                2
             ],
-            "pointsMin": 33,
+            "pointsMin": 32,
             "pointsCounts": [
                 1,
                 0,
-                0,
-                1,
-                1,
-                0,
-                1,
-                6,
-                9,
-                7,
-                14,
-                27,
-                31,
-                32,
-                60,
-                83,
-                98,
-                139,
-                181,
-                208,
-                258,
-                289,
-                331,
-                381,
-                419,
-                459,
-                493,
-                532,
-                513,
-                580,
-                533,
-                528,
-                469,
-                492,
-                447,
-                383,
-                359,
-                338,
-                305,
-                223,
-                178,
-                145,
-                126,
-                85,
-                62,
-                54,
-                39,
-                31,
-                21,
-                10,
-                6,
+                2,
                 5,
-                2,
-                2,
-                0,
-                1,
-                0,
-                2
+                8,
+                8,
+                22,
+                30,
+                40,
+                69,
+                99,
+                171,
+                244,
+                330,
+                424,
+                631,
+                839,
+                1035,
+                1299,
+                1689,
+                2037,
+                2419,
+                2954,
+                3328,
+                3981,
+                4330,
+                4574,
+                5053,
+                5391,
+                5454,
+                5441,
+                5491,
+                5187,
+                5195,
+                4809,
+                4456,
+                3872,
+                3535,
+                3144,
+                2610,
+                2242,
+                1716,
+                1456,
+                1138,
+                865,
+                723,
+                528,
+                357,
+                242,
+                177,
+                116,
+                86,
+                66,
+                27,
+                28,
+                13,
+                5,
+                7,
+                1
             ]
         },
         "chelsea": {
             "positionCounts": [
-                35,
-                308,
-                1598,
-                2009,
-                1912,
-                1306,
-                878,
-                639,
-                451,
-                301,
-                210,
-                127,
-                99,
-                53,
-                38,
-                24,
-                8,
-                3,
-                1,
-                0
+                491,
+                3235,
+                15777,
+                20598,
+                18479,
+                12823,
+                8895,
+                6336,
+                4316,
+                3056,
+                2204,
+                1492,
+                953,
+                610,
+                365,
+                197,
+                93,
+                56,
+                19,
+                5
             ],
-            "pointsMin": 36,
+            "pointsMin": 34,
             "pointsCounts": [
                 1,
-                0,
-                1,
-                1,
                 4,
-                7,
-                15,
+                10,
+                11,
                 20,
-                27,
-                29,
-                44,
-                83,
-                74,
-                127,
-                146,
+                41,
+                56,
+                79,
+                121,
+                187,
+                256,
+                404,
+                502,
+                706,
+                916,
+                1167,
+                1511,
+                1810,
+                2153,
+                2564,
+                2987,
+                3426,
+                3955,
+                4346,
+                4974,
+                5156,
+                5334,
+                5484,
+                5436,
+                5458,
+                5197,
+                5019,
+                4716,
+                4270,
+                3806,
+                3427,
+                2950,
+                2494,
+                2014,
+                1698,
+                1339,
+                1073,
+                785,
+                614,
+                464,
+                330,
+                255,
                 165,
-                224,
-                245,
-                316,
-                325,
-                384,
-                446,
-                486,
-                524,
-                567,
-                553,
-                563,
-                536,
-                495,
-                505,
-                460,
-                453,
-                398,
-                334,
-                287,
-                240,
-                225,
-                158,
-                138,
-                120,
-                74,
-                63,
-                50,
-                29,
-                19,
+                101,
+                96,
+                44,
+                32,
                 13,
-                7,
-                6,
-                3,
+                8,
+                9,
                 4,
-                4,
-                0,
                 1,
+                0,
                 0,
                 1
             ]
@@ -6327,246 +6473,258 @@ window.forecastData = {
             "positionCounts": [
                 0,
                 0,
-                5,
-                10,
-                25,
-                42,
-                92,
-                137,
-                185,
-                225,
-                321,
-                400,
-                467,
-                589,
-                748,
-                859,
-                1113,
-                1296,
-                1641,
-                1845
+                37,
+                111,
+                262,
+                572,
+                862,
+                1295,
+                1777,
+                2323,
+                3100,
+                4055,
+                5122,
+                6042,
+                7543,
+                9102,
+                10755,
+                12848,
+                15802,
+                18392
             ],
-            "pointsMin": 14,
+            "pointsMin": 11,
             "pointsCounts": [
                 1,
-                0,
-                5,
-                8,
-                4,
-                17,
-                22,
-                28,
-                52,
-                64,
-                81,
-                122,
-                139,
-                182,
-                227,
-                217,
-                269,
-                327,
-                407,
-                435,
-                436,
-                539,
-                482,
-                493,
-                494,
-                533,
-                446,
-                462,
-                445,
-                408,
-                387,
-                357,
-                314,
-                297,
-                205,
-                214,
-                175,
-                158,
-                123,
-                107,
-                84,
-                65,
-                42,
-                38,
-                29,
-                16,
-                16,
-                8,
-                9,
-                3,
-                3,
-                0,
-                3,
-                0,
-                0,
                 1,
-                1
+                4,
+                8,
+                15,
+                26,
+                54,
+                81,
+                119,
+                193,
+                319,
+                427,
+                587,
+                826,
+                1079,
+                1375,
+                1738,
+                2159,
+                2599,
+                2982,
+                3310,
+                3742,
+                4076,
+                4403,
+                4712,
+                4790,
+                5013,
+                4983,
+                4922,
+                4977,
+                4861,
+                4463,
+                4258,
+                3860,
+                3601,
+                3193,
+                2869,
+                2562,
+                2106,
+                1742,
+                1519,
+                1220,
+                1013,
+                759,
+                608,
+                473,
+                388,
+                294,
+                225,
+                164,
+                94,
+                69,
+                48,
+                27,
+                22,
+                11,
+                18,
+                5,
+                1,
+                2,
+                4
             ]
         },
         "crystal-palace": {
             "positionCounts": [
                 0,
-                1,
-                8,
-                34,
-                89,
-                168,
-                247,
-                337,
-                419,
-                555,
-                675,
-                796,
-                900,
-                986,
-                1027,
-                1048,
-                924,
-                803,
-                604,
-                379
+                5,
+                122,
+                399,
+                906,
+                1645,
+                2505,
+                3417,
+                4372,
+                5697,
+                6760,
+                7986,
+                9058,
+                9923,
+                10212,
+                10025,
+                9048,
+                8126,
+                6083,
+                3711
             ],
-            "pointsMin": 16,
+            "pointsMin": 17,
             "pointsCounts": [
                 1,
-                0,
-                0,
-                0,
                 1,
-                2,
-                4,
-                2,
-                6,
-                15,
-                12,
-                18,
-                37,
-                58,
-                72,
-                111,
-                114,
-                151,
-                162,
-                220,
-                278,
-                348,
-                380,
-                402,
-                470,
-                518,
-                571,
-                568,
-                617,
-                555,
-                532,
-                525,
-                505,
-                444,
-                406,
-                350,
-                325,
-                234,
-                207,
-                191,
-                136,
-                127,
-                78,
-                81,
-                49,
-                25,
-                25,
-                27,
-                15,
-                7,
-                9,
+                3,
+                13,
                 5,
-                1,
-                1,
-                1,
+                22,
+                29,
+                50,
+                101,
+                134,
+                243,
+                333,
+                469,
+                623,
+                856,
+                1121,
+                1516,
+                1916,
+                2387,
+                2871,
+                3321,
+                3853,
+                4303,
+                4747,
+                5146,
+                5260,
+                5653,
+                5558,
+                5781,
+                5644,
+                5244,
+                4967,
+                4428,
+                3981,
+                3665,
+                3007,
+                2619,
+                2279,
+                1834,
+                1441,
+                1178,
+                928,
+                708,
+                519,
+                326,
+                259,
+                199,
+                154,
+                112,
+                71,
+                46,
+                31,
+                18,
+                13,
+                5,
+                3,
+                2,
+                2,
+                0,
                 1
             ]
         },
         "everton": {
             "positionCounts": [
                 0,
-                0,
-                22,
-                73,
-                124,
-                215,
-                394,
-                449,
-                591,
-                669,
-                865,
-                848,
-                976,
-                984,
-                997,
-                847,
-                760,
-                559,
-                415,
-                212
+                10,
+                186,
+                688,
+                1434,
+                2447,
+                3543,
+                4648,
+                6013,
+                7014,
+                8103,
+                9120,
+                9515,
+                9821,
+                9375,
+                8694,
+                7253,
+                5939,
+                4127,
+                2070
             ],
-            "pointsMin": 23,
+            "pointsMin": 19,
             "pointsCounts": [
                 1,
-                1,
                 2,
                 4,
-                10,
-                17,
-                25,
-                43,
-                61,
-                84,
-                108,
-                117,
-                149,
-                196,
-                258,
-                309,
-                361,
-                405,
-                446,
-                489,
-                548,
-                588,
-                591,
-                595,
-                511,
-                570,
-                491,
-                492,
-                434,
-                348,
-                353,
-                293,
-                243,
-                218,
-                150,
-                118,
-                107,
-                74,
-                44,
-                48,
-                36,
-                20,
-                16,
-                8,
                 5,
-                4,
-                3,
-                2,
-                1,
-                2,
-                0,
-                0,
+                13,
+                23,
+                42,
+                59,
+                91,
+                162,
+                267,
+                395,
+                507,
+                747,
+                986,
+                1344,
+                1760,
+                2137,
+                2578,
+                3106,
+                3534,
+                4135,
+                4473,
+                4911,
+                5273,
+                5540,
+                5794,
+                5585,
+                5513,
+                5448,
+                5183,
+                4612,
+                4432,
+                3881,
+                3374,
+                2804,
+                2388,
+                1980,
+                1644,
+                1312,
+                1075,
+                771,
+                622,
+                437,
+                310,
+                227,
+                182,
+                117,
+                74,
+                51,
+                37,
+                20,
+                12,
+                5,
+                8,
+                6,
                 0,
                 1
             ]
@@ -6574,235 +6732,264 @@ window.forecastData = {
         "fulham": {
             "positionCounts": [
                 0,
-                0,
-                2,
-                8,
-                15,
-                48,
-                76,
-                132,
-                205,
-                296,
-                361,
-                511,
-                636,
-                789,
-                954,
-                1182,
-                1214,
-                1355,
-                1277,
-                939
+                1,
+                16,
+                86,
+                267,
+                500,
+                915,
+                1353,
+                2003,
+                2823,
+                3809,
+                5087,
+                6383,
+                7953,
+                9579,
+                11227,
+                12696,
+                13157,
+                12763,
+                9382
             ],
-            "pointsMin": 18,
+            "pointsMin": 12,
             "pointsCounts": [
-                2,
                 1,
-                2,
-                4,
-                10,
-                14,
-                27,
-                43,
-                60,
-                93,
-                116,
-                156,
-                177,
-                237,
-                272,
-                362,
-                410,
-                421,
-                484,
-                530,
-                543,
-                552,
-                609,
-                595,
-                519,
-                528,
-                472,
-                447,
-                445,
-                357,
-                322,
-                258,
-                232,
-                152,
-                134,
-                119,
-                99,
-                68,
-                38,
-                32,
-                23,
-                13,
-                6,
-                4,
+                0,
+                0,
                 3,
+                0,
+                7,
+                13,
+                14,
+                38,
+                67,
+                100,
+                154,
+                285,
+                411,
+                569,
+                812,
+                1073,
+                1549,
+                1918,
+                2303,
+                2893,
+                3383,
+                3966,
+                4393,
+                4961,
+                5221,
+                5669,
+                5746,
+                5799,
+                5628,
+                5563,
+                5277,
+                4988,
+                4455,
+                4095,
+                3518,
+                3028,
+                2543,
+                2131,
+                1821,
+                1355,
+                1118,
+                869,
+                621,
+                461,
+                384,
+                246,
+                194,
+                135,
+                84,
+                47,
+                31,
+                27,
+                15,
+                5,
+                8,
                 2,
                 1,
-                2,
                 0,
                 0,
                 1,
-                3
+                1
             ]
         },
         "hull": {
             "positionCounts": [
                 0,
-                0,
-                0,
-                3,
-                6,
-                15,
-                18,
-                45,
-                61,
-                103,
-                145,
-                201,
-                294,
-                365,
-                523,
-                714,
-                962,
-                1310,
-                1944,
-                3291
+                1,
+                4,
+                17,
+                41,
+                148,
+                237,
+                425,
+                631,
+                1048,
+                1460,
+                2044,
+                2869,
+                3805,
+                5244,
+                7179,
+                9624,
+                13417,
+                19390,
+                32416
             ],
-            "pointsMin": 15,
+            "pointsMin": 12,
             "pointsCounts": [
                 1,
-                5,
-                13,
-                21,
-                36,
-                40,
-                84,
-                92,
-                125,
-                151,
-                213,
+                4,
+                10,
+                24,
+                53,
+                88,
+                183,
                 279,
-                291,
-                384,
-                382,
-                442,
-                499,
-                529,
-                541,
-                544,
-                539,
-                575,
-                524,
-                497,
-                480,
-                389,
-                379,
-                321,
-                297,
-                249,
-                227,
-                194,
-                133,
-                127,
-                95,
-                82,
-                60,
-                48,
-                30,
-                26,
-                18,
-                14,
-                11,
-                5,
-                1,
-                1,
-                1,
-                1,
+                466,
+                655,
+                865,
+                1242,
+                1651,
+                2038,
+                2605,
+                3254,
+                3648,
+                4130,
+                4527,
+                4840,
+                5158,
+                5400,
+                5541,
+                5565,
+                5421,
+                5280,
+                4924,
+                4587,
+                4298,
+                3796,
+                3352,
+                2873,
+                2491,
+                2187,
+                1825,
+                1565,
+                1208,
+                966,
+                808,
+                592,
+                453,
+                317,
+                257,
+                179,
+                122,
+                87,
+                64,
+                54,
+                34,
+                13,
+                10,
+                4,
                 2,
-                2
+                0,
+                3,
+                0,
+                0,
+                0,
+                0,
+                1
             ]
         },
         "ipswich": {
             "positionCounts": [
                 0,
                 0,
-                3,
-                6,
-                11,
-                36,
-                57,
-                94,
-                151,
-                232,
-                318,
-                395,
-                508,
-                633,
-                814,
-                1040,
-                1219,
-                1421,
-                1564,
-                1498
+                17,
+                100,
+                176,
+                401,
+                684,
+                1065,
+                1551,
+                2189,
+                2958,
+                3985,
+                5090,
+                6599,
+                8332,
+                10232,
+                12382,
+                14060,
+                15382,
+                14797
             ],
-            "pointsMin": 17,
+            "pointsMin": 14,
             "pointsCounts": [
-                5,
-                1,
                 4,
+                2,
                 5,
                 14,
-                16,
-                38,
-                42,
-                71,
-                94,
-                125,
-                172,
-                180,
-                267,
-                306,
-                374,
+                19,
+                37,
+                75,
+                120,
+                210,
+                320,
+                499,
+                693,
+                971,
+                1260,
+                1598,
+                2109,
+                2593,
+                3052,
+                3598,
+                4107,
+                4540,
+                4860,
+                5168,
+                5464,
+                5632,
+                5512,
+                5627,
+                5397,
+                4971,
+                4601,
+                4352,
+                3877,
+                3347,
+                2944,
+                2557,
+                2148,
+                1703,
+                1424,
+                1159,
+                860,
+                696,
+                501,
                 430,
-                470,
-                483,
-                545,
-                517,
-                553,
-                600,
-                559,
-                539,
-                466,
-                462,
-                410,
-                364,
-                344,
-                289,
-                271,
-                230,
-                171,
-                163,
-                130,
-                82,
-                52,
-                46,
-                35,
+                285,
+                199,
+                150,
+                102,
+                79,
+                39,
+                27,
                 20,
-                18,
-                8,
+                16,
+                10,
                 4,
-                11,
-                5,
-                2,
                 4,
+                7,
                 1,
                 0,
-                1,
+                0,
+                0,
                 0,
                 1
             ]
@@ -6810,183 +6997,192 @@ window.forecastData = {
         "leeds": {
             "positionCounts": [
                 0,
-                8,
-                110,
-                283,
-                379,
-                601,
-                694,
-                752,
-                816,
-                887,
-                815,
-                829,
-                821,
-                747,
-                624,
-                547,
-                423,
-                365,
-                203,
-                96
+                85,
+                871,
+                2226,
+                3863,
+                5397,
+                6659,
+                7552,
+                8344,
+                8751,
+                8788,
+                8673,
+                8248,
+                7685,
+                6478,
+                5371,
+                4495,
+                3274,
+                2175,
+                1065
             ],
-            "pointsMin": 22,
+            "pointsMin": 20,
             "pointsCounts": [
-                1,
-                0,
-                1,
-                1,
                 3,
-                3,
-                5,
-                16,
-                22,
-                23,
-                32,
-                44,
-                54,
-                95,
-                108,
-                149,
-                166,
-                218,
-                249,
-                308,
-                333,
-                395,
-                414,
-                435,
-                501,
-                550,
-                460,
-                507,
-                523,
-                477,
-                440,
-                485,
-                409,
-                402,
-                355,
-                301,
-                284,
-                231,
-                192,
-                174,
-                162,
-                106,
-                94,
-                73,
-                49,
-                38,
-                34,
-                27,
-                20,
-                11,
-                5,
-                4,
-                6,
                 1,
-                0,
-                0,
-                1,
-                0,
                 2,
-                0,
-                0,
+                5,
+                7,
+                23,
+                28,
+                46,
+                76,
+                108,
+                164,
+                258,
+                362,
+                466,
+                673,
+                917,
+                1154,
+                1447,
+                1927,
+                2152,
+                2635,
+                2964,
+                3328,
+                3972,
+                4309,
+                4602,
+                4940,
+                5151,
+                5358,
+                5209,
+                5209,
+                5025,
+                4922,
+                4594,
+                4135,
+                3920,
+                3417,
+                2985,
+                2543,
+                2298,
+                1869,
+                1542,
+                1249,
+                1034,
+                785,
+                617,
+                433,
+                332,
+                250,
+                167,
+                109,
+                91,
+                65,
+                50,
+                27,
+                12,
+                8,
+                13,
+                8,
+                2,
+                1,
                 1
             ]
         },
         "liverpool": {
             "positionCounts": [
-                233,
-                1115,
-                3676,
-                2086,
-                1263,
-                642,
-                402,
-                228,
-                151,
-                88,
-                42,
-                39,
-                18,
-                10,
-                4,
-                2,
-                0,
-                1,
-                0,
-                0
-            ],
-            "pointsMin": 41,
-            "pointsCounts": [
-                1,
-                1,
-                2,
-                4,
-                4,
-                12,
-                12,
-                16,
-                34,
-                30,
-                37,
-                47,
-                91,
-                112,
-                109,
-                170,
-                174,
-                218,
-                291,
-                328,
-                359,
-                449,
-                440,
-                518,
-                493,
-                509,
-                547,
-                553,
-                550,
-                522,
-                521,
-                435,
-                430,
-                361,
-                332,
-                252,
-                242,
-                196,
-                138,
-                129,
-                102,
-                71,
-                50,
-                40,
-                16,
-                23,
-                13,
+                2312,
+                11357,
+                36781,
+                21402,
+                11816,
+                6715,
+                3887,
+                2344,
+                1391,
+                871,
+                523,
+                310,
+                146,
+                84,
+                31,
+                15,
+                9,
                 5,
-                4,
+                0,
+                1
+            ],
+            "pointsMin": 38,
+            "pointsCounts": [
                 3,
+                2,
+                1,
+                7,
+                5,
+                20,
+                26,
+                36,
+                55,
+                108,
+                146,
+                239,
+                317,
+                442,
+                614,
+                791,
+                988,
+                1244,
+                1579,
+                1912,
+                2369,
+                2763,
+                3268,
+                3709,
+                4152,
+                4504,
+                4848,
+                5155,
+                5277,
+                5545,
+                5517,
+                5377,
+                5151,
+                4884,
+                4568,
+                4276,
+                3704,
+                3284,
+                2841,
+                2315,
+                1995,
+                1582,
+                1130,
+                985,
+                700,
+                528,
+                352,
+                251,
+                151,
+                118,
+                74,
+                39,
+                25,
+                10,
+                7,
+                6,
                 3,
+                0,
+                1,
+                0,
                 1
             ]
         },
         "man-city": {
             "positionCounts": [
-                6359,
-                2989,
-                497,
-                116,
-                24,
+                63473,
+                30027,
+                4968,
+                1132,
+                293,
+                70,
+                26,
                 8,
-                4,
                 2,
                 1,
-                0,
                 0,
                 0,
                 0,
@@ -6998,221 +7194,236 @@ window.forecastData = {
                 0,
                 0
             ],
-            "pointsMin": 56,
+            "pointsMin": 53,
             "pointsCounts": [
+                2,
                 1,
-                2,
-                2,
-                2,
+                1,
                 3,
-                2,
-                4,
-                10,
-                12,
-                32,
-                24,
-                37,
-                54,
-                67,
-                95,
-                128,
-                149,
-                186,
-                208,
-                279,
+                11,
+                13,
+                16,
+                15,
+                44,
+                69,
+                89,
+                155,
+                214,
                 309,
-                378,
-                390,
-                473,
-                523,
-                524,
-                552,
-                606,
-                591,
-                554,
-                533,
-                520,
-                502,
-                459,
-                384,
-                297,
-                252,
-                212,
-                209,
-                150,
-                77,
-                88,
-                40,
-                26,
-                24,
-                14,
-                8,
-                3,
+                407,
+                534,
+                742,
+                929,
+                1156,
+                1459,
+                1879,
+                2299,
+                2728,
+                3184,
+                3721,
+                4271,
+                4742,
+                5303,
+                5480,
+                5626,
+                5819,
+                5670,
+                5682,
+                5612,
+                5070,
+                4717,
+                4238,
+                3760,
+                3223,
+                2708,
+                2151,
+                1700,
+                1262,
+                990,
+                670,
+                479,
+                334,
+                235,
+                112,
+                80,
+                51,
+                20,
+                6,
+                7,
                 1,
-                2,
                 0,
-                1,
                 1
             ]
         },
         "man-united": {
             "positionCounts": [
-                1,
-                7,
-                86,
-                276,
-                417,
-                647,
-                831,
-                892,
-                939,
-                940,
-                926,
-                854,
-                794,
-                688,
-                521,
-                434,
-                315,
-                255,
-                128,
-                49
+                4,
+                79,
+                985,
+                2613,
+                4440,
+                6394,
+                7683,
+                8696,
+                9246,
+                9753,
+                9304,
+                8701,
+                8123,
+                6712,
+                5524,
+                4299,
+                3313,
+                2248,
+                1305,
+                578
             ],
-            "pointsMin": 26,
+            "pointsMin": 23,
             "pointsCounts": [
-                1,
-                1,
-                3,
-                6,
-                6,
-                17,
-                21,
-                25,
-                32,
-                69,
-                85,
-                101,
-                146,
-                150,
-                196,
-                238,
-                265,
-                366,
-                402,
-                401,
-                434,
-                489,
-                539,
-                571,
-                534,
-                553,
-                521,
-                531,
-                491,
-                447,
-                411,
-                378,
-                317,
-                251,
-                236,
-                174,
-                160,
-                110,
-                94,
-                66,
-                53,
-                25,
-                28,
-                18,
-                12,
-                8,
                 5,
-                4,
-                4,
                 3,
-                1,
-                0,
-                0,
+                6,
+                9,
+                21,
+                45,
+                48,
+                78,
+                130,
+                197,
+                345,
+                385,
+                588,
+                785,
+                996,
+                1338,
+                1642,
+                2098,
+                2467,
+                2855,
+                3401,
+                3856,
+                4298,
+                4638,
+                5005,
+                5452,
+                5528,
+                5520,
+                5484,
+                5328,
+                5181,
+                4857,
+                4372,
+                3923,
+                3499,
+                3018,
+                2719,
+                2185,
+                1722,
+                1500,
+                1147,
+                876,
+                681,
+                535,
+                400,
+                276,
+                183,
+                131,
+                90,
+                57,
+                27,
+                30,
+                13,
+                11,
+                8,
+                3,
+                4,
                 1
             ]
         },
         "newcastle": {
             "positionCounts": [
-                1,
-                24,
-                192,
-                504,
-                757,
-                927,
-                1067,
-                1069,
-                988,
-                899,
-                810,
-                704,
-                589,
-                460,
-                421,
+                11,
                 253,
-                168,
-                112,
-                45,
-                10
+                2092,
+                4819,
+                7555,
+                9479,
+                10240,
+                10654,
+                10172,
+                9174,
+                8331,
+                6971,
+                5746,
+                4682,
+                3589,
+                2662,
+                1777,
+                1089,
+                511,
+                193
             ],
-            "pointsMin": 30,
+            "pointsMin": 24,
             "pointsCounts": [
+                1,
+                1,
+                2,
+                6,
+                5,
+                10,
+                20,
+                29,
+                60,
+                83,
+                121,
+                215,
+                301,
+                422,
+                567,
+                868,
+                1059,
+                1343,
+                1780,
+                2147,
+                2637,
+                2970,
+                3295,
+                3871,
+                4311,
+                4732,
+                5128,
+                5189,
+                5500,
+                5657,
+                5586,
+                5323,
+                4998,
+                4654,
+                4368,
+                3949,
+                3483,
+                3016,
+                2555,
+                2152,
+                1745,
+                1457,
+                1132,
+                901,
+                694,
+                503,
+                370,
+                230,
+                180,
+                138,
+                93,
+                54,
+                37,
+                20,
+                16,
+                7,
+                4,
                 2,
                 1,
-                3,
-                8,
-                10,
-                18,
-                34,
-                40,
-                47,
-                93,
-                98,
-                108,
-                185,
-                227,
-                280,
-                325,
-                350,
-                376,
-                422,
-                463,
-                510,
-                513,
-                516,
-                588,
-                558,
-                501,
-                505,
-                467,
-                418,
-                390,
-                361,
-                313,
-                265,
-                217,
-                204,
-                145,
-                123,
-                77,
-                72,
-                46,
-                40,
-                26,
-                23,
-                7,
-                9,
-                7,
-                1,
-                3,
-                0,
-                3,
-                0,
-                0,
                 1,
                 1
             ]
@@ -7220,246 +7431,265 @@ window.forecastData = {
         "nottm-forest": {
             "positionCounts": [
                 0,
-                0,
                 5,
-                30,
-                72,
-                149,
-                214,
-                302,
-                383,
-                512,
-                648,
-                792,
-                899,
-                983,
-                1030,
-                1072,
-                954,
-                822,
-                694,
-                439
+                95,
+                348,
+                746,
+                1364,
+                2280,
+                3082,
+                4239,
+                5217,
+                6544,
+                7584,
+                8734,
+                9687,
+                10409,
+                10124,
+                9602,
+                8549,
+                7052,
+                4339
             ],
-            "pointsMin": 19,
+            "pointsMin": 16,
             "pointsCounts": [
-                4,
                 1,
+                0,
                 2,
-                3,
-                5,
                 7,
-                11,
-                28,
-                30,
-                53,
-                66,
-                79,
-                113,
-                135,
-                196,
-                221,
-                260,
-                292,
-                375,
-                420,
-                482,
-                513,
-                527,
-                557,
-                544,
-                564,
-                605,
-                541,
-                478,
-                461,
-                437,
-                376,
-                296,
-                272,
-                231,
-                205,
-                147,
-                124,
-                86,
-                70,
+                14,
+                23,
+                37,
                 56,
-                41,
+                97,
+                135,
+                220,
+                314,
+                455,
+                635,
+                848,
+                1163,
+                1456,
+                1802,
+                2380,
+                2706,
+                3202,
+                3835,
+                4114,
+                4592,
+                5111,
+                5266,
+                5485,
+                5654,
+                5695,
+                5402,
+                5338,
+                4917,
+                4646,
+                4222,
+                3589,
+                3127,
+                2758,
+                2332,
+                2001,
+                1563,
+                1281,
+                906,
+                712,
+                569,
+                408,
+                289,
+                203,
+                138,
+                109,
+                67,
+                45,
+                20,
                 29,
-                21,
-                15,
-                11,
+                9,
+                7,
+                1,
+                1,
                 3,
-                3,
-                1,
-                1,
-                1,
                 0,
-                0,
-                0,
-                1
+                3
             ]
         },
         "sunderland": {
             "positionCounts": [
                 0,
-                0,
-                3,
-                21,
-                44,
-                74,
-                122,
-                191,
-                252,
-                351,
-                426,
-                507,
-                617,
-                785,
-                876,
-                950,
-                1158,
-                1263,
-                1204,
-                1156
-            ],
-            "pointsMin": 17,
-            "pointsCounts": [
-                4,
-                2,
-                7,
-                7,
-                5,
-                18,
-                31,
-                50,
-                62,
-                72,
-                87,
-                142,
-                160,
-                216,
-                246,
-                285,
-                330,
-                386,
-                418,
-                459,
-                473,
-                507,
-                528,
-                501,
-                471,
-                498,
-                512,
-                501,
-                387,
-                396,
-                391,
-                304,
-                264,
-                238,
-                205,
-                192,
-                159,
-                125,
-                85,
-                71,
-                62,
-                37,
-                27,
-                20,
-                22,
-                14,
-                4,
-                3,
-                8,
-                4,
-                0,
-                2,
                 1,
+                28,
+                132,
+                314,
+                629,
+                1114,
+                1577,
+                2211,
+                2948,
+                3835,
+                4936,
+                6111,
+                7491,
+                8844,
+                10404,
+                11625,
+                12712,
+                12978,
+                12110
+            ],
+            "pointsMin": 12,
+            "pointsCounts": [
+                1,
+                0,
+                6,
+                7,
+                9,
+                25,
+                27,
+                52,
+                101,
+                139,
+                207,
+                298,
+                426,
+                626,
+                838,
+                1103,
+                1445,
+                1710,
+                2189,
+                2560,
+                2905,
+                3485,
+                3952,
+                4366,
+                4698,
+                5029,
+                5229,
+                5294,
+                5464,
+                5215,
+                5200,
+                4933,
+                4621,
+                4253,
+                3872,
+                3457,
+                2978,
+                2554,
+                2172,
+                1891,
+                1530,
+                1219,
+                1000,
+                801,
+                558,
+                437,
+                333,
+                256,
+                164,
+                109,
+                86,
+                53,
+                37,
+                32,
+                12,
+                16,
+                5,
+                8,
+                6,
                 1
             ]
         },
         "tottenham": {
             "positionCounts": [
-                1,
                 16,
-                159,
-                379,
-                618,
-                888,
-                938,
-                1001,
-                1077,
-                915,
-                884,
-                808,
-                680,
-                488,
-                389,
-                296,
-                221,
-                137,
-                85,
-                20
+                195,
+                1681,
+                3934,
+                6523,
+                8746,
+                9798,
+                10089,
+                9902,
+                9598,
+                8647,
+                7538,
+                6377,
+                5214,
+                4064,
+                3048,
+                2171,
+                1376,
+                753,
+                330
             ],
-            "pointsMin": 24,
+            "pointsMin": 20,
             "pointsCounts": [
                 1,
                 0,
-                1,
-                1,
                 0,
                 1,
+                3,
                 2,
-                5,
-                9,
-                19,
-                21,
-                35,
-                37,
-                59,
-                67,
-                99,
-                145,
-                167,
-                191,
-                228,
-                279,
-                350,
-                392,
-                449,
-                478,
-                489,
-                535,
-                595,
-                566,
-                548,
-                555,
-                496,
-                468,
-                430,
-                382,
-                356,
-                330,
-                263,
-                226,
-                161,
-                145,
-                101,
-                105,
-                67,
-                45,
-                30,
-                21,
-                21,
-                13,
-                5,
+                4,
+                7,
+                11,
+                27,
+                40,
+                58,
+                107,
+                144,
+                210,
+                289,
+                431,
+                605,
+                804,
+                1040,
+                1364,
+                1668,
+                2034,
+                2488,
+                2800,
+                3413,
+                3845,
+                4308,
+                4697,
+                4941,
+                5237,
+                5475,
+                5553,
+                5451,
+                5417,
+                5121,
+                4780,
+                4387,
+                4003,
+                3499,
+                3103,
+                2602,
+                2246,
+                1836,
+                1462,
+                1153,
+                899,
+                719,
+                497,
+                390,
+                252,
+                193,
+                152,
+                98,
+                40,
+                39,
+                18,
+                17,
+                7,
                 7,
                 2,
                 1,
-                0,
-                0,
+                1,
                 0,
                 0,
                 0,
@@ -7470,413 +7700,228 @@ window.forecastData = {
     },
     "sampleTables": [
         {
-            "simulation": 41,
+            "simulation": 408,
             "teams": [
                 {
                     "rank": 1,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 92,
-                    "gf": 77,
-                    "ga": 24,
-                    "gd": 53
+                    "pts": 84,
+                    "gf": 72,
+                    "ga": 39,
+                    "gd": 33
                 },
                 {
                     "rank": 2,
                     "team": "Manchester City",
                     "slug": "man-city",
-                    "pts": 82,
-                    "gf": 84,
-                    "ga": 42,
-                    "gd": 42
+                    "pts": 81,
+                    "gf": 89,
+                    "ga": 41,
+                    "gd": 48
                 },
                 {
                     "rank": 3,
                     "team": "Liverpool",
                     "slug": "liverpool",
-                    "pts": 71,
-                    "gf": 68,
-                    "ga": 43,
-                    "gd": 25
+                    "pts": 77,
+                    "gf": 80,
+                    "ga": 41,
+                    "gd": 39
                 },
                 {
                     "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
                     "pts": 69,
-                    "gf": 74,
-                    "ga": 49,
-                    "gd": 25
+                    "gf": 64,
+                    "ga": 47,
+                    "gd": 17
                 },
                 {
                     "rank": 5,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 64,
-                    "gf": 64,
-                    "ga": 57,
-                    "gd": 7
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 66,
+                    "gf": 69,
+                    "ga": 55,
+                    "gd": 14
                 },
                 {
                     "rank": 6,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 59,
-                    "gf": 61,
-                    "ga": 43,
-                    "gd": 18
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 60,
+                    "gf": 75,
+                    "ga": 50,
+                    "gd": 25
                 },
                 {
                     "rank": 7,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 58,
-                    "gf": 59,
-                    "ga": 53,
-                    "gd": 6
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 60,
+                    "gf": 65,
+                    "ga": 42,
+                    "gd": 23
                 },
                 {
                     "rank": 8,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 58,
-                    "gf": 53,
-                    "ga": 56,
-                    "gd": -3
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 60,
+                    "gf": 60,
+                    "ga": 52,
+                    "gd": 8
                 },
                 {
                     "rank": 9,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 57,
-                    "gf": 52,
-                    "ga": 45,
-                    "gd": 7
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 51,
+                    "gf": 56,
+                    "ga": 56,
+                    "gd": 0
                 },
                 {
                     "rank": 10,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 57,
-                    "gf": 43,
-                    "ga": 51,
-                    "gd": -8
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 50,
+                    "gf": 54,
+                    "ga": 47,
+                    "gd": 7
                 },
                 {
                     "rank": 11,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 55,
-                    "gf": 57,
-                    "ga": 53,
-                    "gd": 4
-                },
-                {
-                    "rank": 12,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 48,
-                    "gf": 50,
-                    "ga": 54,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 50,
+                    "gf": 56,
+                    "ga": 60,
                     "gd": -4
                 },
                 {
+                    "rank": 12,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 48,
+                    "gf": 45,
+                    "ga": 56,
+                    "gd": -11
+                },
+                {
                     "rank": 13,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 44,
-                    "gf": 48,
-                    "ga": 58,
-                    "gd": -10
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 46,
+                    "gf": 51,
+                    "ga": 60,
+                    "gd": -9
                 },
                 {
                     "rank": 14,
-                    "team": "Manchester United",
-                    "slug": "man-united",
+                    "team": "Ipswich",
+                    "slug": "ipswich",
                     "pts": 41,
-                    "gf": 46,
-                    "ga": 58,
-                    "gd": -12
+                    "gf": 40,
+                    "ga": 66,
+                    "gd": -26
                 },
                 {
                     "rank": 15,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 38,
-                    "gf": 50,
-                    "ga": 65,
-                    "gd": -15
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 39,
+                    "gf": 39,
+                    "ga": 59,
+                    "gd": -20
                 },
                 {
                     "rank": 16,
-                    "team": "Everton",
-                    "slug": "everton",
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
                     "pts": 38,
-                    "gf": 41,
-                    "ga": 62,
-                    "gd": -21
+                    "gf": 40,
+                    "ga": 66,
+                    "gd": -26
                 },
                 {
                     "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
                     "pts": 37,
-                    "gf": 49,
-                    "ga": 68,
+                    "gf": 48,
+                    "ga": 67,
                     "gd": -19
                 },
                 {
                     "rank": 18,
                     "team": "Coventry City",
                     "slug": "coventry-city",
-                    "pts": 34,
-                    "gf": 36,
-                    "ga": 64,
-                    "gd": -28
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 30,
-                    "gf": 41,
-                    "ga": 73,
-                    "gd": -32
-                },
-                {
-                    "rank": 20,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 23,
-                    "gf": 30,
-                    "ga": 65,
-                    "gd": -35
-                }
-            ]
-        },
-        {
-            "simulation": 140,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 86,
-                    "gf": 78,
-                    "ga": 33,
-                    "gd": 45
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 85,
-                    "gf": 102,
-                    "ga": 49,
-                    "gd": 53
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 67,
-                    "gf": 63,
-                    "ga": 50,
-                    "gd": 13
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 66,
-                    "gf": 62,
-                    "ga": 51,
-                    "gd": 11
-                },
-                {
-                    "rank": 5,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 61,
-                    "gf": 59,
-                    "ga": 50,
-                    "gd": 9
-                },
-                {
-                    "rank": 6,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 58,
-                    "gf": 59,
-                    "ga": 48,
-                    "gd": 11
-                },
-                {
-                    "rank": 7,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 57,
-                    "gf": 60,
-                    "ga": 49,
-                    "gd": 11
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 57,
-                    "gf": 60,
-                    "ga": 50,
-                    "gd": 10
-                },
-                {
-                    "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 57,
-                    "gf": 47,
-                    "ga": 51,
-                    "gd": -4
-                },
-                {
-                    "rank": 10,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 53,
-                    "gf": 48,
-                    "ga": 46,
-                    "gd": 2
-                },
-                {
-                    "rank": 11,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 51,
-                    "gf": 65,
-                    "ga": 42,
-                    "gd": 23
-                },
-                {
-                    "rank": 12,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 45,
-                    "gf": 45,
-                    "ga": 50,
-                    "gd": -5
-                },
-                {
-                    "rank": 13,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 41,
-                    "gf": 42,
-                    "ga": 57,
-                    "gd": -15
-                },
-                {
-                    "rank": 14,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 41,
-                    "gf": 40,
-                    "ga": 57,
-                    "gd": -17
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 40,
-                    "gf": 39,
-                    "ga": 53,
-                    "gd": -14
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 40,
-                    "gf": 39,
-                    "ga": 59,
-                    "gd": -20
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 39,
-                    "gf": 39,
-                    "ga": 66,
-                    "gd": -27
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 36,
-                    "gf": 47,
-                    "ga": 70,
+                    "pts": 33,
+                    "gf": 38,
+                    "ga": 61,
                     "gd": -23
                 },
                 {
                     "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 29,
-                    "gf": 36,
-                    "ga": 67,
-                    "gd": -31
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 31,
+                    "gf": 43,
+                    "ga": 79,
+                    "gd": -36
                 },
                 {
                     "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 28,
-                    "gf": 39,
-                    "ga": 71,
-                    "gd": -32
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 30,
+                    "gf": 34,
+                    "ga": 74,
+                    "gd": -40
                 }
             ]
         },
         {
-            "simulation": 199,
+            "simulation": 1405,
             "teams": [
                 {
                     "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 91,
-                    "gf": 94,
-                    "ga": 39,
-                    "gd": 55
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 82,
+                    "gf": 63,
+                    "ga": 27,
+                    "gd": 36
                 },
                 {
                     "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 77,
-                    "gf": 71,
-                    "ga": 40,
-                    "gd": 31
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 78,
+                    "gf": 86,
+                    "ga": 42,
+                    "gd": 44
                 },
                 {
                     "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 71,
-                    "gf": 72,
-                    "ga": 49,
-                    "gd": 23
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 69,
+                    "gf": 71,
+                    "ga": 50,
+                    "gd": 21
                 },
                 {
                     "rank": 4,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 68,
-                    "gf": 74,
-                    "ga": 50,
-                    "gd": 24
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 67,
+                    "gf": 57,
+                    "ga": 41,
+                    "gd": 16
                 },
                 {
                     "rank": 5,
@@ -7889,135 +7934,1430 @@ window.forecastData = {
                 },
                 {
                     "rank": 6,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 61,
-                    "gf": 61,
-                    "ga": 48,
-                    "gd": 13
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 64,
+                    "gf": 59,
+                    "ga": 47,
+                    "gd": 12
                 },
                 {
                     "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
+                    "team": "Tottenham",
+                    "slug": "tottenham",
                     "pts": 54,
-                    "gf": 55,
-                    "ga": 58,
-                    "gd": -3
+                    "gf": 53,
+                    "ga": 55,
+                    "gd": -2
                 },
                 {
                     "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 53,
-                    "gf": 57,
-                    "ga": 54,
-                    "gd": 3
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 52,
+                    "gf": 50,
+                    "ga": 59,
+                    "gd": -9
                 },
                 {
                     "rank": 9,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 50,
-                    "gf": 52,
-                    "ga": 51,
-                    "gd": 1
-                },
-                {
-                    "rank": 10,
                     "team": "Bournemouth",
                     "slug": "bournemouth",
                     "pts": 49,
-                    "gf": 60,
-                    "ga": 63,
-                    "gd": -3
+                    "gf": 59,
+                    "ga": 52,
+                    "gd": 7
+                },
+                {
+                    "rank": 10,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 49,
+                    "gf": 54,
+                    "ga": 71,
+                    "gd": -17
                 },
                 {
                     "rank": 11,
-                    "team": "Brentford",
-                    "slug": "brentford",
+                    "team": "Everton",
+                    "slug": "everton",
                     "pts": 48,
-                    "gf": 58,
-                    "ga": 52,
-                    "gd": 6
+                    "gf": 54,
+                    "ga": 50,
+                    "gd": 4
                 },
                 {
                     "rank": 12,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 46,
-                    "gf": 35,
-                    "ga": 44,
-                    "gd": -9
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 47,
+                    "gf": 45,
+                    "ga": 49,
+                    "gd": -4
                 },
                 {
                     "rank": 13,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 45,
-                    "gf": 53,
-                    "ga": 68,
-                    "gd": -15
-                },
-                {
-                    "rank": 14,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 45,
-                    "gf": 48,
-                    "ga": 64,
-                    "gd": -16
-                },
-                {
-                    "rank": 15,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 44,
-                    "gf": 58,
-                    "ga": 67,
-                    "gd": -9
-                },
-                {
-                    "rank": 16,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 44,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 46,
                     "gf": 51,
                     "ga": 61,
                     "gd": -10
                 },
                 {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 43,
-                    "gf": 57,
-                    "ga": 72,
-                    "gd": -15
+                    "rank": 14,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 45,
+                    "gf": 51,
+                    "ga": 60,
+                    "gd": -9
                 },
                 {
-                    "rank": 18,
+                    "rank": 15,
                     "team": "Nottingham Forest",
                     "slug": "nottm-forest",
+                    "pts": 44,
+                    "gf": 47,
+                    "ga": 52,
+                    "gd": -5
+                },
+                {
+                    "rank": 16,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
                     "pts": 42,
                     "gf": 41,
                     "ga": 58,
                     "gd": -17
                 },
                 {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 39,
+                    "gf": 46,
+                    "ga": 63,
+                    "gd": -17
+                },
+                {
+                    "rank": 18,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 38,
+                    "gf": 44,
+                    "ga": 57,
+                    "gd": -13
+                },
+                {
                     "rank": 19,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 30,
-                    "gf": 36,
-                    "ga": 76,
-                    "gd": -40
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 36,
+                    "gf": 47,
+                    "ga": 69,
+                    "gd": -22
                 },
                 {
                     "rank": 20,
                     "team": "Hull",
                     "slug": "hull",
-                    "pts": 22,
+                    "pts": 27,
+                    "gf": 40,
+                    "ga": 77,
+                    "gd": -37
+                }
+            ]
+        },
+        {
+            "simulation": 2002,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 85,
+                    "gf": 83,
+                    "ga": 40,
+                    "gd": 43
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 83,
+                    "gf": 90,
+                    "ga": 35,
+                    "gd": 55
+                },
+                {
+                    "rank": 3,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 74,
+                    "gf": 64,
+                    "ga": 38,
+                    "gd": 26
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 67,
+                    "gf": 68,
+                    "ga": 46,
+                    "gd": 22
+                },
+                {
+                    "rank": 5,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 67,
+                    "gf": 61,
+                    "ga": 44,
+                    "gd": 17
+                },
+                {
+                    "rank": 6,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 65,
+                    "gf": 69,
+                    "ga": 39,
+                    "gd": 30
+                },
+                {
+                    "rank": 7,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 59,
+                    "gf": 71,
+                    "ga": 58,
+                    "gd": 13
+                },
+                {
+                    "rank": 8,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 55,
+                    "gf": 46,
+                    "ga": 60,
+                    "gd": -14
+                },
+                {
+                    "rank": 9,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 51,
+                    "gf": 53,
+                    "ga": 65,
+                    "gd": -12
+                },
+                {
+                    "rank": 10,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 49,
+                    "gf": 49,
+                    "ga": 46,
+                    "gd": 3
+                },
+                {
+                    "rank": 11,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 49,
+                    "gf": 51,
+                    "ga": 57,
+                    "gd": -6
+                },
+                {
+                    "rank": 12,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 48,
+                    "gf": 57,
+                    "ga": 54,
+                    "gd": 3
+                },
+                {
+                    "rank": 13,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 44,
+                    "gf": 57,
+                    "ga": 79,
+                    "gd": -22
+                },
+                {
+                    "rank": 14,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 43,
+                    "gf": 32,
+                    "ga": 45,
+                    "gd": -13
+                },
+                {
+                    "rank": 15,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 40,
+                    "gf": 47,
+                    "ga": 59,
+                    "gd": -12
+                },
+                {
+                    "rank": 16,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 39,
+                    "gf": 39,
+                    "ga": 58,
+                    "gd": -19
+                },
+                {
+                    "rank": 17,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 38,
+                    "gf": 44,
+                    "ga": 54,
+                    "gd": -10
+                },
+                {
+                    "rank": 18,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 38,
+                    "gf": 47,
+                    "ga": 63,
+                    "gd": -16
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 34,
+                    "gf": 37,
+                    "ga": 75,
+                    "gd": -38
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 24,
+                    "gf": 29,
+                    "ga": 79,
+                    "gd": -50
+                }
+            ]
+        },
+        {
+            "simulation": 3344,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 82,
+                    "gf": 75,
+                    "ga": 35,
+                    "gd": 40
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 81,
+                    "gf": 68,
+                    "ga": 31,
+                    "gd": 37
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 74,
+                    "gf": 80,
+                    "ga": 40,
+                    "gd": 40
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 61,
+                    "gf": 60,
+                    "ga": 50,
+                    "gd": 10
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 60,
+                    "gf": 62,
+                    "ga": 46,
+                    "gd": 16
+                },
+                {
+                    "rank": 6,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 55,
+                    "gf": 52,
+                    "ga": 50,
+                    "gd": 2
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 54,
+                    "gf": 44,
+                    "ga": 42,
+                    "gd": 2
+                },
+                {
+                    "rank": 8,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 50,
+                    "gf": 52,
+                    "ga": 49,
+                    "gd": 3
+                },
+                {
+                    "rank": 9,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 50,
+                    "gf": 57,
+                    "ga": 71,
+                    "gd": -14
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 49,
+                    "gf": 55,
+                    "ga": 56,
+                    "gd": -1
+                },
+                {
+                    "rank": 11,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 48,
+                    "gf": 41,
+                    "ga": 51,
+                    "gd": -10
+                },
+                {
+                    "rank": 12,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 47,
+                    "gf": 48,
+                    "ga": 67,
+                    "gd": -19
+                },
+                {
+                    "rank": 13,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 45,
+                    "gf": 40,
+                    "ga": 43,
+                    "gd": -3
+                },
+                {
+                    "rank": 14,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 44,
+                    "gf": 46,
+                    "ga": 50,
+                    "gd": -4
+                },
+                {
+                    "rank": 15,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 44,
+                    "gf": 40,
+                    "ga": 57,
+                    "gd": -17
+                },
+                {
+                    "rank": 16,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 41,
+                    "gf": 46,
+                    "ga": 52,
+                    "gd": -6
+                },
+                {
+                    "rank": 17,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 40,
+                    "gf": 44,
+                    "ga": 51,
+                    "gd": -7
+                },
+                {
+                    "rank": 18,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 40,
+                    "gf": 46,
+                    "ga": 64,
+                    "gd": -18
+                },
+                {
+                    "rank": 19,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 39,
+                    "gf": 38,
+                    "ga": 60,
+                    "gd": -22
+                },
+                {
+                    "rank": 20,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 38,
+                    "gf": 31,
+                    "ga": 60,
+                    "gd": -29
+                }
+            ]
+        },
+        {
+            "simulation": 3376,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 84,
+                    "gf": 85,
+                    "ga": 42,
+                    "gd": 43
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 76,
+                    "gf": 65,
+                    "ga": 39,
+                    "gd": 26
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 72,
+                    "gf": 71,
+                    "ga": 35,
+                    "gd": 36
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 67,
+                    "gf": 64,
+                    "ga": 44,
+                    "gd": 20
+                },
+                {
+                    "rank": 5,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 60,
+                    "gf": 64,
+                    "ga": 50,
+                    "gd": 14
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 60,
+                    "gf": 70,
+                    "ga": 60,
+                    "gd": 10
+                },
+                {
+                    "rank": 7,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 56,
+                    "gf": 59,
+                    "ga": 46,
+                    "gd": 13
+                },
+                {
+                    "rank": 8,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 55,
+                    "gf": 50,
+                    "ga": 52,
+                    "gd": -2
+                },
+                {
+                    "rank": 9,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 55,
+                    "gf": 50,
+                    "ga": 56,
+                    "gd": -6
+                },
+                {
+                    "rank": 10,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 54,
+                    "gf": 56,
+                    "ga": 49,
+                    "gd": 7
+                },
+                {
+                    "rank": 11,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 52,
+                    "gf": 47,
+                    "ga": 51,
+                    "gd": -4
+                },
+                {
+                    "rank": 12,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 51,
+                    "gf": 47,
+                    "ga": 53,
+                    "gd": -6
+                },
+                {
+                    "rank": 13,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 48,
+                    "gf": 54,
+                    "ga": 54,
+                    "gd": 0
+                },
+                {
+                    "rank": 14,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 45,
+                    "gf": 45,
+                    "ga": 53,
+                    "gd": -8
+                },
+                {
+                    "rank": 15,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 43,
+                    "gf": 43,
+                    "ga": 63,
+                    "gd": -20
+                },
+                {
+                    "rank": 16,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 40,
+                    "gf": 48,
+                    "ga": 79,
+                    "gd": -31
+                },
+                {
+                    "rank": 17,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 39,
+                    "gf": 34,
+                    "ga": 52,
+                    "gd": -18
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 35,
+                    "gf": 44,
+                    "ga": 58,
+                    "gd": -14
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 29,
+                    "gf": 47,
+                    "ga": 75,
+                    "gd": -28
+                },
+                {
+                    "rank": 20,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 27,
+                    "gf": 34,
+                    "ga": 66,
+                    "gd": -32
+                }
+            ]
+        },
+        {
+            "simulation": 4375,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 85,
+                    "gf": 70,
+                    "ga": 32,
+                    "gd": 38
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 83,
+                    "gf": 85,
+                    "ga": 38,
+                    "gd": 47
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 67,
+                    "gf": 59,
+                    "ga": 41,
+                    "gd": 18
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 61,
+                    "gf": 69,
+                    "ga": 48,
+                    "gd": 21
+                },
+                {
+                    "rank": 5,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 59,
+                    "gf": 60,
+                    "ga": 50,
+                    "gd": 10
+                },
+                {
+                    "rank": 6,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 56,
+                    "gf": 54,
+                    "ga": 46,
+                    "gd": 8
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 56,
+                    "gf": 60,
+                    "ga": 59,
+                    "gd": 1
+                },
+                {
+                    "rank": 8,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 54,
+                    "gf": 57,
+                    "ga": 44,
+                    "gd": 13
+                },
+                {
+                    "rank": 9,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 51,
+                    "gf": 45,
+                    "ga": 48,
+                    "gd": -3
+                },
+                {
+                    "rank": 10,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 47,
+                    "gf": 40,
+                    "ga": 45,
+                    "gd": -5
+                },
+                {
+                    "rank": 11,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 47,
+                    "gf": 45,
+                    "ga": 58,
+                    "gd": -13
+                },
+                {
+                    "rank": 12,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 47,
+                    "gf": 42,
+                    "ga": 67,
+                    "gd": -25
+                },
+                {
+                    "rank": 13,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 46,
+                    "gf": 52,
+                    "ga": 54,
+                    "gd": -2
+                },
+                {
+                    "rank": 14,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 45,
+                    "gf": 48,
+                    "ga": 50,
+                    "gd": -2
+                },
+                {
+                    "rank": 15,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 45,
+                    "gf": 45,
+                    "ga": 55,
+                    "gd": -10
+                },
+                {
+                    "rank": 16,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 42,
+                    "gf": 38,
+                    "ga": 52,
+                    "gd": -14
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 39,
+                    "gf": 43,
+                    "ga": 66,
+                    "gd": -23
+                },
+                {
+                    "rank": 18,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 38,
+                    "gf": 46,
+                    "ga": 61,
+                    "gd": -15
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 37,
+                    "gf": 37,
+                    "ga": 62,
+                    "gd": -25
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 36,
+                    "gf": 37,
+                    "ga": 56,
+                    "gd": -19
+                }
+            ]
+        },
+        {
+            "simulation": 4665,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 90,
+                    "gf": 88,
+                    "ga": 36,
+                    "gd": 52
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 72,
+                    "gf": 68,
+                    "ga": 48,
+                    "gd": 20
+                },
+                {
+                    "rank": 3,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 65,
+                    "gf": 62,
+                    "ga": 53,
+                    "gd": 9
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 62,
+                    "gf": 69,
+                    "ga": 54,
+                    "gd": 15
+                },
+                {
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 61,
+                    "gf": 66,
+                    "ga": 44,
+                    "gd": 22
+                },
+                {
+                    "rank": 6,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 60,
+                    "gf": 61,
+                    "ga": 47,
+                    "gd": 14
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 57,
+                    "gf": 51,
+                    "ga": 47,
+                    "gd": 4
+                },
+                {
+                    "rank": 8,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 54,
+                    "gf": 52,
+                    "ga": 50,
+                    "gd": 2
+                },
+                {
+                    "rank": 9,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 52,
+                    "gf": 73,
+                    "ga": 57,
+                    "gd": 16
+                },
+                {
+                    "rank": 10,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 51,
+                    "gf": 40,
+                    "ga": 48,
+                    "gd": -8
+                },
+                {
+                    "rank": 11,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 49,
+                    "gf": 42,
+                    "ga": 58,
+                    "gd": -16
+                },
+                {
+                    "rank": 12,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 48,
+                    "gf": 51,
+                    "ga": 46,
+                    "gd": 5
+                },
+                {
+                    "rank": 13,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 46,
+                    "gf": 59,
+                    "ga": 66,
+                    "gd": -7
+                },
+                {
+                    "rank": 14,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 45,
+                    "gf": 44,
+                    "ga": 51,
+                    "gd": -7
+                },
+                {
+                    "rank": 15,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 43,
+                    "gf": 42,
+                    "ga": 56,
+                    "gd": -14
+                },
+                {
+                    "rank": 16,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 43,
+                    "gf": 41,
+                    "ga": 60,
+                    "gd": -19
+                },
+                {
+                    "rank": 17,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 42,
+                    "gf": 38,
+                    "ga": 56,
+                    "gd": -18
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 40,
+                    "gf": 41,
+                    "ga": 55,
+                    "gd": -14
+                },
+                {
+                    "rank": 19,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 40,
+                    "gf": 50,
+                    "ga": 80,
+                    "gd": -30
+                },
+                {
+                    "rank": 20,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 35,
+                    "gf": 33,
+                    "ga": 59,
+                    "gd": -26
+                }
+            ]
+        },
+        {
+            "simulation": 5062,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 91,
+                    "gf": 97,
+                    "ga": 41,
+                    "gd": 56
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 78,
+                    "gf": 68,
+                    "ga": 36,
+                    "gd": 32
+                },
+                {
+                    "rank": 3,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 75,
+                    "gf": 59,
+                    "ga": 32,
+                    "gd": 27
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 70,
+                    "gf": 69,
+                    "ga": 47,
+                    "gd": 22
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 60,
+                    "gf": 69,
+                    "ga": 63,
+                    "gd": 6
+                },
+                {
+                    "rank": 6,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 59,
+                    "gf": 50,
+                    "ga": 37,
+                    "gd": 13
+                },
+                {
+                    "rank": 7,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 55,
+                    "gf": 59,
+                    "ga": 49,
+                    "gd": 10
+                },
+                {
+                    "rank": 8,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 55,
+                    "gf": 51,
+                    "ga": 43,
+                    "gd": 8
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 54,
+                    "gf": 50,
+                    "ga": 54,
+                    "gd": -4
+                },
+                {
+                    "rank": 10,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 52,
+                    "gf": 61,
+                    "ga": 55,
+                    "gd": 6
+                },
+                {
+                    "rank": 11,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 49,
+                    "gf": 54,
+                    "ga": 59,
+                    "gd": -5
+                },
+                {
+                    "rank": 12,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 49,
+                    "gf": 49,
+                    "ga": 63,
+                    "gd": -14
+                },
+                {
+                    "rank": 13,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 48,
+                    "gf": 52,
+                    "ga": 52,
+                    "gd": 0
+                },
+                {
+                    "rank": 14,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 46,
+                    "gf": 41,
+                    "ga": 54,
+                    "gd": -13
+                },
+                {
+                    "rank": 15,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 45,
+                    "gf": 43,
+                    "ga": 49,
+                    "gd": -6
+                },
+                {
+                    "rank": 16,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 43,
+                    "gf": 44,
+                    "ga": 58,
+                    "gd": -14
+                },
+                {
+                    "rank": 17,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 43,
+                    "gf": 41,
+                    "ga": 59,
+                    "gd": -18
+                },
+                {
+                    "rank": 18,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 26,
+                    "gf": 32,
+                    "ga": 63,
+                    "gd": -31
+                },
+                {
+                    "rank": 19,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 26,
+                    "gf": 32,
+                    "ga": 66,
+                    "gd": -34
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 26,
+                    "gf": 37,
+                    "ga": 78,
+                    "gd": -41
+                }
+            ]
+        },
+        {
+            "simulation": 10549,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 89,
+                    "gf": 90,
+                    "ga": 29,
+                    "gd": 61
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 80,
+                    "gf": 68,
+                    "ga": 31,
+                    "gd": 37
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 62,
+                    "gf": 64,
+                    "ga": 45,
+                    "gd": 19
+                },
+                {
+                    "rank": 4,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 62,
+                    "gf": 66,
+                    "ga": 49,
+                    "gd": 17
+                },
+                {
+                    "rank": 5,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 60,
+                    "gf": 69,
+                    "ga": 44,
+                    "gd": 25
+                },
+                {
+                    "rank": 6,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 60,
+                    "gf": 58,
+                    "ga": 50,
+                    "gd": 8
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 57,
+                    "gf": 47,
+                    "ga": 53,
+                    "gd": -6
+                },
+                {
+                    "rank": 8,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 53,
+                    "gf": 52,
+                    "ga": 49,
+                    "gd": 3
+                },
+                {
+                    "rank": 9,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 53,
+                    "gf": 60,
+                    "ga": 63,
+                    "gd": -3
+                },
+                {
+                    "rank": 10,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 50,
+                    "gf": 51,
+                    "ga": 54,
+                    "gd": -3
+                },
+                {
+                    "rank": 11,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 49,
+                    "gf": 46,
+                    "ga": 42,
+                    "gd": 4
+                },
+                {
+                    "rank": 12,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 49,
+                    "gf": 55,
+                    "ga": 54,
+                    "gd": 1
+                },
+                {
+                    "rank": 13,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 49,
+                    "gf": 50,
+                    "ga": 56,
+                    "gd": -6
+                },
+                {
+                    "rank": 14,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 49,
+                    "gf": 55,
+                    "ga": 62,
+                    "gd": -7
+                },
+                {
+                    "rank": 15,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 44,
+                    "gf": 46,
+                    "ga": 61,
+                    "gd": -15
+                },
+                {
+                    "rank": 16,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 43,
+                    "gf": 42,
+                    "ga": 60,
+                    "gd": -18
+                },
+                {
+                    "rank": 17,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 42,
+                    "gf": 48,
+                    "ga": 62,
+                    "gd": -14
+                },
+                {
+                    "rank": 18,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 33,
+                    "gf": 50,
+                    "ga": 83,
+                    "gd": -33
+                },
+                {
+                    "rank": 19,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 28,
+                    "gf": 32,
+                    "ga": 61,
+                    "gd": -29
+                },
+                {
+                    "rank": 20,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 26,
                     "gf": 31,
                     "ga": 72,
                     "gd": -41
@@ -8025,6112 +9365,562 @@ window.forecastData = {
             ]
         },
         {
-            "simulation": 335,
+            "simulation": 11853,
             "teams": [
                 {
                     "rank": 1,
                     "team": "Manchester City",
                     "slug": "man-city",
-                    "pts": 89,
-                    "gf": 94,
-                    "ga": 42,
-                    "gd": 52
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 87,
-                    "gf": 83,
-                    "ga": 39,
-                    "gd": 44
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 67,
-                    "gf": 64,
-                    "ga": 48,
-                    "gd": 16
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 65,
-                    "gf": 57,
-                    "ga": 39,
-                    "gd": 18
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 63,
-                    "gf": 74,
-                    "ga": 44,
-                    "gd": 30
-                },
-                {
-                    "rank": 6,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 55,
-                    "gf": 51,
-                    "ga": 44,
-                    "gd": 7
-                },
-                {
-                    "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 55,
-                    "gf": 58,
-                    "ga": 52,
-                    "gd": 6
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 54,
-                    "gf": 48,
-                    "ga": 40,
-                    "gd": 8
-                },
-                {
-                    "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 51,
-                    "gf": 57,
-                    "ga": 60,
-                    "gd": -3
-                },
-                {
-                    "rank": 10,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 50,
-                    "gf": 50,
-                    "ga": 51,
-                    "gd": -1
-                },
-                {
-                    "rank": 11,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 48,
-                    "gf": 52,
-                    "ga": 57,
-                    "gd": -5
-                },
-                {
-                    "rank": 12,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 43,
-                    "gf": 45,
-                    "ga": 55,
-                    "gd": -10
-                },
-                {
-                    "rank": 13,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 43,
-                    "gf": 49,
-                    "ga": 61,
-                    "gd": -12
-                },
-                {
-                    "rank": 14,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 42,
-                    "gf": 47,
-                    "ga": 57,
-                    "gd": -10
-                },
-                {
-                    "rank": 15,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 40,
-                    "gf": 48,
-                    "ga": 61,
-                    "gd": -13
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 40,
-                    "gf": 40,
-                    "ga": 66,
-                    "gd": -26
-                },
-                {
-                    "rank": 17,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 37,
-                    "gf": 39,
-                    "ga": 60,
-                    "gd": -21
-                },
-                {
-                    "rank": 18,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 36,
-                    "gf": 43,
-                    "ga": 56,
-                    "gd": -13
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 36,
-                    "gf": 36,
-                    "ga": 72,
-                    "gd": -36
-                },
-                {
-                    "rank": 20,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 32,
-                    "gf": 35,
-                    "ga": 66,
-                    "gd": -31
-                }
-            ]
-        },
-        {
-            "simulation": 337,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 90,
-                    "gf": 69,
-                    "ga": 30,
-                    "gd": 39
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 81,
-                    "gf": 78,
-                    "ga": 39,
-                    "gd": 39
-                },
-                {
-                    "rank": 3,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 72,
-                    "gf": 66,
-                    "ga": 49,
-                    "gd": 17
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 62,
-                    "gf": 66,
-                    "ga": 50,
-                    "gd": 16
-                },
-                {
-                    "rank": 5,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 62,
-                    "gf": 60,
-                    "ga": 51,
-                    "gd": 9
-                },
-                {
-                    "rank": 6,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 61,
-                    "gf": 66,
-                    "ga": 51,
-                    "gd": 15
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 57,
-                    "gf": 62,
-                    "ga": 57,
-                    "gd": 5
-                },
-                {
-                    "rank": 8,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 54,
-                    "gf": 59,
-                    "ga": 57,
-                    "gd": 2
-                },
-                {
-                    "rank": 9,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 53,
-                    "gf": 58,
-                    "ga": 54,
-                    "gd": 4
-                },
-                {
-                    "rank": 10,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 51,
-                    "gf": 59,
-                    "ga": 57,
-                    "gd": 2
-                },
-                {
-                    "rank": 11,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 48,
-                    "gf": 50,
-                    "ga": 56,
-                    "gd": -6
-                },
-                {
-                    "rank": 12,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 47,
-                    "gf": 66,
-                    "ga": 61,
-                    "gd": 5
-                },
-                {
-                    "rank": 13,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 43,
-                    "gf": 45,
-                    "ga": 53,
-                    "gd": -8
-                },
-                {
-                    "rank": 14,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 41,
-                    "gf": 42,
-                    "ga": 51,
-                    "gd": -9
-                },
-                {
-                    "rank": 15,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 41,
-                    "gf": 44,
-                    "ga": 54,
-                    "gd": -10
-                },
-                {
-                    "rank": 16,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 38,
-                    "gf": 48,
-                    "ga": 58,
-                    "gd": -10
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 38,
-                    "gf": 35,
-                    "ga": 59,
-                    "gd": -24
-                },
-                {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 35,
-                    "gf": 36,
-                    "ga": 54,
-                    "gd": -18
-                },
-                {
-                    "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 34,
-                    "gf": 44,
-                    "ga": 72,
-                    "gd": -28
-                },
-                {
-                    "rank": 20,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 29,
-                    "gf": 43,
-                    "ga": 83,
-                    "gd": -40
-                }
-            ]
-        },
-        {
-            "simulation": 435,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 95,
-                    "gf": 79,
-                    "ga": 31,
-                    "gd": 48
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 81,
-                    "gf": 86,
-                    "ga": 36,
-                    "gd": 50
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 69,
-                    "gf": 55,
-                    "ga": 41,
-                    "gd": 14
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 60,
-                    "gf": 73,
-                    "ga": 45,
-                    "gd": 28
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 58,
-                    "gf": 65,
-                    "ga": 55,
-                    "gd": 10
-                },
-                {
-                    "rank": 6,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 56,
-                    "gf": 58,
-                    "ga": 54,
-                    "gd": 4
-                },
-                {
-                    "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 53,
-                    "gf": 51,
-                    "ga": 58,
-                    "gd": -7
-                },
-                {
-                    "rank": 8,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 51,
-                    "gf": 50,
-                    "ga": 46,
-                    "gd": 4
-                },
-                {
-                    "rank": 9,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 50,
-                    "gf": 53,
-                    "ga": 51,
-                    "gd": 2
-                },
-                {
-                    "rank": 10,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 50,
-                    "gf": 57,
-                    "ga": 62,
-                    "gd": -5
-                },
-                {
-                    "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 49,
-                    "gf": 52,
-                    "ga": 47,
-                    "gd": 5
-                },
-                {
-                    "rank": 12,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 49,
-                    "gf": 43,
-                    "ga": 53,
-                    "gd": -10
-                },
-                {
-                    "rank": 13,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 48,
-                    "gf": 48,
-                    "ga": 56,
-                    "gd": -8
-                },
-                {
-                    "rank": 14,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 45,
-                    "gf": 43,
-                    "ga": 50,
-                    "gd": -7
-                },
-                {
-                    "rank": 15,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 44,
-                    "gf": 48,
-                    "ga": 59,
-                    "gd": -11
-                },
-                {
-                    "rank": 16,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 42,
-                    "gf": 42,
-                    "ga": 61,
-                    "gd": -19
-                },
-                {
-                    "rank": 17,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 41,
-                    "gf": 49,
-                    "ga": 66,
-                    "gd": -17
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 35,
-                    "gf": 46,
-                    "ga": 69,
-                    "gd": -23
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 34,
-                    "gf": 45,
-                    "ga": 72,
-                    "gd": -27
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 32,
-                    "gf": 43,
-                    "ga": 74,
-                    "gd": -31
-                }
-            ]
-        },
-        {
-            "simulation": 466,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 79,
-                    "gf": 77,
-                    "ga": 42,
-                    "gd": 35
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 74,
-                    "gf": 61,
-                    "ga": 39,
-                    "gd": 22
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 67,
-                    "gf": 75,
-                    "ga": 50,
-                    "gd": 25
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 65,
-                    "gf": 58,
-                    "ga": 45,
-                    "gd": 13
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 63,
-                    "gf": 73,
-                    "ga": 52,
-                    "gd": 21
-                },
-                {
-                    "rank": 6,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 63,
-                    "gf": 56,
-                    "ga": 46,
-                    "gd": 10
-                },
-                {
-                    "rank": 7,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 58,
-                    "gf": 61,
-                    "ga": 44,
-                    "gd": 17
-                },
-                {
-                    "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 55,
-                    "gf": 59,
-                    "ga": 46,
-                    "gd": 13
-                },
-                {
-                    "rank": 9,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 53,
-                    "gf": 48,
-                    "ga": 48,
-                    "gd": 0
-                },
-                {
-                    "rank": 10,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 50,
-                    "gf": 48,
-                    "ga": 53,
-                    "gd": -5
-                },
-                {
-                    "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 47,
-                    "gf": 49,
-                    "ga": 55,
-                    "gd": -6
-                },
-                {
-                    "rank": 12,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 46,
-                    "gf": 42,
-                    "ga": 48,
-                    "gd": -6
-                },
-                {
-                    "rank": 13,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 37,
-                    "ga": 59,
-                    "gd": -22
-                },
-                {
-                    "rank": 14,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 43,
-                    "gf": 41,
-                    "ga": 51,
-                    "gd": -10
-                },
-                {
-                    "rank": 15,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 42,
-                    "gf": 43,
-                    "ga": 48,
-                    "gd": -5
-                },
-                {
-                    "rank": 16,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 41,
-                    "gf": 35,
-                    "ga": 61,
-                    "gd": -26
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 38,
-                    "gf": 42,
-                    "ga": 60,
-                    "gd": -18
-                },
-                {
-                    "rank": 18,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 38,
-                    "gf": 43,
-                    "ga": 65,
-                    "gd": -22
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 36,
-                    "gf": 43,
-                    "ga": 59,
-                    "gd": -16
-                },
-                {
-                    "rank": 20,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 33,
-                    "gf": 35,
-                    "ga": 55,
-                    "gd": -20
-                }
-            ]
-        },
-        {
-            "simulation": 506,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 79,
-                    "gf": 74,
-                    "ga": 37,
-                    "gd": 37
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 69,
-                    "gf": 72,
-                    "ga": 39,
-                    "gd": 33
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 68,
-                    "gf": 60,
-                    "ga": 40,
-                    "gd": 20
-                },
-                {
-                    "rank": 4,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 65,
-                    "gf": 53,
-                    "ga": 43,
-                    "gd": 10
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 68,
-                    "ga": 45,
-                    "gd": 23
-                },
-                {
-                    "rank": 6,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 61,
-                    "gf": 56,
-                    "ga": 41,
-                    "gd": 15
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 57,
-                    "gf": 60,
-                    "ga": 59,
-                    "gd": 1
-                },
-                {
-                    "rank": 8,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 51,
-                    "gf": 52,
-                    "ga": 55,
-                    "gd": -3
-                },
-                {
-                    "rank": 9,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 49,
-                    "gf": 58,
-                    "ga": 51,
-                    "gd": 7
-                },
-                {
-                    "rank": 10,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 48,
-                    "gf": 48,
-                    "ga": 58,
-                    "gd": -10
-                },
-                {
-                    "rank": 11,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 48,
-                    "gf": 44,
-                    "ga": 61,
-                    "gd": -17
-                },
-                {
-                    "rank": 12,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 46,
-                    "gf": 53,
-                    "ga": 55,
-                    "gd": -2
-                },
-                {
-                    "rank": 13,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 45,
-                    "gf": 50,
-                    "ga": 55,
-                    "gd": -5
-                },
-                {
-                    "rank": 14,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 45,
-                    "gf": 51,
-                    "ga": 66,
-                    "gd": -15
-                },
-                {
-                    "rank": 15,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 45,
-                    "gf": 48,
-                    "ga": 66,
-                    "gd": -18
-                },
-                {
-                    "rank": 16,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 44,
-                    "gf": 52,
-                    "ga": 51,
-                    "gd": 1
-                },
-                {
-                    "rank": 17,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 42,
-                    "gf": 50,
-                    "ga": 58,
-                    "gd": -8
-                },
-                {
-                    "rank": 18,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 38,
-                    "gf": 45,
-                    "ga": 70,
-                    "gd": -25
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 37,
-                    "gf": 39,
-                    "ga": 58,
-                    "gd": -19
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 37,
-                    "gf": 41,
-                    "ga": 66,
-                    "gd": -25
-                }
-            ]
-        },
-        {
-            "simulation": 1053,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 97,
-                    "gf": 102,
-                    "ga": 31,
-                    "gd": 71
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 84,
-                    "gf": 74,
-                    "ga": 28,
-                    "gd": 46
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 65,
-                    "gf": 67,
-                    "ga": 53,
-                    "gd": 14
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 62,
-                    "gf": 55,
-                    "ga": 44,
-                    "gd": 11
-                },
-                {
-                    "rank": 5,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 61,
-                    "gf": 51,
-                    "ga": 38,
-                    "gd": 13
-                },
-                {
-                    "rank": 6,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 59,
-                    "gf": 62,
-                    "ga": 41,
-                    "gd": 21
-                },
-                {
-                    "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 59,
-                    "gf": 55,
-                    "ga": 51,
-                    "gd": 4
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 58,
-                    "gf": 63,
-                    "ga": 43,
-                    "gd": 20
-                },
-                {
-                    "rank": 9,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 51,
-                    "gf": 43,
-                    "ga": 55,
-                    "gd": -12
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 49,
-                    "gf": 44,
-                    "ga": 44,
-                    "gd": 0
-                },
-                {
-                    "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 47,
-                    "gf": 62,
-                    "ga": 62,
-                    "gd": 0
-                },
-                {
-                    "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 45,
-                    "gf": 43,
-                    "ga": 56,
-                    "gd": -13
-                },
-                {
-                    "rank": 13,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 40,
-                    "ga": 59,
-                    "gd": -19
-                },
-                {
-                    "rank": 14,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 42,
-                    "gf": 54,
-                    "ga": 71,
-                    "gd": -17
-                },
-                {
-                    "rank": 15,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 41,
-                    "gf": 47,
-                    "ga": 75,
-                    "gd": -28
-                },
-                {
-                    "rank": 16,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 40,
-                    "gf": 43,
-                    "ga": 59,
-                    "gd": -16
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 40,
-                    "gf": 42,
-                    "ga": 70,
-                    "gd": -28
-                },
-                {
-                    "rank": 18,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 38,
-                    "gf": 38,
-                    "ga": 63,
-                    "gd": -25
-                },
-                {
-                    "rank": 19,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 33,
-                    "gf": 43,
-                    "ga": 63,
-                    "gd": -20
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 32,
-                    "gf": 37,
-                    "ga": 59,
-                    "gd": -22
-                }
-            ]
-        },
-        {
-            "simulation": 1183,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 95,
-                    "gf": 97,
-                    "ga": 26,
-                    "gd": 71
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 82,
-                    "gf": 82,
-                    "ga": 42,
-                    "gd": 40
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 78,
-                    "gf": 81,
-                    "ga": 45,
-                    "gd": 36
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 63,
-                    "gf": 71,
-                    "ga": 56,
-                    "gd": 15
-                },
-                {
-                    "rank": 5,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 62,
-                    "gf": 67,
-                    "ga": 55,
-                    "gd": 12
-                },
-                {
-                    "rank": 6,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 58,
-                    "gf": 50,
-                    "ga": 44,
-                    "gd": 6
-                },
-                {
-                    "rank": 7,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 55,
-                    "gf": 62,
-                    "ga": 48,
-                    "gd": 14
-                },
-                {
-                    "rank": 8,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 53,
-                    "gf": 50,
-                    "ga": 55,
-                    "gd": -5
-                },
-                {
-                    "rank": 9,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 50,
-                    "gf": 51,
-                    "ga": 53,
-                    "gd": -2
-                },
-                {
-                    "rank": 10,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 49,
-                    "gf": 50,
-                    "ga": 45,
-                    "gd": 5
-                },
-                {
-                    "rank": 11,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 48,
-                    "gf": 45,
-                    "ga": 51,
-                    "gd": -6
-                },
-                {
-                    "rank": 12,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 47,
-                    "gf": 46,
-                    "ga": 51,
-                    "gd": -5
-                },
-                {
-                    "rank": 13,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 45,
-                    "gf": 53,
-                    "ga": 52,
-                    "gd": 1
-                },
-                {
-                    "rank": 14,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 45,
-                    "gf": 46,
-                    "ga": 53,
-                    "gd": -7
-                },
-                {
-                    "rank": 15,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 45,
-                    "gf": 47,
-                    "ga": 64,
-                    "gd": -17
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 42,
-                    "gf": 50,
-                    "ga": 75,
-                    "gd": -25
-                },
-                {
-                    "rank": 17,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 40,
-                    "gf": 38,
-                    "ga": 52,
-                    "gd": -14
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 31,
-                    "gf": 45,
-                    "ga": 79,
-                    "gd": -34
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 30,
-                    "gf": 41,
-                    "ga": 81,
-                    "gd": -40
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 23,
-                    "gf": 31,
-                    "ga": 76,
-                    "gd": -45
-                }
-            ]
-        },
-        {
-            "simulation": 1191,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
                     "pts": 88,
-                    "gf": 76,
-                    "ga": 33,
-                    "gd": 43
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 85,
-                    "gf": 85,
-                    "ga": 45,
-                    "gd": 40
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 71,
-                    "gf": 67,
-                    "ga": 40,
-                    "gd": 27
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 71,
-                    "gf": 74,
-                    "ga": 51,
-                    "gd": 23
-                },
-                {
-                    "rank": 5,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 59,
-                    "gf": 56,
-                    "ga": 51,
-                    "gd": 5
-                },
-                {
-                    "rank": 6,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 58,
-                    "gf": 60,
-                    "ga": 50,
-                    "gd": 10
-                },
-                {
-                    "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 56,
-                    "gf": 62,
-                    "ga": 57,
-                    "gd": 5
-                },
-                {
-                    "rank": 8,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 54,
-                    "gf": 55,
-                    "ga": 57,
-                    "gd": -2
-                },
-                {
-                    "rank": 9,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 52,
-                    "gf": 51,
-                    "ga": 52,
-                    "gd": -1
-                },
-                {
-                    "rank": 10,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 52,
-                    "gf": 50,
-                    "ga": 52,
-                    "gd": -2
-                },
-                {
-                    "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 51,
-                    "gf": 56,
-                    "ga": 52,
-                    "gd": 4
-                },
-                {
-                    "rank": 12,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 50,
-                    "gf": 63,
-                    "ga": 46,
-                    "gd": 17
-                },
-                {
-                    "rank": 13,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 47,
-                    "gf": 54,
-                    "ga": 49,
-                    "gd": 5
-                },
-                {
-                    "rank": 14,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 44,
-                    "gf": 42,
-                    "ga": 55,
-                    "gd": -13
-                },
-                {
-                    "rank": 15,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 42,
-                    "gf": 41,
-                    "ga": 53,
-                    "gd": -12
-                },
-                {
-                    "rank": 16,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 40,
-                    "gf": 51,
-                    "ga": 61,
-                    "gd": -10
-                },
-                {
-                    "rank": 17,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 38,
-                    "gf": 40,
-                    "ga": 70,
-                    "gd": -30
-                },
-                {
-                    "rank": 18,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 35,
-                    "gf": 43,
-                    "ga": 74,
-                    "gd": -31
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 29,
-                    "gf": 38,
-                    "ga": 73,
-                    "gd": -35
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 25,
-                    "gf": 32,
-                    "ga": 75,
-                    "gd": -43
-                }
-            ]
-        },
-        {
-            "simulation": 1259,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 78,
-                    "gf": 82,
-                    "ga": 35,
-                    "gd": 47
+                    "gf": 99,
+                    "ga": 37,
+                    "gd": 62
                 },
                 {
                     "rank": 2,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 78,
-                    "gf": 65,
-                    "ga": 40,
-                    "gd": 25
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 63,
-                    "gf": 62,
-                    "ga": 44,
-                    "gd": 18
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 62,
-                    "gf": 68,
-                    "ga": 47,
-                    "gd": 21
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 58,
-                    "gf": 66,
-                    "ga": 63,
-                    "gd": 3
-                },
-                {
-                    "rank": 6,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 55,
-                    "gf": 59,
-                    "ga": 49,
-                    "gd": 10
-                },
-                {
-                    "rank": 7,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 54,
-                    "gf": 55,
-                    "ga": 42,
-                    "gd": 13
-                },
-                {
-                    "rank": 8,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 54,
-                    "gf": 54,
-                    "ga": 54,
-                    "gd": 0
-                },
-                {
-                    "rank": 9,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 52,
-                    "gf": 65,
-                    "ga": 61,
-                    "gd": 4
-                },
-                {
-                    "rank": 10,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 50,
-                    "gf": 47,
-                    "ga": 50,
-                    "gd": -3
-                },
-                {
-                    "rank": 11,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 49,
-                    "gf": 55,
-                    "ga": 64,
-                    "gd": -9
-                },
-                {
-                    "rank": 12,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 48,
-                    "gf": 51,
-                    "ga": 65,
-                    "gd": -14
-                },
-                {
-                    "rank": 13,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 47,
-                    "gf": 51,
-                    "ga": 55,
-                    "gd": -4
-                },
-                {
-                    "rank": 14,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 45,
-                    "gf": 38,
-                    "ga": 41,
-                    "gd": -3
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 45,
-                    "gf": 48,
-                    "ga": 54,
-                    "gd": -6
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 47,
-                    "ga": 65,
-                    "gd": -18
-                },
-                {
-                    "rank": 17,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 43,
-                    "gf": 50,
-                    "ga": 57,
-                    "gd": -7
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 41,
-                    "gf": 46,
-                    "ga": 66,
-                    "gd": -20
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 41,
-                    "gf": 50,
-                    "ga": 75,
-                    "gd": -25
-                },
-                {
-                    "rank": 20,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 36,
-                    "gf": 44,
-                    "ga": 76,
-                    "gd": -32
-                }
-            ]
-        },
-        {
-            "simulation": 1262,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 80,
-                    "gf": 71,
-                    "ga": 38,
-                    "gd": 33
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 79,
-                    "gf": 88,
-                    "ga": 49,
-                    "gd": 39
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 78,
-                    "gf": 62,
-                    "ga": 36,
-                    "gd": 26
-                },
-                {
-                    "rank": 4,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 62,
-                    "gf": 53,
-                    "ga": 40,
-                    "gd": 13
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 58,
-                    "gf": 53,
-                    "ga": 49,
-                    "gd": 4
-                },
-                {
-                    "rank": 6,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 58,
-                    "gf": 54,
-                    "ga": 51,
-                    "gd": 3
-                },
-                {
-                    "rank": 7,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 53,
-                    "gf": 50,
-                    "ga": 58,
-                    "gd": -8
-                },
-                {
-                    "rank": 8,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 52,
-                    "gf": 63,
-                    "ga": 56,
-                    "gd": 7
-                },
-                {
-                    "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 52,
-                    "gf": 48,
-                    "ga": 43,
-                    "gd": 5
-                },
-                {
-                    "rank": 10,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 52,
-                    "gf": 58,
-                    "ga": 54,
-                    "gd": 4
-                },
-                {
-                    "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 52,
-                    "gf": 45,
-                    "ga": 44,
-                    "gd": 1
-                },
-                {
-                    "rank": 12,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 47,
-                    "gf": 58,
-                    "ga": 55,
-                    "gd": 3
-                },
-                {
-                    "rank": 13,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 46,
-                    "gf": 56,
-                    "ga": 65,
-                    "gd": -9
-                },
-                {
-                    "rank": 14,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 46,
-                    "gf": 42,
-                    "ga": 52,
-                    "gd": -10
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 45,
-                    "gf": 43,
-                    "ga": 53,
-                    "gd": -10
-                },
-                {
-                    "rank": 16,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 41,
-                    "gf": 56,
-                    "ga": 70,
-                    "gd": -14
-                },
-                {
-                    "rank": 17,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 41,
-                    "gf": 39,
-                    "ga": 56,
-                    "gd": -17
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 39,
-                    "gf": 47,
-                    "ga": 56,
-                    "gd": -9
-                },
-                {
-                    "rank": 19,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 31,
-                    "gf": 44,
-                    "ga": 78,
-                    "gd": -34
-                },
-                {
-                    "rank": 20,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 28,
-                    "gf": 37,
-                    "ga": 64,
-                    "gd": -27
-                }
-            ]
-        },
-        {
-            "simulation": 1395,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 79,
-                    "gf": 83,
-                    "ga": 35,
-                    "gd": 48
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 71,
-                    "gf": 68,
-                    "ga": 43,
-                    "gd": 25
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 70,
-                    "gf": 78,
-                    "ga": 53,
-                    "gd": 25
-                },
-                {
-                    "rank": 4,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 64,
-                    "gf": 60,
-                    "ga": 48,
-                    "gd": 12
-                },
-                {
-                    "rank": 5,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 63,
-                    "gf": 64,
-                    "ga": 43,
-                    "gd": 21
-                },
-                {
-                    "rank": 6,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 60,
-                    "gf": 56,
-                    "ga": 51,
-                    "gd": 5
-                },
-                {
-                    "rank": 7,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 55,
-                    "gf": 71,
-                    "ga": 50,
-                    "gd": 21
-                },
-                {
-                    "rank": 8,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 53,
-                    "gf": 61,
-                    "ga": 60,
-                    "gd": 1
-                },
-                {
-                    "rank": 9,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 52,
-                    "gf": 49,
-                    "ga": 45,
-                    "gd": 4
-                },
-                {
-                    "rank": 10,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 51,
-                    "gf": 47,
-                    "ga": 50,
-                    "gd": -3
-                },
-                {
-                    "rank": 11,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 49,
-                    "gf": 54,
-                    "ga": 50,
-                    "gd": 4
-                },
-                {
-                    "rank": 12,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 45,
-                    "gf": 50,
-                    "ga": 55,
-                    "gd": -5
-                },
-                {
-                    "rank": 13,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 44,
-                    "gf": 47,
-                    "ga": 58,
-                    "gd": -11
-                },
-                {
-                    "rank": 14,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 44,
-                    "gf": 53,
-                    "ga": 68,
-                    "gd": -15
-                },
-                {
-                    "rank": 15,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 40,
-                    "ga": 70,
-                    "gd": -30
-                },
-                {
-                    "rank": 16,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 42,
-                    "gf": 33,
-                    "ga": 44,
-                    "gd": -11
-                },
-                {
-                    "rank": 17,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 42,
-                    "gf": 45,
-                    "ga": 57,
-                    "gd": -12
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 39,
-                    "gf": 34,
-                    "ga": 52,
-                    "gd": -18
-                },
-                {
-                    "rank": 19,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 39,
-                    "gf": 38,
-                    "ga": 63,
-                    "gd": -25
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 32,
-                    "gf": 39,
-                    "ga": 75,
-                    "gd": -36
-                }
-            ]
-        },
-        {
-            "simulation": 1464,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 80,
-                    "gf": 75,
-                    "ga": 40,
-                    "gd": 35
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 75,
-                    "gf": 65,
-                    "ga": 41,
-                    "gd": 24
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 71,
-                    "gf": 61,
-                    "ga": 39,
-                    "gd": 22
-                },
-                {
-                    "rank": 4,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 64,
-                    "gf": 54,
-                    "ga": 42,
-                    "gd": 12
-                },
-                {
-                    "rank": 5,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 61,
-                    "gf": 52,
-                    "ga": 45,
-                    "gd": 7
-                },
-                {
-                    "rank": 6,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 59,
-                    "gf": 72,
-                    "ga": 52,
-                    "gd": 20
-                },
-                {
-                    "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 59,
-                    "gf": 54,
-                    "ga": 50,
-                    "gd": 4
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 58,
-                    "gf": 48,
-                    "ga": 38,
-                    "gd": 10
-                },
-                {
-                    "rank": 9,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 57,
-                    "gf": 49,
-                    "ga": 43,
-                    "gd": 6
-                },
-                {
-                    "rank": 10,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 57,
-                    "gf": 60,
-                    "ga": 55,
-                    "gd": 5
-                },
-                {
-                    "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 51,
-                    "gf": 54,
-                    "ga": 51,
-                    "gd": 3
-                },
-                {
-                    "rank": 12,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 49,
-                    "gf": 48,
-                    "ga": 56,
-                    "gd": -8
-                },
-                {
-                    "rank": 13,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 46,
-                    "gf": 44,
-                    "ga": 58,
-                    "gd": -14
-                },
-                {
-                    "rank": 14,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 45,
-                    "gf": 47,
-                    "ga": 54,
-                    "gd": -7
-                },
-                {
-                    "rank": 15,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 45,
-                    "gf": 47,
-                    "ga": 56,
-                    "gd": -9
-                },
-                {
-                    "rank": 16,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 44,
-                    "gf": 50,
-                    "ga": 57,
-                    "gd": -7
-                },
-                {
-                    "rank": 17,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 34,
-                    "gf": 47,
-                    "ga": 65,
-                    "gd": -18
-                },
-                {
-                    "rank": 18,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 32,
-                    "gf": 42,
-                    "ga": 67,
-                    "gd": -25
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 32,
-                    "gf": 37,
-                    "ga": 62,
-                    "gd": -25
-                },
-                {
-                    "rank": 20,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 27,
-                    "gf": 37,
-                    "ga": 72,
-                    "gd": -35
-                }
-            ]
-        },
-        {
-            "simulation": 1884,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
                     "pts": 86,
-                    "gf": 82,
-                    "ga": 42,
-                    "gd": 40
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 71,
-                    "gf": 59,
-                    "ga": 41,
-                    "gd": 18
-                },
-                {
-                    "rank": 3,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 65,
-                    "gf": 67,
-                    "ga": 43,
-                    "gd": 24
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 60,
-                    "gf": 67,
-                    "ga": 48,
-                    "gd": 19
-                },
-                {
-                    "rank": 5,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 59,
-                    "gf": 64,
-                    "ga": 52,
-                    "gd": 12
-                },
-                {
-                    "rank": 6,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 59,
-                    "gf": 57,
-                    "ga": 45,
-                    "gd": 12
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 57,
-                    "gf": 48,
-                    "ga": 41,
-                    "gd": 7
-                },
-                {
-                    "rank": 8,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 57,
-                    "gf": 55,
-                    "ga": 50,
-                    "gd": 5
-                },
-                {
-                    "rank": 9,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 57,
-                    "gf": 48,
-                    "ga": 47,
-                    "gd": 1
-                },
-                {
-                    "rank": 10,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 53,
-                    "gf": 66,
-                    "ga": 59,
-                    "gd": 7
-                },
-                {
-                    "rank": 11,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 50,
-                    "gf": 53,
-                    "ga": 57,
-                    "gd": -4
-                },
-                {
-                    "rank": 12,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 47,
-                    "gf": 41,
-                    "ga": 52,
-                    "gd": -11
-                },
-                {
-                    "rank": 13,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 46,
-                    "gf": 52,
-                    "ga": 55,
-                    "gd": -3
-                },
-                {
-                    "rank": 14,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 46,
-                    "gf": 56,
-                    "ga": 60,
-                    "gd": -4
-                },
-                {
-                    "rank": 15,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 44,
-                    "gf": 46,
-                    "ga": 59,
-                    "gd": -13
-                },
-                {
-                    "rank": 16,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 41,
-                    "gf": 44,
-                    "ga": 75,
-                    "gd": -31
-                },
-                {
-                    "rank": 17,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 39,
-                    "gf": 37,
-                    "ga": 52,
-                    "gd": -15
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 39,
-                    "gf": 45,
-                    "ga": 65,
-                    "gd": -20
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 37,
-                    "gf": 41,
-                    "ga": 66,
-                    "gd": -25
-                },
-                {
-                    "rank": 20,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 36,
-                    "gf": 44,
-                    "ga": 63,
-                    "gd": -19
-                }
-            ]
-        },
-        {
-            "simulation": 2232,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 87,
-                    "gf": 88,
-                    "ga": 41,
-                    "gd": 47
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 77,
-                    "gf": 82,
-                    "ga": 41,
-                    "gd": 41
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 69,
-                    "gf": 64,
-                    "ga": 42,
-                    "gd": 22
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 63,
-                    "gf": 70,
-                    "ga": 52,
-                    "gd": 18
-                },
-                {
-                    "rank": 5,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 63,
-                    "gf": 64,
-                    "ga": 54,
-                    "gd": 10
-                },
-                {
-                    "rank": 6,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 60,
-                    "gf": 48,
-                    "ga": 48,
-                    "gd": 0
-                },
-                {
-                    "rank": 7,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 59,
-                    "gf": 64,
-                    "ga": 51,
-                    "gd": 13
-                },
-                {
-                    "rank": 8,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 59,
-                    "gf": 55,
-                    "ga": 53,
-                    "gd": 2
-                },
-                {
-                    "rank": 9,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 53,
-                    "gf": 68,
-                    "ga": 51,
-                    "gd": 17
-                },
-                {
-                    "rank": 10,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 53,
-                    "gf": 52,
-                    "ga": 60,
-                    "gd": -8
-                },
-                {
-                    "rank": 11,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 52,
-                    "gf": 47,
-                    "ga": 56,
-                    "gd": -9
-                },
-                {
-                    "rank": 12,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 51,
-                    "gf": 54,
-                    "ga": 51,
-                    "gd": 3
-                },
-                {
-                    "rank": 13,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 47,
-                    "gf": 50,
-                    "ga": 64,
-                    "gd": -14
-                },
-                {
-                    "rank": 14,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 43,
-                    "gf": 49,
-                    "ga": 52,
-                    "gd": -3
-                },
-                {
-                    "rank": 15,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 43,
-                    "gf": 45,
-                    "ga": 59,
-                    "gd": -14
-                },
-                {
-                    "rank": 16,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 42,
-                    "gf": 52,
-                    "ga": 72,
-                    "gd": -20
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 41,
-                    "gf": 46,
-                    "ga": 68,
-                    "gd": -22
-                },
-                {
-                    "rank": 18,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 39,
-                    "gf": 42,
-                    "ga": 60,
-                    "gd": -18
-                },
-                {
-                    "rank": 19,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 38,
-                    "gf": 42,
-                    "ga": 61,
-                    "gd": -19
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 28,
-                    "gf": 33,
-                    "ga": 79,
-                    "gd": -46
-                }
-            ]
-        },
-        {
-            "simulation": 2621,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 89,
-                    "gf": 92,
-                    "ga": 37,
-                    "gd": 55
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 78,
-                    "gf": 73,
-                    "ga": 32,
-                    "gd": 41
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 66,
-                    "gf": 72,
-                    "ga": 44,
-                    "gd": 28
-                },
-                {
-                    "rank": 4,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 66,
-                    "gf": 65,
-                    "ga": 50,
-                    "gd": 15
-                },
-                {
-                    "rank": 5,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 56,
-                    "gf": 57,
-                    "ga": 51,
-                    "gd": 6
-                },
-                {
-                    "rank": 6,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 56,
-                    "gf": 51,
-                    "ga": 57,
-                    "gd": -6
-                },
-                {
-                    "rank": 7,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 55,
-                    "gf": 55,
-                    "ga": 51,
-                    "gd": 4
-                },
-                {
-                    "rank": 8,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 55,
-                    "gf": 51,
-                    "ga": 53,
-                    "gd": -2
-                },
-                {
-                    "rank": 9,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 54,
-                    "gf": 60,
-                    "ga": 41,
-                    "gd": 19
-                },
-                {
-                    "rank": 10,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 54,
-                    "gf": 46,
-                    "ga": 49,
-                    "gd": -3
-                },
-                {
-                    "rank": 11,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 53,
-                    "gf": 66,
-                    "ga": 46,
-                    "gd": 20
-                },
-                {
-                    "rank": 12,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 52,
-                    "gf": 48,
-                    "ga": 52,
-                    "gd": -4
-                },
-                {
-                    "rank": 13,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 51,
-                    "gf": 61,
-                    "ga": 52,
-                    "gd": 9
-                },
-                {
-                    "rank": 14,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 50,
-                    "gf": 57,
-                    "ga": 55,
-                    "gd": 2
-                },
-                {
-                    "rank": 15,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 45,
-                    "gf": 56,
-                    "ga": 55,
-                    "gd": 1
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 43,
-                    "gf": 54,
-                    "ga": 81,
-                    "gd": -27
-                },
-                {
-                    "rank": 17,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 39,
-                    "gf": 44,
-                    "ga": 75,
-                    "gd": -31
-                },
-                {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 32,
-                    "gf": 41,
-                    "ga": 76,
-                    "gd": -35
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 26,
-                    "gf": 36,
-                    "ga": 78,
-                    "gd": -42
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 20,
-                    "gf": 30,
-                    "ga": 80,
-                    "gd": -50
-                }
-            ]
-        },
-        {
-            "simulation": 2721,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 90,
                     "gf": 76,
-                    "ga": 37,
-                    "gd": 39
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 83,
-                    "gf": 72,
-                    "ga": 30,
+                    "ga": 34,
                     "gd": 42
                 },
                 {
                     "rank": 3,
                     "team": "Brighton",
                     "slug": "brighton",
-                    "pts": 69,
-                    "gf": 69,
-                    "ga": 39,
-                    "gd": 30
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 63,
-                    "gf": 73,
-                    "ga": 58,
-                    "gd": 15
-                },
-                {
-                    "rank": 5,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 58,
-                    "gf": 53,
-                    "ga": 41,
-                    "gd": 12
-                },
-                {
-                    "rank": 6,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 57,
-                    "gf": 62,
+                    "pts": 65,
+                    "gf": 72,
                     "ga": 50,
-                    "gd": 12
-                },
-                {
-                    "rank": 7,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 57,
-                    "gf": 54,
-                    "ga": 54,
-                    "gd": 0
-                },
-                {
-                    "rank": 8,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 55,
-                    "gf": 65,
-                    "ga": 51,
-                    "gd": 14
-                },
-                {
-                    "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 55,
-                    "gf": 59,
-                    "ga": 59,
-                    "gd": 0
-                },
-                {
-                    "rank": 10,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 52,
-                    "gf": 56,
-                    "ga": 63,
-                    "gd": -7
-                },
-                {
-                    "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 50,
-                    "gf": 48,
-                    "ga": 51,
-                    "gd": -3
-                },
-                {
-                    "rank": 12,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 50,
-                    "gf": 43,
-                    "ga": 49,
-                    "gd": -6
-                },
-                {
-                    "rank": 13,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 50,
-                    "gf": 45,
-                    "ga": 53,
-                    "gd": -8
-                },
-                {
-                    "rank": 14,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 46,
-                    "gf": 52,
-                    "ga": 74,
-                    "gd": -22
-                },
-                {
-                    "rank": 15,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 44,
-                    "gf": 46,
-                    "ga": 47,
-                    "gd": -1
-                },
-                {
-                    "rank": 16,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 44,
-                    "gf": 42,
-                    "ga": 56,
-                    "gd": -14
-                },
-                {
-                    "rank": 17,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 39,
-                    "gf": 37,
-                    "ga": 57,
-                    "gd": -20
-                },
-                {
-                    "rank": 18,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 35,
-                    "gf": 41,
-                    "ga": 61,
-                    "gd": -20
-                },
-                {
-                    "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 31,
-                    "gf": 34,
-                    "ga": 67,
-                    "gd": -33
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 29,
-                    "gf": 35,
-                    "ga": 65,
-                    "gd": -30
-                }
-            ]
-        },
-        {
-            "simulation": 2746,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 77,
-                    "gf": 77,
-                    "ga": 43,
-                    "gd": 34
-                },
-                {
-                    "rank": 2,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 66,
-                    "gf": 69,
-                    "ga": 51,
-                    "gd": 18
-                },
-                {
-                    "rank": 3,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 64,
-                    "gf": 62,
-                    "ga": 47,
-                    "gd": 15
+                    "gd": 22
                 },
                 {
                     "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 63,
-                    "gf": 67,
-                    "ga": 38,
-                    "gd": 29
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 62,
-                    "gf": 70,
-                    "ga": 58,
-                    "gd": 12
-                },
-                {
-                    "rank": 6,
-                    "team": "Brentford",
-                    "slug": "brentford",
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
                     "pts": 60,
-                    "gf": 57,
-                    "ga": 40,
-                    "gd": 17
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 59,
-                    "gf": 60,
-                    "ga": 49,
+                    "gf": 62,
+                    "ga": 51,
                     "gd": 11
                 },
                 {
-                    "rank": 8,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 58,
-                    "gf": 61,
-                    "ga": 49,
-                    "gd": 12
-                },
-                {
-                    "rank": 9,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 57,
-                    "gf": 55,
-                    "ga": 56,
-                    "gd": -1
-                },
-                {
-                    "rank": 10,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 56,
-                    "gf": 58,
-                    "ga": 52,
-                    "gd": 6
-                },
-                {
-                    "rank": 11,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
                     "pts": 54,
-                    "gf": 58,
-                    "ga": 49,
-                    "gd": 9
-                },
-                {
-                    "rank": 12,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 54,
-                    "gf": 48,
-                    "ga": 53,
-                    "gd": -5
-                },
-                {
-                    "rank": 13,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 46,
-                    "gf": 52,
-                    "ga": 50,
+                    "gf": 53,
+                    "ga": 51,
                     "gd": 2
                 },
                 {
-                    "rank": 14,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 44,
-                    "gf": 49,
-                    "ga": 60,
-                    "gd": -11
-                },
-                {
-                    "rank": 15,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 40,
-                    "gf": 41,
-                    "ga": 61,
-                    "gd": -20
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 38,
-                    "gf": 48,
-                    "ga": 72,
-                    "gd": -24
-                },
-                {
-                    "rank": 17,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 38,
-                    "gf": 46,
-                    "ga": 77,
-                    "gd": -31
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 37,
-                    "gf": 42,
-                    "ga": 63,
-                    "gd": -21
-                },
-                {
-                    "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 35,
-                    "gf": 34,
-                    "ga": 51,
-                    "gd": -17
-                },
-                {
-                    "rank": 20,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 27,
-                    "gf": 31,
-                    "ga": 66,
-                    "gd": -35
-                }
-            ]
-        },
-        {
-            "simulation": 2771,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 97,
-                    "gf": 97,
-                    "ga": 36,
-                    "gd": 61
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 78,
-                    "gf": 61,
-                    "ga": 32,
-                    "gd": 29
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 70,
-                    "gf": 74,
-                    "ga": 48,
-                    "gd": 26
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 65,
-                    "gf": 71,
-                    "ga": 46,
-                    "gd": 25
-                },
-                {
-                    "rank": 5,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 61,
-                    "gf": 62,
-                    "ga": 42,
-                    "gd": 20
-                },
-                {
                     "rank": 6,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 59,
-                    "gf": 51,
-                    "ga": 45,
-                    "gd": 6
-                },
-                {
-                    "rank": 7,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 54,
-                    "gf": 46,
-                    "ga": 49,
-                    "gd": -3
-                },
-                {
-                    "rank": 8,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 54,
-                    "gf": 53,
-                    "ga": 62,
-                    "gd": -9
-                },
-                {
-                    "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 52,
-                    "gf": 57,
-                    "ga": 61,
-                    "gd": -4
-                },
-                {
-                    "rank": 10,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 50,
-                    "gf": 44,
-                    "ga": 52,
-                    "gd": -8
-                },
-                {
-                    "rank": 11,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 48,
-                    "gf": 51,
-                    "ga": 52,
-                    "gd": -1
-                },
-                {
-                    "rank": 12,
                     "team": "Chelsea",
                     "slug": "chelsea",
-                    "pts": 48,
-                    "gf": 61,
-                    "ga": 64,
-                    "gd": -3
-                },
-                {
-                    "rank": 13,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 47,
-                    "gf": 39,
-                    "ga": 51,
-                    "gd": -12
-                },
-                {
-                    "rank": 14,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 46,
-                    "gf": 51,
-                    "ga": 57,
-                    "gd": -6
-                },
-                {
-                    "rank": 15,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 45,
-                    "gf": 54,
-                    "ga": 57,
-                    "gd": -3
-                },
-                {
-                    "rank": 16,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 44,
-                    "gf": 49,
-                    "ga": 54,
-                    "gd": -5
-                },
-                {
-                    "rank": 17,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 44,
-                    "gf": 51,
-                    "ga": 57,
-                    "gd": -6
-                },
-                {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 33,
-                    "gf": 39,
-                    "ga": 68,
-                    "gd": -29
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 27,
-                    "gf": 42,
-                    "ga": 85,
-                    "gd": -43
-                },
-                {
-                    "rank": 20,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 25,
-                    "gf": 36,
-                    "ga": 71,
-                    "gd": -35
-                }
-            ]
-        },
-        {
-            "simulation": 2772,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 92,
-                    "gf": 86,
-                    "ga": 34,
-                    "gd": 52
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 89,
-                    "gf": 77,
-                    "ga": 34,
-                    "gd": 43
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 68,
-                    "gf": 67,
-                    "ga": 38,
-                    "gd": 29
-                },
-                {
-                    "rank": 4,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 66,
-                    "gf": 72,
-                    "ga": 45,
-                    "gd": 27
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 62,
-                    "gf": 72,
-                    "ga": 41,
-                    "gd": 31
-                },
-                {
-                    "rank": 6,
-                    "team": "Everton",
-                    "slug": "everton",
                     "pts": 53,
-                    "gf": 45,
-                    "ga": 52,
-                    "gd": -7
-                },
-                {
-                    "rank": 7,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 53,
-                    "gf": 49,
-                    "ga": 66,
-                    "gd": -17
-                },
-                {
-                    "rank": 8,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 52,
                     "gf": 59,
-                    "ga": 55,
-                    "gd": 4
-                },
-                {
-                    "rank": 9,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 52,
-                    "gf": 53,
-                    "ga": 61,
-                    "gd": -8
-                },
-                {
-                    "rank": 10,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 51,
-                    "gf": 60,
-                    "ga": 60,
-                    "gd": 0
-                },
-                {
-                    "rank": 11,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 50,
-                    "gf": 54,
-                    "ga": 53,
-                    "gd": 1
-                },
-                {
-                    "rank": 12,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 48,
-                    "gf": 50,
-                    "ga": 58,
-                    "gd": -8
-                },
-                {
-                    "rank": 13,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 47,
-                    "gf": 39,
-                    "ga": 55,
-                    "gd": -16
-                },
-                {
-                    "rank": 14,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 46,
-                    "gf": 54,
-                    "ga": 53,
-                    "gd": 1
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 46,
-                    "gf": 41,
-                    "ga": 55,
-                    "gd": -14
-                },
-                {
-                    "rank": 16,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 46,
-                    "gf": 35,
                     "ga": 50,
-                    "gd": -15
-                },
-                {
-                    "rank": 17,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 39,
-                    "gf": 40,
-                    "ga": 63,
-                    "gd": -23
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 38,
-                    "gf": 32,
-                    "ga": 48,
-                    "gd": -16
-                },
-                {
-                    "rank": 19,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 36,
-                    "gf": 32,
-                    "ga": 54,
-                    "gd": -22
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 28,
-                    "gf": 32,
-                    "ga": 74,
-                    "gd": -42
-                }
-            ]
-        },
-        {
-            "simulation": 2995,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 85,
-                    "gf": 85,
-                    "ga": 36,
-                    "gd": 49
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 80,
-                    "gf": 70,
-                    "ga": 33,
-                    "gd": 37
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 67,
-                    "gf": 73,
-                    "ga": 49,
-                    "gd": 24
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 66,
-                    "gf": 63,
-                    "ga": 48,
-                    "gd": 15
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 62,
-                    "gf": 62,
-                    "ga": 46,
-                    "gd": 16
-                },
-                {
-                    "rank": 6,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 57,
-                    "gf": 48,
-                    "ga": 48,
-                    "gd": 0
+                    "gd": 9
                 },
                 {
                     "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
+                    "team": "Manchester United",
+                    "slug": "man-united",
                     "pts": 53,
-                    "gf": 50,
-                    "ga": 47,
+                    "gf": 59,
+                    "ga": 56,
                     "gd": 3
                 },
                 {
                     "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 52,
-                    "gf": 51,
-                    "ga": 40,
-                    "gd": 11
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 51,
+                    "gf": 50,
+                    "ga": 54,
+                    "gd": -4
                 },
                 {
                     "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 52,
-                    "gf": 48,
-                    "ga": 50,
-                    "gd": -2
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 51,
+                    "gf": 50,
+                    "ga": 62,
+                    "gd": -12
                 },
                 {
                     "rank": 10,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 52,
-                    "gf": 49,
-                    "ga": 60,
-                    "gd": -11
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 50,
+                    "gf": 55,
+                    "ga": 63,
+                    "gd": -8
                 },
                 {
                     "rank": 11,
                     "team": "Crystal Palace",
                     "slug": "crystal-palace",
-                    "pts": 50,
-                    "gf": 56,
-                    "ga": 64,
-                    "gd": -8
+                    "pts": 47,
+                    "gf": 52,
+                    "ga": 63,
+                    "gd": -11
                 },
                 {
                     "rank": 12,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 48,
-                    "gf": 49,
-                    "ga": 58,
-                    "gd": -9
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 46,
+                    "gf": 42,
+                    "ga": 52,
+                    "gd": -10
                 },
                 {
                     "rank": 13,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 47,
-                    "gf": 55,
-                    "ga": 59,
-                    "gd": -4
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 45,
+                    "gf": 51,
+                    "ga": 62,
+                    "gd": -11
                 },
                 {
                     "rank": 14,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 47,
-                    "gf": 44,
-                    "ga": 59,
-                    "gd": -15
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 44,
+                    "gf": 42,
+                    "ga": 53,
+                    "gd": -11
                 },
                 {
                     "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 46,
-                    "gf": 46,
-                    "ga": 51,
-                    "gd": -5
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 43,
+                    "gf": 48,
+                    "ga": 59,
+                    "gd": -11
                 },
                 {
                     "rank": 16,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 43,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 42,
                     "gf": 47,
-                    "ga": 68,
-                    "gd": -21
+                    "ga": 63,
+                    "gd": -16
                 },
                 {
                     "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
+                    "team": "Everton",
+                    "slug": "everton",
                     "pts": 41,
-                    "gf": 51,
-                    "ga": 76,
-                    "gd": -25
+                    "gf": 44,
+                    "ga": 56,
+                    "gd": -12
                 },
                 {
                     "rank": 18,
                     "team": "Nottingham Forest",
                     "slug": "nottm-forest",
-                    "pts": 36,
-                    "gf": 48,
-                    "ga": 60,
-                    "gd": -12
+                    "pts": 41,
+                    "gf": 47,
+                    "ga": 61,
+                    "gd": -14
                 },
                 {
                     "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 36,
-                    "gf": 40,
-                    "ga": 61,
-                    "gd": -21
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 41,
+                    "gf": 37,
+                    "ga": 52,
+                    "gd": -15
                 },
                 {
                     "rank": 20,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 35,
-                    "gf": 38,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 40,
+                    "gf": 44,
                     "ga": 60,
-                    "gd": -22
+                    "gd": -16
                 }
             ]
         },
         {
-            "simulation": 3040,
+            "simulation": 11917,
             "teams": [
                 {
                     "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 89,
-                    "gf": 85,
-                    "ga": 36,
-                    "gd": 49
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 77,
+                    "gf": 56,
+                    "ga": 35,
+                    "gd": 21
                 },
                 {
                     "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 82,
-                    "gf": 82,
-                    "ga": 35,
-                    "gd": 47
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 76,
+                    "gf": 76,
+                    "ga": 43,
+                    "gd": 33
                 },
                 {
                     "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 69,
-                    "gf": 79,
-                    "ga": 55,
-                    "gd": 24
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 66,
+                    "gf": 73,
+                    "ga": 51,
+                    "gd": 22
                 },
                 {
                     "rank": 4,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 63,
-                    "gf": 52,
-                    "ga": 45,
-                    "gd": 7
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 65,
+                    "gf": 71,
+                    "ga": 47,
+                    "gd": 24
                 },
                 {
                     "rank": 5,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 62,
-                    "gf": 72,
-                    "ga": 52,
-                    "gd": 20
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 64,
+                    "gf": 62,
+                    "ga": 51,
+                    "gd": 11
                 },
                 {
                     "rank": 6,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 61,
-                    "gf": 58,
-                    "ga": 46,
-                    "gd": 12
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 60,
+                    "gf": 64,
+                    "ga": 51,
+                    "gd": 13
                 },
                 {
                     "rank": 7,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 60,
-                    "gf": 60,
-                    "ga": 47,
-                    "gd": 13
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 57,
+                    "gf": 69,
+                    "ga": 57,
+                    "gd": 12
                 },
                 {
                     "rank": 8,
                     "team": "Tottenham",
                     "slug": "tottenham",
-                    "pts": 58,
-                    "gf": 46,
-                    "ga": 41,
-                    "gd": 5
+                    "pts": 57,
+                    "gf": 71,
+                    "ga": 68,
+                    "gd": 3
                 },
                 {
                     "rank": 9,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
+                    "team": "Brighton",
+                    "slug": "brighton",
                     "pts": 56,
-                    "gf": 57,
-                    "ga": 57,
-                    "gd": 0
+                    "gf": 62,
+                    "ga": 44,
+                    "gd": 18
                 },
                 {
                     "rank": 10,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 53,
-                    "gf": 58,
-                    "ga": 53,
-                    "gd": 5
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 52,
+                    "gf": 56,
+                    "ga": 49,
+                    "gd": 7
                 },
                 {
                     "rank": 11,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 52,
-                    "gf": 45,
-                    "ga": 56,
-                    "gd": -11
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 51,
+                    "gf": 55,
+                    "ga": 44,
+                    "gd": 11
                 },
                 {
                     "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 48,
-                    "gf": 51,
-                    "ga": 49,
-                    "gd": 2
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 49,
+                    "gf": 50,
+                    "ga": 58,
+                    "gd": -8
                 },
                 {
                     "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 45,
-                    "gf": 44,
-                    "ga": 59,
-                    "gd": -15
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 48,
+                    "gf": 56,
+                    "ga": 64,
+                    "gd": -8
                 },
                 {
                     "rank": 14,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 51,
-                    "ga": 70,
-                    "gd": -19
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 41,
-                    "gf": 38,
-                    "ga": 50,
-                    "gd": -12
-                },
-                {
-                    "rank": 16,
                     "team": "Ipswich",
                     "slug": "ipswich",
-                    "pts": 41,
-                    "gf": 49,
-                    "ga": 72,
-                    "gd": -23
-                },
-                {
-                    "rank": 17,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 40,
-                    "gf": 40,
-                    "ga": 64,
-                    "gd": -24
-                },
-                {
-                    "rank": 18,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 38,
-                    "gf": 56,
-                    "ga": 73,
+                    "pts": 44,
+                    "gf": 51,
+                    "ga": 68,
                     "gd": -17
                 },
                 {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 28,
+                    "rank": 15,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 43,
+                    "gf": 54,
+                    "ga": 64,
+                    "gd": -10
+                },
+                {
+                    "rank": 16,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 43,
                     "gf": 37,
-                    "ga": 67,
-                    "gd": -30
+                    "ga": 57,
+                    "gd": -20
+                },
+                {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 42,
+                    "gf": 45,
+                    "ga": 58,
+                    "gd": -13
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 39,
+                    "gf": 32,
+                    "ga": 53,
+                    "gd": -21
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 29,
+                    "gf": 38,
+                    "ga": 69,
+                    "gd": -31
                 },
                 {
                     "rank": 20,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 24,
-                    "gf": 35,
-                    "ga": 68,
-                    "gd": -33
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 26,
+                    "gf": 37,
+                    "ga": 84,
+                    "gd": -47
                 }
             ]
         },
         {
-            "simulation": 3076,
+            "simulation": 12611,
             "teams": [
                 {
                     "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 88,
-                    "gf": 92,
-                    "ga": 47,
-                    "gd": 45
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 84,
+                    "gf": 66,
+                    "ga": 33,
+                    "gd": 33
                 },
                 {
                     "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 85,
-                    "gf": 72,
-                    "ga": 36,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 81,
+                    "gf": 81,
+                    "ga": 45,
                     "gd": 36
                 },
                 {
                     "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 73,
-                    "gf": 67,
-                    "ga": 48,
-                    "gd": 19
-                },
-                {
-                    "rank": 4,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 64,
-                    "gf": 54,
-                    "ga": 48,
-                    "gd": 6
-                },
-                {
-                    "rank": 5,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 59,
-                    "gf": 63,
-                    "ga": 51,
-                    "gd": 12
-                },
-                {
-                    "rank": 6,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 53,
-                    "gf": 63,
-                    "ga": 41,
-                    "gd": 22
-                },
-                {
-                    "rank": 7,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 53,
-                    "gf": 69,
-                    "ga": 60,
-                    "gd": 9
-                },
-                {
-                    "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 50,
-                    "gf": 49,
-                    "ga": 48,
-                    "gd": 1
-                },
-                {
-                    "rank": 9,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 50,
-                    "gf": 49,
-                    "ga": 55,
-                    "gd": -6
-                },
-                {
-                    "rank": 10,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 49,
-                    "gf": 45,
-                    "ga": 59,
-                    "gd": -14
-                },
-                {
-                    "rank": 11,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 48,
-                    "gf": 47,
-                    "ga": 47,
-                    "gd": 0
-                },
-                {
-                    "rank": 12,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 47,
-                    "gf": 49,
-                    "ga": 54,
-                    "gd": -5
-                },
-                {
-                    "rank": 13,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 47,
-                    "gf": 44,
-                    "ga": 53,
-                    "gd": -9
-                },
-                {
-                    "rank": 14,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 47,
-                    "gf": 43,
-                    "ga": 55,
-                    "gd": -12
-                },
-                {
-                    "rank": 15,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 44,
-                    "gf": 67,
-                    "ga": 68,
-                    "gd": -1
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 43,
-                    "gf": 44,
-                    "ga": 64,
-                    "gd": -20
-                },
-                {
-                    "rank": 17,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 40,
-                    "gf": 46,
-                    "ga": 63,
-                    "gd": -17
-                },
-                {
-                    "rank": 18,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 40,
-                    "gf": 45,
-                    "ga": 74,
-                    "gd": -29
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 36,
-                    "gf": 53,
-                    "ga": 59,
-                    "gd": -6
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 36,
-                    "gf": 39,
-                    "ga": 70,
-                    "gd": -31
-                }
-            ]
-        },
-        {
-            "simulation": 3412,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 86,
-                    "gf": 89,
-                    "ga": 42,
-                    "gd": 47
-                },
-                {
-                    "rank": 2,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 80,
-                    "gf": 61,
-                    "ga": 29,
-                    "gd": 32
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 66,
-                    "gf": 55,
-                    "ga": 45,
-                    "gd": 10
-                },
-                {
-                    "rank": 4,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 65,
-                    "gf": 59,
-                    "ga": 44,
-                    "gd": 15
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 67,
-                    "ga": 39,
-                    "gd": 28
-                },
-                {
-                    "rank": 6,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 58,
-                    "gf": 68,
-                    "ga": 50,
-                    "gd": 18
-                },
-                {
-                    "rank": 7,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 55,
-                    "gf": 53,
-                    "ga": 48,
-                    "gd": 5
-                },
-                {
-                    "rank": 8,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 54,
-                    "gf": 58,
-                    "ga": 56,
-                    "gd": 2
-                },
-                {
-                    "rank": 9,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 54,
-                    "gf": 63,
-                    "ga": 64,
-                    "gd": -1
-                },
-                {
-                    "rank": 10,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 53,
-                    "gf": 50,
-                    "ga": 46,
-                    "gd": 4
-                },
-                {
-                    "rank": 11,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 49,
-                    "gf": 54,
-                    "ga": 55,
-                    "gd": -1
-                },
-                {
-                    "rank": 12,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 48,
-                    "gf": 44,
-                    "ga": 54,
-                    "gd": -10
-                },
-                {
-                    "rank": 13,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 47,
-                    "gf": 59,
-                    "ga": 55,
-                    "gd": 4
-                },
-                {
-                    "rank": 14,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 46,
-                    "gf": 46,
-                    "ga": 56,
-                    "gd": -10
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 44,
-                    "gf": 40,
-                    "ga": 49,
-                    "gd": -9
-                },
-                {
-                    "rank": 16,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 42,
-                    "gf": 47,
-                    "ga": 71,
-                    "gd": -24
-                },
-                {
-                    "rank": 17,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 41,
-                    "gf": 42,
-                    "ga": 60,
-                    "gd": -18
-                },
-                {
-                    "rank": 18,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 36,
-                    "gf": 53,
-                    "ga": 78,
-                    "gd": -25
-                },
-                {
-                    "rank": 19,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 31,
-                    "gf": 38,
-                    "ga": 68,
-                    "gd": -30
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 30,
-                    "gf": 28,
-                    "ga": 65,
-                    "gd": -37
-                }
-            ]
-        },
-        {
-            "simulation": 3413,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 79,
-                    "gf": 77,
-                    "ga": 34,
-                    "gd": 43
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 76,
-                    "gf": 69,
-                    "ga": 36,
-                    "gd": 33
-                },
-                {
-                    "rank": 3,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 68,
-                    "gf": 56,
-                    "ga": 43,
-                    "gd": 13
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 65,
-                    "gf": 71,
-                    "ga": 55,
-                    "gd": 16
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 63,
-                    "gf": 60,
-                    "ga": 40,
-                    "gd": 20
-                },
-                {
-                    "rank": 6,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 61,
-                    "gf": 53,
-                    "ga": 39,
-                    "gd": 14
-                },
-                {
-                    "rank": 7,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 59,
-                    "gf": 53,
-                    "ga": 44,
-                    "gd": 9
-                },
-                {
-                    "rank": 8,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 58,
-                    "gf": 67,
-                    "ga": 52,
-                    "gd": 15
-                },
-                {
-                    "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 55,
-                    "gf": 48,
-                    "ga": 50,
-                    "gd": -2
-                },
-                {
-                    "rank": 10,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 54,
-                    "gf": 51,
-                    "ga": 51,
-                    "gd": 0
-                },
-                {
-                    "rank": 11,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 52,
-                    "gf": 50,
-                    "ga": 53,
-                    "gd": -3
-                },
-                {
-                    "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 51,
-                    "gf": 51,
-                    "ga": 48,
-                    "gd": 3
-                },
-                {
-                    "rank": 13,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 47,
-                    "gf": 53,
-                    "ga": 56,
-                    "gd": -3
-                },
-                {
-                    "rank": 14,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 44,
-                    "gf": 49,
-                    "ga": 70,
-                    "gd": -21
-                },
-                {
-                    "rank": 15,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 43,
-                    "gf": 44,
-                    "ga": 53,
-                    "gd": -9
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 43,
-                    "gf": 51,
-                    "ga": 67,
-                    "gd": -16
-                },
-                {
-                    "rank": 17,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 39,
-                    "gf": 41,
-                    "ga": 58,
-                    "gd": -17
-                },
-                {
-                    "rank": 18,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 33,
-                    "gf": 41,
-                    "ga": 68,
-                    "gd": -27
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 32,
-                    "gf": 31,
-                    "ga": 56,
-                    "gd": -25
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 32,
-                    "gf": 32,
-                    "ga": 75,
-                    "gd": -43
-                }
-            ]
-        },
-        {
-            "simulation": 3776,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 83,
-                    "gf": 85,
-                    "ga": 38,
-                    "gd": 47
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 78,
-                    "gf": 63,
-                    "ga": 30,
-                    "gd": 33
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 70,
-                    "gf": 64,
-                    "ga": 47,
-                    "gd": 17
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 68,
-                    "ga": 41,
-                    "gd": 27
-                },
-                {
-                    "rank": 5,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 62,
-                    "gf": 57,
-                    "ga": 60,
-                    "gd": -3
-                },
-                {
-                    "rank": 6,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 58,
-                    "gf": 72,
-                    "ga": 50,
-                    "gd": 22
-                },
-                {
-                    "rank": 7,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 58,
-                    "gf": 56,
-                    "ga": 43,
-                    "gd": 13
-                },
-                {
-                    "rank": 8,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 57,
-                    "gf": 59,
-                    "ga": 68,
-                    "gd": -9
-                },
-                {
-                    "rank": 9,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 55,
-                    "gf": 57,
-                    "ga": 44,
-                    "gd": 13
-                },
-                {
-                    "rank": 10,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 54,
-                    "gf": 56,
-                    "ga": 53,
-                    "gd": 3
-                },
-                {
-                    "rank": 11,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 52,
-                    "gf": 65,
-                    "ga": 60,
-                    "gd": 5
-                },
-                {
-                    "rank": 12,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 50,
-                    "gf": 46,
-                    "ga": 44,
-                    "gd": 2
-                },
-                {
-                    "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 49,
-                    "gf": 48,
-                    "ga": 62,
-                    "gd": -14
-                },
-                {
-                    "rank": 14,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 46,
-                    "gf": 50,
-                    "ga": 57,
-                    "gd": -7
-                },
-                {
-                    "rank": 15,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 45,
-                    "gf": 50,
-                    "ga": 58,
-                    "gd": -8
-                },
-                {
-                    "rank": 16,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 43,
-                    "gf": 51,
-                    "ga": 61,
-                    "gd": -10
-                },
-                {
-                    "rank": 17,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 40,
-                    "gf": 52,
-                    "ga": 74,
-                    "gd": -22
-                },
-                {
-                    "rank": 18,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 31,
-                    "gf": 47,
-                    "ga": 84,
-                    "gd": -37
-                },
-                {
-                    "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 30,
-                    "gf": 36,
-                    "ga": 65,
-                    "gd": -29
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 26,
-                    "gf": 37,
-                    "ga": 80,
-                    "gd": -43
-                }
-            ]
-        },
-        {
-            "simulation": 3868,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 81,
-                    "gf": 65,
-                    "ga": 34,
-                    "gd": 31
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
                     "pts": 74,
-                    "gf": 83,
-                    "ga": 54,
-                    "gd": 29
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 70,
-                    "gf": 65,
-                    "ga": 42,
-                    "gd": 23
-                },
-                {
-                    "rank": 4,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 63,
-                    "gf": 56,
-                    "ga": 51,
-                    "gd": 5
-                },
-                {
-                    "rank": 5,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 62,
-                    "gf": 59,
-                    "ga": 48,
-                    "gd": 11
-                },
-                {
-                    "rank": 6,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 56,
-                    "gf": 71,
-                    "ga": 53,
-                    "gd": 18
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 55,
-                    "gf": 53,
-                    "ga": 58,
-                    "gd": -5
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 54,
-                    "gf": 63,
-                    "ga": 51,
-                    "gd": 12
-                },
-                {
-                    "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 53,
                     "gf": 69,
-                    "ga": 57,
-                    "gd": 12
-                },
-                {
-                    "rank": 10,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 52,
-                    "gf": 54,
-                    "ga": 49,
-                    "gd": 5
-                },
-                {
-                    "rank": 11,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 52,
-                    "gf": 49,
-                    "ga": 60,
-                    "gd": -11
-                },
-                {
-                    "rank": 12,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 51,
-                    "gf": 50,
-                    "ga": 59,
-                    "gd": -9
-                },
-                {
-                    "rank": 13,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 47,
-                    "gf": 51,
-                    "ga": 63,
-                    "gd": -12
-                },
-                {
-                    "rank": 14,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 46,
-                    "gf": 45,
-                    "ga": 54,
-                    "gd": -9
-                },
-                {
-                    "rank": 15,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 45,
-                    "gf": 58,
-                    "ga": 59,
-                    "gd": -1
-                },
-                {
-                    "rank": 16,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 45,
-                    "gf": 48,
-                    "ga": 53,
-                    "gd": -5
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 42,
-                    "gf": 53,
-                    "ga": 68,
-                    "gd": -15
-                },
-                {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 39,
-                    "gf": 47,
-                    "ga": 57,
-                    "gd": -10
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 38,
-                    "gf": 42,
-                    "ga": 61,
-                    "gd": -19
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 18,
-                    "gf": 30,
-                    "ga": 80,
-                    "gd": -50
-                }
-            ]
-        },
-        {
-            "simulation": 3981,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 89,
-                    "gf": 77,
-                    "ga": 31,
-                    "gd": 46
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 85,
-                    "gf": 86,
-                    "ga": 40,
-                    "gd": 46
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 76,
-                    "gf": 72,
-                    "ga": 42,
-                    "gd": 30
+                    "ga": 34,
+                    "gd": 35
                 },
                 {
                     "rank": 4,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 65,
-                    "gf": 73,
-                    "ga": 50,
-                    "gd": 23
-                },
-                {
-                    "rank": 5,
                     "team": "Brentford",
                     "slug": "brentford",
-                    "pts": 65,
-                    "gf": 54,
-                    "ga": 39,
-                    "gd": 15
-                },
-                {
-                    "rank": 6,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 62,
-                    "gf": 48,
-                    "ga": 41,
-                    "gd": 7
-                },
-                {
-                    "rank": 7,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 59,
-                    "gf": 56,
-                    "ga": 40,
-                    "gd": 16
-                },
-                {
-                    "rank": 8,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 54,
-                    "gf": 46,
-                    "ga": 49,
-                    "gd": -3
-                },
-                {
-                    "rank": 9,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 50,
-                    "gf": 51,
-                    "ga": 54,
-                    "gd": -3
-                },
-                {
-                    "rank": 10,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 47,
-                    "gf": 53,
-                    "ga": 52,
-                    "gd": 1
-                },
-                {
-                    "rank": 11,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 47,
-                    "gf": 45,
-                    "ga": 48,
-                    "gd": -3
-                },
-                {
-                    "rank": 12,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 45,
-                    "gf": 47,
-                    "ga": 52,
-                    "gd": -5
-                },
-                {
-                    "rank": 13,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 44,
-                    "gf": 47,
-                    "ga": 48,
-                    "gd": -1
-                },
-                {
-                    "rank": 14,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 43,
-                    "gf": 56,
-                    "ga": 72,
-                    "gd": -16
-                },
-                {
-                    "rank": 15,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 41,
-                    "gf": 41,
-                    "ga": 53,
-                    "gd": -12
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 39,
-                    "gf": 38,
-                    "ga": 66,
-                    "gd": -28
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 38,
-                    "gf": 43,
-                    "ga": 60,
-                    "gd": -17
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 32,
-                    "gf": 35,
-                    "ga": 60,
-                    "gd": -25
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 32,
-                    "gf": 40,
-                    "ga": 78,
-                    "gd": -38
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 25,
-                    "gf": 37,
-                    "ga": 70,
-                    "gd": -33
-                }
-            ]
-        },
-        {
-            "simulation": 3983,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 88,
-                    "gf": 85,
-                    "ga": 40,
-                    "gd": 45
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 87,
-                    "gf": 76,
-                    "ga": 33,
-                    "gd": 43
-                },
-                {
-                    "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 85,
-                    "gf": 82,
-                    "ga": 32,
-                    "gd": 50
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
                     "pts": 72,
-                    "gf": 68,
-                    "ga": 39,
-                    "gd": 29
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 61,
-                    "gf": 71,
-                    "ga": 62,
-                    "gd": 9
-                },
-                {
-                    "rank": 6,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 56,
-                    "gf": 56,
-                    "ga": 48,
-                    "gd": 8
-                },
-                {
-                    "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 53,
-                    "gf": 60,
-                    "ga": 58,
-                    "gd": 2
-                },
-                {
-                    "rank": 8,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 52,
-                    "gf": 50,
-                    "ga": 52,
-                    "gd": -2
-                },
-                {
-                    "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 52,
-                    "gf": 53,
-                    "ga": 60,
-                    "gd": -7
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 51,
-                    "gf": 56,
-                    "ga": 56,
-                    "gd": 0
-                },
-                {
-                    "rank": 11,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 50,
-                    "gf": 53,
-                    "ga": 60,
-                    "gd": -7
-                },
-                {
-                    "rank": 12,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 47,
-                    "gf": 56,
-                    "ga": 59,
-                    "gd": -3
-                },
-                {
-                    "rank": 13,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 46,
-                    "gf": 60,
-                    "ga": 68,
-                    "gd": -8
-                },
-                {
-                    "rank": 14,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 45,
-                    "gf": 45,
-                    "ga": 53,
-                    "gd": -8
-                },
-                {
-                    "rank": 15,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 45,
-                    "ga": 66,
-                    "gd": -21
-                },
-                {
-                    "rank": 16,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 43,
-                    "gf": 45,
-                    "ga": 59,
-                    "gd": -14
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 40,
-                    "gf": 54,
-                    "ga": 76,
-                    "gd": -22
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 37,
-                    "gf": 45,
-                    "ga": 58,
-                    "gd": -13
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 31,
-                    "gf": 43,
-                    "ga": 86,
-                    "gd": -43
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 25,
-                    "gf": 35,
-                    "ga": 73,
-                    "gd": -38
-                }
-            ]
-        },
-        {
-            "simulation": 4174,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 90,
-                    "gf": 87,
-                    "ga": 31,
-                    "gd": 56
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 79,
-                    "gf": 77,
-                    "ga": 34,
-                    "gd": 43
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 74,
-                    "gf": 65,
-                    "ga": 40,
+                    "gf": 72,
+                    "ga": 47,
                     "gd": 25
                 },
                 {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 63,
-                    "gf": 67,
-                    "ga": 41,
-                    "gd": 26
-                },
-                {
                     "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 57,
-                    "gf": 67,
-                    "ga": 51,
-                    "gd": 16
-                },
-                {
-                    "rank": 6,
                     "team": "Aston Villa",
                     "slug": "aston-villa",
-                    "pts": 56,
-                    "gf": 49,
-                    "ga": 45,
-                    "gd": 4
-                },
-                {
-                    "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 52,
-                    "gf": 57,
-                    "ga": 64,
-                    "gd": -7
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 50,
-                    "gf": 48,
-                    "ga": 57,
-                    "gd": -9
-                },
-                {
-                    "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 49,
-                    "gf": 50,
-                    "ga": 51,
-                    "gd": -1
-                },
-                {
-                    "rank": 10,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 49,
-                    "gf": 42,
-                    "ga": 50,
-                    "gd": -8
-                },
-                {
-                    "rank": 11,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 49,
-                    "gf": 49,
-                    "ga": 62,
-                    "gd": -13
-                },
-                {
-                    "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 48,
-                    "gf": 60,
-                    "ga": 59,
-                    "gd": 1
-                },
-                {
-                    "rank": 13,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 48,
-                    "gf": 42,
-                    "ga": 54,
-                    "gd": -12
-                },
-                {
-                    "rank": 14,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 47,
-                    "gf": 49,
-                    "ga": 58,
-                    "gd": -9
-                },
-                {
-                    "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 46,
-                    "gf": 51,
-                    "ga": 57,
-                    "gd": -6
-                },
-                {
-                    "rank": 16,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 45,
-                    "gf": 46,
-                    "ga": 53,
-                    "gd": -7
-                },
-                {
-                    "rank": 17,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 45,
-                    "gf": 47,
-                    "ga": 62,
-                    "gd": -15
-                },
-                {
-                    "rank": 18,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 38,
-                    "gf": 39,
-                    "ga": 54,
-                    "gd": -15
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 33,
-                    "gf": 33,
-                    "ga": 59,
-                    "gd": -26
-                },
-                {
-                    "rank": 20,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 26,
-                    "gf": 37,
-                    "ga": 80,
-                    "gd": -43
-                }
-            ]
-        },
-        {
-            "simulation": 4179,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 89,
-                    "gf": 84,
-                    "ga": 37,
-                    "gd": 47
-                },
-                {
-                    "rank": 2,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 82,
-                    "gf": 71,
-                    "ga": 37,
-                    "gd": 34
-                },
-                {
-                    "rank": 3,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 79,
-                    "gf": 69,
-                    "ga": 35,
-                    "gd": 34
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 68,
-                    "gf": 71,
-                    "ga": 49,
-                    "gd": 22
-                },
-                {
-                    "rank": 5,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
                     "pts": 61,
-                    "gf": 63,
-                    "ga": 53,
-                    "gd": 10
+                    "gf": 52,
+                    "ga": 45,
+                    "gd": 7
                 },
                 {
                     "rank": 6,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 58,
-                    "gf": 57,
-                    "ga": 56,
-                    "gd": 1
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 59,
+                    "gf": 75,
+                    "ga": 57,
+                    "gd": 18
                 },
                 {
                     "rank": 7,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 55,
-                    "gf": 71,
-                    "ga": 55,
-                    "gd": 16
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 58,
+                    "gf": 50,
+                    "ga": 48,
+                    "gd": 2
                 },
                 {
                     "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 55,
-                    "gf": 57,
-                    "ga": 54,
-                    "gd": 3
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 56,
+                    "gf": 61,
+                    "ga": 65,
+                    "gd": -4
                 },
                 {
                     "rank": 9,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 54,
-                    "gf": 59,
-                    "ga": 58,
-                    "gd": 1
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 55,
+                    "gf": 63,
+                    "ga": 51,
+                    "gd": 12
                 },
                 {
                     "rank": 10,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 53,
-                    "gf": 48,
-                    "ga": 44,
-                    "gd": 4
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 52,
+                    "gf": 60,
+                    "ga": 48,
+                    "gd": 12
                 },
                 {
                     "rank": 11,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 53,
-                    "gf": 54,
-                    "ga": 54,
-                    "gd": 0
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 52,
+                    "gf": 42,
+                    "ga": 44,
+                    "gd": -2
                 },
                 {
                     "rank": 12,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 49,
-                    "gf": 47,
-                    "ga": 60,
-                    "gd": -13
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 51,
+                    "gf": 52,
+                    "ga": 48,
+                    "gd": 4
                 },
                 {
                     "rank": 13,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 48,
-                    "gf": 52,
-                    "ga": 53,
-                    "gd": -1
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 47,
+                    "gf": 45,
+                    "ga": 55,
+                    "gd": -10
                 },
                 {
                     "rank": 14,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 42,
-                    "gf": 45,
-                    "ga": 53,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 44,
+                    "gf": 40,
+                    "ga": 48,
                     "gd": -8
                 },
                 {
                     "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 38,
-                    "gf": 39,
-                    "ga": 61,
-                    "gd": -22
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 43,
+                    "gf": 50,
+                    "ga": 59,
+                    "gd": -9
                 },
                 {
                     "rank": 16,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 36,
-                    "gf": 37,
-                    "ga": 57,
-                    "gd": -20
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 43,
+                    "gf": 57,
+                    "ga": 78,
+                    "gd": -21
                 },
                 {
                     "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 35,
-                    "gf": 42,
-                    "ga": 70,
-                    "gd": -28
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 39,
+                    "gf": 41,
+                    "ga": 57,
+                    "gd": -16
                 },
                 {
                     "rank": 18,
                     "team": "Coventry City",
                     "slug": "coventry-city",
-                    "pts": 33,
-                    "gf": 36,
-                    "ga": 67,
-                    "gd": -31
-                },
-                {
-                    "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
                     "pts": 32,
-                    "gf": 40,
-                    "ga": 65,
-                    "gd": -25
-                },
-                {
-                    "rank": 20,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 28,
-                    "gf": 29,
-                    "ga": 53,
-                    "gd": -24
-                }
-            ]
-        },
-        {
-            "simulation": 4199,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 86,
-                    "gf": 70,
-                    "ga": 32,
-                    "gd": 38
-                },
-                {
-                    "rank": 2,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 78,
-                    "gf": 72,
-                    "ga": 44,
-                    "gd": 28
-                },
-                {
-                    "rank": 3,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 77,
-                    "gf": 83,
-                    "ga": 38,
-                    "gd": 45
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 68,
-                    "gf": 73,
-                    "ga": 41,
-                    "gd": 32
-                },
-                {
-                    "rank": 5,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 62,
-                    "gf": 64,
-                    "ga": 53,
-                    "gd": 11
-                },
-                {
-                    "rank": 6,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 57,
-                    "gf": 56,
-                    "ga": 39,
-                    "gd": 17
-                },
-                {
-                    "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 57,
-                    "gf": 58,
-                    "ga": 53,
-                    "gd": 5
-                },
-                {
-                    "rank": 8,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 55,
-                    "gf": 52,
-                    "ga": 41,
-                    "gd": 11
-                },
-                {
-                    "rank": 9,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 55,
-                    "gf": 49,
-                    "ga": 55,
-                    "gd": -6
-                },
-                {
-                    "rank": 10,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 54,
-                    "gf": 53,
-                    "ga": 48,
-                    "gd": 5
-                },
-                {
-                    "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 54,
-                    "gf": 42,
-                    "ga": 43,
-                    "gd": -1
-                },
-                {
-                    "rank": 12,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 50,
-                    "gf": 61,
-                    "ga": 60,
-                    "gd": 1
-                },
-                {
-                    "rank": 13,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 50,
-                    "gf": 44,
-                    "ga": 45,
-                    "gd": -1
-                },
-                {
-                    "rank": 14,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 47,
-                    "gf": 53,
-                    "ga": 52,
-                    "gd": 1
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 43,
-                    "gf": 46,
-                    "ga": 57,
-                    "gd": -11
-                },
-                {
-                    "rank": 16,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 36,
-                    "gf": 42,
-                    "ga": 80,
-                    "gd": -38
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 32,
-                    "gf": 33,
-                    "ga": 59,
-                    "gd": -26
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 31,
-                    "gf": 39,
-                    "ga": 71,
-                    "gd": -32
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 30,
                     "gf": 33,
                     "ga": 68,
                     "gd": -35
                 },
                 {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 21,
-                    "gf": 30,
-                    "ga": 74,
-                    "gd": -44
-                }
-            ]
-        },
-        {
-            "simulation": 4205,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 88,
-                    "gf": 86,
-                    "ga": 33,
-                    "gd": 53
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 81,
-                    "gf": 79,
-                    "ga": 40,
-                    "gd": 39
-                },
-                {
-                    "rank": 3,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 70,
-                    "gf": 62,
-                    "ga": 46,
-                    "gd": 16
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 66,
-                    "ga": 41,
-                    "gd": 25
-                },
-                {
-                    "rank": 5,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 63,
-                    "gf": 60,
-                    "ga": 53,
-                    "gd": 7
-                },
-                {
-                    "rank": 6,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 60,
-                    "gf": 66,
-                    "ga": 54,
-                    "gd": 12
-                },
-                {
-                    "rank": 7,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 59,
-                    "gf": 58,
-                    "ga": 47,
-                    "gd": 11
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 54,
-                    "gf": 66,
-                    "ga": 56,
-                    "gd": 10
-                },
-                {
-                    "rank": 9,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 51,
-                    "gf": 47,
-                    "ga": 54,
-                    "gd": -7
-                },
-                {
-                    "rank": 10,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 51,
-                    "gf": 40,
-                    "ga": 49,
-                    "gd": -9
-                },
-                {
-                    "rank": 11,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 46,
-                    "gf": 43,
-                    "ga": 45,
-                    "gd": -2
-                },
-                {
-                    "rank": 12,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 46,
-                    "gf": 45,
-                    "ga": 61,
-                    "gd": -16
-                },
-                {
-                    "rank": 13,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 45,
-                    "gf": 47,
-                    "ga": 59,
-                    "gd": -12
-                },
-                {
-                    "rank": 14,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 44,
-                    "gf": 51,
-                    "ga": 61,
-                    "gd": -10
-                },
-                {
-                    "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 44,
-                    "gf": 47,
-                    "ga": 61,
-                    "gd": -14
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 43,
-                    "gf": 45,
-                    "ga": 57,
-                    "gd": -12
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 40,
-                    "gf": 51,
-                    "ga": 68,
-                    "gd": -17
-                },
-                {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 38,
-                    "gf": 43,
-                    "ga": 66,
-                    "gd": -23
-                },
-                {
                     "rank": 19,
                     "team": "Nottingham Forest",
                     "slug": "nottm-forest",
-                    "pts": 37,
-                    "gf": 40,
-                    "ga": 66,
-                    "gd": -26
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
                     "pts": 31,
-                    "gf": 42,
-                    "ga": 67,
-                    "gd": -25
-                }
-            ]
-        },
-        {
-            "simulation": 4484,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 93,
-                    "gf": 93,
-                    "ga": 35,
-                    "gd": 58
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 68,
-                    "gf": 74,
-                    "ga": 46,
-                    "gd": 28
-                },
-                {
-                    "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 68,
-                    "ga": 42,
-                    "gd": 26
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 59,
-                    "gf": 60,
-                    "ga": 51,
-                    "gd": 9
-                },
-                {
-                    "rank": 5,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 59,
-                    "gf": 64,
-                    "ga": 56,
-                    "gd": 8
-                },
-                {
-                    "rank": 6,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 56,
-                    "gf": 56,
-                    "ga": 53,
-                    "gd": 3
-                },
-                {
-                    "rank": 7,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 56,
-                    "gf": 48,
-                    "ga": 57,
-                    "gd": -9
-                },
-                {
-                    "rank": 8,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 55,
-                    "gf": 55,
-                    "ga": 49,
-                    "gd": 6
-                },
-                {
-                    "rank": 9,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 54,
-                    "gf": 50,
-                    "ga": 50,
-                    "gd": 0
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 53,
-                    "gf": 60,
-                    "ga": 59,
-                    "gd": 1
-                },
-                {
-                    "rank": 11,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 49,
-                    "gf": 50,
-                    "ga": 49,
-                    "gd": 1
-                },
-                {
-                    "rank": 12,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 49,
-                    "gf": 51,
-                    "ga": 57,
-                    "gd": -6
-                },
-                {
-                    "rank": 13,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 48,
-                    "gf": 55,
-                    "ga": 48,
-                    "gd": 7
-                },
-                {
-                    "rank": 14,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 48,
                     "gf": 36,
-                    "ga": 52,
-                    "gd": -16
-                },
-                {
-                    "rank": 15,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 45,
-                    "gf": 44,
-                    "ga": 55,
-                    "gd": -11
-                },
-                {
-                    "rank": 16,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 44,
-                    "gf": 54,
-                    "ga": 54,
-                    "gd": 0
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 43,
-                    "gf": 50,
-                    "ga": 65,
-                    "gd": -15
-                },
-                {
-                    "rank": 18,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 38,
-                    "gf": 39,
-                    "ga": 65,
-                    "gd": -26
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 37,
-                    "gf": 41,
-                    "ga": 63,
-                    "gd": -22
+                    "ga": 68,
+                    "gd": -32
                 },
                 {
                     "rank": 20,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 30,
-                    "gf": 39,
-                    "ga": 81,
-                    "gd": -42
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 21,
+                    "gf": 38,
+                    "ga": 85,
+                    "gd": -47
                 }
             ]
         },
         {
-            "simulation": 4505,
+            "simulation": 12644,
             "teams": [
                 {
                     "rank": 1,
@@ -14138,7286 +9928,2476 @@ window.forecastData = {
                     "slug": "man-city",
                     "pts": 85,
                     "gf": 90,
-                    "ga": 36,
-                    "gd": 54
+                    "ga": 41,
+                    "gd": 49
                 },
                 {
                     "rank": 2,
                     "team": "Liverpool",
                     "slug": "liverpool",
-                    "pts": 73,
-                    "gf": 79,
-                    "ga": 43,
-                    "gd": 36
+                    "pts": 68,
+                    "gf": 66,
+                    "ga": 46,
+                    "gd": 20
                 },
                 {
                     "rank": 3,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 71,
-                    "gf": 69,
-                    "ga": 43,
-                    "gd": 26
+                    "pts": 67,
+                    "gf": 54,
+                    "ga": 33,
+                    "gd": 21
                 },
                 {
                     "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 68,
-                    "ga": 41,
-                    "gd": 27
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 66,
+                    "gf": 60,
+                    "ga": 44,
+                    "gd": 16
                 },
                 {
                     "rank": 5,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
+                    "team": "Chelsea",
+                    "slug": "chelsea",
                     "pts": 64,
-                    "gf": 60,
-                    "ga": 42,
-                    "gd": 18
+                    "gf": 66,
+                    "ga": 56,
+                    "gd": 10
                 },
                 {
                     "rank": 6,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 64,
-                    "gf": 63,
-                    "ga": 51,
-                    "gd": 12
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 63,
+                    "gf": 73,
+                    "ga": 49,
+                    "gd": 24
                 },
                 {
                     "rank": 7,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 60,
-                    "gf": 65,
-                    "ga": 47,
-                    "gd": 18
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 55,
+                    "gf": 61,
+                    "ga": 56,
+                    "gd": 5
                 },
                 {
                     "rank": 8,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 57,
-                    "gf": 50,
-                    "ga": 53,
-                    "gd": -3
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 53,
+                    "gf": 61,
+                    "ga": 57,
+                    "gd": 4
                 },
                 {
                     "rank": 9,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 56,
-                    "gf": 56,
-                    "ga": 48,
-                    "gd": 8
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 53,
+                    "gf": 51,
+                    "ga": 47,
+                    "gd": 4
                 },
                 {
                     "rank": 10,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 55,
-                    "gf": 56,
-                    "ga": 47,
-                    "gd": 9
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 52,
+                    "gf": 58,
+                    "ga": 57,
+                    "gd": 1
                 },
                 {
                     "rank": 11,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 50,
-                    "gf": 43,
-                    "ga": 55,
-                    "gd": -12
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 52,
+                    "gf": 47,
+                    "ga": 52,
+                    "gd": -5
                 },
                 {
                     "rank": 12,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 50,
-                    "gf": 50,
-                    "ga": 67,
-                    "gd": -17
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 49,
+                    "gf": 60,
+                    "ga": 65,
+                    "gd": -5
                 },
                 {
                     "rank": 13,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 45,
-                    "gf": 45,
-                    "ga": 66,
-                    "gd": -21
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 49,
+                    "gf": 51,
+                    "ga": 70,
+                    "gd": -19
                 },
                 {
                     "rank": 14,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 44,
-                    "gf": 55,
-                    "ga": 57,
-                    "gd": -2
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 46,
+                    "gf": 43,
+                    "ga": 51,
+                    "gd": -8
                 },
                 {
                     "rank": 15,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 44,
-                    "gf": 51,
-                    "ga": 69,
-                    "gd": -18
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 45,
+                    "gf": 48,
+                    "ga": 55,
+                    "gd": -7
                 },
                 {
                     "rank": 16,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 43,
-                    "gf": 48,
-                    "ga": 57,
-                    "gd": -9
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 44,
+                    "gf": 45,
+                    "ga": 50,
+                    "gd": -5
                 },
                 {
                     "rank": 17,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 42,
-                    "gf": 48,
-                    "ga": 59,
-                    "gd": -11
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 38,
+                    "gf": 37,
+                    "ga": 49,
+                    "gd": -12
                 },
                 {
                     "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 33,
-                    "gf": 40,
-                    "ga": 79,
-                    "gd": -39
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 38,
+                    "gf": 43,
+                    "ga": 81,
+                    "gd": -38
                 },
                 {
                     "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
+                    "team": "Hull",
+                    "slug": "hull",
                     "pts": 30,
-                    "gf": 28,
-                    "ga": 58,
-                    "gd": -30
+                    "gf": 47,
+                    "ga": 71,
+                    "gd": -24
                 },
                 {
                     "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 17,
-                    "gf": 25,
-                    "ga": 71,
-                    "gd": -46
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 29,
+                    "gf": 43,
+                    "ga": 74,
+                    "gd": -31
                 }
             ]
         },
         {
-            "simulation": 4547,
+            "simulation": 13962,
             "teams": [
                 {
                     "rank": 1,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 79,
-                    "gf": 71,
-                    "ga": 35,
-                    "gd": 36
+                    "pts": 86,
+                    "gf": 73,
+                    "ga": 36,
+                    "gd": 37
                 },
                 {
                     "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 76,
-                    "gf": 77,
-                    "ga": 43,
-                    "gd": 34
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 77,
+                    "gf": 89,
+                    "ga": 32,
+                    "gd": 57
                 },
                 {
                     "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 69,
-                    "gf": 77,
-                    "ga": 42,
-                    "gd": 35
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 71,
+                    "gf": 84,
+                    "ga": 48,
+                    "gd": 36
                 },
                 {
                     "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 68,
-                    "gf": 65,
-                    "ga": 43,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 70,
+                    "gf": 74,
+                    "ga": 52,
                     "gd": 22
                 },
                 {
                     "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 63,
-                    "gf": 63,
-                    "ga": 51,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 67,
+                    "gf": 58,
+                    "ga": 49,
+                    "gd": 9
+                },
+                {
+                    "rank": 6,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 65,
+                    "gf": 68,
+                    "ga": 56,
                     "gd": 12
                 },
                 {
-                    "rank": 6,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 59,
-                    "gf": 57,
-                    "ga": 41,
-                    "gd": 16
-                },
-                {
                     "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 56,
-                    "gf": 53,
-                    "ga": 58,
-                    "gd": -5
-                },
-                {
-                    "rank": 8,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 55,
-                    "gf": 55,
-                    "ga": 50,
-                    "gd": 5
-                },
-                {
-                    "rank": 9,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 54,
-                    "gf": 53,
-                    "ga": 48,
-                    "gd": 5
-                },
-                {
-                    "rank": 10,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 54,
-                    "gf": 60,
-                    "ga": 68,
-                    "gd": -8
-                },
-                {
-                    "rank": 11,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 52,
-                    "gf": 58,
-                    "ga": 54,
-                    "gd": 4
-                },
-                {
-                    "rank": 12,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 50,
-                    "gf": 60,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 57,
+                    "gf": 50,
                     "ga": 53,
-                    "gd": 7
-                },
-                {
-                    "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 47,
-                    "gf": 43,
-                    "ga": 46,
                     "gd": -3
                 },
                 {
-                    "rank": 14,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 47,
-                    "gf": 51,
-                    "ga": 64,
-                    "gd": -13
-                },
-                {
-                    "rank": 15,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 46,
-                    "gf": 45,
-                    "ga": 56,
-                    "gd": -11
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 44,
-                    "ga": 64,
-                    "gd": -20
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 32,
-                    "gf": 35,
-                    "ga": 56,
-                    "gd": -21
-                },
-                {
-                    "rank": 18,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 31,
-                    "gf": 39,
-                    "ga": 62,
-                    "gd": -23
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 30,
-                    "gf": 42,
-                    "ga": 78,
-                    "gd": -36
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 29,
-                    "gf": 45,
-                    "ga": 81,
-                    "gd": -36
-                }
-            ]
-        },
-        {
-            "simulation": 4612,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 94,
-                    "gf": 100,
-                    "ga": 35,
-                    "gd": 65
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 81,
-                    "gf": 70,
-                    "ga": 41,
-                    "gd": 29
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 66,
-                    "gf": 57,
-                    "ga": 37,
-                    "gd": 20
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 65,
-                    "gf": 60,
-                    "ga": 41,
-                    "gd": 19
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 63,
-                    "gf": 75,
-                    "ga": 51,
-                    "gd": 24
-                },
-                {
-                    "rank": 6,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 62,
-                    "gf": 61,
-                    "ga": 46,
-                    "gd": 15
-                },
-                {
-                    "rank": 7,
+                    "rank": 8,
                     "team": "Brentford",
                     "slug": "brentford",
-                    "pts": 59,
-                    "gf": 61,
-                    "ga": 55,
+                    "pts": 56,
+                    "gf": 53,
+                    "ga": 47,
                     "gd": 6
-                },
-                {
-                    "rank": 8,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 54,
-                    "gf": 60,
-                    "ga": 53,
-                    "gd": 7
                 },
                 {
                     "rank": 9,
                     "team": "Aston Villa",
                     "slug": "aston-villa",
-                    "pts": 53,
-                    "gf": 59,
-                    "ga": 54,
-                    "gd": 5
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 53,
-                    "gf": 51,
-                    "ga": 49,
+                    "pts": 54,
+                    "gf": 54,
+                    "ga": 52,
                     "gd": 2
                 },
                 {
+                    "rank": 10,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 53,
+                    "gf": 56,
+                    "ga": 61,
+                    "gd": -5
+                },
+                {
                     "rank": 11,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 48,
-                    "gf": 40,
-                    "ga": 56,
-                    "gd": -16
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 49,
+                    "gf": 47,
+                    "ga": 49,
+                    "gd": -2
                 },
                 {
                     "rank": 12,
                     "team": "Coventry City",
                     "slug": "coventry-city",
-                    "pts": 47,
-                    "gf": 57,
-                    "ga": 68,
-                    "gd": -11
+                    "pts": 48,
+                    "gf": 53,
+                    "ga": 56,
+                    "gd": -3
                 },
                 {
                     "rank": 13,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 46,
+                    "gf": 45,
+                    "ga": 57,
+                    "gd": -12
+                },
+                {
+                    "rank": 14,
                     "team": "Everton",
                     "slug": "everton",
                     "pts": 45,
                     "gf": 42,
-                    "ga": 61,
+                    "ga": 50,
+                    "gd": -8
+                },
+                {
+                    "rank": 15,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 44,
+                    "gf": 59,
+                    "ga": 79,
+                    "gd": -20
+                },
+                {
+                    "rank": 16,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 40,
+                    "gf": 37,
+                    "ga": 56,
                     "gd": -19
                 },
                 {
-                    "rank": 14,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 44,
-                    "gf": 46,
+                    "rank": 17,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 36,
+                    "gf": 44,
                     "ga": 62,
-                    "gd": -16
-                },
-                {
-                    "rank": 15,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 41,
-                    "gf": 51,
-                    "ga": 66,
-                    "gd": -15
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 41,
-                    "gf": 43,
-                    "ga": 61,
                     "gd": -18
                 },
                 {
-                    "rank": 17,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 41,
-                    "gf": 52,
-                    "ga": 73,
-                    "gd": -21
-                },
-                {
                     "rank": 18,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 40,
-                    "gf": 52,
-                    "ga": 63,
-                    "gd": -11
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 31,
-                    "gf": 43,
-                    "ga": 71,
-                    "gd": -28
-                },
-                {
-                    "rank": 20,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 27,
-                    "gf": 35,
-                    "ga": 72,
-                    "gd": -37
-                }
-            ]
-        },
-        {
-            "simulation": 4682,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 75,
-                    "gf": 70,
-                    "ga": 39,
-                    "gd": 31
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 74,
-                    "gf": 82,
-                    "ga": 48,
-                    "gd": 34
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 67,
-                    "gf": 66,
-                    "ga": 50,
-                    "gd": 16
-                },
-                {
-                    "rank": 4,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 67,
-                    "gf": 54,
-                    "ga": 38,
-                    "gd": 16
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 71,
-                    "ga": 42,
-                    "gd": 29
-                },
-                {
-                    "rank": 6,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 64,
-                    "gf": 56,
-                    "ga": 47,
-                    "gd": 9
-                },
-                {
-                    "rank": 7,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 59,
-                    "gf": 59,
-                    "ga": 53,
-                    "gd": 6
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 56,
-                    "gf": 58,
-                    "ga": 52,
-                    "gd": 6
-                },
-                {
-                    "rank": 9,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 55,
-                    "gf": 50,
-                    "ga": 51,
-                    "gd": -1
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 51,
-                    "gf": 54,
-                    "ga": 55,
-                    "gd": -1
-                },
-                {
-                    "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 49,
-                    "gf": 45,
-                    "ga": 50,
-                    "gd": -5
-                },
-                {
-                    "rank": 12,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 47,
-                    "gf": 48,
-                    "ga": 69,
-                    "gd": -21
-                },
-                {
-                    "rank": 13,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 46,
-                    "gf": 47,
-                    "ga": 53,
-                    "gd": -6
-                },
-                {
-                    "rank": 14,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 46,
-                    "gf": 54,
-                    "ga": 63,
-                    "gd": -9
-                },
-                {
-                    "rank": 15,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 45,
-                    "gf": 48,
-                    "ga": 60,
-                    "gd": -12
-                },
-                {
-                    "rank": 16,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 40,
-                    "gf": 45,
-                    "ga": 55,
-                    "gd": -10
-                },
-                {
-                    "rank": 17,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 39,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 32,
                     "gf": 44,
-                    "ga": 58,
-                    "gd": -14
-                },
-                {
-                    "rank": 18,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 39,
-                    "gf": 47,
                     "ga": 70,
-                    "gd": -23
+                    "gd": -26
                 },
                 {
                     "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 38,
-                    "gf": 46,
-                    "ga": 63,
-                    "gd": -17
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 35,
-                    "gf": 42,
-                    "ga": 70,
-                    "gd": -28
-                }
-            ]
-        },
-        {
-            "simulation": 4837,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 90,
-                    "gf": 94,
-                    "ga": 35,
-                    "gd": 59
-                },
-                {
-                    "rank": 2,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 80,
-                    "gf": 69,
-                    "ga": 36,
-                    "gd": 33
-                },
-                {
-                    "rank": 3,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 76,
-                    "gf": 76,
-                    "ga": 41,
-                    "gd": 35
-                },
-                {
-                    "rank": 4,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 62,
-                    "gf": 61,
-                    "ga": 56,
-                    "gd": 5
-                },
-                {
-                    "rank": 5,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 61,
-                    "gf": 67,
-                    "ga": 60,
-                    "gd": 7
-                },
-                {
-                    "rank": 6,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 57,
-                    "gf": 60,
-                    "ga": 45,
-                    "gd": 15
-                },
-                {
-                    "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 56,
-                    "gf": 62,
-                    "ga": 54,
-                    "gd": 8
-                },
-                {
-                    "rank": 8,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 55,
-                    "gf": 67,
-                    "ga": 63,
-                    "gd": 4
-                },
-                {
-                    "rank": 9,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 55,
-                    "gf": 60,
-                    "ga": 57,
-                    "gd": 3
-                },
-                {
-                    "rank": 10,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 51,
-                    "gf": 44,
-                    "ga": 57,
-                    "gd": -13
-                },
-                {
-                    "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 50,
-                    "gf": 41,
-                    "ga": 44,
-                    "gd": -3
-                },
-                {
-                    "rank": 12,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 46,
-                    "gf": 49,
-                    "ga": 60,
-                    "gd": -11
-                },
-                {
-                    "rank": 13,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 45,
-                    "gf": 60,
-                    "ga": 69,
-                    "gd": -9
-                },
-                {
-                    "rank": 14,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 45,
-                    "gf": 43,
-                    "ga": 57,
-                    "gd": -14
-                },
-                {
-                    "rank": 15,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 44,
-                    "gf": 50,
-                    "ga": 61,
-                    "gd": -11
-                },
-                {
-                    "rank": 16,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 42,
-                    "gf": 55,
-                    "ga": 61,
-                    "gd": -6
-                },
-                {
-                    "rank": 17,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 39,
-                    "gf": 44,
-                    "ga": 59,
-                    "gd": -15
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 36,
-                    "gf": 37,
-                    "ga": 70,
-                    "gd": -33
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 36,
-                    "gf": 49,
-                    "ga": 85,
-                    "gd": -36
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 35,
-                    "gf": 43,
-                    "ga": 61,
-                    "gd": -18
-                }
-            ]
-        },
-        {
-            "simulation": 5001,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 80,
-                    "gf": 73,
-                    "ga": 37,
-                    "gd": 36
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 73,
-                    "gf": 75,
-                    "ga": 36,
-                    "gd": 39
-                },
-                {
-                    "rank": 3,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 67,
-                    "gf": 70,
-                    "ga": 42,
-                    "gd": 28
-                },
-                {
-                    "rank": 4,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 65,
-                    "gf": 64,
-                    "ga": 47,
-                    "gd": 17
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 77,
-                    "ga": 43,
-                    "gd": 34
-                },
-                {
-                    "rank": 6,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 64,
-                    "gf": 55,
-                    "ga": 46,
-                    "gd": 9
-                },
-                {
-                    "rank": 7,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 61,
-                    "gf": 65,
-                    "ga": 47,
-                    "gd": 18
-                },
-                {
-                    "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 60,
-                    "gf": 59,
-                    "ga": 54,
-                    "gd": 5
-                },
-                {
-                    "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 55,
-                    "gf": 54,
-                    "ga": 59,
-                    "gd": -5
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 52,
-                    "gf": 56,
-                    "ga": 40,
-                    "gd": 16
-                },
-                {
-                    "rank": 11,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 51,
-                    "gf": 56,
-                    "ga": 56,
-                    "gd": 0
-                },
-                {
-                    "rank": 12,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 46,
-                    "gf": 50,
-                    "ga": 54,
-                    "gd": -4
-                },
-                {
-                    "rank": 13,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 45,
-                    "gf": 52,
-                    "ga": 65,
-                    "gd": -13
-                },
-                {
-                    "rank": 14,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 43,
-                    "gf": 47,
-                    "ga": 65,
-                    "gd": -18
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 41,
-                    "gf": 48,
-                    "ga": 55,
-                    "gd": -7
-                },
-                {
-                    "rank": 16,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 40,
-                    "gf": 41,
-                    "ga": 57,
-                    "gd": -16
-                },
-                {
-                    "rank": 17,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 34,
-                    "gf": 39,
-                    "ga": 67,
-                    "gd": -28
-                },
-                {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 33,
-                    "gf": 33,
-                    "ga": 68,
-                    "gd": -35
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 30,
-                    "gf": 43,
-                    "ga": 82,
-                    "gd": -39
-                },
-                {
-                    "rank": 20,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 26,
-                    "gf": 36,
-                    "ga": 73,
-                    "gd": -37
-                }
-            ]
-        },
-        {
-            "simulation": 5014,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 88,
-                    "gf": 83,
-                    "ga": 39,
-                    "gd": 44
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 82,
-                    "gf": 76,
-                    "ga": 40,
-                    "gd": 36
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 75,
-                    "gf": 71,
-                    "ga": 46,
-                    "gd": 25
-                },
-                {
-                    "rank": 4,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 68,
-                    "gf": 62,
-                    "ga": 45,
-                    "gd": 17
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 61,
-                    "gf": 58,
-                    "ga": 42,
-                    "gd": 16
-                },
-                {
-                    "rank": 6,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 59,
-                    "gf": 65,
-                    "ga": 60,
-                    "gd": 5
-                },
-                {
-                    "rank": 7,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 56,
-                    "gf": 63,
-                    "ga": 51,
-                    "gd": 12
-                },
-                {
-                    "rank": 8,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 55,
-                    "gf": 59,
-                    "ga": 55,
-                    "gd": 4
-                },
-                {
-                    "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 54,
-                    "gf": 52,
-                    "ga": 54,
-                    "gd": -2
-                },
-                {
-                    "rank": 10,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 51,
-                    "gf": 52,
-                    "ga": 56,
-                    "gd": -4
-                },
-                {
-                    "rank": 11,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 44,
-                    "gf": 44,
-                    "ga": 55,
-                    "gd": -11
-                },
-                {
-                    "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 44,
-                    "gf": 44,
-                    "ga": 56,
-                    "gd": -12
-                },
-                {
-                    "rank": 13,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 43,
-                    "gf": 59,
-                    "ga": 68,
-                    "gd": -9
-                },
-                {
-                    "rank": 14,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 42,
-                    "gf": 51,
-                    "ga": 54,
-                    "gd": -3
-                },
-                {
-                    "rank": 15,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 42,
-                    "gf": 48,
-                    "ga": 57,
-                    "gd": -9
-                },
-                {
-                    "rank": 16,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 41,
-                    "gf": 45,
-                    "ga": 55,
-                    "gd": -10
-                },
-                {
-                    "rank": 17,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 39,
-                    "gf": 45,
-                    "ga": 75,
-                    "gd": -30
-                },
-                {
-                    "rank": 18,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 38,
-                    "gf": 42,
-                    "ga": 55,
-                    "gd": -13
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 35,
-                    "gf": 42,
-                    "ga": 72,
-                    "gd": -30
-                },
-                {
-                    "rank": 20,
                     "team": "Fulham",
                     "slug": "fulham",
                     "pts": 29,
-                    "gf": 30,
-                    "ga": 56,
-                    "gd": -26
+                    "gf": 42,
+                    "ga": 70,
+                    "gd": -28
+                },
+                {
+                    "rank": 20,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 29,
+                    "gf": 39,
+                    "ga": 76,
+                    "gd": -37
                 }
             ]
         },
         {
-            "simulation": 5044,
+            "simulation": 14714,
             "teams": [
                 {
                     "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 76,
-                    "gf": 76,
-                    "ga": 45,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 79,
+                    "gf": 71,
+                    "ga": 40,
                     "gd": 31
                 },
                 {
                     "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 75,
-                    "gf": 78,
-                    "ga": 37,
-                    "gd": 41
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 77,
+                    "gf": 69,
+                    "ga": 38,
+                    "gd": 31
                 },
                 {
                     "rank": 3,
                     "team": "Chelsea",
                     "slug": "chelsea",
-                    "pts": 71,
-                    "gf": 57,
-                    "ga": 38,
-                    "gd": 19
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 66,
-                    "gf": 72,
-                    "ga": 45,
+                    "pts": 70,
+                    "gf": 67,
+                    "ga": 40,
                     "gd": 27
                 },
                 {
-                    "rank": 5,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 63,
-                    "gf": 49,
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 66,
+                    "gf": 56,
                     "ga": 44,
-                    "gd": 5
+                    "gd": 12
+                },
+                {
+                    "rank": 5,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 61,
+                    "gf": 60,
+                    "ga": 52,
+                    "gd": 8
                 },
                 {
                     "rank": 6,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 60,
-                    "gf": 69,
-                    "ga": 54,
-                    "gd": 15
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 61,
+                    "gf": 54,
+                    "ga": 46,
+                    "gd": 8
                 },
                 {
                     "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
+                    "team": "Brighton",
+                    "slug": "brighton",
                     "pts": 60,
-                    "gf": 57,
-                    "ga": 46,
-                    "gd": 11
+                    "gf": 72,
+                    "ga": 57,
+                    "gd": 15
                 },
                 {
                     "rank": 8,
                     "team": "Newcastle",
                     "slug": "newcastle",
-                    "pts": 55,
-                    "gf": 57,
-                    "ga": 52,
-                    "gd": 5
+                    "pts": 54,
+                    "gf": 55,
+                    "ga": 54,
+                    "gd": 1
                 },
                 {
                     "rank": 9,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 53,
-                    "gf": 56,
-                    "ga": 46,
-                    "gd": 10
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 51,
+                    "gf": 57,
+                    "ga": 55,
+                    "gd": 2
                 },
                 {
                     "rank": 10,
-                    "team": "Everton",
-                    "slug": "everton",
+                    "team": "Manchester United",
+                    "slug": "man-united",
                     "pts": 51,
-                    "gf": 46,
-                    "ga": 47,
-                    "gd": -1
+                    "gf": 55,
+                    "ga": 55,
+                    "gd": 0
                 },
                 {
                     "rank": 11,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 51,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 49,
                     "gf": 50,
-                    "ga": 57,
-                    "gd": -7
+                    "ga": 47,
+                    "gd": 3
                 },
                 {
                     "rank": 12,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 50,
-                    "gf": 51,
-                    "ga": 53,
-                    "gd": -2
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 49,
+                    "gf": 50,
+                    "ga": 64,
+                    "gd": -14
                 },
                 {
                     "rank": 13,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 50,
-                    "gf": 46,
-                    "ga": 58,
-                    "gd": -12
-                },
-                {
-                    "rank": 14,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
+                    "team": "Ipswich",
+                    "slug": "ipswich",
                     "pts": 46,
-                    "gf": 41,
-                    "ga": 54,
-                    "gd": -13
-                },
-                {
-                    "rank": 15,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 44,
-                    "gf": 47,
-                    "ga": 50,
-                    "gd": -3
-                },
-                {
-                    "rank": 16,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 44,
-                    "gf": 45,
-                    "ga": 57,
-                    "gd": -12
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 33,
-                    "gf": 41,
-                    "ga": 63,
+                    "gf": 57,
+                    "ga": 79,
                     "gd": -22
                 },
                 {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 33,
-                    "gf": 40,
+                    "rank": 14,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 45,
+                    "gf": 56,
+                    "ga": 57,
+                    "gd": -1
+                },
+                {
+                    "rank": 15,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 44,
+                    "gf": 49,
                     "ga": 67,
-                    "gd": -27
+                    "gd": -18
+                },
+                {
+                    "rank": 16,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 43,
+                    "gf": 47,
+                    "ga": 41,
+                    "gd": 6
+                },
+                {
+                    "rank": 17,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 42,
+                    "gf": 45,
+                    "ga": 58,
+                    "gd": -13
+                },
+                {
+                    "rank": 18,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 37,
+                    "gf": 51,
+                    "ga": 69,
+                    "gd": -18
                 },
                 {
                     "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 33,
-                    "gf": 42,
-                    "ga": 72,
-                    "gd": -30
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 35,
+                    "gf": 43,
+                    "ga": 68,
+                    "gd": -25
                 },
                 {
                     "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 33,
-                    "gf": 45,
-                    "ga": 80,
-                    "gd": -35
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 27,
+                    "gf": 33,
+                    "ga": 66,
+                    "gd": -33
                 }
             ]
         },
         {
-            "simulation": 5330,
+            "simulation": 18930,
             "teams": [
                 {
                     "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 81,
-                    "gf": 81,
-                    "ga": 36,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 79,
+                    "gf": 80,
+                    "ga": 35,
                     "gd": 45
                 },
                 {
                     "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 80,
-                    "gf": 79,
-                    "ga": 42,
-                    "gd": 37
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 70,
-                    "gf": 59,
-                    "ga": 47,
-                    "gd": 12
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 66,
-                    "gf": 69,
-                    "ga": 42,
-                    "gd": 27
-                },
-                {
-                    "rank": 5,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 63,
-                    "gf": 72,
-                    "ga": 48,
-                    "gd": 24
-                },
-                {
-                    "rank": 6,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 63,
-                    "gf": 63,
-                    "ga": 51,
-                    "gd": 12
-                },
-                {
-                    "rank": 7,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 60,
-                    "gf": 60,
-                    "ga": 47,
-                    "gd": 13
-                },
-                {
-                    "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 58,
-                    "gf": 51,
-                    "ga": 40,
-                    "gd": 11
-                },
-                {
-                    "rank": 9,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 50,
-                    "gf": 53,
-                    "ga": 57,
-                    "gd": -4
-                },
-                {
-                    "rank": 10,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 50,
-                    "gf": 49,
-                    "ga": 56,
-                    "gd": -7
-                },
-                {
-                    "rank": 11,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 49,
-                    "gf": 57,
-                    "ga": 56,
-                    "gd": 1
-                },
-                {
-                    "rank": 12,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 44,
-                    "gf": 39,
-                    "ga": 50,
-                    "gd": -11
-                },
-                {
-                    "rank": 13,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 44,
-                    "gf": 37,
-                    "ga": 53,
-                    "gd": -16
-                },
-                {
-                    "rank": 14,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 43,
-                    "gf": 42,
-                    "ga": 53,
-                    "gd": -11
-                },
-                {
-                    "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 42,
-                    "gf": 45,
-                    "ga": 51,
-                    "gd": -6
-                },
-                {
-                    "rank": 16,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 42,
-                    "gf": 50,
-                    "ga": 67,
-                    "gd": -17
-                },
-                {
-                    "rank": 17,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 42,
-                    "gf": 48,
-                    "ga": 66,
-                    "gd": -18
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 36,
-                    "gf": 40,
-                    "ga": 61,
-                    "gd": -21
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 36,
-                    "gf": 44,
-                    "ga": 75,
-                    "gd": -31
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 27,
-                    "gf": 28,
-                    "ga": 68,
-                    "gd": -40
-                }
-            ]
-        },
-        {
-            "simulation": 5455,
-            "teams": [
-                {
-                    "rank": 1,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 73,
-                    "gf": 61,
-                    "ga": 34,
-                    "gd": 27
-                },
-                {
-                    "rank": 2,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 72,
-                    "gf": 70,
-                    "ga": 50,
-                    "gd": 20
-                },
-                {
-                    "rank": 3,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 70,
-                    "gf": 80,
-                    "ga": 51,
-                    "gd": 29
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 70,
-                    "gf": 69,
-                    "ga": 42,
-                    "gd": 27
-                },
-                {
-                    "rank": 5,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 66,
-                    "gf": 63,
-                    "ga": 47,
-                    "gd": 16
-                },
-                {
-                    "rank": 6,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 63,
-                    "gf": 59,
-                    "ga": 41,
-                    "gd": 18
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 62,
-                    "gf": 54,
-                    "ga": 38,
-                    "gd": 16
-                },
-                {
-                    "rank": 8,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 53,
-                    "gf": 45,
-                    "ga": 49,
-                    "gd": -4
-                },
-                {
-                    "rank": 9,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 51,
-                    "gf": 56,
-                    "ga": 53,
-                    "gd": 3
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 48,
-                    "gf": 44,
-                    "ga": 55,
-                    "gd": -11
-                },
-                {
-                    "rank": 11,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 46,
-                    "gf": 48,
-                    "ga": 51,
-                    "gd": -3
-                },
-                {
-                    "rank": 12,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 46,
-                    "gf": 36,
-                    "ga": 59,
-                    "gd": -23
-                },
-                {
-                    "rank": 13,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 44,
-                    "gf": 57,
-                    "ga": 60,
-                    "gd": -3
-                },
-                {
-                    "rank": 14,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 44,
-                    "gf": 37,
-                    "ga": 53,
-                    "gd": -16
-                },
-                {
-                    "rank": 15,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 44,
-                    "gf": 41,
-                    "ga": 58,
-                    "gd": -17
-                },
-                {
-                    "rank": 16,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 43,
-                    "gf": 69,
-                    "ga": 61,
-                    "gd": 8
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 42,
-                    "gf": 51,
-                    "ga": 59,
-                    "gd": -8
-                },
-                {
-                    "rank": 18,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 38,
-                    "gf": 45,
-                    "ga": 67,
-                    "gd": -22
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 35,
-                    "gf": 42,
-                    "ga": 76,
-                    "gd": -34
-                },
-                {
-                    "rank": 20,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 34,
-                    "gf": 36,
-                    "ga": 59,
-                    "gd": -23
-                }
-            ]
-        },
-        {
-            "simulation": 5502,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 81,
-                    "gf": 73,
-                    "ga": 30,
-                    "gd": 43
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 74,
-                    "gf": 69,
-                    "ga": 41,
-                    "gd": 28
-                },
-                {
-                    "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 71,
-                    "gf": 65,
-                    "ga": 35,
+                    "pts": 77,
+                    "gf": 66,
+                    "ga": 36,
                     "gd": 30
                 },
                 {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 67,
+                    "gf": 69,
+                    "ga": 45,
+                    "gd": 24
+                },
+                {
                     "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 66,
-                    "gf": 63,
-                    "ga": 47,
-                    "gd": 16
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 63,
+                    "gf": 56,
+                    "ga": 50,
+                    "gd": 6
                 },
                 {
                     "rank": 5,
                     "team": "Liverpool",
                     "slug": "liverpool",
+                    "pts": 62,
+                    "gf": 68,
+                    "ga": 47,
+                    "gd": 21
+                },
+                {
+                    "rank": 6,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 62,
+                    "gf": 63,
+                    "ga": 54,
+                    "gd": 9
+                },
+                {
+                    "rank": 7,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 61,
+                    "gf": 69,
+                    "ga": 54,
+                    "gd": 15
+                },
+                {
+                    "rank": 8,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 57,
+                    "gf": 57,
+                    "ga": 53,
+                    "gd": 4
+                },
+                {
+                    "rank": 9,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 50,
+                    "gf": 45,
+                    "ga": 44,
+                    "gd": 1
+                },
+                {
+                    "rank": 10,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 49,
+                    "gf": 49,
+                    "ga": 54,
+                    "gd": -5
+                },
+                {
+                    "rank": 11,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 48,
+                    "gf": 50,
+                    "ga": 43,
+                    "gd": 7
+                },
+                {
+                    "rank": 12,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 48,
+                    "gf": 59,
+                    "ga": 55,
+                    "gd": 4
+                },
+                {
+                    "rank": 13,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 48,
+                    "gf": 56,
+                    "ga": 54,
+                    "gd": 2
+                },
+                {
+                    "rank": 14,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 45,
+                    "gf": 44,
+                    "ga": 60,
+                    "gd": -16
+                },
+                {
+                    "rank": 15,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 42,
+                    "gf": 39,
+                    "ga": 57,
+                    "gd": -18
+                },
+                {
+                    "rank": 16,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 40,
+                    "gf": 37,
+                    "ga": 60,
+                    "gd": -23
+                },
+                {
+                    "rank": 17,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 37,
+                    "gf": 40,
+                    "ga": 73,
+                    "gd": -33
+                },
+                {
+                    "rank": 18,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 36,
+                    "gf": 36,
+                    "ga": 54,
+                    "gd": -18
+                },
+                {
+                    "rank": 19,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 36,
+                    "gf": 37,
+                    "ga": 61,
+                    "gd": -24
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 33,
+                    "gf": 37,
+                    "ga": 68,
+                    "gd": -31
+                }
+            ]
+        },
+        {
+            "simulation": 22456,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 92,
+                    "gf": 79,
+                    "ga": 27,
+                    "gd": 52
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 72,
+                    "gf": 55,
+                    "ga": 34,
+                    "gd": 21
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
                     "pts": 63,
                     "gf": 67,
                     "ga": 54,
                     "gd": 13
                 },
                 {
-                    "rank": 6,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 59,
-                    "gf": 47,
-                    "ga": 50,
-                    "gd": -3
-                },
-                {
-                    "rank": 7,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 55,
-                    "gf": 56,
-                    "ga": 46,
-                    "gd": 10
-                },
-                {
-                    "rank": 8,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 54,
-                    "gf": 50,
-                    "ga": 49,
-                    "gd": 1
-                },
-                {
-                    "rank": 9,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 53,
-                    "gf": 59,
-                    "ga": 51,
-                    "gd": 8
-                },
-                {
-                    "rank": 10,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 51,
-                    "gf": 46,
-                    "ga": 51,
-                    "gd": -5
-                },
-                {
-                    "rank": 11,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 51,
-                    "gf": 46,
-                    "ga": 54,
-                    "gd": -8
-                },
-                {
-                    "rank": 12,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 48,
-                    "gf": 45,
-                    "ga": 64,
-                    "gd": -19
-                },
-                {
-                    "rank": 13,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 47,
-                    "gf": 42,
-                    "ga": 44,
-                    "gd": -2
-                },
-                {
-                    "rank": 14,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 46,
-                    "gf": 51,
-                    "ga": 53,
-                    "gd": -2
-                },
-                {
-                    "rank": 15,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 46,
-                    "gf": 43,
-                    "ga": 47,
-                    "gd": -4
-                },
-                {
-                    "rank": 16,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 43,
-                    "gf": 49,
-                    "ga": 70,
-                    "gd": -21
-                },
-                {
-                    "rank": 17,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 41,
-                    "gf": 41,
-                    "ga": 58,
-                    "gd": -17
-                },
-                {
-                    "rank": 18,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 39,
-                    "gf": 46,
-                    "ga": 62,
-                    "gd": -16
-                },
-                {
-                    "rank": 19,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 35,
-                    "gf": 41,
-                    "ga": 64,
-                    "gd": -23
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 30,
-                    "gf": 39,
-                    "ga": 68,
-                    "gd": -29
-                }
-            ]
-        },
-        {
-            "simulation": 5549,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 78,
-                    "gf": 73,
-                    "ga": 37,
-                    "gd": 36
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 75,
-                    "gf": 79,
-                    "ga": 41,
-                    "gd": 38
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 73,
-                    "gf": 69,
-                    "ga": 42,
-                    "gd": 27
-                },
-                {
                     "rank": 4,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 66,
-                    "gf": 60,
-                    "ga": 47,
-                    "gd": 13
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 61,
+                    "gf": 72,
+                    "ga": 46,
+                    "gd": 26
                 },
                 {
                     "rank": 5,
                     "team": "Bournemouth",
                     "slug": "bournemouth",
-                    "pts": 61,
-                    "gf": 58,
-                    "ga": 44,
-                    "gd": 14
+                    "pts": 60,
+                    "gf": 53,
+                    "ga": 49,
+                    "gd": 4
                 },
                 {
                     "rank": 6,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 61,
-                    "gf": 64,
-                    "ga": 61,
-                    "gd": 3
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 55,
+                    "gf": 48,
+                    "ga": 54,
+                    "gd": -6
                 },
                 {
                     "rank": 7,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 60,
-                    "gf": 69,
-                    "ga": 52,
-                    "gd": 17
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 54,
+                    "gf": 47,
+                    "ga": 45,
+                    "gd": 2
                 },
                 {
                     "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 59,
-                    "gf": 57,
-                    "ga": 44,
-                    "gd": 13
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 54,
+                    "gf": 49,
+                    "ga": 53,
+                    "gd": -4
                 },
                 {
                     "rank": 9,
-                    "team": "Brighton",
-                    "slug": "brighton",
+                    "team": "Brentford",
+                    "slug": "brentford",
                     "pts": 53,
-                    "gf": 64,
-                    "ga": 49,
-                    "gd": 15
+                    "gf": 60,
+                    "ga": 41,
+                    "gd": 19
                 },
                 {
                     "rank": 10,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
+                    "team": "Leeds",
+                    "slug": "leeds",
                     "pts": 53,
-                    "gf": 62,
-                    "ga": 65,
-                    "gd": -3
+                    "gf": 51,
+                    "ga": 44,
+                    "gd": 7
                 },
                 {
                     "rank": 11,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
                     "pts": 52,
-                    "gf": 48,
-                    "ga": 50,
-                    "gd": -2
+                    "gf": 44,
+                    "ga": 49,
+                    "gd": -5
                 },
                 {
                     "rank": 12,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 51,
-                    "gf": 57,
-                    "ga": 47,
-                    "gd": 10
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 49,
+                    "gf": 60,
+                    "ga": 62,
+                    "gd": -2
                 },
                 {
                     "rank": 13,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
+                    "team": "Newcastle",
+                    "slug": "newcastle",
                     "pts": 48,
-                    "gf": 53,
-                    "ga": 63,
-                    "gd": -10
+                    "gf": 52,
+                    "ga": 51,
+                    "gd": 1
                 },
                 {
                     "rank": 14,
                     "team": "Nottingham Forest",
                     "slug": "nottm-forest",
-                    "pts": 43,
-                    "gf": 45,
-                    "ga": 51,
-                    "gd": -6
+                    "pts": 45,
+                    "gf": 38,
+                    "ga": 41,
+                    "gd": -3
                 },
                 {
                     "rank": 15,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 42,
-                    "gf": 41,
-                    "ga": 61,
-                    "gd": -20
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 45,
+                    "gf": 49,
+                    "ga": 65,
+                    "gd": -16
                 },
                 {
                     "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 38,
-                    "gf": 45,
-                    "ga": 74,
-                    "gd": -29
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 41,
+                    "gf": 50,
+                    "ga": 67,
+                    "gd": -17
                 },
                 {
                     "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 37,
-                    "gf": 44,
-                    "ga": 66,
-                    "gd": -22
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 39,
+                    "gf": 38,
+                    "ga": 55,
+                    "gd": -17
                 },
                 {
                     "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 36,
-                    "gf": 38,
-                    "ga": 61,
-                    "gd": -23
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 37,
+                    "gf": 36,
+                    "ga": 58,
+                    "gd": -22
                 },
                 {
                     "rank": 19,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 33,
-                    "gf": 35,
-                    "ga": 61,
-                    "gd": -26
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 36,
+                    "gf": 47,
+                    "ga": 74,
+                    "gd": -27
                 },
                 {
                     "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 22,
-                    "gf": 27,
-                    "ga": 72,
-                    "gd": -45
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 32,
+                    "gf": 39,
+                    "ga": 65,
+                    "gd": -26
                 }
             ]
         },
         {
-            "simulation": 5632,
+            "simulation": 26353,
             "teams": [
                 {
                     "rank": 1,
                     "team": "Manchester City",
                     "slug": "man-city",
                     "pts": 99,
-                    "gf": 101,
-                    "ga": 38,
-                    "gd": 63
+                    "gf": 100,
+                    "ga": 40,
+                    "gd": 60
                 },
                 {
                     "rank": 2,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 78,
-                    "gf": 79,
-                    "ga": 43,
-                    "gd": 36
+                    "pts": 80,
+                    "gf": 77,
+                    "ga": 38,
+                    "gd": 39
                 },
                 {
                     "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 71,
-                    "gf": 67,
-                    "ga": 41,
-                    "gd": 26
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 70,
-                    "gf": 61,
-                    "ga": 41,
-                    "gd": 20
-                },
-                {
-                    "rank": 5,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 64,
-                    "gf": 58,
-                    "ga": 47,
-                    "gd": 11
-                },
-                {
-                    "rank": 6,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 60,
-                    "gf": 69,
-                    "ga": 53,
-                    "gd": 16
-                },
-                {
-                    "rank": 7,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 57,
-                    "gf": 60,
-                    "ga": 47,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 65,
+                    "gf": 72,
+                    "ga": 59,
                     "gd": 13
                 },
                 {
-                    "rank": 8,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 55,
-                    "gf": 52,
-                    "ga": 62,
-                    "gd": -10
-                },
-                {
-                    "rank": 9,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 51,
-                    "gf": 50,
-                    "ga": 59,
-                    "gd": -9
-                },
-                {
-                    "rank": 10,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 48,
-                    "gf": 54,
-                    "ga": 49,
-                    "gd": 5
-                },
-                {
-                    "rank": 11,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 45,
-                    "gf": 49,
-                    "ga": 58,
-                    "gd": -9
-                },
-                {
-                    "rank": 12,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 44,
-                    "gf": 36,
-                    "ga": 52,
-                    "gd": -16
-                },
-                {
-                    "rank": 13,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 43,
-                    "ga": 63,
-                    "gd": -20
-                },
-                {
-                    "rank": 14,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 44,
-                    "gf": 51,
-                    "ga": 72,
-                    "gd": -21
-                },
-                {
-                    "rank": 15,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 41,
-                    "gf": 50,
-                    "ga": 67,
-                    "gd": -17
-                },
-                {
-                    "rank": 16,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 40,
-                    "gf": 40,
-                    "ga": 55,
-                    "gd": -15
-                },
-                {
-                    "rank": 17,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 39,
-                    "gf": 44,
-                    "ga": 67,
-                    "gd": -23
-                },
-                {
-                    "rank": 18,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 38,
-                    "gf": 47,
-                    "ga": 65,
-                    "gd": -18
-                },
-                {
-                    "rank": 19,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 37,
-                    "gf": 45,
-                    "ga": 60,
-                    "gd": -15
-                },
-                {
-                    "rank": 20,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 32,
-                    "gf": 38,
-                    "ga": 55,
-                    "gd": -17
-                }
-            ]
-        },
-        {
-            "simulation": 5729,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 88,
-                    "gf": 90,
-                    "ga": 44,
-                    "gd": 46
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 82,
-                    "gf": 71,
-                    "ga": 35,
-                    "gd": 36
-                },
-                {
-                    "rank": 3,
+                    "rank": 4,
                     "team": "Chelsea",
                     "slug": "chelsea",
-                    "pts": 65,
-                    "gf": 62,
-                    "ga": 52,
-                    "gd": 10
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
                     "pts": 61,
-                    "gf": 54,
-                    "ga": 51,
-                    "gd": 3
+                    "gf": 70,
+                    "ga": 52,
+                    "gd": 18
                 },
                 {
                     "rank": 5,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 57,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 61,
+                    "gf": 63,
+                    "ga": 46,
+                    "gd": 17
+                },
+                {
+                    "rank": 6,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 58,
+                    "gf": 61,
+                    "ga": 55,
+                    "gd": 6
+                },
+                {
+                    "rank": 7,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 54,
                     "gf": 55,
-                    "ga": 60,
+                    "ga": 55,
+                    "gd": 0
+                },
+                {
+                    "rank": 8,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 53,
+                    "gf": 47,
+                    "ga": 52,
                     "gd": -5
                 },
                 {
-                    "rank": 6,
+                    "rank": 9,
                     "team": "Brighton",
                     "slug": "brighton",
-                    "pts": 55,
-                    "gf": 65,
+                    "pts": 50,
+                    "gf": 59,
                     "ga": 52,
-                    "gd": 13
-                },
-                {
-                    "rank": 7,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 54,
-                    "gf": 64,
-                    "ga": 62,
-                    "gd": 2
-                },
-                {
-                    "rank": 8,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 54,
-                    "gf": 52,
-                    "ga": 59,
-                    "gd": -7
-                },
-                {
-                    "rank": 9,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 53,
-                    "gf": 62,
-                    "ga": 53,
-                    "gd": 9
+                    "gd": 7
                 },
                 {
                     "rank": 10,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 53,
-                    "gf": 60,
-                    "ga": 51,
-                    "gd": 9
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 49,
+                    "gf": 37,
+                    "ga": 37,
+                    "gd": 0
                 },
                 {
                     "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 52,
-                    "gf": 56,
-                    "ga": 64,
-                    "gd": -8
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 49,
+                    "gf": 53,
+                    "ga": 68,
+                    "gd": -15
                 },
                 {
                     "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 49,
-                    "gf": 57,
-                    "ga": 55,
-                    "gd": 2
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 48,
+                    "gf": 52,
+                    "ga": 48,
+                    "gd": 4
                 },
                 {
                     "rank": 13,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 49,
-                    "gf": 41,
-                    "ga": 47,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 47,
+                    "gf": 42,
+                    "ga": 48,
                     "gd": -6
                 },
                 {
                     "rank": 14,
                     "team": "Leeds",
                     "slug": "leeds",
-                    "pts": 48,
-                    "gf": 54,
-                    "ga": 48,
-                    "gd": 6
-                },
-                {
-                    "rank": 15,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 48,
-                    "gf": 58,
-                    "ga": 55,
-                    "gd": 3
-                },
-                {
-                    "rank": 16,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 46,
-                    "gf": 56,
-                    "ga": 56,
-                    "gd": 0
-                },
-                {
-                    "rank": 17,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 40,
+                    "pts": 44,
                     "gf": 43,
-                    "ga": 66,
-                    "gd": -23
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 40,
-                    "gf": 43,
-                    "ga": 71,
-                    "gd": -28
-                },
-                {
-                    "rank": 19,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 30,
-                    "gf": 40,
-                    "ga": 71,
-                    "gd": -31
-                },
-                {
-                    "rank": 20,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 30,
-                    "gf": 40,
-                    "ga": 71,
-                    "gd": -31
-                }
-            ]
-        },
-        {
-            "simulation": 5792,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 87,
-                    "gf": 95,
-                    "ga": 42,
-                    "gd": 53
-                },
-                {
-                    "rank": 2,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 77,
-                    "gf": 65,
-                    "ga": 40,
-                    "gd": 25
-                },
-                {
-                    "rank": 3,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 76,
-                    "gf": 53,
-                    "ga": 27,
-                    "gd": 26
-                },
-                {
-                    "rank": 4,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 62,
-                    "gf": 57,
-                    "ga": 37,
-                    "gd": 20
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 62,
-                    "gf": 60,
-                    "ga": 47,
-                    "gd": 13
-                },
-                {
-                    "rank": 6,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 59,
-                    "gf": 68,
-                    "ga": 46,
-                    "gd": 22
-                },
-                {
-                    "rank": 7,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 58,
-                    "gf": 57,
-                    "ga": 49,
-                    "gd": 8
-                },
-                {
-                    "rank": 8,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 56,
-                    "gf": 47,
                     "ga": 45,
-                    "gd": 2
-                },
-                {
-                    "rank": 9,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 54,
-                    "gf": 50,
-                    "ga": 52,
                     "gd": -2
                 },
                 {
-                    "rank": 10,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 50,
-                    "gf": 49,
-                    "ga": 59,
-                    "gd": -10
-                },
-                {
-                    "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 49,
-                    "gf": 43,
-                    "ga": 51,
-                    "gd": -8
-                },
-                {
-                    "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 46,
-                    "gf": 54,
-                    "ga": 59,
-                    "gd": -5
-                },
-                {
-                    "rank": 13,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 46,
-                    "gf": 47,
-                    "ga": 59,
-                    "gd": -12
-                },
-                {
-                    "rank": 14,
+                    "rank": 15,
                     "team": "Sunderland",
                     "slug": "sunderland",
-                    "pts": 45,
-                    "gf": 48,
+                    "pts": 42,
+                    "gf": 45,
                     "ga": 65,
-                    "gd": -17
-                },
-                {
-                    "rank": 15,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 49,
-                    "ga": 61,
-                    "gd": -12
+                    "gd": -20
                 },
                 {
                     "rank": 16,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 43,
-                    "gf": 50,
-                    "ga": 59,
-                    "gd": -9
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 41,
+                    "gf": 49,
+                    "ga": 55,
+                    "gd": -6
                 },
                 {
                     "rank": 17,
-                    "team": "Everton",
-                    "slug": "everton",
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
                     "pts": 41,
-                    "gf": 40,
-                    "ga": 48,
-                    "gd": -8
+                    "gf": 42,
+                    "ga": 64,
+                    "gd": -22
                 },
                 {
                     "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 35,
-                    "gf": 37,
-                    "ga": 62,
-                    "gd": -25
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 37,
+                    "gf": 38,
+                    "ga": 60,
+                    "gd": -22
                 },
                 {
                     "rank": 19,
                     "team": "Ipswich",
                     "slug": "ipswich",
                     "pts": 34,
-                    "gf": 33,
-                    "ga": 71,
-                    "gd": -38
+                    "gf": 43,
+                    "ga": 78,
+                    "gd": -35
                 },
                 {
                     "rank": 20,
                     "team": "Hull",
                     "slug": "hull",
-                    "pts": 31,
-                    "gf": 38,
-                    "ga": 61,
-                    "gd": -23
+                    "pts": 30,
+                    "gf": 42,
+                    "ga": 73,
+                    "gd": -31
                 }
             ]
         },
         {
-            "simulation": 5831,
+            "simulation": 27364,
             "teams": [
                 {
                     "rank": 1,
                     "team": "Arsenal",
                     "slug": "arsenal",
                     "pts": 89,
-                    "gf": 76,
-                    "ga": 25,
+                    "gf": 82,
+                    "ga": 31,
                     "gd": 51
                 },
                 {
                     "rank": 2,
                     "team": "Manchester City",
                     "slug": "man-city",
-                    "pts": 80,
-                    "gf": 90,
-                    "ga": 43,
-                    "gd": 47
+                    "pts": 85,
+                    "gf": 93,
+                    "ga": 34,
+                    "gd": 59
                 },
                 {
                     "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 66,
-                    "gf": 62,
-                    "ga": 37,
-                    "gd": 25
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 76,
+                    "gf": 77,
+                    "ga": 40,
+                    "gd": 37
                 },
                 {
                     "rank": 4,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 65,
-                    "gf": 55,
-                    "ga": 32,
-                    "gd": 23
-                },
-                {
-                    "rank": 5,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 63,
-                    "gf": 65,
-                    "ga": 46,
-                    "gd": 19
-                },
-                {
-                    "rank": 6,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 59,
-                    "gf": 57,
-                    "ga": 51,
-                    "gd": 6
-                },
-                {
-                    "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 57,
-                    "gf": 57,
-                    "ga": 51,
-                    "gd": 6
-                },
-                {
-                    "rank": 8,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 56,
-                    "gf": 57,
-                    "ga": 57,
-                    "gd": 0
-                },
-                {
-                    "rank": 9,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 52,
-                    "gf": 66,
-                    "ga": 56,
-                    "gd": 10
-                },
-                {
-                    "rank": 10,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 51,
-                    "gf": 46,
-                    "ga": 45,
-                    "gd": 1
-                },
-                {
-                    "rank": 11,
                     "team": "Aston Villa",
                     "slug": "aston-villa",
-                    "pts": 51,
-                    "gf": 54,
-                    "ga": 61,
+                    "pts": 59,
+                    "gf": 50,
+                    "ga": 57,
                     "gd": -7
                 },
                 {
-                    "rank": 12,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 46,
-                    "gf": 53,
-                    "ga": 56,
-                    "gd": -3
-                },
-                {
-                    "rank": 13,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 45,
-                    "gf": 49,
-                    "ga": 58,
-                    "gd": -9
-                },
-                {
-                    "rank": 14,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 45,
-                    "gf": 43,
-                    "ga": 52,
-                    "gd": -9
-                },
-                {
-                    "rank": 15,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 44,
-                    "gf": 47,
-                    "ga": 57,
-                    "gd": -10
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 40,
-                    "gf": 49,
-                    "ga": 72,
-                    "gd": -23
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 40,
-                    "gf": 45,
-                    "ga": 70,
-                    "gd": -25
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 32,
-                    "gf": 49,
-                    "ga": 71,
-                    "gd": -22
-                },
-                {
-                    "rank": 19,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 31,
-                    "gf": 35,
-                    "ga": 75,
-                    "gd": -40
-                },
-                {
-                    "rank": 20,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 29,
-                    "gf": 32,
-                    "ga": 72,
-                    "gd": -40
-                }
-            ]
-        },
-        {
-            "simulation": 5912,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 90,
-                    "gf": 86,
-                    "ga": 37,
-                    "gd": 49
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 84,
-                    "gf": 70,
-                    "ga": 36,
-                    "gd": 34
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 74,
-                    "gf": 75,
-                    "ga": 49,
-                    "gd": 26
-                },
-                {
-                    "rank": 4,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 71,
-                    "gf": 76,
-                    "ga": 52,
-                    "gd": 24
-                },
-                {
                     "rank": 5,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 63,
-                    "gf": 64,
-                    "ga": 53,
-                    "gd": 11
-                },
-                {
-                    "rank": 6,
                     "team": "Brighton",
                     "slug": "brighton",
-                    "pts": 62,
-                    "gf": 70,
-                    "ga": 50,
-                    "gd": 20
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 62,
-                    "gf": 48,
-                    "ga": 45,
-                    "gd": 3
-                },
-                {
-                    "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 59,
-                    "gf": 63,
-                    "ga": 48,
-                    "gd": 15
-                },
-                {
-                    "rank": 9,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 57,
-                    "gf": 60,
-                    "ga": 47,
+                    "pts": 56,
+                    "gf": 59,
+                    "ga": 46,
                     "gd": 13
                 },
                 {
-                    "rank": 10,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 51,
-                    "gf": 54,
-                    "ga": 51,
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 55,
+                    "gf": 67,
+                    "ga": 64,
                     "gd": 3
                 },
                 {
-                    "rank": 11,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 48,
-                    "gf": 42,
-                    "ga": 53,
-                    "gd": -11
-                },
-                {
-                    "rank": 12,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 43,
-                    "gf": 53,
-                    "ga": 56,
-                    "gd": -3
-                },
-                {
-                    "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 42,
-                    "gf": 44,
-                    "ga": 59,
-                    "gd": -15
-                },
-                {
-                    "rank": 14,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 42,
-                    "gf": 51,
-                    "ga": 68,
-                    "gd": -17
-                },
-                {
-                    "rank": 15,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 42,
-                    "gf": 43,
-                    "ga": 63,
-                    "gd": -20
-                },
-                {
-                    "rank": 16,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 41,
-                    "gf": 42,
-                    "ga": 57,
-                    "gd": -15
-                },
-                {
-                    "rank": 17,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 34,
-                    "gf": 36,
-                    "ga": 63,
-                    "gd": -27
-                },
-                {
-                    "rank": 18,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 32,
-                    "gf": 34,
-                    "ga": 60,
-                    "gd": -26
-                },
-                {
-                    "rank": 19,
+                    "rank": 7,
                     "team": "Ipswich",
                     "slug": "ipswich",
-                    "pts": 32,
-                    "gf": 42,
-                    "ga": 77,
-                    "gd": -35
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 27,
-                    "gf": 42,
-                    "ga": 71,
-                    "gd": -29
-                }
-            ]
-        },
-        {
-            "simulation": 6022,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 85,
-                    "gf": 90,
-                    "ga": 42,
-                    "gd": 48
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 71,
-                    "gf": 71,
-                    "ga": 51,
-                    "gd": 20
-                },
-                {
-                    "rank": 3,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 64,
-                    "gf": 56,
-                    "ga": 48,
-                    "gd": 8
-                },
-                {
-                    "rank": 4,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 61,
+                    "pts": 52,
                     "gf": 61,
-                    "ga": 47,
-                    "gd": 14
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 60,
-                    "gf": 67,
-                    "ga": 57,
-                    "gd": 10
-                },
-                {
-                    "rank": 6,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 58,
-                    "gf": 62,
-                    "ga": 51,
-                    "gd": 11
-                },
-                {
-                    "rank": 7,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 57,
-                    "gf": 69,
-                    "ga": 46,
-                    "gd": 23
-                },
-                {
-                    "rank": 8,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 57,
-                    "gf": 56,
-                    "ga": 48,
-                    "gd": 8
-                },
-                {
-                    "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 57,
-                    "gf": 67,
-                    "ga": 63,
-                    "gd": 4
-                },
-                {
-                    "rank": 10,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 51,
-                    "gf": 55,
-                    "ga": 62,
-                    "gd": -7
-                },
-                {
-                    "rank": 11,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 48,
-                    "gf": 52,
-                    "ga": 62,
-                    "gd": -10
-                },
-                {
-                    "rank": 12,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 48,
-                    "gf": 54,
-                    "ga": 67,
-                    "gd": -13
-                },
-                {
-                    "rank": 13,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 46,
-                    "gf": 53,
                     "ga": 60,
-                    "gd": -7
-                },
-                {
-                    "rank": 14,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 45,
-                    "gf": 56,
-                    "ga": 63,
-                    "gd": -7
-                },
-                {
-                    "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 45,
-                    "gf": 45,
-                    "ga": 55,
-                    "gd": -10
-                },
-                {
-                    "rank": 16,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 42,
-                    "gf": 44,
-                    "ga": 54,
-                    "gd": -10
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 40,
-                    "gf": 37,
-                    "ga": 60,
-                    "gd": -23
-                },
-                {
-                    "rank": 18,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 39,
-                    "gf": 38,
-                    "ga": 55,
-                    "gd": -17
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 38,
-                    "gf": 43,
-                    "ga": 54,
-                    "gd": -11
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 35,
-                    "gf": 52,
-                    "ga": 83,
-                    "gd": -31
-                }
-            ]
-        },
-        {
-            "simulation": 6091,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 86,
-                    "gf": 81,
-                    "ga": 31,
-                    "gd": 50
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 77,
-                    "gf": 72,
-                    "ga": 37,
-                    "gd": 35
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 74,
-                    "gf": 66,
-                    "ga": 51,
-                    "gd": 15
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 66,
-                    "gf": 60,
-                    "ga": 39,
-                    "gd": 21
-                },
-                {
-                    "rank": 5,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 61,
-                    "gf": 61,
-                    "ga": 42,
-                    "gd": 19
-                },
-                {
-                    "rank": 6,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 55,
-                    "gf": 59,
-                    "ga": 47,
-                    "gd": 12
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 53,
-                    "gf": 51,
-                    "ga": 47,
-                    "gd": 4
-                },
-                {
-                    "rank": 8,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 51,
-                    "gf": 57,
-                    "ga": 48,
-                    "gd": 9
-                },
-                {
-                    "rank": 9,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 50,
-                    "gf": 60,
-                    "ga": 54,
-                    "gd": 6
-                },
-                {
-                    "rank": 10,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 49,
-                    "gf": 48,
-                    "ga": 49,
-                    "gd": -1
-                },
-                {
-                    "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 49,
-                    "gf": 46,
-                    "ga": 56,
-                    "gd": -10
-                },
-                {
-                    "rank": 12,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 47,
-                    "gf": 43,
-                    "ga": 58,
-                    "gd": -15
-                },
-                {
-                    "rank": 13,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 45,
-                    "gf": 41,
-                    "ga": 54,
-                    "gd": -13
-                },
-                {
-                    "rank": 14,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 44,
-                    "gf": 51,
-                    "ga": 60,
-                    "gd": -9
-                },
-                {
-                    "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 44,
-                    "gf": 48,
-                    "ga": 59,
-                    "gd": -11
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
-                    "gf": 39,
-                    "ga": 61,
-                    "gd": -22
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 41,
-                    "gf": 51,
-                    "ga": 74,
-                    "gd": -23
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 40,
-                    "gf": 40,
-                    "ga": 58,
-                    "gd": -18
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 39,
-                    "gf": 41,
-                    "ga": 60,
-                    "gd": -19
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 35,
-                    "gf": 37,
-                    "ga": 67,
-                    "gd": -30
-                }
-            ]
-        },
-        {
-            "simulation": 6354,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 93,
-                    "gf": 92,
-                    "ga": 33,
-                    "gd": 59
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 83,
-                    "gf": 82,
-                    "ga": 36,
-                    "gd": 46
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 81,
-                    "gf": 72,
-                    "ga": 45,
-                    "gd": 27
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 71,
-                    "gf": 73,
-                    "ga": 55,
-                    "gd": 18
-                },
-                {
-                    "rank": 5,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 66,
-                    "gf": 64,
-                    "ga": 47,
-                    "gd": 17
-                },
-                {
-                    "rank": 6,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 61,
-                    "gf": 67,
-                    "ga": 43,
-                    "gd": 24
-                },
-                {
-                    "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 56,
-                    "gf": 59,
-                    "ga": 58,
                     "gd": 1
                 },
                 {
                     "rank": 8,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 50,
-                    "gf": 54,
-                    "ga": 58,
-                    "gd": -4
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 51,
+                    "gf": 41,
+                    "ga": 52,
+                    "gd": -11
                 },
                 {
                     "rank": 9,
-                    "team": "Manchester United",
-                    "slug": "man-united",
+                    "team": "Tottenham",
+                    "slug": "tottenham",
                     "pts": 50,
-                    "gf": 55,
-                    "ga": 65,
-                    "gd": -10
-                },
-                {
-                    "rank": 10,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 49,
-                    "gf": 61,
-                    "ga": 53,
-                    "gd": 8
-                },
-                {
-                    "rank": 11,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 46,
-                    "gf": 43,
-                    "ga": 52,
+                    "gf": 53,
+                    "ga": 62,
                     "gd": -9
                 },
                 {
-                    "rank": 12,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 45,
-                    "gf": 48,
-                    "ga": 67,
-                    "gd": -19
-                },
-                {
-                    "rank": 13,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 44,
-                    "gf": 50,
-                    "ga": 53,
-                    "gd": -3
-                },
-                {
-                    "rank": 14,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 41,
-                    "gf": 56,
-                    "ga": 71,
-                    "gd": -15
-                },
-                {
-                    "rank": 15,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 41,
-                    "gf": 35,
-                    "ga": 52,
-                    "gd": -17
-                },
-                {
-                    "rank": 16,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 41,
-                    "gf": 45,
-                    "ga": 65,
-                    "gd": -20
-                },
-                {
-                    "rank": 17,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 39,
-                    "gf": 47,
-                    "ga": 74,
-                    "gd": -27
-                },
-                {
-                    "rank": 18,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 35,
-                    "gf": 47,
-                    "ga": 67,
-                    "gd": -20
-                },
-                {
-                    "rank": 19,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 35,
-                    "gf": 38,
-                    "ga": 60,
-                    "gd": -22
-                },
-                {
-                    "rank": 20,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 29,
-                    "gf": 38,
-                    "ga": 72,
-                    "gd": -34
-                }
-            ]
-        },
-        {
-            "simulation": 6473,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 85,
-                    "gf": 79,
-                    "ga": 38,
-                    "gd": 41
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 80,
-                    "gf": 90,
-                    "ga": 49,
-                    "gd": 41
-                },
-                {
-                    "rank": 3,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 67,
-                    "gf": 60,
-                    "ga": 42,
-                    "gd": 18
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 63,
-                    "gf": 62,
-                    "ga": 43,
-                    "gd": 19
-                },
-                {
-                    "rank": 5,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 61,
-                    "gf": 69,
-                    "ga": 60,
-                    "gd": 9
-                },
-                {
-                    "rank": 6,
+                    "rank": 10,
                     "team": "Newcastle",
                     "slug": "newcastle",
-                    "pts": 58,
+                    "pts": 50,
+                    "gf": 50,
+                    "ga": 62,
+                    "gd": -12
+                },
+                {
+                    "rank": 11,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 49,
                     "gf": 61,
                     "ga": 61,
                     "gd": 0
                 },
                 {
-                    "rank": 7,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 57,
-                    "gf": 65,
-                    "ga": 45,
-                    "gd": 20
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 55,
-                    "gf": 63,
-                    "ga": 54,
-                    "gd": 9
-                },
-                {
-                    "rank": 9,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 53,
-                    "gf": 53,
-                    "ga": 48,
-                    "gd": 5
-                },
-                {
-                    "rank": 10,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 53,
-                    "gf": 56,
-                    "ga": 65,
-                    "gd": -9
-                },
-                {
-                    "rank": 11,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 48,
-                    "gf": 54,
-                    "ga": 46,
-                    "gd": 8
-                },
-                {
                     "rank": 12,
                     "team": "Crystal Palace",
                     "slug": "crystal-palace",
-                    "pts": 47,
-                    "gf": 54,
-                    "ga": 69,
-                    "gd": -15
-                },
-                {
-                    "rank": 13,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 46,
-                    "gf": 50,
-                    "ga": 65,
-                    "gd": -15
-                },
-                {
-                    "rank": 14,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 46,
-                    "gf": 47,
-                    "ga": 64,
-                    "gd": -17
-                },
-                {
-                    "rank": 15,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 44,
-                    "gf": 45,
-                    "ga": 54,
-                    "gd": -9
-                },
-                {
-                    "rank": 16,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 43,
-                    "gf": 46,
-                    "ga": 58,
-                    "gd": -12
-                },
-                {
-                    "rank": 17,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 39,
-                    "gf": 47,
-                    "ga": 59,
-                    "gd": -12
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 35,
-                    "gf": 35,
-                    "ga": 58,
-                    "gd": -23
-                },
-                {
-                    "rank": 19,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 35,
-                    "gf": 43,
-                    "ga": 70,
-                    "gd": -27
-                },
-                {
-                    "rank": 20,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 27,
-                    "gf": 35,
-                    "ga": 66,
-                    "gd": -31
-                }
-            ]
-        },
-        {
-            "simulation": 6757,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 85,
-                    "gf": 76,
-                    "ga": 34,
-                    "gd": 42
-                },
-                {
-                    "rank": 2,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 84,
-                    "gf": 69,
-                    "ga": 32,
-                    "gd": 37
-                },
-                {
-                    "rank": 3,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 81,
-                    "gf": 79,
-                    "ga": 37,
-                    "gd": 42
-                },
-                {
-                    "rank": 4,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 60,
-                    "gf": 55,
-                    "ga": 48,
-                    "gd": 7
-                },
-                {
-                    "rank": 5,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 56,
-                    "gf": 49,
-                    "ga": 50,
-                    "gd": -1
-                },
-                {
-                    "rank": 6,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 55,
-                    "gf": 48,
-                    "ga": 50,
-                    "gd": -2
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 54,
-                    "gf": 55,
-                    "ga": 61,
-                    "gd": -6
-                },
-                {
-                    "rank": 8,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 53,
-                    "gf": 59,
-                    "ga": 63,
-                    "gd": -4
-                },
-                {
-                    "rank": 9,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 51,
-                    "gf": 64,
-                    "ga": 47,
-                    "gd": 17
-                },
-                {
-                    "rank": 10,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 51,
-                    "gf": 59,
-                    "ga": 60,
-                    "gd": -1
-                },
-                {
-                    "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 50,
-                    "gf": 46,
-                    "ga": 56,
-                    "gd": -10
-                },
-                {
-                    "rank": 12,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
                     "pts": 49,
-                    "gf": 60,
+                    "gf": 48,
                     "ga": 62,
-                    "gd": -2
-                },
-                {
-                    "rank": 13,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 48,
-                    "gf": 54,
-                    "ga": 55,
-                    "gd": -1
-                },
-                {
-                    "rank": 14,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 47,
-                    "gf": 51,
-                    "ga": 70,
-                    "gd": -19
-                },
-                {
-                    "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 45,
-                    "gf": 46,
-                    "ga": 62,
-                    "gd": -16
-                },
-                {
-                    "rank": 16,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 42,
-                    "gf": 37,
-                    "ga": 51,
                     "gd": -14
                 },
                 {
-                    "rank": 17,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 40,
-                    "gf": 49,
-                    "ga": 62,
-                    "gd": -13
-                },
-                {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 40,
-                    "gf": 43,
-                    "ga": 61,
-                    "gd": -18
-                },
-                {
-                    "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 37,
-                    "gf": 50,
-                    "ga": 60,
-                    "gd": -10
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 34,
-                    "gf": 48,
-                    "ga": 76,
-                    "gd": -28
-                }
-            ]
-        },
-        {
-            "simulation": 6979,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 86,
-                    "gf": 74,
-                    "ga": 27,
-                    "gd": 47
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 82,
-                    "gf": 86,
-                    "ga": 41,
-                    "gd": 45
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 82,
-                    "gf": 75,
-                    "ga": 36,
-                    "gd": 39
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 68,
-                    "gf": 71,
-                    "ga": 48,
-                    "gd": 23
-                },
-                {
-                    "rank": 5,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 66,
-                    "gf": 61,
-                    "ga": 51,
-                    "gd": 10
-                },
-                {
-                    "rank": 6,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 64,
-                    "gf": 57,
-                    "ga": 40,
-                    "gd": 17
-                },
-                {
-                    "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 61,
-                    "gf": 60,
-                    "ga": 53,
-                    "gd": 7
-                },
-                {
-                    "rank": 8,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 57,
-                    "gf": 60,
-                    "ga": 37,
-                    "gd": 23
-                },
-                {
-                    "rank": 9,
+                    "rank": 13,
                     "team": "Manchester United",
                     "slug": "man-united",
-                    "pts": 50,
-                    "gf": 54,
-                    "ga": 51,
-                    "gd": 3
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 50,
-                    "gf": 58,
-                    "ga": 57,
+                    "pts": 48,
+                    "gf": 62,
+                    "ga": 61,
                     "gd": 1
-                },
-                {
-                    "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 50,
-                    "gf": 48,
-                    "ga": 50,
-                    "gd": -2
-                },
-                {
-                    "rank": 12,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 49,
-                    "gf": 44,
-                    "ga": 59,
-                    "gd": -15
-                },
-                {
-                    "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 45,
-                    "gf": 54,
-                    "ga": 62,
-                    "gd": -8
                 },
                 {
                     "rank": 14,
                     "team": "Nottingham Forest",
                     "slug": "nottm-forest",
-                    "pts": 45,
-                    "gf": 48,
-                    "ga": 59,
-                    "gd": -11
-                },
-                {
-                    "rank": 15,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 40,
-                    "gf": 40,
-                    "ga": 72,
-                    "gd": -32
-                },
-                {
-                    "rank": 16,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 38,
-                    "gf": 37,
-                    "ga": 50,
-                    "gd": -13
-                },
-                {
-                    "rank": 17,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 38,
-                    "gf": 42,
-                    "ga": 65,
-                    "gd": -23
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 36,
-                    "gf": 42,
-                    "ga": 64,
-                    "gd": -22
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 31,
-                    "gf": 42,
-                    "ga": 88,
-                    "gd": -46
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 18,
-                    "gf": 34,
-                    "ga": 77,
-                    "gd": -43
-                }
-            ]
-        },
-        {
-            "simulation": 7031,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 86,
-                    "gf": 80,
-                    "ga": 38,
-                    "gd": 42
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 74,
-                    "gf": 80,
-                    "ga": 55,
-                    "gd": 25
-                },
-                {
-                    "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 73,
-                    "ga": 49,
-                    "gd": 24
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 62,
-                    "gf": 52,
-                    "ga": 41,
-                    "gd": 11
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 61,
-                    "gf": 78,
-                    "ga": 61,
-                    "gd": 17
-                },
-                {
-                    "rank": 6,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 56,
-                    "gf": 63,
-                    "ga": 54,
-                    "gd": 9
-                },
-                {
-                    "rank": 7,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 53,
-                    "gf": 58,
-                    "ga": 61,
-                    "gd": -3
-                },
-                {
-                    "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 52,
-                    "gf": 67,
-                    "ga": 59,
-                    "gd": 8
-                },
-                {
-                    "rank": 9,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 51,
-                    "gf": 43,
-                    "ga": 55,
-                    "gd": -12
-                },
-                {
-                    "rank": 10,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 49,
+                    "pts": 46,
                     "gf": 54,
-                    "ga": 52,
-                    "gd": 2
-                },
-                {
-                    "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 49,
-                    "gf": 53,
-                    "ga": 53,
-                    "gd": 0
-                },
-                {
-                    "rank": 12,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 49,
-                    "gf": 42,
-                    "ga": 57,
-                    "gd": -15
-                },
-                {
-                    "rank": 13,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 48,
-                    "gf": 44,
-                    "ga": 46,
+                    "ga": 56,
                     "gd": -2
                 },
                 {
-                    "rank": 14,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 48,
-                    "gf": 49,
-                    "ga": 53,
-                    "gd": -4
-                },
-                {
                     "rank": 15,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 48,
-                    "gf": 56,
-                    "ga": 64,
-                    "gd": -8
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 44,
+                    "gf": 52,
+                    "ga": 67,
+                    "gd": -15
                 },
                 {
                     "rank": 16,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 44,
-                    "gf": 50,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 43,
+                    "gf": 53,
                     "ga": 63,
-                    "gd": -13
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 44,
-                    "gf": 52,
-                    "ga": 76,
-                    "gd": -24
-                },
-                {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 40,
-                    "gf": 48,
-                    "ga": 67,
-                    "gd": -19
-                },
-                {
-                    "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 39,
-                    "gf": 39,
-                    "ga": 58,
-                    "gd": -19
-                },
-                {
-                    "rank": 20,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 38,
-                    "gf": 38,
-                    "ga": 57,
-                    "gd": -19
-                }
-            ]
-        },
-        {
-            "simulation": 7469,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 91,
-                    "gf": 81,
-                    "ga": 22,
-                    "gd": 59
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 78,
-                    "gf": 81,
-                    "ga": 41,
-                    "gd": 40
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 71,
-                    "gf": 70,
-                    "ga": 48,
-                    "gd": 22
-                },
-                {
-                    "rank": 4,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 68,
-                    "gf": 56,
-                    "ga": 53,
-                    "gd": 3
-                },
-                {
-                    "rank": 5,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 62,
-                    "gf": 64,
-                    "ga": 48,
-                    "gd": 16
-                },
-                {
-                    "rank": 6,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 54,
-                    "gf": 49,
-                    "ga": 44,
-                    "gd": 5
-                },
-                {
-                    "rank": 7,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 52,
-                    "gf": 56,
-                    "ga": 51,
-                    "gd": 5
-                },
-                {
-                    "rank": 8,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 52,
-                    "gf": 54,
-                    "ga": 50,
-                    "gd": 4
-                },
-                {
-                    "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 51,
-                    "gf": 54,
-                    "ga": 54,
-                    "gd": 0
-                },
-                {
-                    "rank": 10,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 48,
-                    "gf": 54,
-                    "ga": 44,
-                    "gd": 10
-                },
-                {
-                    "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 48,
-                    "gf": 50,
-                    "ga": 51,
-                    "gd": -1
-                },
-                {
-                    "rank": 12,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 48,
-                    "gf": 47,
-                    "ga": 54,
-                    "gd": -7
-                },
-                {
-                    "rank": 13,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 45,
-                    "gf": 46,
-                    "ga": 72,
-                    "gd": -26
-                },
-                {
-                    "rank": 14,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 44,
-                    "gf": 47,
-                    "ga": 56,
-                    "gd": -9
-                },
-                {
-                    "rank": 15,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 44,
-                    "gf": 48,
-                    "ga": 67,
-                    "gd": -19
-                },
-                {
-                    "rank": 16,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 43,
-                    "gf": 42,
-                    "ga": 49,
-                    "gd": -7
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 41,
-                    "gf": 45,
-                    "ga": 66,
-                    "gd": -21
-                },
-                {
-                    "rank": 18,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 41,
-                    "gf": 39,
-                    "ga": 61,
-                    "gd": -22
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 33,
-                    "gf": 36,
-                    "ga": 61,
-                    "gd": -25
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 29,
-                    "gf": 42,
-                    "ga": 69,
-                    "gd": -27
-                }
-            ]
-        },
-        {
-            "simulation": 7520,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 80,
-                    "gf": 78,
-                    "ga": 43,
-                    "gd": 35
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 79,
-                    "gf": 75,
-                    "ga": 38,
-                    "gd": 37
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 68,
-                    "gf": 73,
-                    "ga": 43,
-                    "gd": 30
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 60,
-                    "gf": 60,
-                    "ga": 40,
-                    "gd": 20
-                },
-                {
-                    "rank": 5,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 57,
-                    "gf": 61,
-                    "ga": 56,
-                    "gd": 5
-                },
-                {
-                    "rank": 6,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 56,
-                    "gf": 60,
-                    "ga": 45,
-                    "gd": 15
-                },
-                {
-                    "rank": 7,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 54,
-                    "gf": 61,
-                    "ga": 59,
-                    "gd": 2
-                },
-                {
-                    "rank": 8,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 52,
-                    "gf": 49,
-                    "ga": 44,
-                    "gd": 5
-                },
-                {
-                    "rank": 9,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 52,
-                    "gf": 46,
-                    "ga": 46,
-                    "gd": 0
-                },
-                {
-                    "rank": 10,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 51,
-                    "gf": 53,
-                    "ga": 56,
-                    "gd": -3
-                },
-                {
-                    "rank": 11,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 51,
-                    "gf": 53,
-                    "ga": 70,
-                    "gd": -17
-                },
-                {
-                    "rank": 12,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 50,
-                    "gf": 48,
-                    "ga": 51,
-                    "gd": -3
-                },
-                {
-                    "rank": 13,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 48,
-                    "gf": 59,
-                    "ga": 53,
-                    "gd": 6
-                },
-                {
-                    "rank": 14,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 48,
-                    "gf": 49,
-                    "ga": 55,
-                    "gd": -6
-                },
-                {
-                    "rank": 15,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 44,
-                    "gf": 41,
-                    "ga": 52,
-                    "gd": -11
-                },
-                {
-                    "rank": 16,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 44,
-                    "gf": 43,
-                    "ga": 64,
-                    "gd": -21
-                },
-                {
-                    "rank": 17,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 43,
-                    "gf": 55,
-                    "ga": 65,
                     "gd": -10
                 },
                 {
-                    "rank": 18,
-                    "team": "Leeds",
-                    "slug": "leeds",
+                    "rank": 17,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
                     "pts": 42,
-                    "gf": 41,
-                    "ga": 56,
-                    "gd": -15
-                },
-                {
-                    "rank": 19,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 35,
-                    "gf": 41,
-                    "ga": 73,
-                    "gd": -32
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 30,
-                    "gf": 39,
-                    "ga": 76,
-                    "gd": -37
-                }
-            ]
-        },
-        {
-            "simulation": 7594,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 84,
-                    "gf": 89,
-                    "ga": 40,
-                    "gd": 49
-                },
-                {
-                    "rank": 2,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 78,
-                    "gf": 76,
-                    "ga": 34,
-                    "gd": 42
-                },
-                {
-                    "rank": 3,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 75,
-                    "gf": 72,
-                    "ga": 40,
-                    "gd": 32
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 62,
-                    "gf": 68,
-                    "ga": 50,
-                    "gd": 18
-                },
-                {
-                    "rank": 5,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 59,
-                    "gf": 57,
-                    "ga": 50,
-                    "gd": 7
-                },
-                {
-                    "rank": 6,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 53,
-                    "gf": 62,
-                    "ga": 58,
-                    "gd": 4
-                },
-                {
-                    "rank": 7,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 52,
-                    "gf": 55,
-                    "ga": 54,
-                    "gd": 1
-                },
-                {
-                    "rank": 8,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 51,
-                    "gf": 48,
-                    "ga": 48,
-                    "gd": 0
-                },
-                {
-                    "rank": 9,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 49,
-                    "gf": 62,
-                    "ga": 68,
-                    "gd": -6
-                },
-                {
-                    "rank": 10,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 48,
-                    "gf": 49,
-                    "ga": 59,
-                    "gd": -10
-                },
-                {
-                    "rank": 11,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 47,
                     "gf": 51,
-                    "ga": 58,
-                    "gd": -7
-                },
-                {
-                    "rank": 12,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 46,
-                    "gf": 48,
-                    "ga": 55,
-                    "gd": -7
-                },
-                {
-                    "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 46,
-                    "gf": 39,
-                    "ga": 48,
-                    "gd": -9
-                },
-                {
-                    "rank": 14,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 44,
-                    "gf": 62,
-                    "ga": 54,
-                    "gd": 8
-                },
-                {
-                    "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 43,
-                    "gf": 50,
-                    "ga": 58,
+                    "ga": 59,
                     "gd": -8
                 },
                 {
-                    "rank": 16,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 43,
-                    "gf": 45,
-                    "ga": 61,
-                    "gd": -16
-                },
-                {
-                    "rank": 17,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 41,
-                    "gf": 48,
-                    "ga": 66,
-                    "gd": -18
-                },
-                {
                     "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
+                    "team": "Hull",
+                    "slug": "hull",
                     "pts": 40,
-                    "gf": 39,
-                    "ga": 58,
-                    "gd": -19
+                    "gf": 53,
+                    "ga": 67,
+                    "gd": -14
                 },
                 {
                     "rank": 19,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
+                    "team": "Fulham",
+                    "slug": "fulham",
                     "pts": 38,
-                    "gf": 33,
-                    "ga": 61,
+                    "gf": 44,
+                    "ga": 72,
                     "gd": -28
                 },
                 {
                     "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 36,
-                    "gf": 37,
-                    "ga": 70,
-                    "gd": -33
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 31,
+                    "gf": 38,
+                    "ga": 73,
+                    "gd": -35
                 }
             ]
         },
         {
-            "simulation": 7727,
+            "simulation": 27638,
             "teams": [
                 {
                     "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 84,
-                    "gf": 81,
-                    "ga": 35,
-                    "gd": 46
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 86,
+                    "gf": 70,
+                    "ga": 28,
+                    "gd": 42
                 },
                 {
                     "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 83,
-                    "gf": 80,
-                    "ga": 40,
-                    "gd": 40
-                },
-                {
-                    "rank": 3,
                     "team": "Liverpool",
                     "slug": "liverpool",
-                    "pts": 78,
-                    "gf": 70,
-                    "ga": 39,
-                    "gd": 31
-                },
-                {
-                    "rank": 4,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 66,
-                    "gf": 52,
-                    "ga": 42,
-                    "gd": 10
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 65,
-                    "gf": 63,
-                    "ga": 47,
-                    "gd": 16
-                },
-                {
-                    "rank": 6,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 59,
-                    "gf": 56,
-                    "ga": 59,
-                    "gd": -3
-                },
-                {
-                    "rank": 7,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 58,
-                    "gf": 79,
-                    "ga": 53,
+                    "pts": 75,
+                    "gf": 66,
+                    "ga": 40,
                     "gd": 26
                 },
                 {
-                    "rank": 8,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 58,
-                    "gf": 64,
-                    "ga": 58,
-                    "gd": 6
-                },
-                {
-                    "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 52,
-                    "gf": 60,
-                    "ga": 57,
-                    "gd": 3
-                },
-                {
-                    "rank": 10,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 51,
-                    "gf": 57,
-                    "ga": 48,
-                    "gd": 9
-                },
-                {
-                    "rank": 11,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 51,
-                    "gf": 53,
-                    "ga": 56,
-                    "gd": -3
-                },
-                {
-                    "rank": 12,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 50,
-                    "gf": 46,
-                    "ga": 53,
-                    "gd": -7
-                },
-                {
-                    "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 44,
-                    "gf": 53,
-                    "ga": 61,
-                    "gd": -8
-                },
-                {
-                    "rank": 14,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 42,
-                    "gf": 58,
-                    "ga": 73,
-                    "gd": -15
-                },
-                {
-                    "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 40,
-                    "gf": 43,
-                    "ga": 63,
-                    "gd": -20
-                },
-                {
-                    "rank": 16,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 39,
-                    "gf": 43,
-                    "ga": 74,
-                    "gd": -31
-                },
-                {
-                    "rank": 17,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 35,
-                    "gf": 45,
-                    "ga": 70,
-                    "gd": -25
-                },
-                {
-                    "rank": 18,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 31,
-                    "gf": 38,
-                    "ga": 63,
-                    "gd": -25
-                },
-                {
-                    "rank": 19,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 30,
-                    "gf": 40,
-                    "ga": 60,
-                    "gd": -20
-                },
-                {
-                    "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 28,
-                    "gf": 35,
-                    "ga": 65,
-                    "gd": -30
-                }
-            ]
-        },
-        {
-            "simulation": 8217,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 85,
-                    "gf": 70,
-                    "ga": 29,
-                    "gd": 41
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 80,
-                    "gf": 77,
-                    "ga": 39,
-                    "gd": 38
-                },
-                {
                     "rank": 3,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 77,
-                    "gf": 69,
-                    "ga": 38,
-                    "gd": 31
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 62,
-                    "gf": 62,
-                    "ga": 46,
-                    "gd": 16
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 61,
-                    "gf": 68,
-                    "ga": 45,
-                    "gd": 23
-                },
-                {
-                    "rank": 6,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 57,
-                    "gf": 51,
-                    "ga": 44,
-                    "gd": 7
-                },
-                {
-                    "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 57,
-                    "gf": 62,
-                    "ga": 63,
-                    "gd": -1
-                },
-                {
-                    "rank": 8,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 56,
-                    "gf": 52,
-                    "ga": 45,
-                    "gd": 7
-                },
-                {
-                    "rank": 9,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 54,
-                    "gf": 56,
-                    "ga": 63,
-                    "gd": -7
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 53,
-                    "gf": 53,
-                    "ga": 52,
-                    "gd": 1
-                },
-                {
-                    "rank": 11,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 48,
-                    "gf": 52,
-                    "ga": 54,
-                    "gd": -2
-                },
-                {
-                    "rank": 12,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 48,
-                    "gf": 49,
-                    "ga": 51,
-                    "gd": -2
-                },
-                {
-                    "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 48,
-                    "gf": 45,
-                    "ga": 48,
-                    "gd": -3
-                },
-                {
-                    "rank": 14,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 41,
-                    "gf": 57,
-                    "ga": 63,
-                    "gd": -6
-                },
-                {
-                    "rank": 15,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 40,
-                    "gf": 45,
-                    "ga": 66,
-                    "gd": -21
-                },
-                {
-                    "rank": 16,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 38,
-                    "gf": 41,
-                    "ga": 58,
-                    "gd": -17
-                },
-                {
-                    "rank": 17,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 36,
-                    "gf": 44,
-                    "ga": 67,
-                    "gd": -23
-                },
-                {
-                    "rank": 18,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 36,
-                    "gf": 42,
-                    "ga": 83,
-                    "gd": -41
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 35,
-                    "gf": 44,
-                    "ga": 64,
-                    "gd": -20
-                },
-                {
-                    "rank": 20,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 33,
-                    "gf": 33,
-                    "ga": 54,
-                    "gd": -21
-                }
-            ]
-        },
-        {
-            "simulation": 8332,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 97,
-                    "gf": 113,
-                    "ga": 39,
-                    "gd": 74
-                },
-                {
-                    "rank": 2,
                     "team": "Arsenal",
                     "slug": "arsenal",
                     "pts": 74,
-                    "gf": 64,
-                    "ga": 34,
-                    "gd": 30
-                },
-                {
-                    "rank": 3,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 61,
-                    "gf": 64,
-                    "ga": 52,
-                    "gd": 12
-                },
-                {
-                    "rank": 4,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 60,
-                    "gf": 63,
-                    "ga": 43,
-                    "gd": 20
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 60,
-                    "gf": 61,
-                    "ga": 56,
-                    "gd": 5
-                },
-                {
-                    "rank": 6,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 57,
-                    "gf": 72,
-                    "ga": 61,
-                    "gd": 11
-                },
-                {
-                    "rank": 7,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 54,
-                    "gf": 60,
-                    "ga": 60,
-                    "gd": 0
-                },
-                {
-                    "rank": 8,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 53,
-                    "gf": 71,
-                    "ga": 64,
-                    "gd": 7
-                },
-                {
-                    "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 53,
-                    "gf": 36,
-                    "ga": 46,
-                    "gd": -10
-                },
-                {
-                    "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 51,
-                    "gf": 48,
-                    "ga": 51,
-                    "gd": -3
-                },
-                {
-                    "rank": 11,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 50,
-                    "gf": 52,
-                    "ga": 52,
-                    "gd": 0
-                },
-                {
-                    "rank": 12,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 48,
-                    "gf": 48,
-                    "ga": 56,
-                    "gd": -8
-                },
-                {
-                    "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 45,
-                    "gf": 52,
-                    "ga": 59,
-                    "gd": -7
-                },
-                {
-                    "rank": 14,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 44,
-                    "gf": 47,
-                    "ga": 52,
-                    "gd": -5
-                },
-                {
-                    "rank": 15,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 41,
-                    "gf": 56,
-                    "ga": 71,
-                    "gd": -15
-                },
-                {
-                    "rank": 16,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 41,
-                    "gf": 52,
-                    "ga": 69,
-                    "gd": -17
-                },
-                {
-                    "rank": 17,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 41,
-                    "gf": 42,
-                    "ga": 60,
-                    "gd": -18
-                },
-                {
-                    "rank": 18,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 37,
-                    "gf": 47,
-                    "ga": 67,
-                    "gd": -20
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 37,
-                    "gf": 43,
-                    "ga": 66,
-                    "gd": -23
-                },
-                {
-                    "rank": 20,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 37,
-                    "gf": 45,
-                    "ga": 78,
-                    "gd": -33
-                }
-            ]
-        },
-        {
-            "simulation": 8347,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 82,
-                    "gf": 83,
-                    "ga": 36,
-                    "gd": 47
-                },
-                {
-                    "rank": 2,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 81,
-                    "gf": 94,
-                    "ga": 46,
-                    "gd": 48
-                },
-                {
-                    "rank": 3,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 72,
                     "gf": 69,
-                    "ga": 45,
-                    "gd": 24
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 66,
-                    "gf": 71,
-                    "ga": 57,
-                    "gd": 14
-                },
-                {
-                    "rank": 5,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 59,
-                    "gf": 73,
-                    "ga": 62,
-                    "gd": 11
-                },
-                {
-                    "rank": 6,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 56,
-                    "gf": 53,
-                    "ga": 52,
-                    "gd": 1
-                },
-                {
-                    "rank": 7,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 55,
-                    "gf": 60,
-                    "ga": 49,
-                    "gd": 11
-                },
-                {
-                    "rank": 8,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 51,
-                    "gf": 54,
-                    "ga": 57,
-                    "gd": -3
-                },
-                {
-                    "rank": 9,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 50,
-                    "gf": 48,
-                    "ga": 55,
-                    "gd": -7
-                },
-                {
-                    "rank": 10,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 50,
-                    "gf": 51,
-                    "ga": 65,
-                    "gd": -14
-                },
-                {
-                    "rank": 11,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 48,
-                    "gf": 45,
-                    "ga": 45,
-                    "gd": 0
-                },
-                {
-                    "rank": 12,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 48,
-                    "gf": 43,
-                    "ga": 47,
-                    "gd": -4
-                },
-                {
-                    "rank": 13,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 47,
-                    "gf": 47,
-                    "ga": 53,
-                    "gd": -6
-                },
-                {
-                    "rank": 14,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 45,
-                    "gf": 53,
-                    "ga": 60,
-                    "gd": -7
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 44,
-                    "gf": 44,
-                    "ga": 56,
-                    "gd": -12
-                },
-                {
-                    "rank": 16,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 43,
-                    "gf": 38,
-                    "ga": 50,
-                    "gd": -12
-                },
-                {
-                    "rank": 17,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 43,
-                    "gf": 44,
-                    "ga": 59,
-                    "gd": -15
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 41,
-                    "gf": 44,
-                    "ga": 69,
-                    "gd": -25
-                },
-                {
-                    "rank": 19,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 38,
-                    "gf": 39,
-                    "ga": 51,
-                    "gd": -12
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 31,
-                    "gf": 35,
-                    "ga": 74,
-                    "gd": -39
-                }
-            ]
-        },
-        {
-            "simulation": 8409,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 86,
-                    "gf": 80,
-                    "ga": 35,
-                    "gd": 45
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 85,
-                    "gf": 83,
-                    "ga": 37,
-                    "gd": 46
-                },
-                {
-                    "rank": 3,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 68,
-                    "gf": 60,
-                    "ga": 53,
-                    "gd": 7
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 61,
-                    "gf": 72,
-                    "ga": 44,
-                    "gd": 28
-                },
-                {
-                    "rank": 5,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 58,
-                    "gf": 55,
-                    "ga": 51,
-                    "gd": 4
-                },
-                {
-                    "rank": 6,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 56,
-                    "gf": 54,
-                    "ga": 58,
-                    "gd": -4
-                },
-                {
-                    "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 55,
-                    "gf": 58,
-                    "ga": 44,
-                    "gd": 14
-                },
-                {
-                    "rank": 8,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 54,
-                    "gf": 60,
-                    "ga": 51,
-                    "gd": 9
-                },
-                {
-                    "rank": 9,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 53,
-                    "gf": 60,
-                    "ga": 54,
-                    "gd": 6
-                },
-                {
-                    "rank": 10,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 50,
-                    "gf": 51,
-                    "ga": 53,
-                    "gd": -2
-                },
-                {
-                    "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 49,
-                    "gf": 45,
-                    "ga": 50,
-                    "gd": -5
-                },
-                {
-                    "rank": 12,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 48,
-                    "gf": 65,
-                    "ga": 60,
-                    "gd": 5
-                },
-                {
-                    "rank": 13,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 47,
-                    "gf": 42,
-                    "ga": 58,
-                    "gd": -16
-                },
-                {
-                    "rank": 14,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 46,
-                    "gf": 53,
-                    "ga": 62,
-                    "gd": -9
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 46,
-                    "gf": 44,
-                    "ga": 56,
-                    "gd": -12
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 46,
-                    "gf": 51,
-                    "ga": 66,
-                    "gd": -15
-                },
-                {
-                    "rank": 17,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 40,
-                    "gf": 48,
-                    "ga": 64,
-                    "gd": -16
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 40,
-                    "gf": 43,
-                    "ga": 61,
-                    "gd": -18
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 33,
-                    "gf": 39,
-                    "ga": 63,
-                    "gd": -24
-                },
-                {
-                    "rank": 20,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 30,
-                    "gf": 40,
-                    "ga": 83,
-                    "gd": -43
-                }
-            ]
-        },
-        {
-            "simulation": 8434,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 80,
-                    "gf": 75,
-                    "ga": 32,
-                    "gd": 43
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 78,
-                    "gf": 66,
-                    "ga": 35,
-                    "gd": 31
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 75,
-                    "gf": 62,
-                    "ga": 39,
-                    "gd": 23
-                },
-                {
-                    "rank": 4,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 73,
-                    "gf": 70,
-                    "ga": 48,
-                    "gd": 22
-                },
-                {
-                    "rank": 5,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 64,
-                    "gf": 68,
-                    "ga": 52,
-                    "gd": 16
-                },
-                {
-                    "rank": 6,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 61,
-                    "gf": 57,
-                    "ga": 49,
-                    "gd": 8
-                },
-                {
-                    "rank": 7,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 61,
-                    "gf": 55,
-                    "ga": 51,
-                    "gd": 4
-                },
-                {
-                    "rank": 8,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 60,
-                    "gf": 58,
-                    "ga": 51,
-                    "gd": 7
-                },
-                {
-                    "rank": 9,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 56,
-                    "gf": 61,
-                    "ga": 50,
-                    "gd": 11
-                },
-                {
-                    "rank": 10,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 50,
-                    "gf": 49,
-                    "ga": 56,
-                    "gd": -7
-                },
-                {
-                    "rank": 11,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 48,
-                    "gf": 63,
-                    "ga": 62,
-                    "gd": 1
-                },
-                {
-                    "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 48,
-                    "gf": 53,
-                    "ga": 54,
-                    "gd": -1
-                },
-                {
-                    "rank": 13,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 48,
-                    "gf": 55,
-                    "ga": 59,
-                    "gd": -4
-                },
-                {
-                    "rank": 14,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 47,
-                    "gf": 47,
-                    "ga": 57,
-                    "gd": -10
-                },
-                {
-                    "rank": 15,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 43,
-                    "gf": 53,
-                    "ga": 69,
-                    "gd": -16
-                },
-                {
-                    "rank": 16,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 42,
-                    "gf": 36,
-                    "ga": 52,
-                    "gd": -16
-                },
-                {
-                    "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 40,
-                    "gf": 43,
-                    "ga": 64,
-                    "gd": -21
-                },
-                {
-                    "rank": 18,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 36,
-                    "gf": 33,
-                    "ga": 57,
-                    "gd": -24
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 30,
-                    "gf": 39,
-                    "ga": 72,
-                    "gd": -33
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 25,
-                    "gf": 42,
-                    "ga": 76,
-                    "gd": -34
-                }
-            ]
-        },
-        {
-            "simulation": 8617,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 97,
-                    "gf": 101,
-                    "ga": 33,
-                    "gd": 68
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 72,
-                    "gf": 70,
-                    "ga": 45,
-                    "gd": 25
-                },
-                {
-                    "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 71,
-                    "gf": 77,
-                    "ga": 41,
-                    "gd": 36
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 71,
-                    "gf": 59,
-                    "ga": 43,
-                    "gd": 16
-                },
-                {
-                    "rank": 5,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 68,
-                    "gf": 72,
-                    "ga": 50,
-                    "gd": 22
-                },
-                {
-                    "rank": 6,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 62,
-                    "gf": 60,
-                    "ga": 45,
-                    "gd": 15
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 62,
-                    "gf": 58,
-                    "ga": 50,
-                    "gd": 8
-                },
-                {
-                    "rank": 8,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 59,
-                    "gf": 63,
-                    "ga": 48,
-                    "gd": 15
-                },
-                {
-                    "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 52,
-                    "gf": 47,
-                    "ga": 51,
-                    "gd": -4
-                },
-                {
-                    "rank": 10,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 49,
-                    "gf": 59,
-                    "ga": 58,
-                    "gd": 1
-                },
-                {
-                    "rank": 11,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 49,
-                    "gf": 47,
-                    "ga": 54,
-                    "gd": -7
-                },
-                {
-                    "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 48,
-                    "gf": 48,
-                    "ga": 50,
-                    "gd": -2
-                },
-                {
-                    "rank": 13,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 45,
-                    "gf": 52,
-                    "ga": 58,
-                    "gd": -6
-                },
-                {
-                    "rank": 14,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 45,
-                    "gf": 46,
-                    "ga": 59,
-                    "gd": -13
-                },
-                {
-                    "rank": 15,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 40,
-                    "gf": 58,
-                    "ga": 75,
-                    "gd": -17
-                },
-                {
-                    "rank": 16,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 37,
-                    "gf": 43,
-                    "ga": 68,
-                    "gd": -25
-                },
-                {
-                    "rank": 17,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 36,
-                    "gf": 49,
-                    "ga": 64,
-                    "gd": -15
-                },
-                {
-                    "rank": 18,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 34,
-                    "gf": 43,
-                    "ga": 67,
-                    "gd": -24
-                },
-                {
-                    "rank": 19,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 30,
-                    "gf": 32,
-                    "ga": 69,
-                    "gd": -37
-                },
-                {
-                    "rank": 20,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 17,
-                    "gf": 37,
-                    "ga": 93,
-                    "gd": -56
-                }
-            ]
-        },
-        {
-            "simulation": 8870,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 81,
-                    "gf": 84,
-                    "ga": 41,
-                    "gd": 43
-                },
-                {
-                    "rank": 2,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 75,
-                    "gf": 65,
-                    "ga": 32,
+                    "ga": 36,
                     "gd": 33
                 },
                 {
-                    "rank": 3,
+                    "rank": 4,
                     "team": "Chelsea",
                     "slug": "chelsea",
-                    "pts": 65,
-                    "gf": 78,
-                    "ga": 50,
-                    "gd": 28
-                },
-                {
-                    "rank": 4,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 65,
-                    "gf": 54,
-                    "ga": 46,
-                    "gd": 8
+                    "pts": 69,
+                    "gf": 70,
+                    "ga": 43,
+                    "gd": 27
                 },
                 {
                     "rank": 5,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 63,
-                    "gf": 62,
-                    "ga": 40,
-                    "gd": 22
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 60,
+                    "gf": 67,
+                    "ga": 56,
+                    "gd": 11
                 },
                 {
                     "rank": 6,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 58,
+                    "gf": 71,
+                    "ga": 55,
+                    "gd": 16
+                },
+                {
+                    "rank": 7,
                     "team": "Bournemouth",
                     "slug": "bournemouth",
-                    "pts": 60,
+                    "pts": 55,
+                    "gf": 62,
+                    "ga": 54,
+                    "gd": 8
+                },
+                {
+                    "rank": 8,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 55,
+                    "gf": 49,
+                    "ga": 48,
+                    "gd": 1
+                },
+                {
+                    "rank": 9,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 53,
                     "gf": 50,
                     "ga": 48,
                     "gd": 2
                 },
                 {
-                    "rank": 7,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 57,
-                    "gf": 60,
-                    "ga": 51,
-                    "gd": 9
-                },
-                {
-                    "rank": 8,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 55,
-                    "gf": 58,
-                    "ga": 63,
-                    "gd": -5
-                },
-                {
-                    "rank": 9,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 51,
-                    "gf": 50,
-                    "ga": 42,
-                    "gd": 8
-                },
-                {
                     "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 51,
-                    "gf": 52,
-                    "ga": 51,
-                    "gd": 1
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 53,
+                    "gf": 43,
+                    "ga": 50,
+                    "gd": -7
                 },
                 {
                     "rank": 11,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 50,
-                    "gf": 65,
-                    "ga": 50,
-                    "gd": 15
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 52,
+                    "gf": 57,
+                    "ga": 58,
+                    "gd": -1
                 },
                 {
                     "rank": 12,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
+                    "team": "Brentford",
+                    "slug": "brentford",
                     "pts": 50,
-                    "gf": 47,
-                    "ga": 51,
-                    "gd": -4
+                    "gf": 53,
+                    "ga": 48,
+                    "gd": 5
                 },
                 {
                     "rank": 13,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 48,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 47,
                     "gf": 49,
                     "ga": 54,
                     "gd": -5
                 },
                 {
                     "rank": 14,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
+                    "team": "Fulham",
+                    "slug": "fulham",
                     "pts": 46,
-                    "gf": 51,
-                    "ga": 60,
-                    "gd": -9
+                    "gf": 45,
+                    "ga": 47,
+                    "gd": -2
                 },
                 {
                     "rank": 15,
                     "team": "Newcastle",
                     "slug": "newcastle",
-                    "pts": 46,
-                    "gf": 42,
-                    "ga": 51,
-                    "gd": -9
+                    "pts": 45,
+                    "gf": 46,
+                    "ga": 53,
+                    "gd": -7
                 },
                 {
                     "rank": 16,
                     "team": "Everton",
                     "slug": "everton",
-                    "pts": 45,
-                    "gf": 36,
-                    "ga": 50,
-                    "gd": -14
-                },
-                {
-                    "rank": 17,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
                     "pts": 43,
                     "gf": 47,
-                    "ga": 63,
-                    "gd": -16
-                },
-                {
-                    "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 41,
-                    "gf": 43,
-                    "ga": 69,
-                    "gd": -26
-                },
-                {
-                    "rank": 19,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 30,
-                    "gf": 34,
-                    "ga": 66,
-                    "gd": -32
-                },
-                {
-                    "rank": 20,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 22,
-                    "gf": 33,
-                    "ga": 82,
-                    "gd": -49
-                }
-            ]
-        },
-        {
-            "simulation": 8904,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 81,
-                    "gf": 69,
-                    "ga": 34,
-                    "gd": 35
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 79,
-                    "gf": 79,
-                    "ga": 40,
-                    "gd": 39
-                },
-                {
-                    "rank": 3,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 70,
-                    "gf": 70,
-                    "ga": 46,
-                    "gd": 24
-                },
-                {
-                    "rank": 4,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 66,
-                    "gf": 77,
-                    "ga": 54,
-                    "gd": 23
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 65,
-                    "ga": 42,
-                    "gd": 23
-                },
-                {
-                    "rank": 6,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 59,
-                    "gf": 54,
-                    "ga": 40,
-                    "gd": 14
-                },
-                {
-                    "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 58,
-                    "gf": 56,
-                    "ga": 47,
-                    "gd": 9
-                },
-                {
-                    "rank": 8,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 57,
-                    "gf": 55,
-                    "ga": 47,
-                    "gd": 8
-                },
-                {
-                    "rank": 9,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 56,
-                    "gf": 51,
-                    "ga": 52,
-                    "gd": -1
-                },
-                {
-                    "rank": 10,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 48,
-                    "gf": 47,
-                    "ga": 52,
-                    "gd": -5
-                },
-                {
-                    "rank": 11,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 48,
-                    "gf": 44,
-                    "ga": 53,
-                    "gd": -9
-                },
-                {
-                    "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 46,
-                    "gf": 42,
-                    "ga": 50,
-                    "gd": -8
-                },
-                {
-                    "rank": 13,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 46,
-                    "gf": 41,
-                    "ga": 53,
-                    "gd": -12
-                },
-                {
-                    "rank": 14,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 44,
-                    "gf": 44,
-                    "ga": 65,
-                    "gd": -21
-                },
-                {
-                    "rank": 15,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 42,
-                    "gf": 54,
-                    "ga": 55,
-                    "gd": -1
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 41,
-                    "gf": 42,
-                    "ga": 63,
-                    "gd": -21
+                    "ga": 57,
+                    "gd": -10
                 },
                 {
                     "rank": 17,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 40,
-                    "gf": 45,
-                    "ga": 57,
-                    "gd": -12
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 38,
+                    "gf": 51,
+                    "ga": 70,
+                    "gd": -19
                 },
                 {
                     "rank": 18,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 36,
-                    "gf": 45,
-                    "ga": 70,
-                    "gd": -25
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 30,
+                    "gf": 29,
+                    "ga": 62,
+                    "gd": -33
                 },
                 {
                     "rank": 19,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 34,
-                    "gf": 36,
-                    "ga": 62,
-                    "gd": -26
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 29,
+                    "gf": 29,
+                    "ga": 72,
+                    "gd": -43
                 },
                 {
                     "rank": 20,
                     "team": "Ipswich",
                     "slug": "ipswich",
-                    "pts": 34,
+                    "pts": 28,
                     "gf": 39,
-                    "ga": 73,
-                    "gd": -34
+                    "ga": 83,
+                    "gd": -44
                 }
             ]
         },
         {
-            "simulation": 9299,
+            "simulation": 27839,
             "teams": [
                 {
                     "rank": 1,
                     "team": "Manchester City",
                     "slug": "man-city",
-                    "pts": 86,
-                    "gf": 93,
-                    "ga": 38,
+                    "pts": 92,
+                    "gf": 91,
+                    "ga": 36,
                     "gd": 55
                 },
                 {
                     "rank": 2,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 82,
-                    "gf": 85,
+                    "pts": 80,
+                    "gf": 71,
                     "ga": 39,
-                    "gd": 46
+                    "gd": 32
                 },
                 {
                     "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 66,
-                    "gf": 70,
-                    "ga": 43,
-                    "gd": 27
-                },
-                {
-                    "rank": 4,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 61,
-                    "gf": 57,
-                    "ga": 43,
-                    "gd": 14
-                },
-                {
-                    "rank": 5,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 61,
-                    "gf": 53,
-                    "ga": 45,
-                    "gd": 8
-                },
-                {
-                    "rank": 6,
                     "team": "Chelsea",
                     "slug": "chelsea",
-                    "pts": 59,
-                    "gf": 59,
-                    "ga": 51,
-                    "gd": 8
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 57,
-                    "gf": 56,
-                    "ga": 49,
-                    "gd": 7
-                },
-                {
-                    "rank": 8,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 57,
-                    "gf": 57,
+                    "pts": 66,
+                    "gf": 72,
                     "ga": 52,
-                    "gd": 5
-                },
-                {
-                    "rank": 9,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 56,
-                    "gf": 50,
-                    "ga": 51,
-                    "gd": -1
-                },
-                {
-                    "rank": 10,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 55,
-                    "gf": 57,
-                    "ga": 53,
-                    "gd": 4
-                },
-                {
-                    "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 54,
-                    "gf": 70,
-                    "ga": 57,
-                    "gd": 13
-                },
-                {
-                    "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 54,
-                    "gf": 55,
-                    "ga": 49,
-                    "gd": 6
-                },
-                {
-                    "rank": 13,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 49,
-                    "gf": 57,
-                    "ga": 62,
-                    "gd": -5
-                },
-                {
-                    "rank": 14,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 42,
-                    "gf": 54,
-                    "ga": 74,
-                    "gd": -20
-                },
-                {
-                    "rank": 15,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 41,
-                    "gf": 44,
-                    "ga": 65,
-                    "gd": -21
-                },
-                {
-                    "rank": 16,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 41,
-                    "gf": 42,
-                    "ga": 69,
-                    "gd": -27
-                },
-                {
-                    "rank": 17,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 37,
-                    "gf": 41,
-                    "ga": 64,
-                    "gd": -23
-                },
-                {
-                    "rank": 18,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 36,
-                    "gf": 46,
-                    "ga": 62,
-                    "gd": -16
-                },
-                {
-                    "rank": 19,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 29,
-                    "gf": 35,
-                    "ga": 78,
-                    "gd": -43
-                },
-                {
-                    "rank": 20,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 28,
-                    "gf": 34,
-                    "ga": 71,
-                    "gd": -37
-                }
-            ]
-        },
-        {
-            "simulation": 9399,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 93,
-                    "gf": 97,
-                    "ga": 36,
-                    "gd": 61
-                },
-                {
-                    "rank": 2,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 81,
-                    "gf": 77,
-                    "ga": 39,
-                    "gd": 38
-                },
-                {
-                    "rank": 3,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 78,
-                    "gf": 67,
-                    "ga": 47,
                     "gd": 20
                 },
                 {
                     "rank": 4,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 64,
-                    "gf": 64,
-                    "ga": 45,
-                    "gd": 19
-                },
-                {
-                    "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 57,
-                    "gf": 68,
-                    "ga": 47,
-                    "gd": 21
-                },
-                {
-                    "rank": 6,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 56,
-                    "gf": 71,
-                    "ga": 66,
-                    "gd": 5
-                },
-                {
-                    "rank": 7,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 53,
-                    "gf": 52,
-                    "ga": 53,
-                    "gd": -1
-                },
-                {
-                    "rank": 8,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 50,
-                    "gf": 47,
-                    "ga": 58,
-                    "gd": -11
-                },
-                {
-                    "rank": 9,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 48,
-                    "gf": 49,
-                    "ga": 56,
-                    "gd": -7
-                },
-                {
-                    "rank": 10,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 48,
-                    "gf": 55,
-                    "ga": 63,
-                    "gd": -8
-                },
-                {
-                    "rank": 11,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 46,
-                    "gf": 53,
-                    "ga": 58,
-                    "gd": -5
-                },
-                {
-                    "rank": 12,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 45,
-                    "gf": 45,
-                    "ga": 59,
-                    "gd": -14
-                },
-                {
-                    "rank": 13,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 44,
-                    "gf": 46,
-                    "ga": 66,
-                    "gd": -20
-                },
-                {
-                    "rank": 14,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 43,
-                    "gf": 53,
-                    "ga": 58,
-                    "gd": -5
-                },
-                {
-                    "rank": 15,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 42,
-                    "gf": 56,
-                    "ga": 65,
-                    "gd": -9
-                },
-                {
-                    "rank": 16,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 42,
-                    "gf": 41,
-                    "ga": 50,
-                    "gd": -9
-                },
-                {
-                    "rank": 17,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 42,
-                    "gf": 48,
-                    "ga": 59,
-                    "gd": -11
-                },
-                {
-                    "rank": 18,
                     "team": "Leeds",
                     "slug": "leeds",
-                    "pts": 42,
-                    "gf": 48,
-                    "ga": 68,
-                    "gd": -20
-                },
-                {
-                    "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 39,
-                    "gf": 51,
-                    "ga": 62,
-                    "gd": -11
-                },
-                {
-                    "rank": 20,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 33,
-                    "gf": 40,
-                    "ga": 73,
-                    "gd": -33
-                }
-            ]
-        },
-        {
-            "simulation": 9418,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 88,
-                    "gf": 75,
-                    "ga": 33,
-                    "gd": 42
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 82,
-                    "gf": 82,
-                    "ga": 46,
-                    "gd": 36
-                },
-                {
-                    "rank": 3,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 78,
-                    "gf": 70,
-                    "ga": 40,
-                    "gd": 30
-                },
-                {
-                    "rank": 4,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 72,
-                    "gf": 71,
-                    "ga": 35,
-                    "gd": 36
+                    "pts": 64,
+                    "gf": 67,
+                    "ga": 52,
+                    "gd": 15
                 },
                 {
                     "rank": 5,
                     "team": "Liverpool",
                     "slug": "liverpool",
-                    "pts": 69,
-                    "gf": 69,
+                    "pts": 62,
+                    "gf": 56,
                     "ga": 47,
-                    "gd": 22
+                    "gd": 9
                 },
                 {
                     "rank": 6,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 57,
-                    "gf": 55,
-                    "ga": 52,
-                    "gd": 3
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 61,
+                    "gf": 62,
+                    "ga": 51,
+                    "gd": 11
                 },
                 {
                     "rank": 7,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 54,
-                    "gf": 60,
-                    "ga": 57,
-                    "gd": 3
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 59,
+                    "gf": 55,
+                    "ga": 40,
+                    "gd": 15
                 },
                 {
                     "rank": 8,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 52,
-                    "gf": 53,
-                    "ga": 52,
-                    "gd": 1
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 56,
+                    "gf": 52,
+                    "ga": 41,
+                    "gd": 11
                 },
                 {
                     "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 51,
-                    "gf": 58,
-                    "ga": 56,
-                    "gd": 2
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 54,
+                    "gf": 57,
+                    "ga": 59,
+                    "gd": -2
                 },
                 {
                     "rank": 10,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 51,
-                    "gf": 56,
-                    "ga": 63,
-                    "gd": -7
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 52,
+                    "gf": 48,
+                    "ga": 48,
+                    "gd": 0
                 },
                 {
                     "rank": 11,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 49,
-                    "gf": 52,
-                    "ga": 52,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 48,
+                    "gf": 53,
+                    "ga": 53,
                     "gd": 0
                 },
                 {
                     "rank": 12,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
+                    "team": "Newcastle",
+                    "slug": "newcastle",
                     "pts": 47,
-                    "gf": 56,
-                    "ga": 62,
-                    "gd": -6
+                    "gf": 60,
+                    "ga": 50,
+                    "gd": 10
                 },
                 {
                     "rank": 13,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 46,
-                    "gf": 51,
-                    "ga": 55,
-                    "gd": -4
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 47,
+                    "gf": 47,
+                    "ga": 52,
+                    "gd": -5
                 },
                 {
                     "rank": 14,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
+                    "team": "Tottenham",
+                    "slug": "tottenham",
                     "pts": 45,
-                    "gf": 43,
-                    "ga": 57,
-                    "gd": -14
+                    "gf": 57,
+                    "ga": 64,
+                    "gd": -7
                 },
                 {
                     "rank": 15,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 44,
-                    "gf": 50,
-                    "ga": 61,
-                    "gd": -11
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 43,
+                    "gf": 43,
+                    "ga": 68,
+                    "gd": -25
                 },
                 {
                     "rank": 16,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 42,
-                    "gf": 50,
-                    "ga": 53,
-                    "gd": -3
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 41,
+                    "gf": 47,
+                    "ga": 61,
+                    "gd": -14
                 },
                 {
                     "rank": 17,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 38,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 35,
                     "gf": 41,
-                    "ga": 64,
-                    "gd": -23
+                    "ga": 62,
+                    "gd": -21
                 },
                 {
                     "rank": 18,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 34,
-                    "gf": 40,
-                    "ga": 77,
-                    "gd": -37
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 32,
+                    "gf": 38,
+                    "ga": 71,
+                    "gd": -33
                 },
                 {
                     "rank": 19,
                     "team": "Sunderland",
                     "slug": "sunderland",
                     "pts": 31,
-                    "gf": 35,
-                    "ga": 64,
-                    "gd": -29
+                    "gf": 32,
+                    "ga": 55,
+                    "gd": -23
                 },
                 {
                     "rank": 20,
                     "team": "Ipswich",
                     "slug": "ipswich",
-                    "pts": 23,
-                    "gf": 35,
-                    "ga": 76,
-                    "gd": -41
+                    "pts": 29,
+                    "gf": 34,
+                    "ga": 82,
+                    "gd": -48
                 }
             ]
         },
         {
-            "simulation": 9476,
+            "simulation": 27849,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 95,
+                    "gf": 98,
+                    "ga": 28,
+                    "gd": 70
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 71,
+                    "gf": 64,
+                    "ga": 38,
+                    "gd": 26
+                },
+                {
+                    "rank": 3,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 69,
+                    "gf": 66,
+                    "ga": 42,
+                    "gd": 24
+                },
+                {
+                    "rank": 4,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 67,
+                    "gf": 72,
+                    "ga": 50,
+                    "gd": 22
+                },
+                {
+                    "rank": 5,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 63,
+                    "gf": 58,
+                    "ga": 53,
+                    "gd": 5
+                },
+                {
+                    "rank": 6,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 54,
+                    "gf": 56,
+                    "ga": 45,
+                    "gd": 11
+                },
+                {
+                    "rank": 7,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 54,
+                    "gf": 55,
+                    "ga": 54,
+                    "gd": 1
+                },
+                {
+                    "rank": 8,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 54,
+                    "gf": 54,
+                    "ga": 64,
+                    "gd": -10
+                },
+                {
+                    "rank": 9,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 53,
+                    "gf": 49,
+                    "ga": 44,
+                    "gd": 5
+                },
+                {
+                    "rank": 10,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 52,
+                    "gf": 46,
+                    "ga": 50,
+                    "gd": -4
+                },
+                {
+                    "rank": 11,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 51,
+                    "gf": 61,
+                    "ga": 62,
+                    "gd": -1
+                },
+                {
+                    "rank": 12,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 49,
+                    "gf": 65,
+                    "ga": 59,
+                    "gd": 6
+                },
+                {
+                    "rank": 13,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 47,
+                    "gf": 47,
+                    "ga": 50,
+                    "gd": -3
+                },
+                {
+                    "rank": 14,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 47,
+                    "gf": 51,
+                    "ga": 57,
+                    "gd": -6
+                },
+                {
+                    "rank": 15,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 41,
+                    "gf": 46,
+                    "ga": 63,
+                    "gd": -17
+                },
+                {
+                    "rank": 16,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 41,
+                    "gf": 50,
+                    "ga": 71,
+                    "gd": -21
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 41,
+                    "gf": 47,
+                    "ga": 75,
+                    "gd": -28
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 39,
+                    "gf": 45,
+                    "ga": 69,
+                    "gd": -24
+                },
+                {
+                    "rank": 19,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 35,
+                    "gf": 40,
+                    "ga": 73,
+                    "gd": -33
+                },
+                {
+                    "rank": 20,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 32,
+                    "gf": 37,
+                    "ga": 60,
+                    "gd": -23
+                }
+            ]
+        },
+        {
+            "simulation": 29997,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 81,
+                    "gf": 75,
+                    "ga": 38,
+                    "gd": 37
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 71,
+                    "gf": 80,
+                    "ga": 45,
+                    "gd": 35
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 67,
+                    "gf": 69,
+                    "ga": 46,
+                    "gd": 23
+                },
+                {
+                    "rank": 4,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 66,
+                    "gf": 57,
+                    "ga": 35,
+                    "gd": 22
+                },
+                {
+                    "rank": 5,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 63,
+                    "gf": 63,
+                    "ga": 42,
+                    "gd": 21
+                },
+                {
+                    "rank": 6,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 61,
+                    "gf": 62,
+                    "ga": 53,
+                    "gd": 9
+                },
+                {
+                    "rank": 7,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 61,
+                    "gf": 59,
+                    "ga": 50,
+                    "gd": 9
+                },
+                {
+                    "rank": 8,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 57,
+                    "gf": 66,
+                    "ga": 44,
+                    "gd": 22
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 56,
+                    "gf": 57,
+                    "ga": 59,
+                    "gd": -2
+                },
+                {
+                    "rank": 10,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 55,
+                    "gf": 58,
+                    "ga": 50,
+                    "gd": 8
+                },
+                {
+                    "rank": 11,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 51,
+                    "gf": 54,
+                    "ga": 56,
+                    "gd": -2
+                },
+                {
+                    "rank": 12,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 48,
+                    "gf": 56,
+                    "ga": 66,
+                    "gd": -10
+                },
+                {
+                    "rank": 13,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 45,
+                    "gf": 41,
+                    "ga": 45,
+                    "gd": -4
+                },
+                {
+                    "rank": 14,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 45,
+                    "gf": 52,
+                    "ga": 58,
+                    "gd": -6
+                },
+                {
+                    "rank": 15,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 43,
+                    "gf": 39,
+                    "ga": 56,
+                    "gd": -17
+                },
+                {
+                    "rank": 16,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 38,
+                    "gf": 40,
+                    "ga": 55,
+                    "gd": -15
+                },
+                {
+                    "rank": 17,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 34,
+                    "gf": 36,
+                    "ga": 67,
+                    "gd": -31
+                },
+                {
+                    "rank": 18,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 34,
+                    "gf": 39,
+                    "ga": 73,
+                    "gd": -34
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 30,
+                    "gf": 43,
+                    "ga": 70,
+                    "gd": -27
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 30,
+                    "gf": 37,
+                    "ga": 75,
+                    "gd": -38
+                }
+            ]
+        },
+        {
+            "simulation": 30396,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 89,
+                    "gf": 94,
+                    "ga": 39,
+                    "gd": 55
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 88,
+                    "gf": 70,
+                    "ga": 31,
+                    "gd": 39
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 66,
+                    "gf": 60,
+                    "ga": 34,
+                    "gd": 26
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 61,
+                    "gf": 58,
+                    "ga": 42,
+                    "gd": 16
+                },
+                {
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 59,
+                    "gf": 57,
+                    "ga": 47,
+                    "gd": 10
+                },
+                {
+                    "rank": 6,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 57,
+                    "gf": 50,
+                    "ga": 41,
+                    "gd": 9
+                },
+                {
+                    "rank": 7,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 56,
+                    "gf": 67,
+                    "ga": 55,
+                    "gd": 12
+                },
+                {
+                    "rank": 8,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 55,
+                    "gf": 56,
+                    "ga": 55,
+                    "gd": 1
+                },
+                {
+                    "rank": 9,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 55,
+                    "gf": 53,
+                    "ga": 52,
+                    "gd": 1
+                },
+                {
+                    "rank": 10,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 54,
+                    "gf": 57,
+                    "ga": 47,
+                    "gd": 10
+                },
+                {
+                    "rank": 11,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 53,
+                    "gf": 54,
+                    "ga": 51,
+                    "gd": 3
+                },
+                {
+                    "rank": 12,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 50,
+                    "gf": 58,
+                    "ga": 64,
+                    "gd": -6
+                },
+                {
+                    "rank": 13,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 45,
+                    "gf": 36,
+                    "ga": 50,
+                    "gd": -14
+                },
+                {
+                    "rank": 14,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 44,
+                    "gf": 52,
+                    "ga": 65,
+                    "gd": -13
+                },
+                {
+                    "rank": 15,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 44,
+                    "gf": 40,
+                    "ga": 58,
+                    "gd": -18
+                },
+                {
+                    "rank": 16,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 42,
+                    "gf": 36,
+                    "ga": 59,
+                    "gd": -23
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 38,
+                    "gf": 38,
+                    "ga": 60,
+                    "gd": -22
+                },
+                {
+                    "rank": 18,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 36,
+                    "gf": 30,
+                    "ga": 59,
+                    "gd": -29
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 34,
+                    "gf": 45,
+                    "ga": 67,
+                    "gd": -22
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 25,
+                    "gf": 40,
+                    "ga": 75,
+                    "gd": -35
+                }
+            ]
+        },
+        {
+            "simulation": 30879,
             "teams": [
                 {
                     "rank": 1,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 79,
-                    "gf": 65,
-                    "ga": 28,
-                    "gd": 37
+                    "pts": 85,
+                    "gf": 78,
+                    "ga": 26,
+                    "gd": 52
                 },
                 {
                     "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 76,
-                    "gf": 83,
-                    "ga": 45,
-                    "gd": 38
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 70,
+                    "gf": 70,
+                    "ga": 46,
+                    "gd": 24
                 },
                 {
                     "rank": 3,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 63,
-                    "gf": 63,
-                    "ga": 46,
-                    "gd": 17
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 67,
+                    "gf": 69,
+                    "ga": 48,
+                    "gd": 21
                 },
                 {
                     "rank": 4,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 60,
-                    "gf": 53,
-                    "ga": 42,
-                    "gd": 11
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 65,
+                    "gf": 68,
+                    "ga": 55,
+                    "gd": 13
                 },
                 {
                     "rank": 5,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 59,
-                    "gf": 70,
-                    "ga": 54,
-                    "gd": 16
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 64,
+                    "gf": 75,
+                    "ga": 57,
+                    "gd": 18
                 },
                 {
                     "rank": 6,
                     "team": "Chelsea",
                     "slug": "chelsea",
+                    "pts": 61,
+                    "gf": 62,
+                    "ga": 48,
+                    "gd": 14
+                },
+                {
+                    "rank": 7,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 59,
+                    "gf": 66,
+                    "ga": 55,
+                    "gd": 11
+                },
+                {
+                    "rank": 8,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
                     "pts": 57,
                     "gf": 55,
-                    "ga": 50,
-                    "gd": 5
+                    "ga": 55,
+                    "gd": 0
+                },
+                {
+                    "rank": 9,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 53,
+                    "gf": 53,
+                    "ga": 47,
+                    "gd": 6
+                },
+                {
+                    "rank": 10,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 52,
+                    "gf": 56,
+                    "ga": 58,
+                    "gd": -2
+                },
+                {
+                    "rank": 11,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 51,
+                    "gf": 49,
+                    "ga": 54,
+                    "gd": -5
+                },
+                {
+                    "rank": 12,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 49,
+                    "gf": 55,
+                    "ga": 63,
+                    "gd": -8
+                },
+                {
+                    "rank": 13,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 46,
+                    "gf": 43,
+                    "ga": 58,
+                    "gd": -15
+                },
+                {
+                    "rank": 14,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 44,
+                    "gf": 52,
+                    "ga": 65,
+                    "gd": -13
+                },
+                {
+                    "rank": 15,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 42,
+                    "gf": 59,
+                    "ga": 72,
+                    "gd": -13
+                },
+                {
+                    "rank": 16,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 41,
+                    "gf": 43,
+                    "ga": 60,
+                    "gd": -17
+                },
+                {
+                    "rank": 17,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 40,
+                    "gf": 58,
+                    "ga": 69,
+                    "gd": -11
+                },
+                {
+                    "rank": 18,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 40,
+                    "gf": 38,
+                    "ga": 54,
+                    "gd": -16
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 39,
+                    "gf": 49,
+                    "ga": 67,
+                    "gd": -18
+                },
+                {
+                    "rank": 20,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 36,
+                    "gf": 37,
+                    "ga": 78,
+                    "gd": -41
+                }
+            ]
+        },
+        {
+            "simulation": 34141,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 87,
+                    "gf": 80,
+                    "ga": 35,
+                    "gd": 45
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 84,
+                    "gf": 66,
+                    "ga": 31,
+                    "gd": 35
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 65,
+                    "gf": 63,
+                    "ga": 37,
+                    "gd": 26
+                },
+                {
+                    "rank": 4,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 64,
+                    "gf": 61,
+                    "ga": 48,
+                    "gd": 13
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 60,
+                    "gf": 65,
+                    "ga": 53,
+                    "gd": 12
+                },
+                {
+                    "rank": 6,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 56,
+                    "gf": 54,
+                    "ga": 42,
+                    "gd": 12
                 },
                 {
                     "rank": 7,
                     "team": "Bournemouth",
                     "slug": "bournemouth",
-                    "pts": 54,
-                    "gf": 61,
-                    "ga": 60,
-                    "gd": 1
+                    "pts": 55,
+                    "gf": 50,
+                    "ga": 46,
+                    "gd": 4
                 },
                 {
                     "rank": 8,
                     "team": "Newcastle",
                     "slug": "newcastle",
                     "pts": 54,
-                    "gf": 50,
-                    "ga": 55,
-                    "gd": -5
+                    "gf": 48,
+                    "ga": 51,
+                    "gd": -3
                 },
                 {
                     "rank": 9,
@@ -21425,410 +12405,780 @@ window.forecastData = {
                     "slug": "brighton",
                     "pts": 53,
                     "gf": 62,
-                    "ga": 47,
-                    "gd": 15
+                    "ga": 50,
+                    "gd": 12
                 },
                 {
                     "rank": 10,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
+                    "team": "Tottenham",
+                    "slug": "tottenham",
                     "pts": 53,
-                    "gf": 63,
-                    "ga": 63,
-                    "gd": 0
+                    "gf": 53,
+                    "ga": 43,
+                    "gd": 10
                 },
                 {
                     "rank": 11,
-                    "team": "Everton",
-                    "slug": "everton",
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
                     "pts": 52,
-                    "gf": 51,
-                    "ga": 47,
-                    "gd": 4
+                    "gf": 47,
+                    "ga": 55,
+                    "gd": -8
                 },
                 {
                     "rank": 12,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
+                    "team": "Everton",
+                    "slug": "everton",
                     "pts": 49,
-                    "gf": 49,
-                    "ga": 55,
-                    "gd": -6
+                    "gf": 39,
+                    "ga": 44,
+                    "gd": -5
                 },
                 {
                     "rank": 13,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 47,
-                    "gf": 47,
-                    "ga": 47,
-                    "gd": 0
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 48,
+                    "gf": 48,
+                    "ga": 44,
+                    "gd": 4
                 },
                 {
                     "rank": 14,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 46,
-                    "gf": 50,
-                    "ga": 64,
-                    "gd": -14
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 44,
+                    "gf": 38,
+                    "ga": 59,
+                    "gd": -21
                 },
                 {
                     "rank": 15,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 45,
-                    "gf": 43,
-                    "ga": 59,
-                    "gd": -16
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 42,
+                    "gf": 57,
+                    "ga": 74,
+                    "gd": -17
                 },
                 {
                     "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 44,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 39,
                     "gf": 45,
                     "ga": 64,
                     "gd": -19
                 },
                 {
                     "rank": 17,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 43,
-                    "gf": 46,
-                    "ga": 61,
-                    "gd": -15
-                },
-                {
-                    "rank": 18,
                     "team": "Ipswich",
                     "slug": "ipswich",
-                    "pts": 43,
-                    "gf": 55,
-                    "ga": 71,
-                    "gd": -16
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 36,
-                    "gf": 41,
-                    "ga": 68,
-                    "gd": -27
-                },
-                {
-                    "rank": 20,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 35,
-                    "gf": 33,
-                    "ga": 59,
-                    "gd": -26
-                }
-            ]
-        },
-        {
-            "simulation": 9498,
-            "teams": [
-                {
-                    "rank": 1,
-                    "team": "Arsenal",
-                    "slug": "arsenal",
-                    "pts": 84,
-                    "gf": 72,
-                    "ga": 38,
-                    "gd": 34
-                },
-                {
-                    "rank": 2,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 77,
-                    "gf": 72,
-                    "ga": 38,
-                    "gd": 34
-                },
-                {
-                    "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 70,
-                    "gf": 78,
-                    "ga": 34,
-                    "gd": 44
-                },
-                {
-                    "rank": 4,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 70,
-                    "gf": 67,
-                    "ga": 40,
-                    "gd": 27
-                },
-                {
-                    "rank": 5,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 66,
-                    "gf": 69,
-                    "ga": 46,
-                    "gd": 23
-                },
-                {
-                    "rank": 6,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 66,
-                    "gf": 68,
-                    "ga": 52,
-                    "gd": 16
-                },
-                {
-                    "rank": 7,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 65,
-                    "gf": 54,
-                    "ga": 40,
-                    "gd": 14
-                },
-                {
-                    "rank": 8,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 60,
-                    "gf": 55,
-                    "ga": 47,
-                    "gd": 8
-                },
-                {
-                    "rank": 9,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 55,
-                    "gf": 49,
-                    "ga": 51,
-                    "gd": -2
-                },
-                {
-                    "rank": 10,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 53,
-                    "gf": 50,
-                    "ga": 47,
-                    "gd": 3
-                },
-                {
-                    "rank": 11,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 46,
-                    "gf": 42,
-                    "ga": 46,
-                    "gd": -4
-                },
-                {
-                    "rank": 12,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 44,
+                    "pts": 38,
                     "gf": 43,
-                    "ga": 60,
-                    "gd": -17
-                },
-                {
-                    "rank": 13,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 43,
-                    "gf": 42,
-                    "ga": 64,
-                    "gd": -22
-                },
-                {
-                    "rank": 14,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 41,
-                    "gf": 50,
-                    "ga": 63,
-                    "gd": -13
-                },
-                {
-                    "rank": 15,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 41,
-                    "gf": 42,
-                    "ga": 60,
-                    "gd": -18
-                },
-                {
-                    "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 41,
-                    "gf": 33,
-                    "ga": 61,
-                    "gd": -28
-                },
-                {
-                    "rank": 17,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 39,
-                    "gf": 32,
-                    "ga": 56,
-                    "gd": -24
-                },
-                {
-                    "rank": 18,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 36,
-                    "gf": 40,
-                    "ga": 53,
-                    "gd": -13
-                },
-                {
-                    "rank": 19,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 35,
-                    "gf": 41,
-                    "ga": 67,
+                    "ga": 69,
                     "gd": -26
                 },
                 {
-                    "rank": 20,
+                    "rank": 18,
                     "team": "Sunderland",
                     "slug": "sunderland",
-                    "pts": 22,
-                    "gf": 32,
-                    "ga": 68,
-                    "gd": -36
+                    "pts": 37,
+                    "gf": 46,
+                    "ga": 65,
+                    "gd": -19
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 34,
+                    "gf": 37,
+                    "ga": 62,
+                    "gd": -25
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 23,
+                    "gf": 33,
+                    "ga": 63,
+                    "gd": -30
                 }
             ]
         },
         {
-            "simulation": 9581,
+            "simulation": 34178,
             "teams": [
                 {
                     "rank": 1,
                     "team": "Manchester City",
                     "slug": "man-city",
-                    "pts": 86,
-                    "gf": 80,
-                    "ga": 31,
-                    "gd": 49
+                    "pts": 90,
+                    "gf": 89,
+                    "ga": 39,
+                    "gd": 50
                 },
                 {
                     "rank": 2,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 83,
-                    "gf": 81,
-                    "ga": 39,
-                    "gd": 42
+                    "pts": 87,
+                    "gf": 70,
+                    "ga": 29,
+                    "gd": 41
                 },
                 {
                     "rank": 3,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 71,
-                    "gf": 61,
-                    "ga": 33,
-                    "gd": 28
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 79,
+                    "gf": 84,
+                    "ga": 47,
+                    "gd": 37
                 },
                 {
                     "rank": 4,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 61,
-                    "gf": 59,
-                    "ga": 53,
-                    "gd": 6
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 64,
+                    "gf": 75,
+                    "ga": 62,
+                    "gd": 13
                 },
                 {
                     "rank": 5,
-                    "team": "Liverpool",
-                    "slug": "liverpool",
-                    "pts": 58,
-                    "gf": 62,
-                    "ga": 47,
-                    "gd": 15
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 60,
+                    "gf": 65,
+                    "ga": 44,
+                    "gd": 21
                 },
                 {
                     "rank": 6,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 58,
-                    "gf": 60,
-                    "ga": 49,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 57,
+                    "gf": 70,
+                    "ga": 59,
                     "gd": 11
                 },
                 {
                     "rank": 7,
                     "team": "Brentford",
                     "slug": "brentford",
-                    "pts": 58,
-                    "gf": 53,
-                    "ga": 48,
-                    "gd": 5
-                },
-                {
-                    "rank": 8,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 56,
-                    "gf": 58,
-                    "ga": 49,
+                    "pts": 55,
+                    "gf": 61,
+                    "ga": 52,
                     "gd": 9
                 },
                 {
+                    "rank": 8,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 55,
+                    "gf": 49,
+                    "ga": 44,
+                    "gd": 5
+                },
+                {
                     "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 54,
+                    "gf": 49,
+                    "ga": 47,
+                    "gd": 2
+                },
+                {
+                    "rank": 10,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 52,
+                    "gf": 46,
+                    "ga": 46,
+                    "gd": 0
+                },
+                {
+                    "rank": 11,
                     "team": "Newcastle",
                     "slug": "newcastle",
-                    "pts": 55,
-                    "gf": 57,
+                    "pts": 48,
+                    "gf": 49,
+                    "ga": 58,
+                    "gd": -9
+                },
+                {
+                    "rank": 12,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 47,
+                    "gf": 43,
+                    "ga": 50,
+                    "gd": -7
+                },
+                {
+                    "rank": 13,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 42,
+                    "gf": 48,
                     "ga": 53,
+                    "gd": -5
+                },
+                {
+                    "rank": 14,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 41,
+                    "gf": 47,
+                    "ga": 64,
+                    "gd": -17
+                },
+                {
+                    "rank": 15,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 39,
+                    "gf": 56,
+                    "ga": 74,
+                    "gd": -18
+                },
+                {
+                    "rank": 16,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 38,
+                    "gf": 42,
+                    "ga": 58,
+                    "gd": -16
+                },
+                {
+                    "rank": 17,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 36,
+                    "gf": 42,
+                    "ga": 69,
+                    "gd": -27
+                },
+                {
+                    "rank": 18,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 33,
+                    "gf": 44,
+                    "ga": 70,
+                    "gd": -26
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 32,
+                    "gf": 37,
+                    "ga": 69,
+                    "gd": -32
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 27,
+                    "gf": 47,
+                    "ga": 79,
+                    "gd": -32
+                }
+            ]
+        },
+        {
+            "simulation": 37975,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 85,
+                    "gf": 83,
+                    "ga": 35,
+                    "gd": 48
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 75,
+                    "gf": 68,
+                    "ga": 36,
+                    "gd": 32
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 70,
+                    "gf": 84,
+                    "ga": 59,
+                    "gd": 25
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 69,
+                    "gf": 61,
+                    "ga": 47,
+                    "gd": 14
+                },
+                {
+                    "rank": 5,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 65,
+                    "gf": 70,
+                    "ga": 53,
+                    "gd": 17
+                },
+                {
+                    "rank": 6,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 64,
+                    "gf": 60,
+                    "ga": 48,
+                    "gd": 12
+                },
+                {
+                    "rank": 7,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 57,
+                    "gf": 59,
+                    "ga": 44,
+                    "gd": 15
+                },
+                {
+                    "rank": 8,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 57,
+                    "gf": 46,
+                    "ga": 54,
+                    "gd": -8
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 54,
+                    "gf": 55,
+                    "ga": 51,
                     "gd": 4
                 },
                 {
                     "rank": 10,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 49,
-                    "gf": 48,
-                    "ga": 54,
-                    "gd": -6
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 50,
+                    "gf": 42,
+                    "ga": 47,
+                    "gd": -5
+                },
+                {
+                    "rank": 11,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 48,
+                    "gf": 49,
+                    "ga": 56,
+                    "gd": -7
+                },
+                {
+                    "rank": 12,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 48,
+                    "gf": 51,
+                    "ga": 59,
+                    "gd": -8
+                },
+                {
+                    "rank": 13,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 44,
+                    "gf": 42,
+                    "ga": 56,
+                    "gd": -14
+                },
+                {
+                    "rank": 14,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 44,
+                    "gf": 42,
+                    "ga": 60,
+                    "gd": -18
+                },
+                {
+                    "rank": 15,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 42,
+                    "gf": 44,
+                    "ga": 65,
+                    "gd": -21
+                },
+                {
+                    "rank": 16,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 41,
+                    "gf": 46,
+                    "ga": 56,
+                    "gd": -10
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 40,
+                    "gf": 49,
+                    "ga": 63,
+                    "gd": -14
+                },
+                {
+                    "rank": 18,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 40,
+                    "gf": 53,
+                    "ga": 72,
+                    "gd": -19
+                },
+                {
+                    "rank": 19,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 38,
+                    "gf": 45,
+                    "ga": 60,
+                    "gd": -15
+                },
+                {
+                    "rank": 20,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 32,
+                    "gf": 31,
+                    "ga": 59,
+                    "gd": -28
+                }
+            ]
+        },
+        {
+            "simulation": 38876,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 70,
+                    "gf": 59,
+                    "ga": 37,
+                    "gd": 22
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 69,
+                    "gf": 52,
+                    "ga": 40,
+                    "gd": 12
+                },
+                {
+                    "rank": 3,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 66,
+                    "gf": 51,
+                    "ga": 41,
+                    "gd": 10
+                },
+                {
+                    "rank": 4,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 64,
+                    "gf": 78,
+                    "ga": 50,
+                    "gd": 28
+                },
+                {
+                    "rank": 5,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 63,
+                    "gf": 50,
+                    "ga": 42,
+                    "gd": 8
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 62,
+                    "gf": 65,
+                    "ga": 50,
+                    "gd": 15
+                },
+                {
+                    "rank": 7,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 58,
+                    "gf": 50,
+                    "ga": 43,
+                    "gd": 7
+                },
+                {
+                    "rank": 8,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 56,
+                    "gf": 60,
+                    "ga": 59,
+                    "gd": 1
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 55,
+                    "gf": 66,
+                    "ga": 53,
+                    "gd": 13
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 55,
+                    "gf": 50,
+                    "ga": 38,
+                    "gd": 12
                 },
                 {
                     "rank": 11,
                     "team": "Crystal Palace",
                     "slug": "crystal-palace",
-                    "pts": 48,
-                    "gf": 46,
-                    "ga": 63,
-                    "gd": -17
+                    "pts": 51,
+                    "gf": 53,
+                    "ga": 54,
+                    "gd": -1
                 },
                 {
                     "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 47,
-                    "gf": 45,
-                    "ga": 52,
-                    "gd": -7
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 50,
+                    "gf": 47,
+                    "ga": 38,
+                    "gd": 9
                 },
                 {
                     "rank": 13,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 48,
+                    "gf": 43,
+                    "ga": 55,
+                    "gd": -12
+                },
+                {
+                    "rank": 14,
                     "team": "Everton",
                     "slug": "everton",
+                    "pts": 46,
+                    "gf": 40,
+                    "ga": 39,
+                    "gd": 1
+                },
+                {
+                    "rank": 15,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 46,
+                    "gf": 38,
+                    "ga": 50,
+                    "gd": -12
+                },
+                {
+                    "rank": 16,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 45,
+                    "gf": 45,
+                    "ga": 68,
+                    "gd": -23
+                },
+                {
+                    "rank": 17,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 44,
+                    "gf": 50,
+                    "ga": 48,
+                    "gd": 2
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 38,
+                    "gf": 37,
+                    "ga": 60,
+                    "gd": -23
+                },
+                {
+                    "rank": 19,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 33,
+                    "gf": 37,
+                    "ga": 69,
+                    "gd": -32
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 29,
+                    "gf": 30,
+                    "ga": 67,
+                    "gd": -37
+                }
+            ]
+        },
+        {
+            "simulation": 39953,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 93,
+                    "gf": 90,
+                    "ga": 37,
+                    "gd": 53
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 83,
+                    "gf": 73,
+                    "ga": 36,
+                    "gd": 37
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 68,
+                    "gf": 71,
+                    "ga": 40,
+                    "gd": 31
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 66,
+                    "gf": 79,
+                    "ga": 58,
+                    "gd": 21
+                },
+                {
+                    "rank": 5,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 60,
+                    "gf": 55,
+                    "ga": 44,
+                    "gd": 11
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 60,
+                    "gf": 68,
+                    "ga": 58,
+                    "gd": 10
+                },
+                {
+                    "rank": 7,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 59,
+                    "gf": 61,
+                    "ga": 49,
+                    "gd": 12
+                },
+                {
+                    "rank": 8,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 56,
+                    "gf": 47,
+                    "ga": 41,
+                    "gd": 6
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 52,
+                    "gf": 49,
+                    "ga": 50,
+                    "gd": -1
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 50,
+                    "gf": 49,
+                    "ga": 55,
+                    "gd": -6
+                },
+                {
+                    "rank": 11,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 48,
+                    "gf": 63,
+                    "ga": 52,
+                    "gd": 11
+                },
+                {
+                    "rank": 12,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 45,
+                    "gf": 51,
+                    "ga": 61,
+                    "gd": -10
+                },
+                {
+                    "rank": 13,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
                     "pts": 44,
                     "gf": 42,
                     "ga": 52,
@@ -21836,125 +13186,6600 @@ window.forecastData = {
                 },
                 {
                     "rank": 14,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 43,
-                    "gf": 53,
-                    "ga": 64,
-                    "gd": -11
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 44,
+                    "gf": 47,
+                    "ga": 71,
+                    "gd": -24
                 },
                 {
                     "rank": 15,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
+                    "team": "Ipswich",
+                    "slug": "ipswich",
                     "pts": 42,
-                    "gf": 42,
-                    "ga": 56,
-                    "gd": -14
+                    "gf": 51,
+                    "ga": 59,
+                    "gd": -8
                 },
                 {
                     "rank": 16,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 41,
-                    "gf": 47,
-                    "ga": 52,
-                    "gd": -5
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 42,
+                    "gf": 40,
+                    "ga": 62,
+                    "gd": -22
                 },
                 {
                     "rank": 17,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
+                    "team": "Everton",
+                    "slug": "everton",
                     "pts": 40,
-                    "gf": 35,
-                    "ga": 63,
-                    "gd": -28
+                    "gf": 31,
+                    "ga": 52,
+                    "gd": -21
                 },
                 {
                     "rank": 18,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 39,
-                    "gf": 43,
-                    "ga": 78,
-                    "gd": -35
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 33,
+                    "gf": 37,
+                    "ga": 64,
+                    "gd": -27
                 },
                 {
                     "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 36,
-                    "gf": 46,
-                    "ga": 64,
-                    "gd": -18
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 30,
+                    "gf": 32,
+                    "ga": 54,
+                    "gd": -22
                 },
                 {
                     "rank": 20,
                     "team": "Hull",
                     "slug": "hull",
-                    "pts": 36,
-                    "gf": 46,
+                    "pts": 28,
+                    "gf": 40,
+                    "ga": 81,
+                    "gd": -41
+                }
+            ]
+        },
+        {
+            "simulation": 40100,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 80,
+                    "gf": 76,
+                    "ga": 36,
+                    "gd": 40
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 71,
+                    "gf": 59,
+                    "ga": 39,
+                    "gd": 20
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 68,
+                    "gf": 63,
+                    "ga": 41,
+                    "gd": 22
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 64,
+                    "gf": 61,
+                    "ga": 43,
+                    "gd": 18
+                },
+                {
+                    "rank": 5,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 62,
+                    "gf": 53,
+                    "ga": 38,
+                    "gd": 15
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 60,
+                    "gf": 74,
+                    "ga": 39,
+                    "gd": 35
+                },
+                {
+                    "rank": 7,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 58,
+                    "gf": 56,
+                    "ga": 54,
+                    "gd": 2
+                },
+                {
+                    "rank": 8,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 55,
+                    "gf": 55,
+                    "ga": 52,
+                    "gd": 3
+                },
+                {
+                    "rank": 9,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 52,
+                    "gf": 56,
+                    "ga": 51,
+                    "gd": 5
+                },
+                {
+                    "rank": 10,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 50,
+                    "gf": 57,
                     "ga": 64,
+                    "gd": -7
+                },
+                {
+                    "rank": 11,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 48,
+                    "gf": 52,
+                    "ga": 56,
+                    "gd": -4
+                },
+                {
+                    "rank": 12,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 45,
+                    "gf": 37,
+                    "ga": 54,
+                    "gd": -17
+                },
+                {
+                    "rank": 13,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 44,
+                    "gf": 52,
+                    "ga": 52,
+                    "gd": 0
+                },
+                {
+                    "rank": 14,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 44,
+                    "gf": 45,
+                    "ga": 62,
+                    "gd": -17
+                },
+                {
+                    "rank": 15,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 43,
+                    "gf": 52,
+                    "ga": 65,
+                    "gd": -13
+                },
+                {
+                    "rank": 16,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 43,
+                    "gf": 46,
+                    "ga": 62,
+                    "gd": -16
+                },
+                {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 43,
+                    "gf": 37,
+                    "ga": 61,
+                    "gd": -24
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 41,
+                    "gf": 46,
+                    "ga": 61,
+                    "gd": -15
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 36,
+                    "gf": 43,
+                    "ga": 69,
+                    "gd": -26
+                },
+                {
+                    "rank": 20,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 33,
+                    "gf": 29,
+                    "ga": 50,
+                    "gd": -21
+                }
+            ]
+        },
+        {
+            "simulation": 41784,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 79,
+                    "gf": 77,
+                    "ga": 39,
+                    "gd": 38
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 79,
+                    "gf": 71,
+                    "ga": 37,
+                    "gd": 34
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 74,
+                    "gf": 72,
+                    "ga": 43,
+                    "gd": 29
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 67,
+                    "gf": 66,
+                    "ga": 48,
+                    "gd": 18
+                },
+                {
+                    "rank": 5,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 67,
+                    "gf": 56,
+                    "ga": 46,
+                    "gd": 10
+                },
+                {
+                    "rank": 6,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 56,
+                    "gf": 57,
+                    "ga": 43,
+                    "gd": 14
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 55,
+                    "gf": 45,
+                    "ga": 44,
+                    "gd": 1
+                },
+                {
+                    "rank": 8,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 53,
+                    "gf": 59,
+                    "ga": 44,
+                    "gd": 15
+                },
+                {
+                    "rank": 9,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 53,
+                    "gf": 52,
+                    "ga": 54,
+                    "gd": -2
+                },
+                {
+                    "rank": 10,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 52,
+                    "gf": 49,
+                    "ga": 38,
+                    "gd": 11
+                },
+                {
+                    "rank": 11,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 50,
+                    "gf": 54,
+                    "ga": 56,
+                    "gd": -2
+                },
+                {
+                    "rank": 12,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 48,
+                    "gf": 43,
+                    "ga": 52,
+                    "gd": -9
+                },
+                {
+                    "rank": 13,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 44,
+                    "gf": 43,
+                    "ga": 62,
+                    "gd": -19
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 42,
+                    "gf": 53,
+                    "ga": 63,
+                    "gd": -10
+                },
+                {
+                    "rank": 15,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 42,
+                    "gf": 46,
+                    "ga": 66,
+                    "gd": -20
+                },
+                {
+                    "rank": 16,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 41,
+                    "gf": 57,
+                    "ga": 72,
+                    "gd": -15
+                },
+                {
+                    "rank": 17,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 37,
+                    "gf": 59,
+                    "ga": 79,
+                    "gd": -20
+                },
+                {
+                    "rank": 18,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 37,
+                    "gf": 44,
+                    "ga": 65,
+                    "gd": -21
+                },
+                {
+                    "rank": 19,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 36,
+                    "gf": 33,
+                    "ga": 64,
+                    "gd": -31
+                },
+                {
+                    "rank": 20,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 35,
+                    "gf": 41,
+                    "ga": 62,
+                    "gd": -21
+                }
+            ]
+        },
+        {
+            "simulation": 41972,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 78,
+                    "gf": 84,
+                    "ga": 38,
+                    "gd": 46
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 75,
+                    "gf": 64,
+                    "ga": 32,
+                    "gd": 32
+                },
+                {
+                    "rank": 3,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 69,
+                    "gf": 63,
+                    "ga": 43,
+                    "gd": 20
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 67,
+                    "gf": 59,
+                    "ga": 38,
+                    "gd": 21
+                },
+                {
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 60,
+                    "gf": 57,
+                    "ga": 40,
+                    "gd": 17
+                },
+                {
+                    "rank": 6,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 56,
+                    "gf": 73,
+                    "ga": 53,
+                    "gd": 20
+                },
+                {
+                    "rank": 7,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 54,
+                    "gf": 52,
+                    "ga": 47,
+                    "gd": 5
+                },
+                {
+                    "rank": 8,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 54,
+                    "gf": 53,
+                    "ga": 56,
+                    "gd": -3
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 53,
+                    "gf": 62,
+                    "ga": 57,
+                    "gd": 5
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 50,
+                    "gf": 54,
+                    "ga": 52,
+                    "gd": 2
+                },
+                {
+                    "rank": 11,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 49,
+                    "gf": 48,
+                    "ga": 51,
+                    "gd": -3
+                },
+                {
+                    "rank": 12,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 48,
+                    "gf": 57,
+                    "ga": 62,
+                    "gd": -5
+                },
+                {
+                    "rank": 13,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 47,
+                    "gf": 49,
+                    "ga": 59,
+                    "gd": -10
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 46,
+                    "gf": 50,
+                    "ga": 64,
+                    "gd": -14
+                },
+                {
+                    "rank": 15,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 44,
+                    "gf": 36,
+                    "ga": 47,
+                    "gd": -11
+                },
+                {
+                    "rank": 16,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 43,
+                    "gf": 48,
+                    "ga": 62,
+                    "gd": -14
+                },
+                {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 41,
+                    "gf": 44,
+                    "ga": 77,
+                    "gd": -33
+                },
+                {
+                    "rank": 18,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 38,
+                    "gf": 42,
+                    "ga": 69,
+                    "gd": -27
+                },
+                {
+                    "rank": 19,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 37,
+                    "gf": 45,
+                    "ga": 75,
+                    "gd": -30
+                },
+                {
+                    "rank": 20,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 31,
+                    "gf": 41,
+                    "ga": 59,
                     "gd": -18
                 }
             ]
         },
         {
-            "simulation": 9865,
+            "simulation": 42179,
             "teams": [
                 {
                     "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 91,
+                    "gf": 91,
+                    "ga": 39,
+                    "gd": 52
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 90,
+                    "gf": 83,
+                    "ga": 32,
+                    "gd": 51
+                },
+                {
+                    "rank": 3,
                     "team": "Liverpool",
                     "slug": "liverpool",
-                    "pts": 85,
-                    "gf": 77,
-                    "ga": 28,
+                    "pts": 71,
+                    "gf": 65,
+                    "ga": 38,
+                    "gd": 27
+                },
+                {
+                    "rank": 4,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 63,
+                    "gf": 58,
+                    "ga": 47,
+                    "gd": 11
+                },
+                {
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 59,
+                    "gf": 55,
+                    "ga": 38,
+                    "gd": 17
+                },
+                {
+                    "rank": 6,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 59,
+                    "gf": 55,
+                    "ga": 47,
+                    "gd": 8
+                },
+                {
+                    "rank": 7,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 58,
+                    "gf": 60,
+                    "ga": 57,
+                    "gd": 3
+                },
+                {
+                    "rank": 8,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 57,
+                    "gf": 66,
+                    "ga": 46,
+                    "gd": 20
+                },
+                {
+                    "rank": 9,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 53,
+                    "gf": 45,
+                    "ga": 50,
+                    "gd": -5
+                },
+                {
+                    "rank": 10,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 48,
+                    "gf": 49,
+                    "ga": 51,
+                    "gd": -2
+                },
+                {
+                    "rank": 11,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 47,
+                    "gf": 52,
+                    "ga": 57,
+                    "gd": -5
+                },
+                {
+                    "rank": 12,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 47,
+                    "gf": 40,
+                    "ga": 50,
+                    "gd": -10
+                },
+                {
+                    "rank": 13,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 44,
+                    "gf": 46,
+                    "ga": 61,
+                    "gd": -15
+                },
+                {
+                    "rank": 14,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 43,
+                    "gf": 55,
+                    "ga": 69,
+                    "gd": -14
+                },
+                {
+                    "rank": 15,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 42,
+                    "gf": 44,
+                    "ga": 58,
+                    "gd": -14
+                },
+                {
+                    "rank": 16,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 42,
+                    "gf": 47,
+                    "ga": 62,
+                    "gd": -15
+                },
+                {
+                    "rank": 17,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 35,
+                    "gf": 37,
+                    "ga": 71,
+                    "gd": -34
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 32,
+                    "gf": 37,
+                    "ga": 57,
+                    "gd": -20
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 32,
+                    "gf": 35,
+                    "ga": 59,
+                    "gd": -24
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 32,
+                    "gf": 38,
+                    "ga": 69,
+                    "gd": -31
+                }
+            ]
+        },
+        {
+            "simulation": 42222,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 89,
+                    "gf": 85,
+                    "ga": 36,
                     "gd": 49
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 86,
+                    "gf": 80,
+                    "ga": 30,
+                    "gd": 50
+                },
+                {
+                    "rank": 3,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 67,
+                    "gf": 62,
+                    "ga": 49,
+                    "gd": 13
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 66,
+                    "gf": 69,
+                    "ga": 47,
+                    "gd": 22
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 61,
+                    "gf": 53,
+                    "ga": 50,
+                    "gd": 3
+                },
+                {
+                    "rank": 6,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 59,
+                    "gf": 61,
+                    "ga": 44,
+                    "gd": 17
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 58,
+                    "gf": 62,
+                    "ga": 53,
+                    "gd": 9
+                },
+                {
+                    "rank": 8,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 51,
+                    "gf": 57,
+                    "ga": 51,
+                    "gd": 6
+                },
+                {
+                    "rank": 9,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 50,
+                    "gf": 52,
+                    "ga": 48,
+                    "gd": 4
+                },
+                {
+                    "rank": 10,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 50,
+                    "gf": 42,
+                    "ga": 55,
+                    "gd": -13
+                },
+                {
+                    "rank": 11,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 49,
+                    "gf": 47,
+                    "ga": 60,
+                    "gd": -13
+                },
+                {
+                    "rank": 12,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 46,
+                    "gf": 44,
+                    "ga": 58,
+                    "gd": -14
+                },
+                {
+                    "rank": 13,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 45,
+                    "gf": 49,
+                    "ga": 55,
+                    "gd": -6
+                },
+                {
+                    "rank": 14,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 44,
+                    "gf": 40,
+                    "ga": 53,
+                    "gd": -13
+                },
+                {
+                    "rank": 15,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 44,
+                    "gf": 50,
+                    "ga": 65,
+                    "gd": -15
+                },
+                {
+                    "rank": 16,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 40,
+                    "gf": 46,
+                    "ga": 50,
+                    "gd": -4
+                },
+                {
+                    "rank": 17,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 40,
+                    "gf": 42,
+                    "ga": 62,
+                    "gd": -20
+                },
+                {
+                    "rank": 18,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 39,
+                    "gf": 43,
+                    "ga": 64,
+                    "gd": -21
+                },
+                {
+                    "rank": 19,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 36,
+                    "gf": 44,
+                    "ga": 71,
+                    "gd": -27
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 35,
+                    "gf": 38,
+                    "ga": 65,
+                    "gd": -27
+                }
+            ]
+        },
+        {
+            "simulation": 45077,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 80,
+                    "gf": 77,
+                    "ga": 40,
+                    "gd": 37
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 79,
+                    "gf": 77,
+                    "ga": 41,
+                    "gd": 36
+                },
+                {
+                    "rank": 3,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 72,
+                    "gf": 81,
+                    "ga": 37,
+                    "gd": 44
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 68,
+                    "gf": 66,
+                    "ga": 33,
+                    "gd": 33
+                },
+                {
+                    "rank": 5,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 68,
+                    "gf": 71,
+                    "ga": 41,
+                    "gd": 30
+                },
+                {
+                    "rank": 6,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 68,
+                    "gf": 58,
+                    "ga": 43,
+                    "gd": 15
+                },
+                {
+                    "rank": 7,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 64,
+                    "gf": 62,
+                    "ga": 48,
+                    "gd": 14
+                },
+                {
+                    "rank": 8,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 54,
+                    "gf": 54,
+                    "ga": 55,
+                    "gd": -1
+                },
+                {
+                    "rank": 9,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 50,
+                    "gf": 49,
+                    "ga": 52,
+                    "gd": -3
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 49,
+                    "gf": 53,
+                    "ga": 51,
+                    "gd": 2
+                },
+                {
+                    "rank": 11,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 46,
+                    "gf": 39,
+                    "ga": 58,
+                    "gd": -19
+                },
+                {
+                    "rank": 12,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 46,
+                    "gf": 45,
+                    "ga": 66,
+                    "gd": -21
+                },
+                {
+                    "rank": 13,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 43,
+                    "gf": 40,
+                    "ga": 60,
+                    "gd": -20
+                },
+                {
+                    "rank": 14,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 42,
+                    "gf": 55,
+                    "ga": 60,
+                    "gd": -5
+                },
+                {
+                    "rank": 15,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 42,
+                    "gf": 41,
+                    "ga": 63,
+                    "gd": -22
+                },
+                {
+                    "rank": 16,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 41,
+                    "gf": 48,
+                    "ga": 54,
+                    "gd": -6
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 39,
+                    "gf": 44,
+                    "ga": 72,
+                    "gd": -28
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 37,
+                    "gf": 43,
+                    "ga": 68,
+                    "gd": -25
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 32,
+                    "gf": 34,
+                    "ga": 70,
+                    "gd": -36
+                },
+                {
+                    "rank": 20,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 31,
+                    "gf": 35,
+                    "ga": 60,
+                    "gd": -25
+                }
+            ]
+        },
+        {
+            "simulation": 45092,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 81,
+                    "gf": 75,
+                    "ga": 39,
+                    "gd": 36
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 73,
+                    "gf": 67,
+                    "ga": 33,
+                    "gd": 34
+                },
+                {
+                    "rank": 3,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 68,
+                    "gf": 72,
+                    "ga": 45,
+                    "gd": 27
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 67,
+                    "gf": 83,
+                    "ga": 50,
+                    "gd": 33
+                },
+                {
+                    "rank": 5,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 64,
+                    "gf": 57,
+                    "ga": 49,
+                    "gd": 8
+                },
+                {
+                    "rank": 6,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 62,
+                    "gf": 57,
+                    "ga": 52,
+                    "gd": 5
+                },
+                {
+                    "rank": 7,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 60,
+                    "gf": 75,
+                    "ga": 55,
+                    "gd": 20
+                },
+                {
+                    "rank": 8,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 55,
+                    "gf": 55,
+                    "ga": 54,
+                    "gd": 1
+                },
+                {
+                    "rank": 9,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 52,
+                    "gf": 56,
+                    "ga": 60,
+                    "gd": -4
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 51,
+                    "gf": 40,
+                    "ga": 44,
+                    "gd": -4
+                },
+                {
+                    "rank": 11,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 49,
+                    "gf": 65,
+                    "ga": 61,
+                    "gd": 4
+                },
+                {
+                    "rank": 12,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 49,
+                    "gf": 53,
+                    "ga": 53,
+                    "gd": 0
+                },
+                {
+                    "rank": 13,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 48,
+                    "gf": 49,
+                    "ga": 54,
+                    "gd": -5
+                },
+                {
+                    "rank": 14,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 47,
+                    "gf": 46,
+                    "ga": 66,
+                    "gd": -20
+                },
+                {
+                    "rank": 15,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 43,
+                    "gf": 48,
+                    "ga": 69,
+                    "gd": -21
+                },
+                {
+                    "rank": 16,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 39,
+                    "gf": 59,
+                    "ga": 67,
+                    "gd": -8
+                },
+                {
+                    "rank": 17,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 38,
+                    "gf": 43,
+                    "ga": 70,
+                    "gd": -27
+                },
+                {
+                    "rank": 18,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 38,
+                    "gf": 46,
+                    "ga": 76,
+                    "gd": -30
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 35,
+                    "gf": 40,
+                    "ga": 61,
+                    "gd": -21
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 34,
+                    "gf": 38,
+                    "ga": 66,
+                    "gd": -28
+                }
+            ]
+        },
+        {
+            "simulation": 45668,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 78,
+                    "gf": 79,
+                    "ga": 39,
+                    "gd": 40
                 },
                 {
                     "rank": 2,
                     "team": "Arsenal",
                     "slug": "arsenal",
                     "pts": 77,
-                    "gf": 81,
-                    "ga": 37,
+                    "gf": 73,
+                    "ga": 41,
+                    "gd": 32
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 71,
+                    "gf": 82,
+                    "ga": 46,
+                    "gd": 36
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 67,
+                    "gf": 73,
+                    "ga": 57,
+                    "gd": 16
+                },
+                {
+                    "rank": 5,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 66,
+                    "gf": 56,
+                    "ga": 38,
+                    "gd": 18
+                },
+                {
+                    "rank": 6,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 64,
+                    "gf": 60,
+                    "ga": 53,
+                    "gd": 7
+                },
+                {
+                    "rank": 7,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 56,
+                    "gf": 58,
+                    "ga": 45,
+                    "gd": 13
+                },
+                {
+                    "rank": 8,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 56,
+                    "gf": 55,
+                    "ga": 53,
+                    "gd": 2
+                },
+                {
+                    "rank": 9,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 54,
+                    "gf": 51,
+                    "ga": 53,
+                    "gd": -2
+                },
+                {
+                    "rank": 10,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 52,
+                    "gf": 48,
+                    "ga": 56,
+                    "gd": -8
+                },
+                {
+                    "rank": 11,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 51,
+                    "gf": 62,
+                    "ga": 65,
+                    "gd": -3
+                },
+                {
+                    "rank": 12,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 43,
+                    "gf": 52,
+                    "ga": 57,
+                    "gd": -5
+                },
+                {
+                    "rank": 13,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 43,
+                    "gf": 53,
+                    "ga": 69,
+                    "gd": -16
+                },
+                {
+                    "rank": 14,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 40,
+                    "gf": 52,
+                    "ga": 73,
+                    "gd": -21
+                },
+                {
+                    "rank": 15,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 39,
+                    "gf": 42,
+                    "ga": 58,
+                    "gd": -16
+                },
+                {
+                    "rank": 16,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 39,
+                    "gf": 51,
+                    "ga": 68,
+                    "gd": -17
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 39,
+                    "gf": 46,
+                    "ga": 64,
+                    "gd": -18
+                },
+                {
+                    "rank": 18,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 38,
+                    "gf": 43,
+                    "ga": 67,
+                    "gd": -24
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 36,
+                    "gf": 50,
+                    "ga": 60,
+                    "gd": -10
+                },
+                {
+                    "rank": 20,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 32,
+                    "gf": 44,
+                    "ga": 68,
+                    "gd": -24
+                }
+            ]
+        },
+        {
+            "simulation": 46416,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 86,
+                    "gf": 89,
+                    "ga": 29,
+                    "gd": 60
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 82,
+                    "gf": 76,
+                    "ga": 32,
                     "gd": 44
                 },
                 {
                     "rank": 3,
-                    "team": "Manchester City",
-                    "slug": "man-city",
-                    "pts": 76,
-                    "gf": 69,
-                    "ga": 35,
-                    "gd": 34
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 72,
+                    "gf": 73,
+                    "ga": 44,
+                    "gd": 29
                 },
                 {
                     "rank": 4,
-                    "team": "Brentford",
-                    "slug": "brentford",
-                    "pts": 61,
-                    "gf": 62,
-                    "ga": 44,
-                    "gd": 18
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 69,
+                    "gf": 70,
+                    "ga": 55,
+                    "gd": 15
                 },
                 {
                     "rank": 5,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 64,
+                    "gf": 61,
+                    "ga": 55,
+                    "gd": 6
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 61,
+                    "gf": 67,
+                    "ga": 49,
+                    "gd": 18
+                },
+                {
+                    "rank": 7,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 60,
+                    "gf": 64,
+                    "ga": 55,
+                    "gd": 9
+                },
+                {
+                    "rank": 8,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 59,
+                    "gf": 62,
+                    "ga": 48,
+                    "gd": 14
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 57,
+                    "gf": 62,
+                    "ga": 54,
+                    "gd": 8
+                },
+                {
+                    "rank": 10,
                     "team": "Brighton",
                     "slug": "brighton",
-                    "pts": 59,
-                    "gf": 63,
+                    "pts": 53,
+                    "gf": 62,
+                    "ga": 52,
+                    "gd": 10
+                },
+                {
+                    "rank": 11,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 53,
+                    "gf": 52,
+                    "ga": 49,
+                    "gd": 3
+                },
+                {
+                    "rank": 12,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 47,
+                    "gf": 50,
+                    "ga": 76,
+                    "gd": -26
+                },
+                {
+                    "rank": 13,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 42,
+                    "gf": 47,
+                    "ga": 59,
+                    "gd": -12
+                },
+                {
+                    "rank": 14,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 42,
+                    "gf": 40,
+                    "ga": 54,
+                    "gd": -14
+                },
+                {
+                    "rank": 15,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 40,
+                    "gf": 42,
+                    "ga": 62,
+                    "gd": -20
+                },
+                {
+                    "rank": 16,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 39,
+                    "gf": 36,
+                    "ga": 61,
+                    "gd": -25
+                },
+                {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 38,
+                    "gf": 42,
+                    "ga": 60,
+                    "gd": -18
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 34,
+                    "gf": 35,
+                    "ga": 65,
+                    "gd": -30
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 28,
+                    "gf": 38,
+                    "ga": 73,
+                    "gd": -35
+                },
+                {
+                    "rank": 20,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 25,
+                    "gf": 29,
+                    "ga": 65,
+                    "gd": -36
+                }
+            ]
+        },
+        {
+            "simulation": 46982,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 77,
+                    "gf": 85,
+                    "ga": 49,
+                    "gd": 36
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 75,
+                    "gf": 65,
+                    "ga": 30,
+                    "gd": 35
+                },
+                {
+                    "rank": 3,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 72,
+                    "gf": 70,
+                    "ga": 42,
+                    "gd": 28
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 62,
+                    "gf": 68,
+                    "ga": 51,
+                    "gd": 17
+                },
+                {
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 60,
+                    "gf": 56,
                     "ga": 44,
-                    "gd": 19
+                    "gd": 12
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 58,
+                    "gf": 67,
+                    "ga": 52,
+                    "gd": 15
+                },
+                {
+                    "rank": 7,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 57,
+                    "gf": 53,
+                    "ga": 49,
+                    "gd": 4
+                },
+                {
+                    "rank": 8,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 55,
+                    "gf": 55,
+                    "ga": 58,
+                    "gd": -3
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 52,
+                    "gf": 60,
+                    "ga": 59,
+                    "gd": 1
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 52,
+                    "gf": 48,
+                    "ga": 55,
+                    "gd": -7
+                },
+                {
+                    "rank": 11,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 51,
+                    "gf": 49,
+                    "ga": 57,
+                    "gd": -8
+                },
+                {
+                    "rank": 12,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 50,
+                    "gf": 59,
+                    "ga": 63,
+                    "gd": -4
+                },
+                {
+                    "rank": 13,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 49,
+                    "gf": 59,
+                    "ga": 65,
+                    "gd": -6
+                },
+                {
+                    "rank": 14,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 46,
+                    "gf": 52,
+                    "ga": 56,
+                    "gd": -4
+                },
+                {
+                    "rank": 15,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 44,
+                    "gf": 49,
+                    "ga": 66,
+                    "gd": -17
+                },
+                {
+                    "rank": 16,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 40,
+                    "gf": 48,
+                    "ga": 63,
+                    "gd": -15
+                },
+                {
+                    "rank": 17,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 39,
+                    "gf": 47,
+                    "ga": 63,
+                    "gd": -16
+                },
+                {
+                    "rank": 18,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 38,
+                    "gf": 40,
+                    "ga": 56,
+                    "gd": -16
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 36,
+                    "gf": 35,
+                    "ga": 69,
+                    "gd": -34
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 34,
+                    "gf": 45,
+                    "ga": 63,
+                    "gd": -18
+                }
+            ]
+        },
+        {
+            "simulation": 48531,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 87,
+                    "gf": 74,
+                    "ga": 25,
+                    "gd": 49
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 83,
+                    "gf": 83,
+                    "ga": 38,
+                    "gd": 45
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 63,
+                    "gf": 63,
+                    "ga": 49,
+                    "gd": 14
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 62,
+                    "gf": 68,
+                    "ga": 37,
+                    "gd": 31
+                },
+                {
+                    "rank": 5,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 60,
+                    "gf": 49,
+                    "ga": 39,
+                    "gd": 10
                 },
                 {
                     "rank": 6,
                     "team": "Manchester United",
                     "slug": "man-united",
-                    "pts": 59,
-                    "gf": 56,
+                    "pts": 58,
+                    "gf": 61,
+                    "ga": 52,
+                    "gd": 9
+                },
+                {
+                    "rank": 7,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 57,
+                    "gf": 44,
+                    "ga": 45,
+                    "gd": -1
+                },
+                {
+                    "rank": 8,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 54,
+                    "gf": 55,
                     "ga": 53,
+                    "gd": 2
+                },
+                {
+                    "rank": 9,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 52,
+                    "gf": 54,
+                    "ga": 50,
+                    "gd": 4
+                },
+                {
+                    "rank": 10,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 47,
+                    "gf": 47,
+                    "ga": 53,
+                    "gd": -6
+                },
+                {
+                    "rank": 11,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 47,
+                    "gf": 49,
+                    "ga": 57,
+                    "gd": -8
+                },
+                {
+                    "rank": 12,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 47,
+                    "gf": 44,
+                    "ga": 63,
+                    "gd": -19
+                },
+                {
+                    "rank": 13,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 46,
+                    "gf": 46,
+                    "ga": 57,
+                    "gd": -11
+                },
+                {
+                    "rank": 14,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 42,
+                    "gf": 43,
+                    "ga": 51,
+                    "gd": -8
+                },
+                {
+                    "rank": 15,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 42,
+                    "gf": 46,
+                    "ga": 67,
+                    "gd": -21
+                },
+                {
+                    "rank": 16,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 42,
+                    "gf": 34,
+                    "ga": 60,
+                    "gd": -26
+                },
+                {
+                    "rank": 17,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 41,
+                    "gf": 45,
+                    "ga": 55,
+                    "gd": -10
+                },
+                {
+                    "rank": 18,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 39,
+                    "gf": 48,
+                    "ga": 62,
+                    "gd": -14
+                },
+                {
+                    "rank": 19,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 38,
+                    "gf": 44,
+                    "ga": 58,
+                    "gd": -14
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 34,
+                    "gf": 37,
+                    "ga": 63,
+                    "gd": -26
+                }
+            ]
+        },
+        {
+            "simulation": 50033,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 94,
+                    "gf": 85,
+                    "ga": 28,
+                    "gd": 57
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 89,
+                    "gf": 73,
+                    "ga": 25,
+                    "gd": 48
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 75,
+                    "gf": 66,
+                    "ga": 42,
+                    "gd": 24
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 74,
+                    "gf": 83,
+                    "ga": 41,
+                    "gd": 42
+                },
+                {
+                    "rank": 5,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 62,
+                    "gf": 59,
+                    "ga": 55,
+                    "gd": 4
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 59,
+                    "gf": 63,
+                    "ga": 56,
+                    "gd": 7
+                },
+                {
+                    "rank": 7,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 57,
+                    "gf": 55,
+                    "ga": 43,
+                    "gd": 12
+                },
+                {
+                    "rank": 8,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 56,
+                    "gf": 41,
+                    "ga": 37,
+                    "gd": 4
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 52,
+                    "gf": 53,
+                    "ga": 56,
+                    "gd": -3
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 49,
+                    "gf": 44,
+                    "ga": 52,
+                    "gd": -8
+                },
+                {
+                    "rank": 11,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 49,
+                    "gf": 47,
+                    "ga": 62,
+                    "gd": -15
+                },
+                {
+                    "rank": 12,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 46,
+                    "gf": 50,
+                    "ga": 63,
+                    "gd": -13
+                },
+                {
+                    "rank": 13,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 44,
+                    "gf": 46,
+                    "ga": 49,
+                    "gd": -3
+                },
+                {
+                    "rank": 14,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 42,
+                    "gf": 45,
+                    "ga": 54,
+                    "gd": -9
+                },
+                {
+                    "rank": 15,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 41,
+                    "gf": 50,
+                    "ga": 67,
+                    "gd": -17
+                },
+                {
+                    "rank": 16,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 39,
+                    "gf": 51,
+                    "ga": 67,
+                    "gd": -16
+                },
+                {
+                    "rank": 17,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 38,
+                    "gf": 39,
+                    "ga": 55,
+                    "gd": -16
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 37,
+                    "gf": 47,
+                    "ga": 68,
+                    "gd": -21
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 34,
+                    "gf": 39,
+                    "ga": 72,
+                    "gd": -33
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 20,
+                    "gf": 28,
+                    "ga": 72,
+                    "gd": -44
+                }
+            ]
+        },
+        {
+            "simulation": 50454,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 92,
+                    "gf": 78,
+                    "ga": 33,
+                    "gd": 45
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 84,
+                    "gf": 88,
+                    "ga": 35,
+                    "gd": 53
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 65,
+                    "gf": 73,
+                    "ga": 44,
+                    "gd": 29
+                },
+                {
+                    "rank": 4,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 64,
+                    "gf": 61,
+                    "ga": 49,
+                    "gd": 12
+                },
+                {
+                    "rank": 5,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 63,
+                    "gf": 55,
+                    "ga": 45,
+                    "gd": 10
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 61,
+                    "gf": 57,
+                    "ga": 49,
+                    "gd": 8
+                },
+                {
+                    "rank": 7,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 59,
+                    "gf": 61,
+                    "ga": 44,
+                    "gd": 17
+                },
+                {
+                    "rank": 8,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 55,
+                    "gf": 55,
+                    "ga": 46,
+                    "gd": 9
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 54,
+                    "gf": 47,
+                    "ga": 51,
+                    "gd": -4
+                },
+                {
+                    "rank": 10,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 52,
+                    "gf": 47,
+                    "ga": 46,
+                    "gd": 1
+                },
+                {
+                    "rank": 11,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 52,
+                    "gf": 40,
+                    "ga": 50,
+                    "gd": -10
+                },
+                {
+                    "rank": 12,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 49,
+                    "gf": 59,
+                    "ga": 52,
+                    "gd": 7
+                },
+                {
+                    "rank": 13,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 47,
+                    "gf": 50,
+                    "ga": 64,
+                    "gd": -14
+                },
+                {
+                    "rank": 14,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 46,
+                    "gf": 37,
+                    "ga": 42,
+                    "gd": -5
+                },
+                {
+                    "rank": 15,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 42,
+                    "gf": 46,
+                    "ga": 61,
+                    "gd": -15
+                },
+                {
+                    "rank": 16,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 37,
+                    "gf": 44,
+                    "ga": 56,
+                    "gd": -12
+                },
+                {
+                    "rank": 17,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 36,
+                    "gf": 41,
+                    "ga": 58,
+                    "gd": -17
+                },
+                {
+                    "rank": 18,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 36,
+                    "gf": 39,
+                    "ga": 62,
+                    "gd": -23
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 29,
+                    "gf": 28,
+                    "ga": 62,
+                    "gd": -34
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 21,
+                    "gf": 31,
+                    "ga": 88,
+                    "gd": -57
+                }
+            ]
+        },
+        {
+            "simulation": 50493,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 86,
+                    "gf": 85,
+                    "ga": 45,
+                    "gd": 40
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 77,
+                    "gf": 71,
+                    "ga": 33,
+                    "gd": 38
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 75,
+                    "gf": 70,
+                    "ga": 41,
+                    "gd": 29
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 64,
+                    "gf": 68,
+                    "ga": 44,
+                    "gd": 24
+                },
+                {
+                    "rank": 5,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 63,
+                    "gf": 60,
+                    "ga": 50,
+                    "gd": 10
+                },
+                {
+                    "rank": 6,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 55,
+                    "gf": 56,
+                    "ga": 51,
+                    "gd": 5
+                },
+                {
+                    "rank": 7,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 55,
+                    "gf": 60,
+                    "ga": 60,
+                    "gd": 0
+                },
+                {
+                    "rank": 8,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 51,
+                    "gf": 62,
+                    "ga": 55,
+                    "gd": 7
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 50,
+                    "gf": 54,
+                    "ga": 63,
+                    "gd": -9
+                },
+                {
+                    "rank": 10,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 50,
+                    "gf": 47,
+                    "ga": 62,
+                    "gd": -15
+                },
+                {
+                    "rank": 11,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 49,
+                    "gf": 39,
+                    "ga": 44,
+                    "gd": -5
+                },
+                {
+                    "rank": 12,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 47,
+                    "gf": 54,
+                    "ga": 56,
+                    "gd": -2
+                },
+                {
+                    "rank": 13,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 47,
+                    "gf": 51,
+                    "ga": 63,
+                    "gd": -12
+                },
+                {
+                    "rank": 14,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 46,
+                    "gf": 52,
+                    "ga": 57,
+                    "gd": -5
+                },
+                {
+                    "rank": 15,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 42,
+                    "gf": 41,
+                    "ga": 46,
+                    "gd": -5
+                },
+                {
+                    "rank": 16,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 41,
+                    "gf": 59,
+                    "ga": 71,
+                    "gd": -12
+                },
+                {
+                    "rank": 17,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 39,
+                    "gf": 39,
+                    "ga": 56,
+                    "gd": -17
+                },
+                {
+                    "rank": 18,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 37,
+                    "gf": 53,
+                    "ga": 70,
+                    "gd": -17
+                },
+                {
+                    "rank": 19,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 34,
+                    "gf": 34,
+                    "ga": 60,
+                    "gd": -26
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 31,
+                    "gf": 38,
+                    "ga": 66,
+                    "gd": -28
+                }
+            ]
+        },
+        {
+            "simulation": 53492,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 85,
+                    "gf": 73,
+                    "ga": 33,
+                    "gd": 40
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 79,
+                    "gf": 81,
+                    "ga": 44,
+                    "gd": 37
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 66,
+                    "gf": 67,
+                    "ga": 49,
+                    "gd": 18
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 66,
+                    "gf": 64,
+                    "ga": 47,
+                    "gd": 17
+                },
+                {
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 61,
+                    "gf": 58,
+                    "ga": 48,
+                    "gd": 10
+                },
+                {
+                    "rank": 6,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 59,
+                    "gf": 67,
+                    "ga": 41,
+                    "gd": 26
+                },
+                {
+                    "rank": 7,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 56,
+                    "gf": 58,
+                    "ga": 49,
+                    "gd": 9
+                },
+                {
+                    "rank": 8,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 55,
+                    "gf": 54,
+                    "ga": 55,
+                    "gd": -1
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 50,
+                    "gf": 57,
+                    "ga": 55,
+                    "gd": 2
+                },
+                {
+                    "rank": 10,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 50,
+                    "gf": 56,
+                    "ga": 56,
+                    "gd": 0
+                },
+                {
+                    "rank": 11,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 50,
+                    "gf": 51,
+                    "ga": 60,
+                    "gd": -9
+                },
+                {
+                    "rank": 12,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 49,
+                    "gf": 67,
+                    "ga": 66,
+                    "gd": 1
+                },
+                {
+                    "rank": 13,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 47,
+                    "gf": 43,
+                    "ga": 48,
+                    "gd": -5
+                },
+                {
+                    "rank": 14,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 43,
+                    "gf": 55,
+                    "ga": 67,
+                    "gd": -12
+                },
+                {
+                    "rank": 15,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 43,
+                    "gf": 44,
+                    "ga": 56,
+                    "gd": -12
+                },
+                {
+                    "rank": 16,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 43,
+                    "gf": 39,
+                    "ga": 60,
+                    "gd": -21
+                },
+                {
+                    "rank": 17,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 40,
+                    "gf": 40,
+                    "ga": 54,
+                    "gd": -14
+                },
+                {
+                    "rank": 18,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 37,
+                    "gf": 47,
+                    "ga": 66,
+                    "gd": -19
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 31,
+                    "gf": 35,
+                    "ga": 60,
+                    "gd": -25
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 31,
+                    "gf": 36,
+                    "ga": 78,
+                    "gd": -42
+                }
+            ]
+        },
+        {
+            "simulation": 54763,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 98,
+                    "gf": 92,
+                    "ga": 24,
+                    "gd": 68
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 92,
+                    "gf": 79,
+                    "ga": 29,
+                    "gd": 50
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 71,
+                    "gf": 73,
+                    "ga": 44,
+                    "gd": 29
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 65,
+                    "gf": 71,
+                    "ga": 42,
+                    "gd": 29
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 61,
+                    "gf": 67,
+                    "ga": 47,
+                    "gd": 20
+                },
+                {
+                    "rank": 6,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 54,
+                    "gf": 55,
+                    "ga": 53,
+                    "gd": 2
+                },
+                {
+                    "rank": 7,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 50,
+                    "gf": 53,
+                    "ga": 63,
+                    "gd": -10
+                },
+                {
+                    "rank": 8,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 49,
+                    "gf": 56,
+                    "ga": 59,
+                    "gd": -3
+                },
+                {
+                    "rank": 9,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 49,
+                    "gf": 48,
+                    "ga": 54,
+                    "gd": -6
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 48,
+                    "gf": 52,
+                    "ga": 48,
+                    "gd": 4
+                },
+                {
+                    "rank": 11,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 48,
+                    "gf": 46,
+                    "ga": 62,
+                    "gd": -16
+                },
+                {
+                    "rank": 12,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 47,
+                    "gf": 55,
+                    "ga": 61,
+                    "gd": -6
+                },
+                {
+                    "rank": 13,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 47,
+                    "gf": 53,
+                    "ga": 62,
+                    "gd": -9
+                },
+                {
+                    "rank": 14,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 46,
+                    "gf": 52,
+                    "ga": 68,
+                    "gd": -16
+                },
+                {
+                    "rank": 15,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 45,
+                    "gf": 37,
+                    "ga": 54,
+                    "gd": -17
+                },
+                {
+                    "rank": 16,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 44,
+                    "gf": 52,
+                    "ga": 58,
+                    "gd": -6
+                },
+                {
+                    "rank": 17,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 43,
+                    "gf": 46,
+                    "ga": 63,
+                    "gd": -17
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 35,
+                    "gf": 36,
+                    "ga": 62,
+                    "gd": -26
+                },
+                {
+                    "rank": 19,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 29,
+                    "gf": 32,
+                    "ga": 65,
+                    "gd": -33
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 26,
+                    "gf": 36,
+                    "ga": 73,
+                    "gd": -37
+                }
+            ]
+        },
+        {
+            "simulation": 55096,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 81,
+                    "gf": 78,
+                    "ga": 36,
+                    "gd": 42
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 77,
+                    "gf": 72,
+                    "ga": 37,
+                    "gd": 35
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 69,
+                    "gf": 74,
+                    "ga": 44,
+                    "gd": 30
+                },
+                {
+                    "rank": 4,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 63,
+                    "gf": 55,
+                    "ga": 50,
+                    "gd": 5
+                },
+                {
+                    "rank": 5,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 62,
+                    "gf": 65,
+                    "ga": 41,
+                    "gd": 24
+                },
+                {
+                    "rank": 6,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 61,
+                    "gf": 58,
+                    "ga": 41,
+                    "gd": 17
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 60,
+                    "gf": 57,
+                    "ga": 54,
                     "gd": 3
+                },
+                {
+                    "rank": 8,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 59,
+                    "gf": 64,
+                    "ga": 55,
+                    "gd": 9
+                },
+                {
+                    "rank": 9,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 54,
+                    "gf": 54,
+                    "ga": 48,
+                    "gd": 6
+                },
+                {
+                    "rank": 10,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 49,
+                    "gf": 52,
+                    "ga": 47,
+                    "gd": 5
+                },
+                {
+                    "rank": 11,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 48,
+                    "gf": 49,
+                    "ga": 69,
+                    "gd": -20
+                },
+                {
+                    "rank": 12,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 46,
+                    "gf": 48,
+                    "ga": 53,
+                    "gd": -5
+                },
+                {
+                    "rank": 13,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 46,
+                    "gf": 48,
+                    "ga": 58,
+                    "gd": -10
+                },
+                {
+                    "rank": 14,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 45,
+                    "gf": 50,
+                    "ga": 54,
+                    "gd": -4
+                },
+                {
+                    "rank": 15,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 38,
+                    "gf": 52,
+                    "ga": 62,
+                    "gd": -10
+                },
+                {
+                    "rank": 16,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 38,
+                    "gf": 35,
+                    "ga": 54,
+                    "gd": -19
+                },
+                {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 38,
+                    "gf": 39,
+                    "ga": 63,
+                    "gd": -24
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 36,
+                    "gf": 36,
+                    "ga": 54,
+                    "gd": -18
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 34,
+                    "gf": 39,
+                    "ga": 78,
+                    "gd": -39
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 33,
+                    "gf": 33,
+                    "ga": 60,
+                    "gd": -27
+                }
+            ]
+        },
+        {
+            "simulation": 55537,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 81,
+                    "gf": 80,
+                    "ga": 46,
+                    "gd": 34
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 72,
+                    "gf": 65,
+                    "ga": 37,
+                    "gd": 28
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 67,
+                    "gf": 64,
+                    "ga": 35,
+                    "gd": 29
+                },
+                {
+                    "rank": 4,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 67,
+                    "gf": 50,
+                    "ga": 36,
+                    "gd": 14
+                },
+                {
+                    "rank": 5,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 64,
+                    "gf": 53,
+                    "ga": 43,
+                    "gd": 10
+                },
+                {
+                    "rank": 6,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 62,
+                    "gf": 65,
+                    "ga": 43,
+                    "gd": 22
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 62,
+                    "gf": 68,
+                    "ga": 53,
+                    "gd": 15
+                },
+                {
+                    "rank": 8,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 57,
+                    "gf": 51,
+                    "ga": 48,
+                    "gd": 3
+                },
+                {
+                    "rank": 9,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 56,
+                    "gf": 45,
+                    "ga": 45,
+                    "gd": 0
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 52,
+                    "gf": 49,
+                    "ga": 44,
+                    "gd": 5
+                },
+                {
+                    "rank": 11,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 50,
+                    "gf": 48,
+                    "ga": 42,
+                    "gd": 6
+                },
+                {
+                    "rank": 12,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 47,
+                    "gf": 44,
+                    "ga": 53,
+                    "gd": -9
+                },
+                {
+                    "rank": 13,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 46,
+                    "gf": 43,
+                    "ga": 54,
+                    "gd": -11
+                },
+                {
+                    "rank": 14,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 45,
+                    "gf": 43,
+                    "ga": 49,
+                    "gd": -6
+                },
+                {
+                    "rank": 15,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 45,
+                    "gf": 49,
+                    "ga": 61,
+                    "gd": -12
+                },
+                {
+                    "rank": 16,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 43,
+                    "gf": 47,
+                    "ga": 66,
+                    "gd": -19
+                },
+                {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 40,
+                    "gf": 39,
+                    "ga": 54,
+                    "gd": -15
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 33,
+                    "gf": 37,
+                    "ga": 63,
+                    "gd": -26
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 32,
+                    "gf": 36,
+                    "ga": 61,
+                    "gd": -25
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 21,
+                    "gf": 26,
+                    "ga": 69,
+                    "gd": -43
+                }
+            ]
+        },
+        {
+            "simulation": 56318,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 88,
+                    "gf": 79,
+                    "ga": 29,
+                    "gd": 50
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 69,
+                    "gf": 69,
+                    "ga": 44,
+                    "gd": 25
+                },
+                {
+                    "rank": 3,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 69,
+                    "gf": 74,
+                    "ga": 50,
+                    "gd": 24
+                },
+                {
+                    "rank": 4,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 64,
+                    "gf": 57,
+                    "ga": 40,
+                    "gd": 17
+                },
+                {
+                    "rank": 5,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 64,
+                    "gf": 58,
+                    "ga": 45,
+                    "gd": 13
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 62,
+                    "gf": 64,
+                    "ga": 52,
+                    "gd": 12
+                },
+                {
+                    "rank": 7,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 57,
+                    "gf": 51,
+                    "ga": 45,
+                    "gd": 6
+                },
+                {
+                    "rank": 8,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 57,
+                    "gf": 52,
+                    "ga": 50,
+                    "gd": 2
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 55,
+                    "gf": 54,
+                    "ga": 53,
+                    "gd": 1
+                },
+                {
+                    "rank": 10,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 50,
+                    "gf": 49,
+                    "ga": 45,
+                    "gd": 4
+                },
+                {
+                    "rank": 11,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 49,
+                    "gf": 49,
+                    "ga": 63,
+                    "gd": -14
+                },
+                {
+                    "rank": 12,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 48,
+                    "gf": 51,
+                    "ga": 54,
+                    "gd": -3
+                },
+                {
+                    "rank": 13,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 46,
+                    "gf": 44,
+                    "ga": 58,
+                    "gd": -14
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 45,
+                    "gf": 49,
+                    "ga": 56,
+                    "gd": -7
+                },
+                {
+                    "rank": 15,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 43,
+                    "gf": 55,
+                    "ga": 64,
+                    "gd": -9
+                },
+                {
+                    "rank": 16,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 42,
+                    "gf": 48,
+                    "ga": 47,
+                    "gd": 1
+                },
+                {
+                    "rank": 17,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 38,
+                    "gf": 39,
+                    "ga": 53,
+                    "gd": -14
+                },
+                {
+                    "rank": 18,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 35,
+                    "gf": 33,
+                    "ga": 64,
+                    "gd": -31
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 34,
+                    "gf": 34,
+                    "ga": 62,
+                    "gd": -28
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 34,
+                    "gf": 41,
+                    "ga": 76,
+                    "gd": -35
+                }
+            ]
+        },
+        {
+            "simulation": 57672,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 87,
+                    "gf": 87,
+                    "ga": 36,
+                    "gd": 51
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 79,
+                    "gf": 75,
+                    "ga": 42,
+                    "gd": 33
+                },
+                {
+                    "rank": 3,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 66,
+                    "gf": 57,
+                    "ga": 48,
+                    "gd": 9
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 64,
+                    "gf": 74,
+                    "ga": 50,
+                    "gd": 24
+                },
+                {
+                    "rank": 5,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 64,
+                    "gf": 68,
+                    "ga": 55,
+                    "gd": 13
+                },
+                {
+                    "rank": 6,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 62,
+                    "gf": 56,
+                    "ga": 50,
+                    "gd": 6
+                },
+                {
+                    "rank": 7,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 58,
+                    "gf": 64,
+                    "ga": 38,
+                    "gd": 26
+                },
+                {
+                    "rank": 8,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 57,
+                    "gf": 55,
+                    "ga": 58,
+                    "gd": -3
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 50,
+                    "gf": 52,
+                    "ga": 55,
+                    "gd": -3
+                },
+                {
+                    "rank": 10,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 49,
+                    "gf": 52,
+                    "ga": 54,
+                    "gd": -2
+                },
+                {
+                    "rank": 11,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 49,
+                    "gf": 53,
+                    "ga": 59,
+                    "gd": -6
+                },
+                {
+                    "rank": 12,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 47,
+                    "gf": 45,
+                    "ga": 52,
+                    "gd": -7
+                },
+                {
+                    "rank": 13,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 45,
+                    "gf": 40,
+                    "ga": 50,
+                    "gd": -10
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 44,
+                    "gf": 54,
+                    "ga": 60,
+                    "gd": -6
+                },
+                {
+                    "rank": 15,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 43,
+                    "gf": 38,
+                    "ga": 62,
+                    "gd": -24
+                },
+                {
+                    "rank": 16,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 41,
+                    "gf": 37,
+                    "ga": 52,
+                    "gd": -15
+                },
+                {
+                    "rank": 17,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 41,
+                    "gf": 35,
+                    "ga": 52,
+                    "gd": -17
+                },
+                {
+                    "rank": 18,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 40,
+                    "gf": 45,
+                    "ga": 63,
+                    "gd": -18
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 31,
+                    "gf": 36,
+                    "ga": 64,
+                    "gd": -28
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 30,
+                    "gf": 33,
+                    "ga": 56,
+                    "gd": -23
+                }
+            ]
+        },
+        {
+            "simulation": 58055,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 88,
+                    "gf": 83,
+                    "ga": 39,
+                    "gd": 44
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 72,
+                    "gf": 71,
+                    "ga": 45,
+                    "gd": 26
+                },
+                {
+                    "rank": 3,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 64,
+                    "gf": 61,
+                    "ga": 48,
+                    "gd": 13
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 63,
+                    "gf": 61,
+                    "ga": 48,
+                    "gd": 13
+                },
+                {
+                    "rank": 5,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 62,
+                    "gf": 66,
+                    "ga": 45,
+                    "gd": 21
+                },
+                {
+                    "rank": 6,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 61,
+                    "gf": 59,
+                    "ga": 48,
+                    "gd": 11
+                },
+                {
+                    "rank": 7,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 60,
+                    "gf": 58,
+                    "ga": 51,
+                    "gd": 7
+                },
+                {
+                    "rank": 8,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 57,
+                    "gf": 53,
+                    "ga": 41,
+                    "gd": 12
+                },
+                {
+                    "rank": 9,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 56,
+                    "gf": 65,
+                    "ga": 49,
+                    "gd": 16
+                },
+                {
+                    "rank": 10,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 54,
+                    "gf": 49,
+                    "ga": 52,
+                    "gd": -3
+                },
+                {
+                    "rank": 11,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 50,
+                    "gf": 58,
+                    "ga": 50,
+                    "gd": 8
+                },
+                {
+                    "rank": 12,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 47,
+                    "gf": 61,
+                    "ga": 67,
+                    "gd": -6
+                },
+                {
+                    "rank": 13,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 47,
+                    "gf": 40,
+                    "ga": 48,
+                    "gd": -8
+                },
+                {
+                    "rank": 14,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 47,
+                    "gf": 47,
+                    "ga": 61,
+                    "gd": -14
+                },
+                {
+                    "rank": 15,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 43,
+                    "gf": 44,
+                    "ga": 64,
+                    "gd": -20
+                },
+                {
+                    "rank": 16,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 39,
+                    "gf": 40,
+                    "ga": 66,
+                    "gd": -26
+                },
+                {
+                    "rank": 17,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 36,
+                    "gf": 35,
+                    "ga": 64,
+                    "gd": -29
+                },
+                {
+                    "rank": 18,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 35,
+                    "gf": 35,
+                    "ga": 57,
+                    "gd": -22
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 34,
+                    "gf": 42,
+                    "ga": 66,
+                    "gd": -24
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 32,
+                    "gf": 38,
+                    "ga": 57,
+                    "gd": -19
+                }
+            ]
+        },
+        {
+            "simulation": 58674,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 89,
+                    "gf": 90,
+                    "ga": 35,
+                    "gd": 55
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 89,
+                    "gf": 75,
+                    "ga": 28,
+                    "gd": 47
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 70,
+                    "gf": 70,
+                    "ga": 45,
+                    "gd": 25
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 63,
+                    "gf": 63,
+                    "ga": 60,
+                    "gd": 3
+                },
+                {
+                    "rank": 5,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 58,
+                    "gf": 65,
+                    "ga": 43,
+                    "gd": 22
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 57,
+                    "gf": 54,
+                    "ga": 36,
+                    "gd": 18
+                },
+                {
+                    "rank": 7,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 55,
+                    "gf": 51,
+                    "ga": 57,
+                    "gd": -6
+                },
+                {
+                    "rank": 8,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 54,
+                    "gf": 64,
+                    "ga": 61,
+                    "gd": 3
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 50,
+                    "gf": 57,
+                    "ga": 54,
+                    "gd": 3
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 49,
+                    "gf": 59,
+                    "ga": 50,
+                    "gd": 9
+                },
+                {
+                    "rank": 11,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 49,
+                    "gf": 51,
+                    "ga": 55,
+                    "gd": -4
+                },
+                {
+                    "rank": 12,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 48,
+                    "gf": 42,
+                    "ga": 50,
+                    "gd": -8
+                },
+                {
+                    "rank": 13,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 46,
+                    "gf": 45,
+                    "ga": 55,
+                    "gd": -10
+                },
+                {
+                    "rank": 14,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 45,
+                    "gf": 48,
+                    "ga": 64,
+                    "gd": -16
+                },
+                {
+                    "rank": 15,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 43,
+                    "gf": 53,
+                    "ga": 60,
+                    "gd": -7
+                },
+                {
+                    "rank": 16,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 41,
+                    "gf": 45,
+                    "ga": 62,
+                    "gd": -17
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 40,
+                    "gf": 41,
+                    "ga": 72,
+                    "gd": -31
+                },
+                {
+                    "rank": 18,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 37,
+                    "gf": 39,
+                    "ga": 58,
+                    "gd": -19
+                },
+                {
+                    "rank": 19,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 36,
+                    "gf": 34,
+                    "ga": 68,
+                    "gd": -34
+                },
+                {
+                    "rank": 20,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 28,
+                    "gf": 37,
+                    "ga": 70,
+                    "gd": -33
+                }
+            ]
+        },
+        {
+            "simulation": 59298,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 93,
+                    "gf": 88,
+                    "ga": 33,
+                    "gd": 55
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 72,
+                    "gf": 70,
+                    "ga": 47,
+                    "gd": 23
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 69,
+                    "gf": 63,
+                    "ga": 45,
+                    "gd": 18
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 68,
+                    "gf": 72,
+                    "ga": 48,
+                    "gd": 24
+                },
+                {
+                    "rank": 5,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 67,
+                    "gf": 62,
+                    "ga": 51,
+                    "gd": 11
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 63,
+                    "gf": 54,
+                    "ga": 34,
+                    "gd": 20
+                },
+                {
+                    "rank": 7,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 61,
+                    "gf": 60,
+                    "ga": 51,
+                    "gd": 9
+                },
+                {
+                    "rank": 8,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 58,
+                    "gf": 55,
+                    "ga": 52,
+                    "gd": 3
+                },
+                {
+                    "rank": 9,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 48,
+                    "gf": 62,
+                    "ga": 52,
+                    "gd": 10
+                },
+                {
+                    "rank": 10,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 48,
+                    "gf": 47,
+                    "ga": 54,
+                    "gd": -7
+                },
+                {
+                    "rank": 11,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 48,
+                    "gf": 49,
+                    "ga": 61,
+                    "gd": -12
+                },
+                {
+                    "rank": 12,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 47,
+                    "gf": 51,
+                    "ga": 54,
+                    "gd": -3
+                },
+                {
+                    "rank": 13,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 47,
+                    "gf": 44,
+                    "ga": 48,
+                    "gd": -4
+                },
+                {
+                    "rank": 14,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 44,
+                    "gf": 51,
+                    "ga": 49,
+                    "gd": 2
+                },
+                {
+                    "rank": 15,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 43,
+                    "gf": 47,
+                    "ga": 67,
+                    "gd": -20
+                },
+                {
+                    "rank": 16,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 41,
+                    "gf": 43,
+                    "ga": 68,
+                    "gd": -25
+                },
+                {
+                    "rank": 17,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 39,
+                    "gf": 39,
+                    "ga": 52,
+                    "gd": -13
+                },
+                {
+                    "rank": 18,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 39,
+                    "gf": 38,
+                    "ga": 56,
+                    "gd": -18
+                },
+                {
+                    "rank": 19,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 34,
+                    "gf": 46,
+                    "ga": 77,
+                    "gd": -31
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 28,
+                    "gf": 35,
+                    "ga": 77,
+                    "gd": -42
+                }
+            ]
+        },
+        {
+            "simulation": 60299,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 91,
+                    "gf": 75,
+                    "ga": 25,
+                    "gd": 50
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 79,
+                    "gf": 91,
+                    "ga": 46,
+                    "gd": 45
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 66,
+                    "gf": 53,
+                    "ga": 42,
+                    "gd": 11
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 65,
+                    "gf": 64,
+                    "ga": 35,
+                    "gd": 29
+                },
+                {
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 59,
+                    "gf": 54,
+                    "ga": 41,
+                    "gd": 13
+                },
+                {
+                    "rank": 6,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 58,
+                    "gf": 55,
+                    "ga": 56,
+                    "gd": -1
+                },
+                {
+                    "rank": 7,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 56,
+                    "gf": 54,
+                    "ga": 48,
+                    "gd": 6
+                },
+                {
+                    "rank": 8,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 53,
+                    "gf": 46,
+                    "ga": 49,
+                    "gd": -3
+                },
+                {
+                    "rank": 9,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 52,
+                    "gf": 58,
+                    "ga": 64,
+                    "gd": -6
+                },
+                {
+                    "rank": 10,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 50,
+                    "gf": 55,
+                    "ga": 57,
+                    "gd": -2
+                },
+                {
+                    "rank": 11,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 48,
+                    "gf": 57,
+                    "ga": 55,
+                    "gd": 2
+                },
+                {
+                    "rank": 12,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 48,
+                    "gf": 51,
+                    "ga": 64,
+                    "gd": -13
+                },
+                {
+                    "rank": 13,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 47,
+                    "gf": 47,
+                    "ga": 64,
+                    "gd": -17
+                },
+                {
+                    "rank": 14,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 46,
+                    "gf": 50,
+                    "ga": 64,
+                    "gd": -14
+                },
+                {
+                    "rank": 15,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 45,
+                    "gf": 55,
+                    "ga": 66,
+                    "gd": -11
+                },
+                {
+                    "rank": 16,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 45,
+                    "gf": 45,
+                    "ga": 56,
+                    "gd": -11
+                },
+                {
+                    "rank": 17,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 44,
+                    "gf": 50,
+                    "ga": 55,
+                    "gd": -5
+                },
+                {
+                    "rank": 18,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 37,
+                    "gf": 39,
+                    "ga": 55,
+                    "gd": -16
+                },
+                {
+                    "rank": 19,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 35,
+                    "gf": 44,
+                    "ga": 66,
+                    "gd": -22
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 24,
+                    "gf": 36,
+                    "ga": 71,
+                    "gd": -35
+                }
+            ]
+        },
+        {
+            "simulation": 60951,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 87,
+                    "gf": 86,
+                    "ga": 36,
+                    "gd": 50
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 83,
+                    "gf": 68,
+                    "ga": 29,
+                    "gd": 39
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 74,
+                    "gf": 75,
+                    "ga": 47,
+                    "gd": 28
+                },
+                {
+                    "rank": 4,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 73,
+                    "gf": 66,
+                    "ga": 44,
+                    "gd": 22
+                },
+                {
+                    "rank": 5,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 71,
+                    "gf": 72,
+                    "ga": 37,
+                    "gd": 35
+                },
+                {
+                    "rank": 6,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 60,
+                    "gf": 58,
+                    "ga": 53,
+                    "gd": 5
+                },
+                {
+                    "rank": 7,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 58,
+                    "gf": 61,
+                    "ga": 54,
+                    "gd": 7
+                },
+                {
+                    "rank": 8,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 55,
+                    "gf": 59,
+                    "ga": 50,
+                    "gd": 9
+                },
+                {
+                    "rank": 9,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 53,
+                    "gf": 55,
+                    "ga": 54,
+                    "gd": 1
+                },
+                {
+                    "rank": 10,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 49,
+                    "gf": 54,
+                    "ga": 62,
+                    "gd": -8
+                },
+                {
+                    "rank": 11,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 47,
+                    "gf": 48,
+                    "ga": 53,
+                    "gd": -5
+                },
+                {
+                    "rank": 12,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 45,
+                    "gf": 47,
+                    "ga": 63,
+                    "gd": -16
+                },
+                {
+                    "rank": 13,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 43,
+                    "gf": 44,
+                    "ga": 74,
+                    "gd": -30
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 41,
+                    "gf": 54,
+                    "ga": 61,
+                    "gd": -7
+                },
+                {
+                    "rank": 15,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 41,
+                    "gf": 42,
+                    "ga": 64,
+                    "gd": -22
+                },
+                {
+                    "rank": 16,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 40,
+                    "gf": 33,
+                    "ga": 57,
+                    "gd": -24
+                },
+                {
+                    "rank": 17,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 39,
+                    "gf": 42,
+                    "ga": 64,
+                    "gd": -22
+                },
+                {
+                    "rank": 18,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 36,
+                    "gf": 37,
+                    "ga": 58,
+                    "gd": -21
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 34,
+                    "gf": 40,
+                    "ga": 65,
+                    "gd": -25
+                },
+                {
+                    "rank": 20,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 32,
+                    "gf": 42,
+                    "ga": 58,
+                    "gd": -16
+                }
+            ]
+        },
+        {
+            "simulation": 63890,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 86,
+                    "gf": 89,
+                    "ga": 33,
+                    "gd": 56
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 76,
+                    "gf": 62,
+                    "ga": 42,
+                    "gd": 20
+                },
+                {
+                    "rank": 3,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 68,
+                    "gf": 61,
+                    "ga": 37,
+                    "gd": 24
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 66,
+                    "gf": 51,
+                    "ga": 32,
+                    "gd": 19
+                },
+                {
+                    "rank": 5,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 63,
+                    "gf": 61,
+                    "ga": 51,
+                    "gd": 10
+                },
+                {
+                    "rank": 6,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 59,
+                    "gf": 63,
+                    "ga": 49,
+                    "gd": 14
+                },
+                {
+                    "rank": 7,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 58,
+                    "gf": 59,
+                    "ga": 41,
+                    "gd": 18
+                },
+                {
+                    "rank": 8,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 55,
+                    "gf": 62,
+                    "ga": 57,
+                    "gd": 5
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 54,
+                    "gf": 47,
+                    "ga": 53,
+                    "gd": -6
+                },
+                {
+                    "rank": 10,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 53,
+                    "gf": 49,
+                    "ga": 47,
+                    "gd": 2
+                },
+                {
+                    "rank": 11,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 49,
+                    "gf": 54,
+                    "ga": 57,
+                    "gd": -3
+                },
+                {
+                    "rank": 12,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 48,
+                    "gf": 52,
+                    "ga": 55,
+                    "gd": -3
+                },
+                {
+                    "rank": 13,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 47,
+                    "gf": 55,
+                    "ga": 50,
+                    "gd": 5
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 46,
+                    "gf": 43,
+                    "ga": 60,
+                    "gd": -17
+                },
+                {
+                    "rank": 15,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 41,
+                    "gf": 40,
+                    "ga": 49,
+                    "gd": -9
+                },
+                {
+                    "rank": 16,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 41,
+                    "gf": 44,
+                    "ga": 66,
+                    "gd": -22
+                },
+                {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 37,
+                    "gf": 43,
+                    "ga": 60,
+                    "gd": -17
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 36,
+                    "gf": 35,
+                    "ga": 50,
+                    "gd": -15
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 32,
+                    "gf": 30,
+                    "ga": 69,
+                    "gd": -39
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 21,
+                    "gf": 39,
+                    "ga": 81,
+                    "gd": -42
+                }
+            ]
+        },
+        {
+            "simulation": 65180,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 76,
+                    "gf": 65,
+                    "ga": 35,
+                    "gd": 30
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 75,
+                    "gf": 71,
+                    "ga": 40,
+                    "gd": 31
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 72,
+                    "gf": 58,
+                    "ga": 30,
+                    "gd": 28
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 64,
+                    "gf": 61,
+                    "ga": 38,
+                    "gd": 23
+                },
+                {
+                    "rank": 5,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 56,
+                    "gf": 56,
+                    "ga": 50,
+                    "gd": 6
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 55,
+                    "gf": 68,
+                    "ga": 64,
+                    "gd": 4
+                },
+                {
+                    "rank": 7,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 52,
+                    "gf": 43,
+                    "ga": 39,
+                    "gd": 4
+                },
+                {
+                    "rank": 8,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 51,
+                    "gf": 57,
+                    "ga": 62,
+                    "gd": -5
+                },
+                {
+                    "rank": 9,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 51,
+                    "gf": 45,
+                    "ga": 50,
+                    "gd": -5
+                },
+                {
+                    "rank": 10,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 50,
+                    "gf": 63,
+                    "ga": 51,
+                    "gd": 12
+                },
+                {
+                    "rank": 11,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 50,
+                    "gf": 56,
+                    "ga": 64,
+                    "gd": -8
+                },
+                {
+                    "rank": 12,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 50,
+                    "gf": 46,
+                    "ga": 55,
+                    "gd": -9
+                },
+                {
+                    "rank": 13,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 48,
+                    "gf": 48,
+                    "ga": 53,
+                    "gd": -5
+                },
+                {
+                    "rank": 14,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 48,
+                    "gf": 50,
+                    "ga": 59,
+                    "gd": -9
+                },
+                {
+                    "rank": 15,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 47,
+                    "gf": 51,
+                    "ga": 59,
+                    "gd": -8
+                },
+                {
+                    "rank": 16,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 47,
+                    "gf": 51,
+                    "ga": 63,
+                    "gd": -12
+                },
+                {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 45,
+                    "gf": 41,
+                    "ga": 53,
+                    "gd": -12
+                },
+                {
+                    "rank": 18,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 39,
+                    "gf": 41,
+                    "ga": 56,
+                    "gd": -15
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 34,
+                    "gf": 45,
+                    "ga": 65,
+                    "gd": -20
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 32,
+                    "gf": 36,
+                    "ga": 66,
+                    "gd": -30
+                }
+            ]
+        },
+        {
+            "simulation": 67641,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 83,
+                    "gf": 95,
+                    "ga": 36,
+                    "gd": 59
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 69,
+                    "gf": 61,
+                    "ga": 42,
+                    "gd": 19
+                },
+                {
+                    "rank": 3,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 66,
+                    "gf": 61,
+                    "ga": 43,
+                    "gd": 18
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 65,
+                    "gf": 75,
+                    "ga": 47,
+                    "gd": 28
+                },
+                {
+                    "rank": 5,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 59,
+                    "gf": 51,
+                    "ga": 42,
+                    "gd": 9
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 57,
+                    "gf": 64,
+                    "ga": 53,
+                    "gd": 11
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 57,
+                    "gf": 51,
+                    "ga": 51,
+                    "gd": 0
+                },
+                {
+                    "rank": 8,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 57,
+                    "gf": 49,
+                    "ga": 54,
+                    "gd": -5
+                },
+                {
+                    "rank": 9,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 55,
+                    "gf": 52,
+                    "ga": 56,
+                    "gd": -4
+                },
+                {
+                    "rank": 10,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 53,
+                    "gf": 55,
+                    "ga": 49,
+                    "gd": 6
+                },
+                {
+                    "rank": 11,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 52,
+                    "gf": 57,
+                    "ga": 57,
+                    "gd": 0
+                },
+                {
+                    "rank": 12,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 46,
+                    "gf": 55,
+                    "ga": 70,
+                    "gd": -15
+                },
+                {
+                    "rank": 13,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 45,
+                    "gf": 48,
+                    "ga": 58,
+                    "gd": -10
+                },
+                {
+                    "rank": 14,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 43,
+                    "gf": 48,
+                    "ga": 52,
+                    "gd": -4
+                },
+                {
+                    "rank": 15,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 42,
+                    "gf": 38,
+                    "ga": 55,
+                    "gd": -17
+                },
+                {
+                    "rank": 16,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 42,
+                    "gf": 41,
+                    "ga": 62,
+                    "gd": -21
+                },
+                {
+                    "rank": 17,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 42,
+                    "gf": 42,
+                    "ga": 65,
+                    "gd": -23
+                },
+                {
+                    "rank": 18,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 40,
+                    "gf": 40,
+                    "ga": 57,
+                    "gd": -17
+                },
+                {
+                    "rank": 19,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 38,
+                    "gf": 48,
+                    "ga": 55,
+                    "gd": -7
+                },
+                {
+                    "rank": 20,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 35,
+                    "gf": 47,
+                    "ga": 74,
+                    "gd": -27
+                }
+            ]
+        },
+        {
+            "simulation": 69998,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 87,
+                    "gf": 83,
+                    "ga": 33,
+                    "gd": 50
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 85,
+                    "gf": 84,
+                    "ga": 36,
+                    "gd": 48
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 68,
+                    "gf": 61,
+                    "ga": 30,
+                    "gd": 31
+                },
+                {
+                    "rank": 4,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 63,
+                    "gf": 71,
+                    "ga": 63,
+                    "gd": 8
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 61,
+                    "gf": 66,
+                    "ga": 61,
+                    "gd": 5
+                },
+                {
+                    "rank": 6,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 59,
+                    "gf": 65,
+                    "ga": 48,
+                    "gd": 17
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 59,
+                    "gf": 52,
+                    "ga": 46,
+                    "gd": 6
+                },
+                {
+                    "rank": 8,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 55,
+                    "gf": 55,
+                    "ga": 54,
+                    "gd": 1
+                },
+                {
+                    "rank": 9,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 50,
+                    "gf": 54,
+                    "ga": 63,
+                    "gd": -9
+                },
+                {
+                    "rank": 10,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 49,
+                    "gf": 50,
+                    "ga": 58,
+                    "gd": -8
+                },
+                {
+                    "rank": 11,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 48,
+                    "gf": 53,
+                    "ga": 55,
+                    "gd": -2
+                },
+                {
+                    "rank": 12,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 46,
+                    "gf": 51,
+                    "ga": 57,
+                    "gd": -6
+                },
+                {
+                    "rank": 13,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 42,
+                    "gf": 43,
+                    "ga": 65,
+                    "gd": -22
+                },
+                {
+                    "rank": 14,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 41,
+                    "gf": 40,
+                    "ga": 49,
+                    "gd": -9
+                },
+                {
+                    "rank": 15,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 41,
+                    "gf": 44,
+                    "ga": 72,
+                    "gd": -28
+                },
+                {
+                    "rank": 16,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 40,
+                    "gf": 44,
+                    "ga": 52,
+                    "gd": -8
+                },
+                {
+                    "rank": 17,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 40,
+                    "gf": 37,
+                    "ga": 60,
+                    "gd": -23
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 39,
+                    "gf": 43,
+                    "ga": 62,
+                    "gd": -19
+                },
+                {
+                    "rank": 19,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 37,
+                    "gf": 49,
+                    "ga": 57,
+                    "gd": -8
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 37,
+                    "gf": 44,
+                    "ga": 68,
+                    "gd": -24
+                }
+            ]
+        },
+        {
+            "simulation": 70410,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 83,
+                    "gf": 87,
+                    "ga": 38,
+                    "gd": 49
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 75,
+                    "gf": 77,
+                    "ga": 45,
+                    "gd": 32
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 71,
+                    "gf": 65,
+                    "ga": 40,
+                    "gd": 25
+                },
+                {
+                    "rank": 4,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 66,
+                    "gf": 53,
+                    "ga": 41,
+                    "gd": 12
+                },
+                {
+                    "rank": 5,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 65,
+                    "gf": 59,
+                    "ga": 39,
+                    "gd": 20
+                },
+                {
+                    "rank": 6,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 60,
+                    "gf": 74,
+                    "ga": 48,
+                    "gd": 26
+                },
+                {
+                    "rank": 7,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 56,
+                    "gf": 55,
+                    "ga": 50,
+                    "gd": 5
+                },
+                {
+                    "rank": 8,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 56,
+                    "gf": 42,
+                    "ga": 46,
+                    "gd": -4
+                },
+                {
+                    "rank": 9,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 53,
+                    "gf": 53,
+                    "ga": 48,
+                    "gd": 5
+                },
+                {
+                    "rank": 10,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 52,
+                    "gf": 51,
+                    "ga": 52,
+                    "gd": -1
+                },
+                {
+                    "rank": 11,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 49,
+                    "gf": 41,
+                    "ga": 45,
+                    "gd": -4
+                },
+                {
+                    "rank": 12,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 47,
+                    "gf": 47,
+                    "ga": 57,
+                    "gd": -10
+                },
+                {
+                    "rank": 13,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 45,
+                    "gf": 51,
+                    "ga": 53,
+                    "gd": -2
+                },
+                {
+                    "rank": 14,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 43,
+                    "gf": 50,
+                    "ga": 65,
+                    "gd": -15
+                },
+                {
+                    "rank": 15,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 41,
+                    "gf": 43,
+                    "ga": 58,
+                    "gd": -15
+                },
+                {
+                    "rank": 16,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 40,
+                    "gf": 40,
+                    "ga": 62,
+                    "gd": -22
+                },
+                {
+                    "rank": 17,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 37,
+                    "gf": 38,
+                    "ga": 48,
+                    "gd": -10
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 33,
+                    "gf": 52,
+                    "ga": 76,
+                    "gd": -24
+                },
+                {
+                    "rank": 19,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 33,
+                    "gf": 39,
+                    "ga": 67,
+                    "gd": -28
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 31,
+                    "gf": 46,
+                    "ga": 85,
+                    "gd": -39
+                }
+            ]
+        },
+        {
+            "simulation": 75130,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 101,
+                    "gf": 89,
+                    "ga": 29,
+                    "gd": 60
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 89,
+                    "gf": 98,
+                    "ga": 34,
+                    "gd": 64
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 70,
+                    "gf": 56,
+                    "ga": 42,
+                    "gd": 14
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 69,
+                    "gf": 69,
+                    "ga": 48,
+                    "gd": 21
+                },
+                {
+                    "rank": 5,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 64,
+                    "gf": 60,
+                    "ga": 48,
+                    "gd": 12
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 56,
+                    "gf": 64,
+                    "ga": 55,
+                    "gd": 9
+                },
+                {
+                    "rank": 7,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 55,
+                    "gf": 52,
+                    "ga": 52,
+                    "gd": 0
+                },
+                {
+                    "rank": 8,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 49,
+                    "gf": 44,
+                    "ga": 51,
+                    "gd": -7
+                },
+                {
+                    "rank": 9,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 47,
+                    "gf": 60,
+                    "ga": 59,
+                    "gd": 1
+                },
+                {
+                    "rank": 10,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 47,
+                    "gf": 61,
+                    "ga": 70,
+                    "gd": -9
+                },
+                {
+                    "rank": 11,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 47,
+                    "gf": 47,
+                    "ga": 62,
+                    "gd": -15
+                },
+                {
+                    "rank": 12,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 46,
+                    "gf": 42,
+                    "ga": 47,
+                    "gd": -5
+                },
+                {
+                    "rank": 13,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 44,
+                    "gf": 56,
+                    "ga": 59,
+                    "gd": -3
+                },
+                {
+                    "rank": 14,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 44,
+                    "gf": 47,
+                    "ga": 54,
+                    "gd": -7
+                },
+                {
+                    "rank": 15,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 44,
+                    "gf": 51,
+                    "ga": 66,
+                    "gd": -15
+                },
+                {
+                    "rank": 16,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 42,
+                    "gf": 55,
+                    "ga": 74,
+                    "gd": -19
+                },
+                {
+                    "rank": 17,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 40,
+                    "gf": 38,
+                    "ga": 61,
+                    "gd": -23
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 38,
+                    "gf": 47,
+                    "ga": 67,
+                    "gd": -20
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 32,
+                    "gf": 37,
+                    "ga": 62,
+                    "gd": -25
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 29,
+                    "gf": 32,
+                    "ga": 65,
+                    "gd": -33
+                }
+            ]
+        },
+        {
+            "simulation": 75233,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 87,
+                    "gf": 85,
+                    "ga": 39,
+                    "gd": 46
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 74,
+                    "gf": 69,
+                    "ga": 40,
+                    "gd": 29
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 73,
+                    "gf": 68,
+                    "ga": 33,
+                    "gd": 35
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 67,
+                    "gf": 75,
+                    "ga": 43,
+                    "gd": 32
+                },
+                {
+                    "rank": 5,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 63,
+                    "gf": 57,
+                    "ga": 56,
+                    "gd": 1
+                },
+                {
+                    "rank": 6,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 62,
+                    "gf": 52,
+                    "ga": 39,
+                    "gd": 13
+                },
+                {
+                    "rank": 7,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 58,
+                    "gf": 60,
+                    "ga": 57,
+                    "gd": 3
+                },
+                {
+                    "rank": 8,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 54,
+                    "gf": 53,
+                    "ga": 49,
+                    "gd": 4
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 53,
+                    "gf": 51,
+                    "ga": 50,
+                    "gd": 1
+                },
+                {
+                    "rank": 10,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 52,
+                    "gf": 45,
+                    "ga": 56,
+                    "gd": -11
+                },
+                {
+                    "rank": 11,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 51,
+                    "gf": 61,
+                    "ga": 59,
+                    "gd": 2
+                },
+                {
+                    "rank": 12,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 50,
+                    "gf": 48,
+                    "ga": 53,
+                    "gd": -5
+                },
+                {
+                    "rank": 13,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 48,
+                    "gf": 40,
+                    "ga": 51,
+                    "gd": -11
+                },
+                {
+                    "rank": 14,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 45,
+                    "gf": 47,
+                    "ga": 54,
+                    "gd": -7
+                },
+                {
+                    "rank": 15,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 44,
+                    "gf": 39,
+                    "ga": 55,
+                    "gd": -16
+                },
+                {
+                    "rank": 16,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 44,
+                    "gf": 49,
+                    "ga": 67,
+                    "gd": -18
+                },
+                {
+                    "rank": 17,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 43,
+                    "gf": 48,
+                    "ga": 58,
+                    "gd": -10
+                },
+                {
+                    "rank": 18,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 40,
+                    "gf": 47,
+                    "ga": 74,
+                    "gd": -27
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 32,
+                    "gf": 33,
+                    "ga": 60,
+                    "gd": -27
+                },
+                {
+                    "rank": 20,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 27,
+                    "gf": 34,
+                    "ga": 68,
+                    "gd": -34
+                }
+            ]
+        },
+        {
+            "simulation": 76102,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 83,
+                    "gf": 82,
+                    "ga": 34,
+                    "gd": 48
+                },
+                {
+                    "rank": 2,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 80,
+                    "gf": 64,
+                    "ga": 33,
+                    "gd": 31
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 71,
+                    "gf": 70,
+                    "ga": 40,
+                    "gd": 30
+                },
+                {
+                    "rank": 4,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 68,
+                    "gf": 67,
+                    "ga": 40,
+                    "gd": 27
+                },
+                {
+                    "rank": 5,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 63,
+                    "gf": 68,
+                    "ga": 45,
+                    "gd": 23
+                },
+                {
+                    "rank": 6,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 58,
+                    "gf": 59,
+                    "ga": 40,
+                    "gd": 19
+                },
+                {
+                    "rank": 7,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 57,
+                    "gf": 66,
+                    "ga": 56,
+                    "gd": 10
+                },
+                {
+                    "rank": 8,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 57,
+                    "gf": 55,
+                    "ga": 59,
+                    "gd": -4
+                },
+                {
+                    "rank": 9,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 50,
+                    "gf": 58,
+                    "ga": 55,
+                    "gd": 3
+                },
+                {
+                    "rank": 10,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 49,
+                    "gf": 54,
+                    "ga": 59,
+                    "gd": -5
+                },
+                {
+                    "rank": 11,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 48,
+                    "gf": 52,
+                    "ga": 60,
+                    "gd": -8
+                },
+                {
+                    "rank": 12,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 48,
+                    "gf": 46,
+                    "ga": 61,
+                    "gd": -15
+                },
+                {
+                    "rank": 13,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 45,
+                    "gf": 43,
+                    "ga": 52,
+                    "gd": -9
+                },
+                {
+                    "rank": 14,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 45,
+                    "gf": 47,
+                    "ga": 73,
+                    "gd": -26
+                },
+                {
+                    "rank": 15,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 41,
+                    "gf": 52,
+                    "ga": 65,
+                    "gd": -13
+                },
+                {
+                    "rank": 16,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 40,
+                    "gf": 40,
+                    "ga": 51,
+                    "gd": -11
+                },
+                {
+                    "rank": 17,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 34,
+                    "gf": 36,
+                    "ga": 55,
+                    "gd": -19
+                },
+                {
+                    "rank": 18,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 34,
+                    "gf": 39,
+                    "ga": 61,
+                    "gd": -22
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 33,
+                    "gf": 36,
+                    "ga": 63,
+                    "gd": -27
+                },
+                {
+                    "rank": 20,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 32,
+                    "gf": 39,
+                    "ga": 71,
+                    "gd": -32
+                }
+            ]
+        },
+        {
+            "simulation": 77634,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 83,
+                    "gf": 84,
+                    "ga": 38,
+                    "gd": 46
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 80,
+                    "gf": 89,
+                    "ga": 39,
+                    "gd": 50
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 66,
+                    "gf": 71,
+                    "ga": 56,
+                    "gd": 15
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 65,
+                    "gf": 63,
+                    "ga": 43,
+                    "gd": 20
+                },
+                {
+                    "rank": 5,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 58,
+                    "gf": 71,
+                    "ga": 42,
+                    "gd": 29
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 56,
+                    "gf": 54,
+                    "ga": 40,
+                    "gd": 14
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 56,
+                    "gf": 51,
+                    "ga": 48,
+                    "gd": 3
+                },
+                {
+                    "rank": 8,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 52,
+                    "gf": 55,
+                    "ga": 51,
+                    "gd": 4
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 51,
+                    "gf": 48,
+                    "ga": 52,
+                    "gd": -4
+                },
+                {
+                    "rank": 10,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 50,
+                    "gf": 52,
+                    "ga": 55,
+                    "gd": -3
+                },
+                {
+                    "rank": 11,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 49,
+                    "gf": 51,
+                    "ga": 56,
+                    "gd": -5
+                },
+                {
+                    "rank": 12,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 49,
+                    "gf": 45,
+                    "ga": 53,
+                    "gd": -8
+                },
+                {
+                    "rank": 13,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 48,
+                    "gf": 42,
+                    "ga": 49,
+                    "gd": -7
+                },
+                {
+                    "rank": 14,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 47,
+                    "gf": 42,
+                    "ga": 41,
+                    "gd": 1
+                },
+                {
+                    "rank": 15,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 44,
+                    "gf": 55,
+                    "ga": 66,
+                    "gd": -11
+                },
+                {
+                    "rank": 16,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 44,
+                    "gf": 50,
+                    "ga": 73,
+                    "gd": -23
+                },
+                {
+                    "rank": 17,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 41,
+                    "gf": 44,
+                    "ga": 59,
+                    "gd": -15
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 40,
+                    "gf": 47,
+                    "ga": 65,
+                    "gd": -18
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 34,
+                    "gf": 43,
+                    "ga": 70,
+                    "gd": -27
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 26,
+                    "gf": 31,
+                    "ga": 92,
+                    "gd": -61
+                }
+            ]
+        },
+        {
+            "simulation": 82439,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 82,
+                    "gf": 78,
+                    "ga": 37,
+                    "gd": 41
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 76,
+                    "gf": 66,
+                    "ga": 31,
+                    "gd": 35
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 71,
+                    "gf": 64,
+                    "ga": 31,
+                    "gd": 33
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 68,
+                    "gf": 71,
+                    "ga": 35,
+                    "gd": 36
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 63,
+                    "gf": 64,
+                    "ga": 47,
+                    "gd": 17
+                },
+                {
+                    "rank": 6,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 58,
+                    "gf": 63,
+                    "ga": 49,
+                    "gd": 14
+                },
+                {
+                    "rank": 7,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 55,
+                    "gf": 51,
+                    "ga": 42,
+                    "gd": 9
+                },
+                {
+                    "rank": 8,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 52,
+                    "gf": 46,
+                    "ga": 52,
+                    "gd": -6
+                },
+                {
+                    "rank": 9,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 51,
+                    "gf": 57,
+                    "ga": 58,
+                    "gd": -1
+                },
+                {
+                    "rank": 10,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 51,
+                    "gf": 44,
+                    "ga": 59,
+                    "gd": -15
+                },
+                {
+                    "rank": 11,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 50,
+                    "gf": 41,
+                    "ga": 60,
+                    "gd": -19
+                },
+                {
+                    "rank": 12,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 47,
+                    "gf": 36,
+                    "ga": 52,
+                    "gd": -16
+                },
+                {
+                    "rank": 13,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 46,
+                    "gf": 55,
+                    "ga": 50,
+                    "gd": 5
+                },
+                {
+                    "rank": 14,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 44,
+                    "gf": 42,
+                    "ga": 48,
+                    "gd": -6
+                },
+                {
+                    "rank": 15,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 42,
+                    "gf": 41,
+                    "ga": 51,
+                    "gd": -10
+                },
+                {
+                    "rank": 16,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 42,
+                    "gf": 38,
+                    "ga": 51,
+                    "gd": -13
+                },
+                {
+                    "rank": 17,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 40,
+                    "gf": 52,
+                    "ga": 73,
+                    "gd": -21
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 39,
+                    "gf": 39,
+                    "ga": 57,
+                    "gd": -18
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 34,
+                    "gf": 36,
+                    "ga": 65,
+                    "gd": -29
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 31,
+                    "gf": 39,
+                    "ga": 75,
+                    "gd": -36
+                }
+            ]
+        },
+        {
+            "simulation": 83786,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 88,
+                    "gf": 83,
+                    "ga": 31,
+                    "gd": 52
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 87,
+                    "gf": 71,
+                    "ga": 41,
+                    "gd": 30
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 69,
+                    "gf": 76,
+                    "ga": 38,
+                    "gd": 38
+                },
+                {
+                    "rank": 4,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 63,
+                    "gf": 60,
+                    "ga": 50,
+                    "gd": 10
+                },
+                {
+                    "rank": 5,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 60,
+                    "gf": 65,
+                    "ga": 60,
+                    "gd": 5
+                },
+                {
+                    "rank": 6,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 60,
+                    "gf": 50,
+                    "ga": 46,
+                    "gd": 4
                 },
                 {
                     "rank": 7,
@@ -21962,210 +19787,765 @@ window.forecastData = {
                     "slug": "chelsea",
                     "pts": 58,
                     "gf": 68,
-                    "ga": 63,
-                    "gd": 5
-                },
-                {
-                    "rank": 8,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 51,
-                    "gf": 55,
-                    "ga": 57,
-                    "gd": -2
-                },
-                {
-                    "rank": 9,
-                    "team": "Leeds",
-                    "slug": "leeds",
-                    "pts": 51,
-                    "gf": 51,
-                    "ga": 58,
-                    "gd": -7
-                },
-                {
-                    "rank": 10,
-                    "team": "Bournemouth",
-                    "slug": "bournemouth",
-                    "pts": 50,
-                    "gf": 68,
                     "ga": 57,
                     "gd": 11
                 },
                 {
+                    "rank": 8,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 57,
+                    "gf": 52,
+                    "ga": 56,
+                    "gd": -4
+                },
+                {
+                    "rank": 9,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 55,
+                    "gf": 55,
+                    "ga": 52,
+                    "gd": 3
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 52,
+                    "gf": 66,
+                    "ga": 60,
+                    "gd": 6
+                },
+                {
                     "rank": 11,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 51,
+                    "gf": 58,
+                    "ga": 45,
+                    "gd": 13
+                },
+                {
+                    "rank": 12,
+                    "team": "Everton",
+                    "slug": "everton",
                     "pts": 50,
+                    "gf": 49,
+                    "ga": 57,
+                    "gd": -8
+                },
+                {
+                    "rank": 13,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 47,
+                    "gf": 46,
+                    "ga": 53,
+                    "gd": -7
+                },
+                {
+                    "rank": 14,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 45,
+                    "gf": 44,
+                    "ga": 61,
+                    "gd": -17
+                },
+                {
+                    "rank": 15,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 40,
                     "gf": 44,
                     "ga": 56,
                     "gd": -12
                 },
                 {
-                    "rank": 12,
-                    "team": "Sunderland",
-                    "slug": "sunderland",
-                    "pts": 49,
-                    "gf": 57,
-                    "ga": 59,
-                    "gd": -2
-                },
-                {
-                    "rank": 13,
-                    "team": "Aston Villa",
-                    "slug": "aston-villa",
-                    "pts": 49,
-                    "gf": 50,
-                    "ga": 55,
-                    "gd": -5
-                },
-                {
-                    "rank": 14,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 46,
-                    "gf": 48,
-                    "ga": 57,
-                    "gd": -9
-                },
-                {
-                    "rank": 15,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 42,
-                    "gf": 54,
-                    "ga": 59,
-                    "gd": -5
-                },
-                {
                     "rank": 16,
-                    "team": "Crystal Palace",
-                    "slug": "crystal-palace",
-                    "pts": 42,
-                    "gf": 39,
-                    "ga": 53,
-                    "gd": -14
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 39,
+                    "gf": 44,
+                    "ga": 66,
+                    "gd": -22
                 },
                 {
                     "rank": 17,
                     "team": "Fulham",
                     "slug": "fulham",
-                    "pts": 38,
-                    "gf": 43,
-                    "ga": 57,
+                    "pts": 37,
+                    "gf": 33,
+                    "ga": 47,
                     "gd": -14
                 },
                 {
                     "rank": 18,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 35,
-                    "gf": 43,
-                    "ga": 80,
-                    "gd": -37
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 33,
+                    "gf": 34,
+                    "ga": 63,
+                    "gd": -29
+                },
+                {
+                    "rank": 19,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 32,
+                    "gf": 46,
+                    "ga": 67,
+                    "gd": -21
+                },
+                {
+                    "rank": 20,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 25,
+                    "gf": 33,
+                    "ga": 71,
+                    "gd": -38
+                }
+            ]
+        },
+        {
+            "simulation": 83861,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 80,
+                    "gf": 85,
+                    "ga": 43,
+                    "gd": 42
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 69,
+                    "gf": 57,
+                    "ga": 44,
+                    "gd": 13
+                },
+                {
+                    "rank": 3,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 68,
+                    "gf": 66,
+                    "ga": 46,
+                    "gd": 20
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 64,
+                    "gf": 60,
+                    "ga": 49,
+                    "gd": 11
+                },
+                {
+                    "rank": 5,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 60,
+                    "gf": 59,
+                    "ga": 44,
+                    "gd": 15
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 59,
+                    "gf": 60,
+                    "ga": 50,
+                    "gd": 10
+                },
+                {
+                    "rank": 7,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 58,
+                    "gf": 65,
+                    "ga": 53,
+                    "gd": 12
+                },
+                {
+                    "rank": 8,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 55,
+                    "gf": 64,
+                    "ga": 47,
+                    "gd": 17
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 55,
+                    "gf": 57,
+                    "ga": 50,
+                    "gd": 7
+                },
+                {
+                    "rank": 10,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 53,
+                    "gf": 54,
+                    "ga": 55,
+                    "gd": -1
+                },
+                {
+                    "rank": 11,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 53,
+                    "gf": 51,
+                    "ga": 53,
+                    "gd": -2
+                },
+                {
+                    "rank": 12,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 51,
+                    "gf": 46,
+                    "ga": 56,
+                    "gd": -10
+                },
+                {
+                    "rank": 13,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 50,
+                    "gf": 58,
+                    "ga": 63,
+                    "gd": -5
+                },
+                {
+                    "rank": 14,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 47,
+                    "gf": 45,
+                    "ga": 50,
+                    "gd": -5
+                },
+                {
+                    "rank": 15,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 45,
+                    "gf": 49,
+                    "ga": 62,
+                    "gd": -13
+                },
+                {
+                    "rank": 16,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 45,
+                    "gf": 49,
+                    "ga": 65,
+                    "gd": -16
+                },
+                {
+                    "rank": 17,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 41,
+                    "gf": 46,
+                    "ga": 68,
+                    "gd": -22
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 38,
+                    "gf": 48,
+                    "ga": 62,
+                    "gd": -14
                 },
                 {
                     "rank": 19,
                     "team": "Hull",
                     "slug": "hull",
                     "pts": 35,
-                    "gf": 40,
-                    "ga": 78,
-                    "gd": -38
+                    "gf": 51,
+                    "ga": 69,
+                    "gd": -18
                 },
                 {
                     "rank": 20,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 29,
-                    "gf": 35,
-                    "ga": 73,
-                    "gd": -38
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 30,
+                    "gf": 39,
+                    "ga": 80,
+                    "gd": -41
                 }
             ]
         },
         {
-            "simulation": 9949,
+            "simulation": 84484,
             "teams": [
                 {
                     "rank": 1,
                     "team": "Manchester City",
                     "slug": "man-city",
-                    "pts": 94,
-                    "gf": 92,
+                    "pts": 86,
+                    "gf": 87,
+                    "ga": 43,
+                    "gd": 44
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 78,
+                    "gf": 71,
+                    "ga": 48,
+                    "gd": 23
+                },
+                {
+                    "rank": 3,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 72,
+                    "gf": 64,
+                    "ga": 39,
+                    "gd": 25
+                },
+                {
+                    "rank": 4,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 64,
+                    "gf": 71,
+                    "ga": 53,
+                    "gd": 18
+                },
+                {
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 62,
+                    "gf": 63,
+                    "ga": 39,
+                    "gd": 24
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 62,
+                    "gf": 65,
+                    "ga": 50,
+                    "gd": 15
+                },
+                {
+                    "rank": 7,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 56,
+                    "gf": 65,
+                    "ga": 45,
+                    "gd": 20
+                },
+                {
+                    "rank": 8,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 55,
+                    "gf": 67,
+                    "ga": 57,
+                    "gd": 10
+                },
+                {
+                    "rank": 9,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 53,
+                    "gf": 53,
+                    "ga": 46,
+                    "gd": 7
+                },
+                {
+                    "rank": 10,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 53,
+                    "gf": 50,
+                    "ga": 61,
+                    "gd": -11
+                },
+                {
+                    "rank": 11,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 51,
+                    "gf": 42,
+                    "ga": 37,
+                    "gd": 5
+                },
+                {
+                    "rank": 12,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 48,
+                    "gf": 50,
+                    "ga": 53,
+                    "gd": -3
+                },
+                {
+                    "rank": 13,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 43,
+                    "gf": 44,
+                    "ga": 54,
+                    "gd": -10
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 41,
+                    "gf": 41,
+                    "ga": 56,
+                    "gd": -15
+                },
+                {
+                    "rank": 15,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 40,
+                    "gf": 35,
+                    "ga": 50,
+                    "gd": -15
+                },
+                {
+                    "rank": 16,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 40,
+                    "gf": 43,
+                    "ga": 68,
+                    "gd": -25
+                },
+                {
+                    "rank": 17,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 37,
+                    "gf": 38,
+                    "ga": 71,
+                    "gd": -33
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 36,
+                    "gf": 40,
+                    "ga": 60,
+                    "gd": -20
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 36,
+                    "gf": 42,
+                    "ga": 67,
+                    "gd": -25
+                },
+                {
+                    "rank": 20,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 34,
+                    "gf": 42,
+                    "ga": 76,
+                    "gd": -34
+                }
+            ]
+        },
+        {
+            "simulation": 84593,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 92,
+                    "gf": 82,
                     "ga": 34,
-                    "gd": 58
+                    "gd": 48
                 },
                 {
                     "rank": 2,
                     "team": "Arsenal",
                     "slug": "arsenal",
-                    "pts": 82,
-                    "gf": 80,
-                    "ga": 44,
-                    "gd": 36
+                    "pts": 77,
+                    "gf": 73,
+                    "ga": 43,
+                    "gd": 30
                 },
                 {
                     "rank": 3,
                     "team": "Liverpool",
                     "slug": "liverpool",
-                    "pts": 76,
-                    "gf": 73,
-                    "ga": 47,
-                    "gd": 26
+                    "pts": 73,
+                    "gf": 68,
+                    "ga": 39,
+                    "gd": 29
                 },
                 {
                     "rank": 4,
-                    "team": "Newcastle",
-                    "slug": "newcastle",
-                    "pts": 65,
-                    "gf": 62,
-                    "ga": 56,
-                    "gd": 6
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 59,
+                    "gf": 64,
+                    "ga": 43,
+                    "gd": 21
                 },
                 {
                     "rank": 5,
-                    "team": "Brighton",
-                    "slug": "brighton",
-                    "pts": 64,
-                    "gf": 70,
-                    "ga": 42,
-                    "gd": 28
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 59,
+                    "gf": 66,
+                    "ga": 54,
+                    "gd": 12
                 },
                 {
                     "rank": 6,
-                    "team": "Brentford",
-                    "slug": "brentford",
+                    "team": "Chelsea",
+                    "slug": "chelsea",
                     "pts": 59,
-                    "gf": 55,
-                    "ga": 49,
-                    "gd": 6
+                    "gf": 61,
+                    "ga": 54,
+                    "gd": 7
                 },
                 {
                     "rank": 7,
-                    "team": "Chelsea",
-                    "slug": "chelsea",
-                    "pts": 54,
-                    "gf": 61,
-                    "ga": 45,
-                    "gd": 16
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 56,
+                    "gf": 60,
+                    "ga": 60,
+                    "gd": 0
                 },
                 {
                     "rank": 8,
-                    "team": "Tottenham",
-                    "slug": "tottenham",
-                    "pts": 50,
-                    "gf": 57,
-                    "ga": 55,
-                    "gd": 2
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 54,
+                    "gf": 53,
+                    "ga": 49,
+                    "gd": 4
                 },
                 {
                     "rank": 9,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 50,
+                    "gf": 45,
+                    "ga": 46,
+                    "gd": -1
+                },
+                {
+                    "rank": 10,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 49,
+                    "gf": 44,
+                    "ga": 52,
+                    "gd": -8
+                },
+                {
+                    "rank": 11,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 49,
+                    "gf": 48,
+                    "ga": 58,
+                    "gd": -10
+                },
+                {
+                    "rank": 12,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 45,
+                    "gf": 47,
+                    "ga": 51,
+                    "gd": -4
+                },
+                {
+                    "rank": 13,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 45,
+                    "gf": 41,
+                    "ga": 60,
+                    "gd": -19
+                },
+                {
+                    "rank": 14,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 43,
+                    "gf": 60,
+                    "ga": 66,
+                    "gd": -6
+                },
+                {
+                    "rank": 15,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 43,
+                    "gf": 53,
+                    "ga": 60,
+                    "gd": -7
+                },
+                {
+                    "rank": 16,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 43,
+                    "gf": 50,
+                    "ga": 68,
+                    "gd": -18
+                },
+                {
+                    "rank": 17,
                     "team": "Aston Villa",
                     "slug": "aston-villa",
-                    "pts": 50,
-                    "gf": 60,
-                    "ga": 60,
+                    "pts": 43,
+                    "gf": 42,
+                    "ga": 61,
+                    "gd": -19
+                },
+                {
+                    "rank": 18,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 40,
+                    "gf": 46,
+                    "ga": 64,
+                    "gd": -18
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 37,
+                    "gf": 48,
+                    "ga": 65,
+                    "gd": -17
+                },
+                {
+                    "rank": 20,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 36,
+                    "gf": 41,
+                    "ga": 65,
+                    "gd": -24
+                }
+            ]
+        },
+        {
+            "simulation": 86355,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 86,
+                    "gf": 80,
+                    "ga": 30,
+                    "gd": 50
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 80,
+                    "gf": 79,
+                    "ga": 45,
+                    "gd": 34
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 74,
+                    "gf": 82,
+                    "ga": 44,
+                    "gd": 38
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 65,
+                    "gf": 48,
+                    "ga": 39,
+                    "gd": 9
+                },
+                {
+                    "rank": 5,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 60,
+                    "gf": 61,
+                    "ga": 46,
+                    "gd": 15
+                },
+                {
+                    "rank": 6,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 59,
+                    "gf": 58,
+                    "ga": 38,
+                    "gd": 20
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 57,
+                    "gf": 57,
+                    "ga": 53,
+                    "gd": 4
+                },
+                {
+                    "rank": 8,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 54,
+                    "gf": 52,
+                    "ga": 46,
+                    "gd": 6
+                },
+                {
+                    "rank": 9,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 51,
+                    "gf": 53,
+                    "ga": 53,
                     "gd": 0
                 },
                 {
@@ -22173,99 +20553,1949 @@ window.forecastData = {
                     "team": "Bournemouth",
                     "slug": "bournemouth",
                     "pts": 49,
-                    "gf": 55,
-                    "ga": 60,
-                    "gd": -5
+                    "gf": 53,
+                    "ga": 51,
+                    "gd": 2
                 },
                 {
                     "rank": 11,
                     "team": "Leeds",
                     "slug": "leeds",
-                    "pts": 47,
-                    "gf": 53,
-                    "ga": 58,
-                    "gd": -5
+                    "pts": 48,
+                    "gf": 45,
+                    "ga": 44,
+                    "gd": 1
                 },
                 {
                     "rank": 12,
-                    "team": "Manchester United",
-                    "slug": "man-united",
-                    "pts": 46,
-                    "gf": 52,
-                    "ga": 58,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 47,
+                    "gf": 46,
+                    "ga": 52,
                     "gd": -6
                 },
                 {
                     "rank": 13,
-                    "team": "Nottingham Forest",
-                    "slug": "nottm-forest",
-                    "pts": 43,
-                    "gf": 45,
-                    "ga": 52,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 47,
+                    "gf": 39,
+                    "ga": 46,
                     "gd": -7
                 },
                 {
                     "rank": 14,
-                    "team": "Ipswich",
-                    "slug": "ipswich",
-                    "pts": 42,
-                    "gf": 46,
-                    "ga": 64,
-                    "gd": -18
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 47,
+                    "gf": 43,
+                    "ga": 51,
+                    "gd": -8
                 },
                 {
                     "rank": 15,
-                    "team": "Everton",
-                    "slug": "everton",
-                    "pts": 40,
-                    "gf": 42,
-                    "ga": 54,
-                    "gd": -12
-                },
-                {
-                    "rank": 16,
                     "team": "Crystal Palace",
                     "slug": "crystal-palace",
-                    "pts": 39,
-                    "gf": 47,
-                    "ga": 67,
-                    "gd": -20
-                },
-                {
-                    "rank": 17,
-                    "team": "Hull",
-                    "slug": "hull",
-                    "pts": 39,
-                    "gf": 43,
-                    "ga": 72,
-                    "gd": -29
-                },
-                {
-                    "rank": 18,
-                    "team": "Coventry City",
-                    "slug": "coventry-city",
-                    "pts": 37,
-                    "gf": 42,
-                    "ga": 59,
-                    "gd": -17
-                },
-                {
-                    "rank": 19,
-                    "team": "Fulham",
-                    "slug": "fulham",
-                    "pts": 37,
+                    "pts": 40,
                     "gf": 42,
                     "ga": 66,
                     "gd": -24
                 },
                 {
+                    "rank": 16,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 38,
+                    "gf": 52,
+                    "ga": 61,
+                    "gd": -9
+                },
+                {
+                    "rank": 17,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 37,
+                    "gf": 41,
+                    "ga": 61,
+                    "gd": -20
+                },
+                {
+                    "rank": 18,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 34,
+                    "gf": 44,
+                    "ga": 87,
+                    "gd": -43
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 32,
+                    "gf": 38,
+                    "ga": 61,
+                    "gd": -23
+                },
+                {
                     "rank": 20,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 25,
+                    "gf": 27,
+                    "ga": 66,
+                    "gd": -39
+                }
+            ]
+        },
+        {
+            "simulation": 89141,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 92,
+                    "gf": 101,
+                    "ga": 31,
+                    "gd": 70
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 83,
+                    "gf": 84,
+                    "ga": 35,
+                    "gd": 49
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 65,
+                    "gf": 58,
+                    "ga": 40,
+                    "gd": 18
+                },
+                {
+                    "rank": 4,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 64,
+                    "gf": 66,
+                    "ga": 56,
+                    "gd": 10
+                },
+                {
+                    "rank": 5,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 64,
+                    "gf": 54,
+                    "ga": 47,
+                    "gd": 7
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 61,
+                    "gf": 59,
+                    "ga": 46,
+                    "gd": 13
+                },
+                {
+                    "rank": 7,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 58,
+                    "gf": 63,
+                    "ga": 56,
+                    "gd": 7
+                },
+                {
+                    "rank": 8,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 57,
+                    "gf": 72,
+                    "ga": 50,
+                    "gd": 22
+                },
+                {
+                    "rank": 9,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 57,
+                    "gf": 55,
+                    "ga": 52,
+                    "gd": 3
+                },
+                {
+                    "rank": 10,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 52,
+                    "gf": 56,
+                    "ga": 53,
+                    "gd": 3
+                },
+                {
+                    "rank": 11,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 50,
+                    "gf": 49,
+                    "ga": 54,
+                    "gd": -5
+                },
+                {
+                    "rank": 12,
                     "team": "Sunderland",
                     "slug": "sunderland",
+                    "pts": 46,
+                    "gf": 43,
+                    "ga": 51,
+                    "gd": -8
+                },
+                {
+                    "rank": 13,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 46,
+                    "gf": 59,
+                    "ga": 69,
+                    "gd": -10
+                },
+                {
+                    "rank": 14,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 44,
+                    "gf": 43,
+                    "ga": 48,
+                    "gd": -5
+                },
+                {
+                    "rank": 15,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 40,
+                    "gf": 37,
+                    "ga": 51,
+                    "gd": -14
+                },
+                {
+                    "rank": 16,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 39,
+                    "gf": 34,
+                    "ga": 51,
+                    "gd": -17
+                },
+                {
+                    "rank": 17,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 35,
+                    "gf": 33,
+                    "ga": 59,
+                    "gd": -26
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 33,
+                    "gf": 40,
+                    "ga": 77,
+                    "gd": -37
+                },
+                {
+                    "rank": 19,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 32,
+                    "gf": 44,
+                    "ga": 77,
+                    "gd": -33
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 27,
+                    "gf": 29,
+                    "ga": 76,
+                    "gd": -47
+                }
+            ]
+        },
+        {
+            "simulation": 89445,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 79,
+                    "gf": 79,
+                    "ga": 44,
+                    "gd": 35
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 75,
+                    "gf": 66,
+                    "ga": 36,
+                    "gd": 30
+                },
+                {
+                    "rank": 3,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 67,
+                    "gf": 72,
+                    "ga": 50,
+                    "gd": 22
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 66,
+                    "gf": 69,
+                    "ga": 39,
+                    "gd": 30
+                },
+                {
+                    "rank": 5,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 61,
+                    "gf": 73,
+                    "ga": 54,
+                    "gd": 19
+                },
+                {
+                    "rank": 6,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 59,
+                    "gf": 57,
+                    "ga": 56,
+                    "gd": 1
+                },
+                {
+                    "rank": 7,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 57,
+                    "gf": 53,
+                    "ga": 51,
+                    "gd": 2
+                },
+                {
+                    "rank": 8,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 56,
+                    "gf": 56,
+                    "ga": 49,
+                    "gd": 7
+                },
+                {
+                    "rank": 9,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 53,
+                    "gf": 49,
+                    "ga": 55,
+                    "gd": -6
+                },
+                {
+                    "rank": 10,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 52,
+                    "gf": 41,
+                    "ga": 49,
+                    "gd": -8
+                },
+                {
+                    "rank": 11,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 50,
+                    "gf": 42,
+                    "ga": 39,
+                    "gd": 3
+                },
+                {
+                    "rank": 12,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 49,
+                    "gf": 54,
+                    "ga": 65,
+                    "gd": -11
+                },
+                {
+                    "rank": 13,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 48,
+                    "gf": 53,
+                    "ga": 57,
+                    "gd": -4
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 47,
+                    "gf": 53,
+                    "ga": 57,
+                    "gd": -4
+                },
+                {
+                    "rank": 15,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 47,
+                    "gf": 52,
+                    "ga": 59,
+                    "gd": -7
+                },
+                {
+                    "rank": 16,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 45,
+                    "gf": 49,
+                    "ga": 60,
+                    "gd": -11
+                },
+                {
+                    "rank": 17,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 40,
+                    "gf": 43,
+                    "ga": 54,
+                    "gd": -11
+                },
+                {
+                    "rank": 18,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 38,
+                    "gf": 53,
+                    "ga": 74,
+                    "gd": -21
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
                     "pts": 33,
                     "gf": 39,
                     "ga": 74,
                     "gd": -35
+                },
+                {
+                    "rank": 20,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 24,
+                    "gf": 38,
+                    "ga": 69,
+                    "gd": -31
+                }
+            ]
+        },
+        {
+            "simulation": 93250,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 75,
+                    "gf": 68,
+                    "ga": 47,
+                    "gd": 21
+                },
+                {
+                    "rank": 2,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 71,
+                    "gf": 70,
+                    "ga": 48,
+                    "gd": 22
+                },
+                {
+                    "rank": 3,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 68,
+                    "gf": 78,
+                    "ga": 50,
+                    "gd": 28
+                },
+                {
+                    "rank": 4,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 63,
+                    "gf": 73,
+                    "ga": 50,
+                    "gd": 23
+                },
+                {
+                    "rank": 5,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 62,
+                    "gf": 62,
+                    "ga": 43,
+                    "gd": 19
+                },
+                {
+                    "rank": 6,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 61,
+                    "gf": 64,
+                    "ga": 44,
+                    "gd": 20
+                },
+                {
+                    "rank": 7,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 57,
+                    "gf": 63,
+                    "ga": 57,
+                    "gd": 6
+                },
+                {
+                    "rank": 8,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 55,
+                    "gf": 65,
+                    "ga": 60,
+                    "gd": 5
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 54,
+                    "gf": 48,
+                    "ga": 39,
+                    "gd": 9
+                },
+                {
+                    "rank": 10,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 51,
+                    "gf": 53,
+                    "ga": 64,
+                    "gd": -11
+                },
+                {
+                    "rank": 11,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 49,
+                    "gf": 50,
+                    "ga": 52,
+                    "gd": -2
+                },
+                {
+                    "rank": 12,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 48,
+                    "gf": 49,
+                    "ga": 56,
+                    "gd": -7
+                },
+                {
+                    "rank": 13,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 46,
+                    "gf": 45,
+                    "ga": 57,
+                    "gd": -12
+                },
+                {
+                    "rank": 14,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 44,
+                    "gf": 46,
+                    "ga": 56,
+                    "gd": -10
+                },
+                {
+                    "rank": 15,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 43,
+                    "gf": 47,
+                    "ga": 63,
+                    "gd": -16
+                },
+                {
+                    "rank": 16,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 42,
+                    "gf": 41,
+                    "ga": 49,
+                    "gd": -8
+                },
+                {
+                    "rank": 17,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 40,
+                    "gf": 48,
+                    "ga": 63,
+                    "gd": -15
+                },
+                {
+                    "rank": 18,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 37,
+                    "gf": 40,
+                    "ga": 58,
+                    "gd": -18
+                },
+                {
+                    "rank": 19,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 35,
+                    "gf": 43,
+                    "ga": 70,
+                    "gd": -27
+                },
+                {
+                    "rank": 20,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 35,
+                    "gf": 37,
+                    "ga": 64,
+                    "gd": -27
+                }
+            ]
+        },
+        {
+            "simulation": 94257,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 96,
+                    "gf": 87,
+                    "ga": 27,
+                    "gd": 60
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 74,
+                    "gf": 74,
+                    "ga": 46,
+                    "gd": 28
+                },
+                {
+                    "rank": 3,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 71,
+                    "gf": 62,
+                    "ga": 45,
+                    "gd": 17
+                },
+                {
+                    "rank": 4,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 63,
+                    "gf": 58,
+                    "ga": 45,
+                    "gd": 13
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 62,
+                    "gf": 57,
+                    "ga": 51,
+                    "gd": 6
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 60,
+                    "gf": 55,
+                    "ga": 44,
+                    "gd": 11
+                },
+                {
+                    "rank": 7,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 60,
+                    "gf": 50,
+                    "ga": 40,
+                    "gd": 10
+                },
+                {
+                    "rank": 8,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 57,
+                    "gf": 55,
+                    "ga": 53,
+                    "gd": 2
+                },
+                {
+                    "rank": 9,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 55,
+                    "gf": 59,
+                    "ga": 54,
+                    "gd": 5
+                },
+                {
+                    "rank": 10,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 54,
+                    "gf": 53,
+                    "ga": 61,
+                    "gd": -8
+                },
+                {
+                    "rank": 11,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 49,
+                    "gf": 40,
+                    "ga": 42,
+                    "gd": -2
+                },
+                {
+                    "rank": 12,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 47,
+                    "gf": 59,
+                    "ga": 49,
+                    "gd": 10
+                },
+                {
+                    "rank": 13,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 47,
+                    "gf": 52,
+                    "ga": 58,
+                    "gd": -6
+                },
+                {
+                    "rank": 14,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 44,
+                    "gf": 57,
+                    "ga": 59,
+                    "gd": -2
+                },
+                {
+                    "rank": 15,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 44,
+                    "gf": 51,
+                    "ga": 61,
+                    "gd": -10
+                },
+                {
+                    "rank": 16,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 40,
+                    "gf": 43,
+                    "ga": 57,
+                    "gd": -14
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 35,
+                    "gf": 41,
+                    "ga": 80,
+                    "gd": -39
+                },
+                {
+                    "rank": 18,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 33,
+                    "gf": 32,
+                    "ga": 60,
+                    "gd": -28
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 30,
+                    "gf": 30,
+                    "ga": 53,
+                    "gd": -23
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 27,
+                    "gf": 33,
+                    "ga": 63,
+                    "gd": -30
+                }
+            ]
+        },
+        {
+            "simulation": 94479,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 85,
+                    "gf": 88,
+                    "ga": 40,
+                    "gd": 48
+                },
+                {
+                    "rank": 2,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 70,
+                    "gf": 78,
+                    "ga": 40,
+                    "gd": 38
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 68,
+                    "gf": 74,
+                    "ga": 45,
+                    "gd": 29
+                },
+                {
+                    "rank": 4,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 67,
+                    "gf": 64,
+                    "ga": 39,
+                    "gd": 25
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 63,
+                    "gf": 59,
+                    "ga": 55,
+                    "gd": 4
+                },
+                {
+                    "rank": 6,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 62,
+                    "gf": 62,
+                    "ga": 46,
+                    "gd": 16
+                },
+                {
+                    "rank": 7,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 56,
+                    "gf": 72,
+                    "ga": 56,
+                    "gd": 16
+                },
+                {
+                    "rank": 8,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 55,
+                    "gf": 48,
+                    "ga": 53,
+                    "gd": -5
+                },
+                {
+                    "rank": 9,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 54,
+                    "gf": 59,
+                    "ga": 46,
+                    "gd": 13
+                },
+                {
+                    "rank": 10,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 53,
+                    "gf": 49,
+                    "ga": 52,
+                    "gd": -3
+                },
+                {
+                    "rank": 11,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 50,
+                    "gf": 45,
+                    "ga": 51,
+                    "gd": -6
+                },
+                {
+                    "rank": 12,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 47,
+                    "gf": 54,
+                    "ga": 58,
+                    "gd": -4
+                },
+                {
+                    "rank": 13,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 44,
+                    "gf": 39,
+                    "ga": 61,
+                    "gd": -22
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 42,
+                    "gf": 39,
+                    "ga": 56,
+                    "gd": -17
+                },
+                {
+                    "rank": 15,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 41,
+                    "gf": 42,
+                    "ga": 62,
+                    "gd": -20
+                },
+                {
+                    "rank": 16,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 41,
+                    "gf": 40,
+                    "ga": 61,
+                    "gd": -21
+                },
+                {
+                    "rank": 17,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 39,
+                    "gf": 52,
+                    "ga": 63,
+                    "gd": -11
+                },
+                {
+                    "rank": 18,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 39,
+                    "gf": 54,
+                    "ga": 81,
+                    "gd": -27
+                },
+                {
+                    "rank": 19,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 38,
+                    "gf": 47,
+                    "ga": 70,
+                    "gd": -23
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 28,
+                    "gf": 33,
+                    "ga": 63,
+                    "gd": -30
+                }
+            ]
+        },
+        {
+            "simulation": 95134,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 78,
+                    "gf": 74,
+                    "ga": 40,
+                    "gd": 34
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 74,
+                    "gf": 67,
+                    "ga": 40,
+                    "gd": 27
+                },
+                {
+                    "rank": 3,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 71,
+                    "gf": 75,
+                    "ga": 45,
+                    "gd": 30
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 68,
+                    "gf": 67,
+                    "ga": 42,
+                    "gd": 25
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 60,
+                    "gf": 65,
+                    "ga": 49,
+                    "gd": 16
+                },
+                {
+                    "rank": 6,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 57,
+                    "gf": 51,
+                    "ga": 45,
+                    "gd": 6
+                },
+                {
+                    "rank": 7,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 56,
+                    "gf": 48,
+                    "ga": 54,
+                    "gd": -6
+                },
+                {
+                    "rank": 8,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 54,
+                    "gf": 54,
+                    "ga": 43,
+                    "gd": 11
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 51,
+                    "gf": 55,
+                    "ga": 58,
+                    "gd": -3
+                },
+                {
+                    "rank": 10,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 50,
+                    "gf": 55,
+                    "ga": 50,
+                    "gd": 5
+                },
+                {
+                    "rank": 11,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 50,
+                    "gf": 51,
+                    "ga": 54,
+                    "gd": -3
+                },
+                {
+                    "rank": 12,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 49,
+                    "gf": 51,
+                    "ga": 51,
+                    "gd": 0
+                },
+                {
+                    "rank": 13,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 47,
+                    "gf": 46,
+                    "ga": 61,
+                    "gd": -15
+                },
+                {
+                    "rank": 14,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 47,
+                    "gf": 43,
+                    "ga": 59,
+                    "gd": -16
+                },
+                {
+                    "rank": 15,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 46,
+                    "gf": 51,
+                    "ga": 62,
+                    "gd": -11
+                },
+                {
+                    "rank": 16,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 44,
+                    "gf": 40,
+                    "ga": 57,
+                    "gd": -17
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 41,
+                    "gf": 45,
+                    "ga": 67,
+                    "gd": -22
+                },
+                {
+                    "rank": 18,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 41,
+                    "gf": 39,
+                    "ga": 63,
+                    "gd": -24
+                },
+                {
+                    "rank": 19,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 38,
+                    "gf": 42,
+                    "ga": 57,
+                    "gd": -15
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 36,
+                    "gf": 44,
+                    "ga": 66,
+                    "gd": -22
+                }
+            ]
+        },
+        {
+            "simulation": 95477,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 85,
+                    "gf": 91,
+                    "ga": 40,
+                    "gd": 51
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 65,
+                    "gf": 61,
+                    "ga": 40,
+                    "gd": 21
+                },
+                {
+                    "rank": 3,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 63,
+                    "gf": 60,
+                    "ga": 44,
+                    "gd": 16
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 62,
+                    "gf": 65,
+                    "ga": 50,
+                    "gd": 15
+                },
+                {
+                    "rank": 5,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 62,
+                    "gf": 63,
+                    "ga": 57,
+                    "gd": 6
+                },
+                {
+                    "rank": 6,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 61,
+                    "gf": 66,
+                    "ga": 56,
+                    "gd": 10
+                },
+                {
+                    "rank": 7,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 60,
+                    "gf": 51,
+                    "ga": 45,
+                    "gd": 6
+                },
+                {
+                    "rank": 8,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 59,
+                    "gf": 52,
+                    "ga": 44,
+                    "gd": 8
+                },
+                {
+                    "rank": 9,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 54,
+                    "gf": 50,
+                    "ga": 57,
+                    "gd": -7
+                },
+                {
+                    "rank": 10,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 50,
+                    "gf": 50,
+                    "ga": 52,
+                    "gd": -2
+                },
+                {
+                    "rank": 11,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 50,
+                    "gf": 55,
+                    "ga": 61,
+                    "gd": -6
+                },
+                {
+                    "rank": 12,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 48,
+                    "gf": 58,
+                    "ga": 62,
+                    "gd": -4
+                },
+                {
+                    "rank": 13,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 47,
+                    "gf": 49,
+                    "ga": 57,
+                    "gd": -8
+                },
+                {
+                    "rank": 14,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 46,
+                    "gf": 62,
+                    "ga": 59,
+                    "gd": 3
+                },
+                {
+                    "rank": 15,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 46,
+                    "gf": 43,
+                    "ga": 58,
+                    "gd": -15
+                },
+                {
+                    "rank": 16,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 44,
+                    "gf": 53,
+                    "ga": 61,
+                    "gd": -8
+                },
+                {
+                    "rank": 17,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 39,
+                    "gf": 48,
+                    "ga": 62,
+                    "gd": -14
+                },
+                {
+                    "rank": 18,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 38,
+                    "gf": 41,
+                    "ga": 56,
+                    "gd": -15
+                },
+                {
+                    "rank": 19,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 35,
+                    "gf": 38,
+                    "ga": 76,
+                    "gd": -38
+                },
+                {
+                    "rank": 20,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 34,
+                    "gf": 44,
+                    "ga": 63,
+                    "gd": -19
+                }
+            ]
+        },
+        {
+            "simulation": 96406,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 84,
+                    "gf": 86,
+                    "ga": 39,
+                    "gd": 47
+                },
+                {
+                    "rank": 2,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 77,
+                    "gf": 62,
+                    "ga": 37,
+                    "gd": 25
+                },
+                {
+                    "rank": 3,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 74,
+                    "gf": 62,
+                    "ga": 34,
+                    "gd": 28
+                },
+                {
+                    "rank": 4,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 67,
+                    "gf": 51,
+                    "ga": 40,
+                    "gd": 11
+                },
+                {
+                    "rank": 5,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 65,
+                    "gf": 69,
+                    "ga": 46,
+                    "gd": 23
+                },
+                {
+                    "rank": 6,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 63,
+                    "gf": 60,
+                    "ga": 46,
+                    "gd": 14
+                },
+                {
+                    "rank": 7,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 57,
+                    "gf": 47,
+                    "ga": 45,
+                    "gd": 2
+                },
+                {
+                    "rank": 8,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 56,
+                    "gf": 60,
+                    "ga": 52,
+                    "gd": 8
+                },
+                {
+                    "rank": 9,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 54,
+                    "gf": 43,
+                    "ga": 47,
+                    "gd": -4
+                },
+                {
+                    "rank": 10,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 53,
+                    "gf": 61,
+                    "ga": 58,
+                    "gd": 3
+                },
+                {
+                    "rank": 11,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 49,
+                    "gf": 45,
+                    "ga": 50,
+                    "gd": -5
+                },
+                {
+                    "rank": 12,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 48,
+                    "gf": 39,
+                    "ga": 48,
+                    "gd": -9
+                },
+                {
+                    "rank": 13,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 46,
+                    "gf": 46,
+                    "ga": 46,
+                    "gd": 0
+                },
+                {
+                    "rank": 14,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 45,
+                    "gf": 48,
+                    "ga": 68,
+                    "gd": -20
+                },
+                {
+                    "rank": 15,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 44,
+                    "gf": 55,
+                    "ga": 56,
+                    "gd": -1
+                },
+                {
+                    "rank": 16,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 41,
+                    "gf": 42,
+                    "ga": 52,
+                    "gd": -10
+                },
+                {
+                    "rank": 17,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 39,
+                    "gf": 29,
+                    "ga": 46,
+                    "gd": -17
+                },
+                {
+                    "rank": 18,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 33,
+                    "gf": 42,
+                    "ga": 71,
+                    "gd": -29
+                },
+                {
+                    "rank": 19,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 31,
+                    "gf": 39,
+                    "ga": 59,
+                    "gd": -20
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 27,
+                    "gf": 30,
+                    "ga": 76,
+                    "gd": -46
+                }
+            ]
+        },
+        {
+            "simulation": 98962,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 96,
+                    "gf": 92,
+                    "ga": 33,
+                    "gd": 59
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 71,
+                    "gf": 74,
+                    "ga": 35,
+                    "gd": 39
+                },
+                {
+                    "rank": 3,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 62,
+                    "gf": 59,
+                    "ga": 42,
+                    "gd": 17
+                },
+                {
+                    "rank": 4,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 61,
+                    "gf": 66,
+                    "ga": 51,
+                    "gd": 15
+                },
+                {
+                    "rank": 5,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 60,
+                    "gf": 55,
+                    "ga": 47,
+                    "gd": 8
+                },
+                {
+                    "rank": 6,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 56,
+                    "gf": 68,
+                    "ga": 59,
+                    "gd": 9
+                },
+                {
+                    "rank": 7,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 54,
+                    "gf": 55,
+                    "ga": 50,
+                    "gd": 5
+                },
+                {
+                    "rank": 8,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 53,
+                    "gf": 52,
+                    "ga": 47,
+                    "gd": 5
+                },
+                {
+                    "rank": 9,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 53,
+                    "gf": 45,
+                    "ga": 46,
+                    "gd": -1
+                },
+                {
+                    "rank": 10,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 52,
+                    "gf": 51,
+                    "ga": 54,
+                    "gd": -3
+                },
+                {
+                    "rank": 11,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 49,
+                    "gf": 44,
+                    "ga": 48,
+                    "gd": -4
+                },
+                {
+                    "rank": 12,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 47,
+                    "gf": 51,
+                    "ga": 60,
+                    "gd": -9
+                },
+                {
+                    "rank": 13,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 47,
+                    "gf": 45,
+                    "ga": 57,
+                    "gd": -12
+                },
+                {
+                    "rank": 14,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 46,
+                    "gf": 49,
+                    "ga": 53,
+                    "gd": -4
+                },
+                {
+                    "rank": 15,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 45,
+                    "gf": 46,
+                    "ga": 50,
+                    "gd": -4
+                },
+                {
+                    "rank": 16,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 38,
+                    "gf": 38,
+                    "ga": 57,
+                    "gd": -19
+                },
+                {
+                    "rank": 17,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 38,
+                    "gf": 40,
+                    "ga": 60,
+                    "gd": -20
+                },
+                {
+                    "rank": 18,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 38,
+                    "gf": 42,
+                    "ga": 64,
+                    "gd": -22
+                },
+                {
+                    "rank": 19,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 32,
+                    "gf": 41,
+                    "ga": 78,
+                    "gd": -37
+                },
+                {
+                    "rank": 20,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 29,
+                    "gf": 36,
+                    "ga": 58,
+                    "gd": -22
+                }
+            ]
+        },
+        {
+            "simulation": 99759,
+            "teams": [
+                {
+                    "rank": 1,
+                    "team": "Manchester City",
+                    "slug": "man-city",
+                    "pts": 88,
+                    "gf": 98,
+                    "ga": 42,
+                    "gd": 56
+                },
+                {
+                    "rank": 2,
+                    "team": "Arsenal",
+                    "slug": "arsenal",
+                    "pts": 79,
+                    "gf": 71,
+                    "ga": 41,
+                    "gd": 30
+                },
+                {
+                    "rank": 3,
+                    "team": "Tottenham",
+                    "slug": "tottenham",
+                    "pts": 66,
+                    "gf": 63,
+                    "ga": 46,
+                    "gd": 17
+                },
+                {
+                    "rank": 4,
+                    "team": "Liverpool",
+                    "slug": "liverpool",
+                    "pts": 62,
+                    "gf": 58,
+                    "ga": 40,
+                    "gd": 18
+                },
+                {
+                    "rank": 5,
+                    "team": "Chelsea",
+                    "slug": "chelsea",
+                    "pts": 61,
+                    "gf": 61,
+                    "ga": 51,
+                    "gd": 10
+                },
+                {
+                    "rank": 6,
+                    "team": "Leeds",
+                    "slug": "leeds",
+                    "pts": 60,
+                    "gf": 59,
+                    "ga": 45,
+                    "gd": 14
+                },
+                {
+                    "rank": 7,
+                    "team": "Aston Villa",
+                    "slug": "aston-villa",
+                    "pts": 60,
+                    "gf": 54,
+                    "ga": 52,
+                    "gd": 2
+                },
+                {
+                    "rank": 8,
+                    "team": "Brentford",
+                    "slug": "brentford",
+                    "pts": 59,
+                    "gf": 56,
+                    "ga": 47,
+                    "gd": 9
+                },
+                {
+                    "rank": 9,
+                    "team": "Brighton",
+                    "slug": "brighton",
+                    "pts": 56,
+                    "gf": 53,
+                    "ga": 39,
+                    "gd": 14
+                },
+                {
+                    "rank": 10,
+                    "team": "Nottingham Forest",
+                    "slug": "nottm-forest",
+                    "pts": 55,
+                    "gf": 46,
+                    "ga": 42,
+                    "gd": 4
+                },
+                {
+                    "rank": 11,
+                    "team": "Crystal Palace",
+                    "slug": "crystal-palace",
+                    "pts": 55,
+                    "gf": 55,
+                    "ga": 55,
+                    "gd": 0
+                },
+                {
+                    "rank": 12,
+                    "team": "Bournemouth",
+                    "slug": "bournemouth",
+                    "pts": 53,
+                    "gf": 54,
+                    "ga": 54,
+                    "gd": 0
+                },
+                {
+                    "rank": 13,
+                    "team": "Newcastle",
+                    "slug": "newcastle",
+                    "pts": 51,
+                    "gf": 45,
+                    "ga": 61,
+                    "gd": -16
+                },
+                {
+                    "rank": 14,
+                    "team": "Coventry City",
+                    "slug": "coventry-city",
+                    "pts": 41,
+                    "gf": 43,
+                    "ga": 56,
+                    "gd": -13
+                },
+                {
+                    "rank": 15,
+                    "team": "Everton",
+                    "slug": "everton",
+                    "pts": 39,
+                    "gf": 35,
+                    "ga": 59,
+                    "gd": -24
+                },
+                {
+                    "rank": 16,
+                    "team": "Manchester United",
+                    "slug": "man-united",
+                    "pts": 38,
+                    "gf": 45,
+                    "ga": 49,
+                    "gd": -4
+                },
+                {
+                    "rank": 17,
+                    "team": "Ipswich",
+                    "slug": "ipswich",
+                    "pts": 33,
+                    "gf": 44,
+                    "ga": 71,
+                    "gd": -27
+                },
+                {
+                    "rank": 18,
+                    "team": "Fulham",
+                    "slug": "fulham",
+                    "pts": 33,
+                    "gf": 35,
+                    "ga": 67,
+                    "gd": -32
+                },
+                {
+                    "rank": 19,
+                    "team": "Sunderland",
+                    "slug": "sunderland",
+                    "pts": 28,
+                    "gf": 38,
+                    "ga": 64,
+                    "gd": -26
+                },
+                {
+                    "rank": 20,
+                    "team": "Hull",
+                    "slug": "hull",
+                    "pts": 27,
+                    "gf": 38,
+                    "ga": 70,
+                    "gd": -32
                 }
             ]
         }
