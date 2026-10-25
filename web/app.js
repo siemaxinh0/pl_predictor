@@ -267,7 +267,7 @@ function renderUpcomingFixtures() {
         <section class="upcoming-round">
             <div class="round-head">
                 <h2>Kolejka ${round}</h2>
-                <button class="action-button action-button-secondary team-export" type="button" data-round-download="${round}">Zapisz PNG</button>
+                <button class="action-button action-button-secondary round-export" type="button" data-round-download="${round}">Zapisz PNG</button>
             </div>
             <div class="fixtures-grid">
                 ${remainingFixtures.filter(fixture => Number(fixture.round) === round).map(fixtureCard).join("")}
@@ -338,7 +338,7 @@ function renderResults() {
         <section class="upcoming-round">
             <div class="round-head">
                 <h2>Kolejka ${round}</h2>
-                <button class="action-button action-button-secondary team-export" type="button" data-round-download="${round}" data-round-kind="results">Zapisz PNG</button>
+                <button class="action-button action-button-secondary round-export" type="button" data-round-download="${round}" data-round-kind="results">Zapisz PNG</button>
             </div>
             <div class="fixtures-grid">
                 ${results.filter(match => Number(match.round) === round).map(resultCard).join("")}
