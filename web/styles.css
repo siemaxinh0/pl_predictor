@@ -886,6 +886,19 @@ h2 {
     font-size: 1.3rem;
 }
 
+.team-panel-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px 16px;
+    align-items: center;
+}
+
+.team-export {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+}
+
 .dist-scroll {
     overflow-x: auto;
 }

@@ -227,53 +227,51 @@ function positionZone(position) {
     return position >= 18 ? "is-relegation" : "";
 }
 
-function positionsHtml(team) {
+function positionsChart(team) {
     const counts = teamDetails[team.slug]?.positionCounts;
     if (!counts) {
-        return "";
+        return null;
     }
     const total = countsTotal(counts);
     const maxCount = Math.max(...counts);
     const likely = counts.indexOf(maxCount);
     const current = standings.find(row => row.slug === team.slug);
     const higher = current ? counts.slice(0, current.rank - 1).reduce((sum, count) => sum + count, 0) : 0;
-    const columns = counts.map((count, index) => {
-        const position = index + 1;
-        const label = shareText(count, total);
-        return `
-            <div class="dist-col ${positionZone(position)} ${current?.rank === position ? "is-current" : ""}" title="${position}. miejsce: ${label} symulacji">
-                ${distBar(count / maxCount, count / total >= 0.005 ? label : "")}
-                <span class="dist-label">${position}</span>
-            </div>
-        `;
-    }).join("");
-
-    return `
-        <section class="team-panel">
-            <h2>Na którym miejscu skończy sezon</h2>
-            <div class="team-facts">
-                ${fact("Najczęściej", `${likely + 1}. miejsce`)}
-                ${fact("8 na 10 symulacji", `${countsQuantile(counts, 0.1) + 1}.–${countsQuantile(counts, 0.9) + 1}. miejsce`)}
-                ${current ? fact(`Wyżej niż obecne ${current.rank}. miejsce`, shareText(higher, total)) : ""}
-                ${fact("Środek tabeli (5.–17.)", shareText(counts.slice(4, 17).reduce((sum, count) => sum + count, 0), total))}
-            </div>
-            <div class="dist-scroll">
-                <div class="dist-chart">${columns}</div>
-            </div>
-            <div class="dist-legend">
-                <span class="is-title">Mistrzostwo</span>
-                <span class="is-top4">Top 4</span>
-                <span class="is-relegation">Spadek</span>
-                ${current ? `<span class="is-current">Obecne miejsce</span>` : ""}
-            </div>
-        </section>
-    `;
+    return {
+        id: "positions",
+        fileName: "miejsca",
+        title: "Na którym miejscu skończy sezon",
+        facts: [
+            ["Najczęściej", `${likely + 1}. miejsce`],
+            ["8 na 10 symulacji", `${countsQuantile(counts, 0.1) + 1}.–${countsQuantile(counts, 0.9) + 1}. miejsce`],
+            current ? [`Wyżej niż obecne ${current.rank}. miejsce`, shareText(higher, total)] : null,
+            ["Środek tabeli (5.–17.)", shareText(counts.slice(4, 17).reduce((sum, count) => sum + count, 0), total)]
+        ].filter(Boolean),
+        columns: counts.map((count, index) => {
+            const position = index + 1;
+            const share = shareText(count, total);
+            return {
+                className: positionZone(position),
+                isCurrent: current?.rank === position,
+                height: count / maxCount,
+                value: count / total >= 0.005 ? share : "",
+                label: String(position),
+                tip: `${position}. miejsce: ${share} symulacji`
+            };
+        }),
+        legend: [
+            ["Mistrzostwo", "is-title"],
+            ["Top 4", "is-top4"],
+            ["Spadek", "is-relegation"],
+            current ? ["Obecne miejsce", "is-current"] : null
+        ].filter(Boolean)
+    };
 }
 
-function pointsHtml(team) {
+function pointsChart(team) {
     const details = teamDetails[team.slug];
     if (!details) {
-        return "";
+        return null;
     }
     const counts = details.pointsCounts;
     const total = countsTotal(counts);
@@ -283,35 +281,239 @@ function pointsHtml(team) {
     const high = countsQuantile(counts, 0.9);
     const above40 = counts.reduce((sum, count, index) => sum + (details.pointsMin + index >= 40 ? count : 0), 0);
     const labelStep = counts.length > 40 ? 10 : 5;
-    const columns = counts.map((count, index) => {
-        const points = details.pointsMin + index;
-        const className = index === median ? "is-median" : index >= low && index <= high ? "is-range" : "";
-        return `
-            <div class="dist-col ${className}" title="${points} pkt: ${shareText(count, total)} symulacji">
-                ${distBar(count / maxCount)}
-                <span class="dist-label">${points % labelStep === 0 ? points : ""}</span>
-            </div>
-        `;
-    }).join("");
+    return {
+        id: "points",
+        fileName: "punkty",
+        title: "Ile punktów zdobędzie",
+        chartClass: "dist-points",
+        facts: [
+            ["Mediana", `${details.pointsMin + median} pkt`],
+            ["8 na 10 symulacji", `${details.pointsMin + low}–${details.pointsMin + high} pkt`],
+            ["Najlepszy i najgorszy scenariusz", `${details.pointsMin}–${details.pointsMin + counts.length - 1} pkt`],
+            ["40 pkt lub więcej", shareText(above40, total)]
+        ],
+        columns: counts.map((count, index) => {
+            const points = details.pointsMin + index;
+            return {
+                className: index === median ? "is-median" : index >= low && index <= high ? "is-range" : "",
+                isCurrent: false,
+                height: count / maxCount,
+                value: "",
+                label: points % labelStep === 0 ? String(points) : "",
+                tip: `${points} pkt: ${shareText(count, total)} symulacji`
+            };
+        }),
+        legend: [
+            ["Mediana", "is-median"],
+            ["8 na 10 symulacji", "is-range"]
+        ]
+    };
+}
+
+const distCharts = new Map();
+
+function distPanelHtml(chart) {
+    if (!chart) {
+        return "";
+    }
+    distCharts.set(chart.id, chart);
+    const columns = chart.columns.map(column => `
+        <div class="dist-col ${column.className} ${column.isCurrent ? "is-current" : ""}" title="${escapeHtml(column.tip)}">
+            ${distBar(column.height, column.value)}
+            <span class="dist-label">${column.label}</span>
+        </div>
+    `).join("");
 
     return `
         <section class="team-panel">
-            <h2>Ile punktów zdobędzie</h2>
-            <div class="team-facts">
-                ${fact("Mediana", `${details.pointsMin + median} pkt`)}
-                ${fact("8 na 10 symulacji", `${details.pointsMin + low}–${details.pointsMin + high} pkt`)}
-                ${fact("Najlepszy i najgorszy scenariusz", `${details.pointsMin}–${details.pointsMin + counts.length - 1} pkt`)}
-                ${fact("40 pkt lub więcej", shareText(above40, total))}
+            <div class="team-panel-head">
+                <h2>${chart.title}</h2>
+                <button type="button" class="action-button action-button-secondary team-export" data-export-chart="${chart.id}">Zapisz PNG</button>
             </div>
+            <div class="team-facts">${chart.facts.map(([label, value]) => fact(label, value)).join("")}</div>
             <div class="dist-scroll">
-                <div class="dist-chart dist-points">${columns}</div>
+                <div class="dist-chart ${chart.chartClass || ""}">${columns}</div>
             </div>
-            <div class="dist-legend">
-                <span class="is-median">Mediana</span>
-                <span class="is-range">8 na 10 symulacji</span>
-            </div>
+            <div class="dist-legend">${chart.legend.map(([label, className]) => `<span class="${className}">${label}</span>`).join("")}</div>
         </section>
     `;
+}
+
+const exportColors = {
+    "is-title": "#3d195b",
+    "is-top4": "#72d7ff",
+    "is-range": "#72d7ff",
+    "is-relegation": "#c43f5f",
+    "is-median": "#e94091",
+    "is-current": "#e94091"
+};
+const exportDisplayFont = `"Bahnschrift", "Aptos Display", sans-serif`;
+const exportBodyFont = `"Trebuchet MS", "Aptos", sans-serif`;
+
+function loadImage(src) {
+    return new Promise(resolve => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => resolve(null);
+        image.src = src;
+    });
+}
+
+function fillFittedText(context, text, x, y, maxWidth, size, weight, family) {
+    let fontSize = size;
+    context.font = `${weight} ${fontSize}px ${family}`;
+    while (fontSize > 9 && context.measureText(text).width > maxWidth) {
+        fontSize -= 1;
+        context.font = `${weight} ${fontSize}px ${family}`;
+    }
+    context.fillText(text, x, y);
+}
+
+async function distChartCanvas(chart, team, withCrest = true) {
+    const width = 1200;
+    const height = 720;
+    const pad = 56;
+    const canvas = document.createElement("canvas");
+    canvas.width = width * 2;
+    canvas.height = height * 2;
+    const context = canvas.getContext("2d");
+    context.scale(2, 2);
+
+    context.fillStyle = "#fbfdff";
+    context.fillRect(0, 0, width, height);
+    const glow = context.createLinearGradient(0, 0, width, height);
+    glow.addColorStop(0, "rgba(114, 215, 255, 0.35)");
+    glow.addColorStop(0.55, "rgba(233, 64, 145, 0.08)");
+    glow.addColorStop(1, "rgba(233, 64, 145, 0)");
+    context.fillStyle = glow;
+    context.fillRect(0, 0, width, height);
+    const stripe = context.createLinearGradient(0, 0, width, 0);
+    stripe.addColorStop(0, "#3d195b");
+    stripe.addColorStop(1, "#e94091");
+    context.fillStyle = stripe;
+    context.fillRect(0, height - 10, width, 10);
+
+    const crest = withCrest ? await loadImage(`assets/logos/${team.slug}.svg`) : null;
+    if (crest) {
+        const ratio = crest.naturalWidth && crest.naturalHeight ? crest.naturalWidth / crest.naturalHeight : 1;
+        const crestWidth = ratio >= 1 ? 100 : 100 * ratio;
+        const crestHeight = ratio >= 1 ? 100 / ratio : 100;
+        context.drawImage(crest, pad + (100 - crestWidth) / 2, 40 + (100 - crestHeight) / 2, crestWidth, crestHeight);
+    }
+    const titleX = crest ? pad + 124 : pad;
+    context.textBaseline = "alphabetic";
+    context.fillStyle = "#240030";
+    fillFittedText(context, team.team, titleX, 92, 640, 50, 700, exportDisplayFont);
+    context.fillStyle = "#6a37a8";
+    context.font = `700 24px ${exportBodyFont}`;
+    context.fillText(chart.title, titleX, 130);
+
+    context.textAlign = "right";
+    context.fillStyle = "#3d195b";
+    context.font = `700 20px ${exportDisplayFont}`;
+    context.fillText("Premier League Predictor", width - pad, 74);
+    context.fillStyle = "#69758b";
+    context.font = `700 15px ${exportBodyFont}`;
+    context.fillText(`${forecastMeta.snapshotLabel} · ${formatInteger(forecastMeta.simulations)} symulacji`, width - pad, 100);
+    context.textAlign = "left";
+
+    const factGap = 14;
+    const factTop = 172;
+    const factWidth = (width - 2 * pad - factGap * (chart.facts.length - 1)) / chart.facts.length;
+    chart.facts.forEach(([label, value], index) => {
+        const x = pad + index * (factWidth + factGap);
+        context.beginPath();
+        context.roundRect(x, factTop, factWidth, 78, 10);
+        context.fillStyle = "#ffffff";
+        context.fill();
+        context.strokeStyle = "#c9e2f4";
+        context.lineWidth = 1;
+        context.stroke();
+        context.fillStyle = "#69758b";
+        fillFittedText(context, label.toUpperCase(), x + 16, factTop + 28, factWidth - 32, 13, 700, exportBodyFont);
+        context.fillStyle = "#240030";
+        fillFittedText(context, value, x + 16, factTop + 62, factWidth - 32, 26, 700, exportDisplayFont);
+    });
+
+    const plotTop = 300;
+    const plotBottom = 600;
+    const columnGap = chart.columns.length > 30 ? 3 : 8;
+    const columnWidth = (width - 2 * pad - columnGap * (chart.columns.length - 1)) / chart.columns.length;
+    context.textAlign = "center";
+    chart.columns.forEach((column, index) => {
+        const x = pad + index * (columnWidth + columnGap);
+        const centerX = x + columnWidth / 2;
+        const barHeight = Math.max(2, column.height * (plotBottom - plotTop - 26));
+        context.beginPath();
+        context.roundRect(x, plotBottom - barHeight, columnWidth, barHeight, [Math.min(5, columnWidth / 2), Math.min(5, columnWidth / 2), 0, 0]);
+        context.fillStyle = exportColors[column.className] || "rgba(61, 25, 91, 0.2)";
+        context.fill();
+        if (column.value) {
+            context.fillStyle = "#3d195b";
+            context.font = `700 15px ${exportBodyFont}`;
+            context.fillText(column.value, centerX, plotBottom - barHeight - 8);
+        }
+        if (column.label) {
+            context.font = `700 15px ${exportBodyFont}`;
+            if (column.isCurrent) {
+                const pillWidth = Math.max(columnWidth, context.measureText(column.label).width + 16);
+                context.beginPath();
+                context.roundRect(centerX - pillWidth / 2, plotBottom + 8, pillWidth, 24, 6);
+                context.fillStyle = exportColors["is-current"];
+                context.fill();
+                context.fillStyle = "#ffffff";
+            } else {
+                context.fillStyle = "#69758b";
+            }
+            context.fillText(column.label, centerX, plotBottom + 26);
+        }
+    });
+
+    context.textAlign = "left";
+    context.font = `700 15px ${exportBodyFont}`;
+    let legendX = pad;
+    chart.legend.forEach(([label, className]) => {
+        context.beginPath();
+        context.roundRect(legendX, 663, 14, 14, 3);
+        context.fillStyle = exportColors[className];
+        context.fill();
+        context.fillStyle = "#69758b";
+        context.fillText(label, legendX + 22, 676);
+        legendX += 22 + context.measureText(label).width + 28;
+    });
+
+    return canvas;
+}
+
+function canvasBlob(canvas) {
+    return new Promise((resolve, reject) => {
+        try {
+            canvas.toBlob(resolve, "image/png");
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+async function downloadDistChart(button) {
+    const chart = distCharts.get(button.dataset.exportChart);
+    button.disabled = true;
+    try {
+        let blob;
+        try {
+            blob = await canvasBlob(await distChartCanvas(chart, club));
+        } catch {
+            // strona otwarta z dysku (file://) blokuje zapis canvasu z narysowanym herbem
+            blob = await canvasBlob(await distChartCanvas(chart, club, false));
+        }
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = `${club.slug}-${chart.fileName}.png`;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+    } finally {
+        button.disabled = false;
+    }
 }
 
 function historyChartsHtml(team) {
@@ -486,8 +688,8 @@ function renderTeamPage() {
     document.title = `${club.team} - Premier League Predictor`;
     teamPage.innerHTML = [
         teamHeroHtml(club),
-        positionsHtml(club),
-        pointsHtml(club),
+        distPanelHtml(positionsChart(club)),
+        distPanelHtml(pointsChart(club)),
         historyChartsHtml(club),
         playedHtml(club),
         scheduleHtml(club)
@@ -496,5 +698,12 @@ function renderTeamPage() {
 
 bindChartTooltips(teamPage);
 bindFormTooltip();
+
+teamPage.addEventListener("click", event => {
+    const button = event.target.closest("[data-export-chart]");
+    if (button) {
+        downloadDistChart(button);
+    }
+});
 
 renderTeamPage();
