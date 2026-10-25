@@ -336,7 +336,10 @@ function renderResults() {
 
     resultsBody.innerHTML = rounds.slice(0, state.resultsRounds).map(round => `
         <section class="upcoming-round">
-            <h2>Kolejka ${round}</h2>
+            <div class="round-head">
+                <h2>Kolejka ${round}</h2>
+                <button class="action-button action-button-secondary team-export" type="button" data-round-download="${round}" data-round-kind="results">Zapisz PNG</button>
+            </div>
             <div class="fixtures-grid">
                 ${results.filter(match => Number(match.round) === round).map(resultCard).join("")}
             </div>
@@ -847,11 +850,114 @@ async function roundCanvas(round, withCrests) {
     return canvas;
 }
 
+async function resultsRoundCanvas(round, withCrests) {
+    const matches = results.filter(match => Number(match.round) === round);
+    const width = 1080;
+    const pad = 48;
+    const cardTop = 146;
+    const cardHeight = 106;
+    const cardGap = 12;
+    const height = cardTop + matches.length * (cardHeight + cardGap) - cardGap + 40;
+    const { canvas, context } = createExportCanvas(width, height, 2);
+    const crests = withCrests
+        ? await Promise.all(matches.map(match => Promise.all([match.homeSlug, match.awaySlug].map(slug => loadExportImage(`assets/logos/${slug}.svg`)))))
+        : [];
+
+    context.textBaseline = "alphabetic";
+    context.fillStyle = "#240030";
+    context.font = `700 46px ${exportDisplayFont}`;
+    context.fillText(`Kolejka ${round}: wyniki`, pad, 82);
+    context.fillStyle = "#6a37a8";
+    context.font = `700 19px ${exportBodyFont}`;
+    context.fillText("Prognoza sprzed kolejki, w ramce rezultat, który padł", pad, 116);
+    drawExportBrand(context, width, pad, 70);
+
+    const cardX = pad - 12;
+    const cardWidth = width - 2 * pad + 24;
+    const center = width / 2;
+    const scoreWidth = 96;
+    const boxWidth = 120;
+    const boxGap = 10;
+    const boxesLeft = center - (3 * boxWidth + 2 * boxGap) / 2;
+    const nameWidth = center - scoreWidth / 2 - 16 - (cardX + 68);
+
+    matches.forEach((match, index) => {
+        const top = cardTop + index * (cardHeight + cardGap);
+        context.beginPath();
+        context.roundRect(cardX, top, cardWidth, cardHeight, 12);
+        context.fillStyle = "#ffffff";
+        context.fill();
+        context.strokeStyle = "#c9e2f4";
+        context.lineWidth = 1;
+        context.stroke();
+
+        [
+            { name: match.homeTeam, lambda: match.lambdaHome, crestX: cardX + 20, textX: cardX + 68, infoX: cardX + 20, align: "left" },
+            { name: match.awayTeam, lambda: match.lambdaAway, crestX: cardX + cardWidth - 56, textX: cardX + cardWidth - 68, infoX: cardX + cardWidth - 20, align: "right" }
+        ].forEach((side, sideIndex) => {
+            const crest = crests[index]?.[sideIndex];
+            if (crest) {
+                drawContainedImage(context, crest, side.crestX, top + 14, 36);
+            }
+            context.textAlign = side.align;
+            context.fillStyle = "#240030";
+            fillFittedText(context, side.name, side.textX, top + 39, nameWidth, 21, 700, exportBodyFont);
+            context.fillStyle = "#69758b";
+            context.font = `700 14px ${exportBodyFont}`;
+            context.fillText(`xG ${formatLambda(side.lambda)}`, side.infoX, top + 80);
+        });
+
+        context.beginPath();
+        context.roundRect(center - scoreWidth / 2, top + 12, scoreWidth, 36, 8);
+        context.fillStyle = "#3d195b";
+        context.fill();
+        context.textAlign = "center";
+        context.fillStyle = "#ffffff";
+        context.font = `700 23px ${exportDisplayFont}`;
+        context.fillText(`${match.homeGoals}-${match.awayGoals}`, center, top + 39);
+
+        roundExportOutcomes.forEach((outcome, outcomeIndex) => {
+            const value = Math.max(0, Math.min(100, Number(match[outcome.key] || 0)));
+            const isHit = match.outcome === { homeWin: "home", draw: "draw", awayWin: "away" }[outcome.key];
+            const boxX = boxesLeft + outcomeIndex * (boxWidth + boxGap);
+            const boxTop = top + 56;
+            const box = new Path2D();
+            box.roundRect(boxX, boxTop, boxWidth, 38, 8);
+            context.fillStyle = isHit ? "#eaf7ff" : "#f4fbff";
+            context.fill(box);
+            context.save();
+            context.clip(box);
+            context.fillStyle = outcome.color;
+            context.fillRect(boxX, boxTop + 35, (boxWidth * value) / 100, 3);
+            context.restore();
+            context.strokeStyle = isHit ? "#3d195b" : "rgba(61, 25, 91, 0.1)";
+            context.lineWidth = isHit ? 2 : 1;
+            context.stroke(box);
+            context.lineWidth = 1;
+
+            context.textAlign = "left";
+            context.fillStyle = "#69758b";
+            context.font = `700 14px ${exportBodyFont}`;
+            context.fillText(outcome.label, boxX + 14, boxTop + 24);
+            context.textAlign = "right";
+            context.fillStyle = "#3d195b";
+            context.font = `700 18px ${exportDisplayFont}`;
+            context.fillText(formatPercent(value), boxX + boxWidth - 14, boxTop + 25);
+        });
+    });
+
+    return canvas;
+}
+
 async function downloadRound(button) {
     const round = Number(button.dataset.roundDownload);
+    const isResults = button.dataset.roundKind === "results";
     button.disabled = true;
     try {
-        await downloadCanvasPng(withCrests => roundCanvas(round, withCrests), `kolejka-${round}-prognoza.png`);
+        await downloadCanvasPng(
+            withCrests => (isResults ? resultsRoundCanvas : roundCanvas)(round, withCrests),
+            `kolejka-${round}-${isResults ? "wyniki" : "prognoza"}.png`
+        );
     } finally {
         button.disabled = false;
     }
@@ -987,12 +1093,12 @@ document.querySelectorAll(".tab-button").forEach(button => {
     });
 });
 
-upcomingBody.addEventListener("click", event => {
+[upcomingBody, resultsBody].forEach(body => body.addEventListener("click", event => {
     const button = event.target.closest("[data-round-download]");
     if (button) {
         downloadRound(button);
     }
-});
+}));
 
 upcomingActions.addEventListener("click", event => {
     if (!event.target.closest("[data-upcoming]")) {
