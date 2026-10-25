@@ -584,6 +584,16 @@ h2 {
     transform: translateX(-50%) rotate(225deg);
 }
 
+.tip-box.is-above {
+    transform: translate(-50%, calc(-100% - 10px));
+}
+
+.tip-box.is-above::after {
+    top: auto;
+    bottom: -6px;
+    transform: translateX(-50%) rotate(45deg);
+}
+
 .tip-box strong {
     color: var(--ink);
     font-weight: 900;

@@ -765,8 +765,10 @@ function showTip(target) {
     const targetX = targetRect.left + targetRect.width / 2;
     const halfWidth = tipBox.offsetWidth / 2;
     const left = Math.min(Math.max(targetX, halfWidth + 8), window.innerWidth - halfWidth - 8);
+    const above = targetRect.bottom + tipBox.offsetHeight + 18 > window.innerHeight && targetRect.top > tipBox.offsetHeight + 18;
+    tipBox.classList.toggle("is-above", above);
     tipBox.style.left = `${left}px`;
-    tipBox.style.top = `${targetRect.bottom}px`;
+    tipBox.style.top = `${above ? targetRect.top : targetRect.bottom}px`;
     tipBox.style.setProperty("--arrow-x", `${targetX - left + halfWidth}px`);
 }
 
