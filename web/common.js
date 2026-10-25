@@ -380,3 +380,114 @@ function bindChartTooltips(container) {
         }
     });
 }
+
+const exportDisplayFont = `"Bahnschrift", "Aptos Display", sans-serif`;
+const exportBodyFont = `"Trebuchet MS", "Aptos", sans-serif`;
+
+function loadExportImage(src) {
+    return new Promise(resolve => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => resolve(null);
+        image.src = src;
+    });
+}
+
+function drawContainedImage(context, image, x, y, size) {
+    const ratio = image.naturalWidth && image.naturalHeight ? image.naturalWidth / image.naturalHeight : 1;
+    const width = ratio >= 1 ? size : size * ratio;
+    const height = ratio >= 1 ? size / ratio : size;
+    context.drawImage(image, x + (size - width) / 2, y + (size - height) / 2, width, height);
+}
+
+function fillFittedText(context, text, x, y, maxWidth, size, weight, family) {
+    let fontSize = size;
+    context.font = `${weight} ${fontSize}px ${family}`;
+    while (fontSize > 9 && context.measureText(text).width > maxWidth) {
+        fontSize -= 1;
+        context.font = `${weight} ${fontSize}px ${family}`;
+    }
+    context.fillText(text, x, y);
+}
+
+function wrapText(context, text, maxWidth) {
+    const lines = [];
+    let line = "";
+    text.split(" ").forEach(word => {
+        const candidate = line ? `${line} ${word}` : word;
+        if (line && context.measureText(candidate).width > maxWidth) {
+            lines.push(line);
+            line = word;
+        } else {
+            line = candidate;
+        }
+    });
+    return line ? [...lines, line] : lines;
+}
+
+function mixColor(from, to, share) {
+    return from.map((value, index) => value + (to[index] - value) * share);
+}
+
+// gradient z canvasu jest ditherowany i zamienia PNG w szum ważący ponad 1 MB, pasy w jednolitych kolorach ważą ułamek tego
+function fillBands(context, width, y, height, colorAt) {
+    const bandWidth = 5;
+    for (let x = 0; x < width; x += bandWidth) {
+        const [red, green, blue] = colorAt(x / width).map(Math.round);
+        context.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+        context.fillRect(x, y, bandWidth, height);
+    }
+}
+
+function createExportCanvas(width, height, scale) {
+    const canvas = document.createElement("canvas");
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const context = canvas.getContext("2d");
+    context.scale(scale, scale);
+
+    fillBands(context, width, 0, height, share => {
+        const glow = share < 0.55
+            ? mixColor([114, 215, 255, 0.35], [233, 64, 145, 0.08], share / 0.55)
+            : mixColor([233, 64, 145, 0.08], [233, 64, 145, 0], (share - 0.55) / 0.45);
+        return mixColor([251, 253, 255, 1], [glow[0], glow[1], glow[2], 1], glow[3]);
+    });
+    fillBands(context, width, height - 10, 10, share => mixColor([61, 25, 91, 1], [233, 64, 145, 1], share));
+    return { canvas, context };
+}
+
+function drawExportBrand(context, width, pad, y) {
+    context.textAlign = "right";
+    context.fillStyle = "#3d195b";
+    context.font = `700 20px ${exportDisplayFont}`;
+    context.fillText("Premier League Predictor", width - pad, y);
+    context.fillStyle = "#69758b";
+    context.font = `700 15px ${exportBodyFont}`;
+    context.fillText(`${forecastMeta.snapshotLabel} · ${formatInteger(forecastMeta.simulations)} symulacji`, width - pad, y + 26);
+    context.textAlign = "left";
+}
+
+function canvasBlob(canvas) {
+    return new Promise((resolve, reject) => {
+        try {
+            canvas.toBlob(resolve, "image/png");
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+async function downloadCanvasPng(drawCanvas, fileName) {
+    let blob;
+    try {
+        blob = await canvasBlob(await drawCanvas(true));
+    } catch {
+        // strona otwarta z dysku (file://) blokuje zapis canvasu z narysowanymi herbami
+        blob = await canvasBlob(await drawCanvas(false));
+    }
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+}

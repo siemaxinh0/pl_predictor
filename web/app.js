@@ -57,6 +57,7 @@ const customChartControls = document.querySelector("#custom-chart-controls");
 const customChartView = document.querySelector("#custom-chart-view");
 const customChartDownload = document.querySelector("#custom-chart-download");
 const randomSimulationButton = document.querySelector("#random-simulation-button");
+const tableDownload = document.querySelector("#table-download");
 const randomSimulationModal = document.querySelector("#random-simulation-modal");
 const randomSimulationTitle = document.querySelector("#random-simulation-title");
 const randomSimulationBody = document.querySelector("#random-simulation-body");
@@ -102,6 +103,13 @@ function renderPercent(team, key, simulations, label) {
     `;
 }
 
+function forecastUpdatedText() {
+    const generatedAt = forecastMeta.generatedAtUTC ? new Date(forecastMeta.generatedAtUTC) : null;
+    return generatedAt && !Number.isNaN(generatedAt.getTime())
+        ? new Intl.DateTimeFormat("pl-PL", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Warsaw" }).format(generatedAt)
+        : "";
+}
+
 function renderMeta() {
     const playedMatches = document.querySelector("#played-matches");
     const matchProgressFill = document.querySelector("#match-progress-fill");
@@ -112,10 +120,7 @@ function renderMeta() {
     playedMatches.textContent = `${formatInteger(played)}/${formatInteger(total)}`;
     matchProgressFill.style.width = `${progress}%`;
 
-    const generatedAt = forecastMeta.generatedAtUTC ? new Date(forecastMeta.generatedAtUTC) : null;
-    const updated = generatedAt && !Number.isNaN(generatedAt.getTime())
-        ? new Intl.DateTimeFormat("pl-PL", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Warsaw" }).format(generatedAt)
-        : "";
+    const updated = forecastUpdatedText();
     document.querySelector("#table-meta").innerHTML = [
         forecastMeta.simulations ? `<span><strong>${formatInteger(forecastMeta.simulations)}</strong> symulacji</span>` : "",
         updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : ""
@@ -544,6 +549,189 @@ async function downloadCustomChart() {
     }, "image/png");
 }
 
+const tableExportZones = [
+    { label: "Mistrzostwo", color: "#3d195b", test: rank => rank === 1 },
+    { label: "Top 4", color: "#72d7ff", test: rank => rank > 1 && rank <= 4 },
+    { label: "Spadek", color: "#c43f5f", test: rank => rank >= 18 }
+];
+
+async function tableCanvas(withCrests) {
+    const width = 1080;
+    const height = 1350;
+    const pad = 48;
+    const { canvas, context } = createExportCanvas(width, height, 2);
+    const rows = [...teams].sort((first, second) => first.rank - second.rank);
+    const crests = withCrests ? await Promise.all(rows.map(team => loadExportImage(`assets/logos/${team.slug}.svg`))) : [];
+    const notes = rows.filter(team => teamNotes[teamKey(team)]).map((team, index) => ({ team, mark: "*".repeat(index + 1), note: teamNotes[teamKey(team)] }));
+
+    context.textBaseline = "alphabetic";
+    context.fillStyle = "#240030";
+    context.font = `700 46px ${exportDisplayFont}`;
+    context.fillText("Przewidywana tabela", pad, 82);
+    const updated = forecastUpdatedText();
+    if (updated) {
+        context.fillStyle = "#6a37a8";
+        context.font = `700 19px ${exportBodyFont}`;
+        context.fillText(`Aktualizacja: ${updated}`, pad, 116);
+    }
+    drawExportBrand(context, width, pad, 66);
+
+    const columns = [
+        { label: "#", width: 40 },
+        { label: "Drużyna", width: 312, align: "left" },
+        { label: "xPts", width: 86 },
+        { label: "xGF", width: 78 },
+        { label: "xGA", width: 78 },
+        { label: "xGD", width: 78 },
+        { label: "Tytuł", width: 104, percent: "title", fill: "rgba(106, 55, 168, 0.28)" },
+        { label: "Top 4", width: 104, percent: "top4", fill: "rgba(114, 215, 255, 0.6)" },
+        { label: "Spadek", width: 104, percent: "relegation", fill: "rgba(233, 64, 145, 0.32)" }
+    ];
+    let columnX = pad;
+    columns.forEach(column => {
+        column.x = columnX;
+        columnX += column.width;
+    });
+
+    const tableTop = 146;
+    const headerHeight = 40;
+    const rowHeight = 46;
+    const tableHeight = headerHeight + rows.length * rowHeight;
+    context.beginPath();
+    context.roundRect(pad - 12, tableTop, width - 2 * pad + 24, tableHeight + 8, 12);
+    context.fillStyle = "#ffffff";
+    context.fill();
+    context.strokeStyle = "#c9e2f4";
+    context.lineWidth = 1;
+    context.stroke();
+
+    context.font = `700 13px ${exportBodyFont}`;
+    context.fillStyle = "#69758b";
+    columns.forEach(column => {
+        context.textAlign = column.align || "center";
+        const x = column.align === "left" ? column.x : column.x + column.width / 2;
+        context.fillText(column.label.toUpperCase(), x, tableTop + 26);
+    });
+
+    rows.forEach((team, index) => {
+        const top = tableTop + headerHeight + index * rowHeight;
+        const middle = top + rowHeight / 2;
+        context.fillStyle = "#e3eef7";
+        context.fillRect(pad - 12, top, width - 2 * pad + 24, 1);
+
+        const zone = tableExportZones.find(item => item.test(team.rank));
+        if (zone) {
+            context.beginPath();
+            context.roundRect(pad - 6, top + 9, 4, rowHeight - 18, 2);
+            context.fillStyle = zone.color;
+            context.fill();
+        }
+
+        context.textAlign = "center";
+        context.fillStyle = "#240030";
+        context.font = `700 17px ${exportDisplayFont}`;
+        context.fillText(String(team.rank), columns[0].x + columns[0].width / 2, middle + 6);
+
+        const teamColumn = columns[1];
+        const crest = crests[index];
+        if (crest) {
+            drawContainedImage(context, crest, teamColumn.x, middle - 15, 30);
+        }
+        const nameX = teamColumn.x + 42;
+        context.textAlign = "left";
+        context.fillStyle = "#240030";
+        const note = notes.find(item => item.team === team);
+        fillFittedText(context, team.team, nameX, middle + 6, teamColumn.width - 64, 18, 700, exportBodyFont);
+        if (note) {
+            const nameWidth = context.measureText(team.team).width;
+            context.fillStyle = "#e94091";
+            context.font = `700 18px ${exportBodyFont}`;
+            context.fillText(note.mark, nameX + nameWidth + 3, middle + 1);
+        }
+
+        context.textAlign = "center";
+        context.fillStyle = "#3d195b";
+        context.font = `700 18px ${exportDisplayFont}`;
+        context.fillText(formatNumber(team.xPts), columns[2].x + columns[2].width / 2, middle + 6);
+        context.fillStyle = "#240030";
+        context.font = `700 15px ${exportBodyFont}`;
+        context.fillText(formatNumber(team.xGF), columns[3].x + columns[3].width / 2, middle + 5);
+        context.fillText(formatNumber(team.xGA), columns[4].x + columns[4].width / 2, middle + 5);
+        context.fillStyle = team.xGD >= 0 ? "#00a878" : "#c43f5f";
+        context.fillText(`${team.xGD > 0 ? "+" : ""}${formatNumber(team.xGD)}`, columns[5].x + columns[5].width / 2, middle + 5);
+
+        columns.filter(column => column.percent).forEach(column => {
+            const value = Math.max(0, Math.min(100, Number(team[column.percent] || 0)));
+            const barX = column.x + 8;
+            const barWidth = column.width - 16;
+            context.beginPath();
+            context.roundRect(barX, middle - 14, barWidth, 28, 6);
+            context.fillStyle = "rgba(61, 25, 91, 0.05)";
+            context.fill();
+            const fillWidth = (barWidth * value) / 100;
+            if (fillWidth >= 2) {
+                context.beginPath();
+                context.roundRect(barX, middle - 14, fillWidth, 28, Math.min(6, fillWidth / 2));
+                context.fillStyle = column.fill;
+                context.fill();
+            }
+            context.fillStyle = value > 0 ? "#240030" : "#9aa3b5";
+            context.font = `700 15px ${exportBodyFont}`;
+            context.fillText(formatPercent(value), column.x + column.width / 2, middle + 5);
+        });
+    });
+
+    let footerY = tableTop + tableHeight + 46;
+    context.textAlign = "left";
+    context.font = `700 15px ${exportBodyFont}`;
+    let legendX = pad;
+    tableExportZones.forEach(zone => {
+        context.beginPath();
+        context.roundRect(legendX, footerY - 12, 14, 14, 3);
+        context.fillStyle = zone.color;
+        context.fill();
+        context.fillStyle = "#69758b";
+        context.fillText(zone.label, legendX + 22, footerY);
+        legendX += 22 + context.measureText(zone.label).width + 28;
+    });
+
+    footerY += 22;
+    notes.forEach(({ mark, note }) => {
+        const [title, body] = note;
+        context.font = `700 14px ${exportBodyFont}`;
+        const lines = wrapText(context, body, width - 2 * pad - 72);
+        const boxHeight = 50 + lines.length * 20 + 12;
+        context.beginPath();
+        context.roundRect(pad - 12, footerY, width - 2 * pad + 24, boxHeight, 12);
+        context.fillStyle = "#ffffff";
+        context.fill();
+        context.strokeStyle = "rgba(233, 64, 145, 0.35)";
+        context.stroke();
+
+        context.fillStyle = "#e94091";
+        context.font = `700 30px ${exportDisplayFont}`;
+        context.fillText(mark, pad + 6, footerY + 42);
+        context.fillStyle = "#240030";
+        context.font = `700 17px ${exportBodyFont}`;
+        context.fillText(`${title}.`, pad + 48, footerY + 32);
+        context.fillStyle = "#69758b";
+        context.font = `700 14px ${exportBodyFont}`;
+        lines.forEach((line, index) => context.fillText(line, pad + 48, footerY + 56 + index * 20));
+        footerY += boxHeight + 12;
+    });
+
+    return canvas;
+}
+
+async function downloadTable() {
+    tableDownload.disabled = true;
+    try {
+        await downloadCanvasPng(tableCanvas, `przewidywana-tabela-${forecastMeta.snapshotId || "teraz"}.png`);
+    } finally {
+        tableDownload.disabled = false;
+    }
+}
+
 function showTip(target) {
     const [title, text] = tips[target.dataset.tip];
     tipBox.innerHTML = `<strong>${escapeHtml(title)}</strong><span>${escapeHtml(text)}</span>`;
@@ -706,6 +894,8 @@ customChartControls.addEventListener("change", event => {
 });
 
 customChartDownload.addEventListener("click", downloadCustomChart);
+tableDownload.disabled = !teams.length;
+tableDownload.addEventListener("click", downloadTable);
 
 customChartControls.addEventListener("click", event => {
     const chip = event.target.closest(".team-chip");
