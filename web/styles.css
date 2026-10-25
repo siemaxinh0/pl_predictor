@@ -1309,6 +1309,14 @@ h2 {
     gap: 14px;
 }
 
+.round-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px 16px;
+    align-items: center;
+}
+
 .upcoming-actions {
     display: flex;
     flex-wrap: wrap;

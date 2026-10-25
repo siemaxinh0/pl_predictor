@@ -265,7 +265,10 @@ function renderUpcomingFixtures() {
 
     upcomingBody.innerHTML = rounds.slice(0, state.upcomingRounds).map(round => `
         <section class="upcoming-round">
-            <h2>Kolejka ${round}</h2>
+            <div class="round-head">
+                <h2>Kolejka ${round}</h2>
+                <button class="action-button action-button-secondary team-export" type="button" data-round-download="${round}">Zapisz PNG</button>
+            </div>
             <div class="fixtures-grid">
                 ${remainingFixtures.filter(fixture => Number(fixture.round) === round).map(fixtureCard).join("")}
             </div>
@@ -751,6 +754,109 @@ async function downloadTable() {
     }
 }
 
+const roundExportOutcomes = [
+    { label: "1", key: "homeWin", color: "#72d7ff" },
+    { label: "X", key: "draw", color: "#6a37a8" },
+    { label: "2", key: "awayWin", color: "#e94091" }
+];
+
+async function roundCanvas(round, withCrests) {
+    const fixtures = remainingFixtures.filter(fixture => Number(fixture.round) === round);
+    const width = 1080;
+    const pad = 48;
+    const cardTop = 146;
+    const cardHeight = 106;
+    const cardGap = 12;
+    const height = cardTop + fixtures.length * (cardHeight + cardGap) - cardGap + 40;
+    const { canvas, context } = createExportCanvas(width, height, 2);
+    const crests = withCrests
+        ? await Promise.all(fixtures.map(fixture => Promise.all([fixture.homeSlug, fixture.awaySlug].map(slug => loadExportImage(`assets/logos/${slug}.svg`)))))
+        : [];
+
+    context.textBaseline = "alphabetic";
+    context.fillStyle = "#240030";
+    context.font = `700 46px ${exportDisplayFont}`;
+    context.fillText(`Kolejka ${round}`, pad, 82);
+    context.fillStyle = "#6a37a8";
+    context.font = `700 19px ${exportBodyFont}`;
+    context.fillText(exportMetaText(), pad, 116);
+    drawExportBrand(context, width, pad, 70);
+
+    const cardX = pad - 12;
+    const cardWidth = width - 2 * pad + 24;
+    const center = width / 2;
+    const boxWidth = 92;
+    const boxGap = 10;
+    const boxesLeft = center - (3 * boxWidth + 2 * boxGap) / 2;
+    const nameWidth = boxesLeft - 16 - (cardX + 76);
+
+    fixtures.forEach((fixture, index) => {
+        const top = cardTop + index * (cardHeight + cardGap);
+        const middle = top + cardHeight / 2;
+        context.beginPath();
+        context.roundRect(cardX, top, cardWidth, cardHeight, 12);
+        context.fillStyle = "#ffffff";
+        context.fill();
+        context.strokeStyle = "#c9e2f4";
+        context.lineWidth = 1;
+        context.stroke();
+
+        [
+            { name: fixture.homeTeam, slug: fixture.homeSlug, lambda: fixture.lambdaHome, crestX: cardX + 20, textX: cardX + 76, align: "left" },
+            { name: fixture.awayTeam, slug: fixture.awaySlug, lambda: fixture.lambdaAway, crestX: cardX + cardWidth - 64, textX: cardX + cardWidth - 76, align: "right" }
+        ].forEach((side, sideIndex) => {
+            const crest = crests[index]?.[sideIndex];
+            if (crest) {
+                drawContainedImage(context, crest, side.crestX, middle - 22, 44);
+            }
+            const position = standings.find(team => team.slug === side.slug)?.rank;
+            context.textAlign = side.align;
+            context.fillStyle = "#240030";
+            fillFittedText(context, side.name, side.textX, middle - 2, nameWidth, 21, 700, exportBodyFont);
+            context.fillStyle = "#69758b";
+            context.font = `700 14px ${exportBodyFont}`;
+            context.fillText([position ? `${position}. miejsce` : "", `xG ${formatLambda(side.lambda)}`].filter(Boolean).join("  ·  "), side.textX, middle + 22);
+        });
+
+        roundExportOutcomes.forEach((outcome, outcomeIndex) => {
+            const value = Math.max(0, Math.min(100, Number(fixture[outcome.key] || 0)));
+            const boxX = boxesLeft + outcomeIndex * (boxWidth + boxGap);
+            const boxTop = middle - 30;
+            const box = new Path2D();
+            box.roundRect(boxX, boxTop, boxWidth, 60, 8);
+            context.fillStyle = "#f4fbff";
+            context.fill(box);
+            context.save();
+            context.clip(box);
+            context.fillStyle = outcome.color;
+            context.fillRect(boxX, boxTop + 56, (boxWidth * value) / 100, 4);
+            context.restore();
+            context.strokeStyle = "rgba(61, 25, 91, 0.1)";
+            context.stroke(box);
+
+            context.textAlign = "center";
+            context.fillStyle = "#69758b";
+            context.font = `700 13px ${exportBodyFont}`;
+            context.fillText(outcome.label, boxX + boxWidth / 2, boxTop + 21);
+            context.fillStyle = "#3d195b";
+            context.font = `700 19px ${exportDisplayFont}`;
+            context.fillText(formatPercent(value), boxX + boxWidth / 2, boxTop + 45);
+        });
+    });
+
+    return canvas;
+}
+
+async function downloadRound(button) {
+    const round = Number(button.dataset.roundDownload);
+    button.disabled = true;
+    try {
+        await downloadCanvasPng(withCrests => roundCanvas(round, withCrests), `kolejka-${round}-prognoza.png`);
+    } finally {
+        button.disabled = false;
+    }
+}
+
 function showTip(target) {
     const { tipTitle, tipText, tipStatus, tipTone } = target.dataset;
     const [title, text] = tipTitle ? [tipTitle, tipText] : tips[target.dataset.tip];
@@ -879,6 +985,13 @@ document.querySelectorAll(".tab-button").forEach(button => {
         document.querySelectorAll(".tab-view").forEach(view => view.classList.toggle("is-active", view.dataset.view === tab));
         closeTeamCard();
     });
+});
+
+upcomingBody.addEventListener("click", event => {
+    const button = event.target.closest("[data-round-download]");
+    if (button) {
+        downloadRound(button);
+    }
 });
 
 upcomingActions.addEventListener("click", event => {
