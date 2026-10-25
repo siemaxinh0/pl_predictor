@@ -110,7 +110,17 @@ function renderMeta() {
     const progress = total > 0 ? Math.max(0, Math.min(100, (played / total) * 100)) : 0;
 
     playedMatches.textContent = `${formatInteger(played)}/${formatInteger(total)}`;
-    matchProgressFill.style.width = `${progress}%`;}
+    matchProgressFill.style.width = `${progress}%`;
+
+    const generatedAt = forecastMeta.generatedAtUTC ? new Date(forecastMeta.generatedAtUTC) : null;
+    const updated = generatedAt && !Number.isNaN(generatedAt.getTime())
+        ? new Intl.DateTimeFormat("pl-PL", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Warsaw" }).format(generatedAt)
+        : "";
+    document.querySelector("#table-meta").innerHTML = [
+        forecastMeta.simulations ? `<span><strong>${formatInteger(forecastMeta.simulations)}</strong> symulacji</span>` : "",
+        updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : ""
+    ].filter(Boolean).join("");
+}
 
 function renderTable() {
     if (!teams.length) {
