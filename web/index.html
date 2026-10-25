@@ -123,8 +123,11 @@
                     <h2 id="history-title">Tabela prawdopodobieństw</h2>
                 </div>
             </div>
-            <label class="history-select-label" for="history-select">Wybierz zapisany moment sezonu</label>
-            <select class="history-select" id="history-select"></select>
+            <p class="history-select-label" id="history-picker-label">Wybierz zapisany moment sezonu</p>
+            <div class="round-picker" id="history-picker">
+                <button class="history-select round-picker-toggle" id="history-select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="history-menu" aria-labelledby="history-picker-label history-select"></button>
+                <div class="round-picker-menu" id="history-menu" role="listbox" aria-labelledby="history-picker-label" hidden></div>
+            </div>
             <div class="table-wrap history-table-wrap">
                 <table>
                     <thead>

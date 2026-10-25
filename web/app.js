@@ -49,6 +49,8 @@ const resultsActions = document.querySelector("#results-actions");
 const upcomingBody = document.querySelector("#upcoming-body");
 const upcomingActions = document.querySelector("#upcoming-actions");
 const historySelect = document.querySelector("#history-select");
+const historyPicker = document.querySelector("#history-picker");
+const historyMenu = document.querySelector("#history-menu");
 const historyBody = document.querySelector("#history-body");
 const historyTitle = document.querySelector("#history-title");
 const chartsPanel = document.querySelector("[data-view='charts']");
@@ -379,19 +381,54 @@ function resultCard(match) {
 
 function renderHistoryControls() {
     if (!historySnapshots.length) {
-        historySelect.innerHTML = `<option>Brak zapisanych snapshotów</option>`;
+        historySelect.textContent = "Brak zapisanych snapshotów";
         historySelect.disabled = true;
         return;
     }
 
-    const snapshotByRound = new Map(historySnapshots.map((snapshot, index) => [Number(snapshot.playedRounds || 0), { snapshot, index }]));
+    const snapshotByRound = new Map(historySnapshots.map((snapshot, index) => [Number(snapshot.playedRounds || 0), index]));
+    const roundLabel = round => (round === 0 ? "Przed sezonem" : `Po ${round}. kolejce`);
+    const option = round => {
+        const index = snapshotByRound.get(round);
+        const available = index !== undefined;
+        const selected = available && index === state.historyIndex;
+        const label = `${roundLabel(round)}${available ? "" : " (brak zapisanej prognozy)"}`;
+        return `
+            <button class="round-option ${round === 0 ? "is-wide" : ""}" type="button" role="option" aria-selected="${selected}" title="${escapeHtml(label)}" aria-label="${escapeHtml(label)}" ${available ? `data-index="${index}"` : "disabled"}>
+                ${round === 0 ? "Przed sezonem" : round}
+            </button>
+        `;
+    };
+
     historySelect.disabled = false;
-    historySelect.innerHTML = Array.from({ length: 39 }, (_item, round) => {
-        const found = snapshotByRound.get(round);
-        const label = round === 0 ? "Przed sezonem" : `Po ${round}. kolejce`;
-        const value = found ? found.index : "";
-        return `<option value="${value}" ${found ? "" : "disabled"} ${found?.index === state.historyIndex ? "selected" : ""}>${label}${found ? "" : " - niedostępne"}</option>`;
-    }).join("");
+    historySelect.innerHTML = `<span>${roundLabel(Number(historySnapshots[state.historyIndex]?.playedRounds || 0))}</span>`;
+    historyMenu.innerHTML = `
+        ${option(0)}
+        <span class="round-picker-caption">Po kolejce</span>
+        <div class="round-picker-grid">${Array.from({ length: 38 }, (_item, round) => option(round + 1)).join("")}</div>
+        <span class="round-picker-note">Wyszarzone kolejki nie mają zapisanej prognozy.</span>
+    `;
+}
+
+function historyOptions() {
+    return [...historyMenu.querySelectorAll(".round-option:not(:disabled)")];
+}
+
+function openHistoryMenu() {
+    historyMenu.hidden = false;
+    historySelect.setAttribute("aria-expanded", "true");
+    (historyMenu.querySelector("[aria-selected='true']") || historyOptions()[0])?.focus();
+}
+
+function closeHistoryMenu(focusToggle = false) {
+    if (historyMenu.hidden) {
+        return;
+    }
+    historyMenu.hidden = true;
+    historySelect.setAttribute("aria-expanded", "false");
+    if (focusToggle) {
+        historySelect.focus();
+    }
 }
 
 function renderHistoryTable() {
@@ -1108,9 +1145,53 @@ upcomingActions.addEventListener("click", event => {
     renderUpcomingFixtures();
 });
 
-historySelect.addEventListener("change", () => {
-    state.historyIndex = Number(historySelect.value || 0);
+historySelect.addEventListener("click", () => {
+    if (historyMenu.hidden) {
+        openHistoryMenu();
+    } else {
+        closeHistoryMenu();
+    }
+});
+
+historySelect.addEventListener("keydown", event => {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        openHistoryMenu();
+    }
+});
+
+historyMenu.addEventListener("click", event => {
+    const option = event.target.closest("[data-index]");
+    if (!option) {
+        return;
+    }
+    state.historyIndex = Number(option.dataset.index);
+    closeHistoryMenu(true);
     renderHistory();
+});
+
+historyMenu.addEventListener("keydown", event => {
+    const options = historyOptions();
+    const current = options.indexOf(document.activeElement);
+    const moves = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+    if (event.key === "Escape" || event.key === "Tab") {
+        if (event.key === "Escape") {
+            event.preventDefault();
+        }
+        closeHistoryMenu(event.key === "Escape");
+    } else if (event.key in moves) {
+        event.preventDefault();
+        options[Math.min(Math.max(current + moves[event.key], 0), options.length - 1)]?.focus();
+    } else if (event.key === "Home" || event.key === "End") {
+        event.preventDefault();
+        options[event.key === "Home" ? 0 : options.length - 1]?.focus();
+    }
+});
+
+document.addEventListener("pointerdown", event => {
+    if (!historyPicker.contains(event.target)) {
+        closeHistoryMenu();
+    }
 });
 
 resultsActions.addEventListener("click", event => {
