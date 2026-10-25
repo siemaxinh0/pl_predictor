@@ -779,15 +779,49 @@ h2 {
     font-weight: 700;
 }
 
+.team-hero .team-fact {
+    gap: 8px;
+}
+
+.team-hero .team-fact strong {
+    font-size: 2.1rem;
+    line-height: 1.05;
+}
+
+.team-goals-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    align-items: center;
+}
+
+.team-goals-diff {
+    border-radius: 999px;
+    padding: 2px 9px;
+    color: #ffffff;
+    background: var(--mint);
+    font-size: 0.8rem;
+    font-weight: 900;
+    cursor: default;
+}
+
+.team-goals-diff.is-bad {
+    background: var(--rose);
+}
+
 .team-goals {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
 }
 
 .team-goals div {
     display: grid;
     gap: 2px;
+}
+
+.team-goals div + div {
+    border-left: 1px solid var(--line);
+    padding-left: 12px;
 }
 
 .team-goals small {
@@ -1860,6 +1894,14 @@ td {
 
     .team-fact strong {
         font-size: 1.05rem;
+    }
+
+    .team-hero .team-fact strong {
+        font-size: 1.5rem;
+    }
+
+    .team-goals div + div {
+        padding-left: 8px;
     }
 
     .team-chances .probability strong {

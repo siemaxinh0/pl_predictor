@@ -100,7 +100,10 @@ function teamHeroHtml(team) {
                 ${counts.length ? fact("Średnie miejsce", formatNumber(countsMean(counts) + 1)) : ""}
                 ${fact("Prognozowane punkty", formatNumber(team.xPts))}
                 <div class="team-fact">
-                    <span>Prognozowane bramki</span>
+                    <div class="team-goals-head">
+                        <span>Prognozowane bramki</span>
+                        <b class="team-goals-diff ${team.xGD < 0 ? "is-bad" : ""}" title="Różnica bramek">${team.xGD > 0 ? "+" : ""}${formatNumber(team.xGD)}</b>
+                    </div>
                     <div class="team-goals">
                         <div>
                             <strong>${formatNumber(team.xGF)}</strong>
@@ -111,7 +114,6 @@ function teamHeroHtml(team) {
                             <small>stracone</small>
                         </div>
                     </div>
-                    <small>różnica ${team.xGD > 0 ? "+" : ""}${formatNumber(team.xGD)}</small>
                 </div>
             </div>
             <div class="probability-grid team-chances">
