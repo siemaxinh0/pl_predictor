@@ -73,11 +73,11 @@ Arsenal,Everton,2.0,0.0
 Aston Villa,Man City,2.0,1.0
 Chelsea,Tottenham,0.0,2.0
 Coventry City,Fulham,0.0,1.0
-Crystal Palace,Newcastle,,
-Hull City,Brentford,,
+Crystal Palace,Newcastle,0.0,2.0
+Hull City,Brentford,1.0,1.0
 Ipswich,Nott'm Forest,1.0,1.0
-Liverpool,Brighton,,
-Man United,Bournemouth,,
+Liverpool,Brighton,2.0,0.0
+Man United,Bournemouth,0.0,3.0
 Sunderland,Leeds United,,
 Bournemouth,Leeds United,,
 Aston Villa,Fulham,,

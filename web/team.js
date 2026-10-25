@@ -99,7 +99,20 @@ function teamHeroHtml(team) {
                 ${fact("Prognozowane miejsce", `${team.rank}.`)}
                 ${counts.length ? fact("Średnie miejsce", formatNumber(countsMean(counts) + 1), "w 10 000 symulacji") : ""}
                 ${fact("Prognozowane punkty", formatNumber(team.xPts), "xPts na koniec sezonu")}
-                ${fact("Prognozowane bramki", `${formatNumber(team.xGF)}:${formatNumber(team.xGA)}`, `różnica ${team.xGD > 0 ? "+" : ""}${formatNumber(team.xGD)}`)}
+                <div class="team-fact">
+                    <span>Prognozowane bramki</span>
+                    <div class="team-goals">
+                        <div>
+                            <strong>${formatNumber(team.xGF)}</strong>
+                            <small>strzelone</small>
+                        </div>
+                        <div>
+                            <strong>${formatNumber(team.xGA)}</strong>
+                            <small>stracone</small>
+                        </div>
+                    </div>
+                    <small>różnica ${team.xGD > 0 ? "+" : ""}${formatNumber(team.xGD)}</small>
+                </div>
             </div>
             <div class="probability-grid team-chances">
                 ${probabilityBlock("Mistrzostwo", team.title, "home-win")}
