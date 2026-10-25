@@ -2,7 +2,7 @@ const teamPage = document.querySelector("#team-page");
 const clubSlug = new URLSearchParams(location.search).get("club");
 const club = teams.find(team => team.slug === clubSlug);
 
-const historyMetricKeys = ["rank", "xPts", "title", "top4", "relegation"];
+const historyMetricKeys = ["avgRank", "xPts", "title", "top4", "relegation"];
 
 function teamSide(match, slug) {
     const isHome = match.homeSlug === slug;

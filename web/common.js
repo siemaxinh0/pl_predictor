@@ -17,7 +17,8 @@ const metricConfigs = [
     { key: "xGD", label: "Prognozowana różnica bramek (xGD)" },
     { key: "xGF", label: "Prognozowane gole strzelone (xGF)" },
     { key: "xGA", label: "Prognozowane gole stracone (xGA)", lowerIsBetter: true },
-    { key: "rank", label: "Prognozowane miejsce w tabeli", lowerIsBetter: true }
+    { key: "rank", label: "Prognozowane miejsce w tabeli", lowerIsBetter: true, position: true },
+    { key: "avgRank", label: "Średnie miejsce w symulacjach", lowerIsBetter: true, position: true, decimals: 2 }
 ];
 
 const teamNotes = {
@@ -156,7 +157,14 @@ function formatMetric(metric, value) {
     if (metric.percent) {
         return formatPercent(value);
     }
+    if (metric.decimals) {
+        return Number(value || 0).toFixed(metric.decimals);
+    }
     return metric.key === "rank" ? `${Math.round(value)}.` : formatNumber(value);
+}
+
+function formatAxisValue(metric, value) {
+    return metric.position ? `${Math.round(value)}.` : formatMetric(metric, value);
 }
 
 function axisLabel(snapshot) {
@@ -176,8 +184,13 @@ function latestTeams() {
 }
 
 function chartScale(metric, values) {
-    if (metric.key === "rank") {
-        return { min: 1, max: Math.max(20, ...values), invert: true };
+    if (metric.position) {
+        const lastPosition = Math.max(teams.length, ...values);
+        return {
+            min: Math.max(1, Math.floor(Math.min(...values)) - 1),
+            max: Math.min(lastPosition, Math.ceil(Math.max(...values)) + 1),
+            invert: true
+        };
     }
     if (metric.percent) {
         const maxObserved = Math.max(1, ...values);
@@ -249,8 +262,8 @@ function renderChartCard(id, metric, teams, snapshots) {
                 <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}" class="chart-axis"></line>
                 <line x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}" class="chart-axis"></line>
                 <line x1="${margin.left}" y1="${margin.top}" x2="${width - margin.right}" y2="${margin.top}" class="chart-grid"></line>
-                <text x="${margin.left - 8}" y="${margin.top + 4}" text-anchor="end">${formatMetric(metric, scale.invert ? scale.min : scale.max)}</text>
-                <text x="${margin.left - 8}" y="${height - margin.bottom + 4}" text-anchor="end">${formatMetric(metric, scale.invert ? scale.max : scale.min)}</text>
+                <text x="${margin.left - 8}" y="${margin.top + 4}" text-anchor="end">${formatAxisValue(metric, scale.invert ? scale.min : scale.max)}</text>
+                <text x="${margin.left - 8}" y="${height - margin.bottom + 4}" text-anchor="end">${formatAxisValue(metric, scale.invert ? scale.max : scale.min)}</text>
                 ${labels}
                 ${lines}
             </svg>
@@ -274,14 +287,15 @@ function chartChangeHtml(team, snapshot, metric) {
     if (!previous) {
         return "";
     }
-    const change = Math.round((valueForTeam(snapshot, team.key, metric.key) - valueForTeam(previous, team.key, metric.key)) * 10) / 10;
+    const precision = 10 ** (metric.decimals || 1);
+    const change = Math.round((valueForTeam(snapshot, team.key, metric.key) - valueForTeam(previous, team.key, metric.key)) * precision) / precision;
     const isGood = metric.lowerIsBetter ? change < 0 : change > 0;
     const className = change === 0 ? "is-flat" : isGood ? "is-good" : "is-bad";
     if (metric.key === "rank") {
         const places = Math.abs(Math.round(change));
         return `<em class="chart-tooltip-change ${className}">(${change < 0 ? `▲${places}` : change > 0 ? `▼${places}` : "bez zmian"})</em>`;
     }
-    const text = metric.percent ? formatPercent(change) : formatNumber(change);
+    const text = metric.percent ? formatPercent(change) : metric.decimals ? change.toFixed(metric.decimals) : formatNumber(change);
     return `<em class="chart-tooltip-change ${className}">(${change > 0 ? "+" : ""}${text})</em>`;
 }
 

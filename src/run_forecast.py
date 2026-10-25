@@ -51,7 +51,7 @@ MAX_STRENGTH_NOISE = 0.18
 ELO_K = 20
 HOME_ADVANTAGE_ELO = 60
 HISTORY_TEAM_FIELDS = [
-    "rank", "teamKey", "team", "slug", "xPts", "xGF", "xGA", "xGD",
+    "rank", "teamKey", "team", "slug", "avgRank", "xPts", "xGF", "xGA", "xGD",
     "title", "top4", "relegation", "titleCount", "top4Count", "relegationCount",
 ]
 
@@ -365,6 +365,7 @@ def simulate_table(standings: list[dict[str, object]], teams: list[str], adjuste
         "teamKey": teams,
         "team": [display_name(team) for team in teams],
         "slug": [slug_for_team(team) for team in teams],
+        "avgRank": ((position_counts @ np.arange(1, len(teams) + 1)) / simulations).round(2),
         "xPts": points.mean(axis=0).round(1),
         "xGF": goals_for.mean(axis=0).round(1),
         "xGA": goals_against.mean(axis=0).round(1),
