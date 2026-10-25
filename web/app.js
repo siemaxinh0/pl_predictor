@@ -242,10 +242,7 @@ function renderUpcomingFixtures() {
         </section>
     `).join("");
 
-    upcomingActions.innerHTML = [
-        state.upcomingRounds < rounds.length ? `<button class="action-button" type="button" data-upcoming="more">Pokaż kolejne kolejki</button>` : "",
-        state.upcomingRounds > 2 ? `<button class="action-button action-button-secondary" type="button" data-upcoming="less">Zwiń</button>` : ""
-    ].join("");
+    upcomingActions.innerHTML = state.upcomingRounds < rounds.length ? `<button class="action-button" type="button" data-upcoming="more">Pokaż kolejne kolejki</button>` : "";
 }
 
 function fixtureCard(fixture) {
@@ -313,10 +310,7 @@ function renderResults() {
         </section>
     `).join("");
 
-    resultsActions.innerHTML = [
-        state.resultsRounds < rounds.length ? `<button class="action-button" type="button" data-results="more">Pokaż wcześniejsze kolejki</button>` : "",
-        state.resultsRounds > 2 ? `<button class="action-button action-button-secondary" type="button" data-results="less">Zwiń</button>` : ""
-    ].join("");
+    resultsActions.innerHTML = state.resultsRounds < rounds.length ? `<button class="action-button" type="button" data-results="more">Pokaż wcześniejsze kolejki</button>` : "";
 }
 
 function resultCard(match) {
@@ -664,11 +658,10 @@ document.querySelectorAll(".tab-button").forEach(button => {
 });
 
 upcomingActions.addEventListener("click", event => {
-    const button = event.target.closest("[data-upcoming]");
-    if (!button) {
+    if (!event.target.closest("[data-upcoming]")) {
         return;
     }
-    state.upcomingRounds = button.dataset.upcoming === "more" ? state.upcomingRounds + 3 : 2;
+    state.upcomingRounds += 3;
     renderUpcomingFixtures();
 });
 
@@ -678,11 +671,10 @@ historySelect.addEventListener("change", () => {
 });
 
 resultsActions.addEventListener("click", event => {
-    const button = event.target.closest("[data-results]");
-    if (!button) {
+    if (!event.target.closest("[data-results]")) {
         return;
     }
-    state.resultsRounds = button.dataset.results === "more" ? state.resultsRounds + 3 : 2;
+    state.resultsRounds += 3;
     renderResults();
 });
 
