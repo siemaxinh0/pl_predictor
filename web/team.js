@@ -252,7 +252,7 @@ function positionsHtml(team) {
         <section class="team-panel">
             <h2>Na którym miejscu skończy sezon</h2>
             <div class="team-facts">
-                ${fact("Najczęściej", `${likely + 1}. miejsce`, `${shareText(maxCount, total)} symulacji`)}
+                ${fact("Najczęściej", `${likely + 1}. miejsce`)}
                 ${fact("8 na 10 symulacji", `${countsQuantile(counts, 0.1) + 1}.–${countsQuantile(counts, 0.9) + 1}. miejsce`)}
                 ${current ? fact(`Wyżej niż obecne ${current.rank}. miejsce`, shareText(higher, total)) : ""}
                 ${fact("Środek tabeli (5.–17.)", shareText(counts.slice(4, 17).reduce((sum, count) => sum + count, 0), total))}
