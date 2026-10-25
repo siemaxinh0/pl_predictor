@@ -139,6 +139,7 @@ function renderMeta() {
         forecastMeta.simulations ? `<span><strong>${formatInteger(forecastMeta.simulations)}</strong> symulacji</span>` : "",
         updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : ""
     ].filter(Boolean).join("");
+    document.querySelector("#standings-meta").innerHTML = updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : "";
 }
 
 function renderTable() {
