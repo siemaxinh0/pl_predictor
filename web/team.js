@@ -60,9 +60,9 @@ function opponentLink(slug, name) {
     return `<a class="team-opponent" href="${teamPageUrl(slug)}">${createLogo({ slug })}<span>${escapeHtml(name)}</span></a>`;
 }
 
-function fact(label, value, detail = "") {
+function fact(label, value, detail = "", className = "") {
     return `
-        <div class="team-fact">
+        <div class="team-fact ${className}">
             <span>${label}</span>
             <strong>${value}</strong>
             ${detail ? `<small>${detail}</small>` : ""}
@@ -578,11 +578,11 @@ function playedHtml(team) {
         <section class="team-panel">
             <h2>Rozegrane mecze</h2>
             <div class="team-facts">
-                ${fact("U siebie", home)}
-                ${fact("Na wyjeździe", away)}
-                ${fact("Gole strzelone", goalsFor)}
-                ${fact("Gole stracone", goalsAgainst)}
-                ${fact("Trafione typy modelu", `${hits} z ${sides.length}`)}
+                ${fact("U siebie", home, "", "is-big")}
+                ${fact("Na wyjeździe", away, "", "is-big")}
+                ${fact("Gole strzelone", goalsFor, "", "is-big")}
+                ${fact("Gole stracone", goalsAgainst, "", "is-big")}
+                ${fact("Trafione typy modelu", `${hits} z ${sides.length}`, "", "is-big")}
                 ${fact("Największa niespodzianka", `${escapeHtml(surprise.match.homeTeam)} ${surprise.match.homeGoals}-${surprise.match.awayGoals} ${escapeHtml(surprise.match.awayTeam)}`, `model dawał ${formatPercent(surprise.side[surprise.outcome])} na taki wynik`)}
             </div>
             <div class="table-wrap team-table-wrap">

@@ -834,6 +834,19 @@ h2 {
     gap: 8px;
 }
 
+.team-fact.is-big {
+    gap: 8px;
+}
+
+.team-fact.is-big span {
+    font-size: 0.82rem;
+}
+
+.team-fact.is-big strong {
+    font-size: 2rem;
+    line-height: 1.05;
+}
+
 .team-hero .team-fact strong {
     font-size: 2.1rem;
     line-height: 1.05;
@@ -1960,7 +1973,8 @@ td {
         font-size: 1.05rem;
     }
 
-    .team-hero .team-fact strong {
+    .team-hero .team-fact strong,
+    .team-fact.is-big strong {
         font-size: 1.5rem;
     }
 
