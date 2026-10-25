@@ -97,8 +97,8 @@ function teamHeroHtml(team) {
             </div>
             <div class="team-facts">
                 ${fact("Prognozowane miejsce", `${team.rank}.`)}
-                ${counts.length ? fact("Średnie miejsce", formatNumber(countsMean(counts) + 1), "w 10 000 symulacji") : ""}
-                ${fact("Prognozowane punkty", formatNumber(team.xPts), "xPts na koniec sezonu")}
+                ${counts.length ? fact("Średnie miejsce", formatNumber(countsMean(counts) + 1)) : ""}
+                ${fact("Prognozowane punkty", formatNumber(team.xPts))}
                 <div class="team-fact">
                     <span>Prognozowane bramki</span>
                     <div class="team-goals">
@@ -215,10 +215,10 @@ function pointsHtml(team) {
         <section class="team-panel">
             <h2>Ile punktów zdobędzie</h2>
             <div class="team-facts">
-                ${fact("Mediana", `${details.pointsMin + median} pkt`, "połowa symulacji kończy wyżej")}
+                ${fact("Mediana", `${details.pointsMin + median} pkt`)}
                 ${fact("8 na 10 symulacji", `${details.pointsMin + low}–${details.pointsMin + high} pkt`)}
                 ${fact("Najlepszy i najgorszy scenariusz", `${details.pointsMin}–${details.pointsMin + counts.length - 1} pkt`)}
-                ${fact("40 pkt lub więcej", shareText(above40, total), "zwykle wystarcza do utrzymania")}
+                ${fact("40 pkt lub więcej", shareText(above40, total))}
             </div>
             <div class="dist-scroll">
                 <div class="dist-chart dist-points">${columns}</div>
@@ -290,7 +290,7 @@ function playedHtml(team) {
                 ${fact("Na wyjeździe", away.text, `${away.points} pkt`)}
                 ${fact("Gole strzelone", goalsFor, `model spodziewał się ${formatNumber(xgFor)}`)}
                 ${fact("Gole stracone", goalsAgainst, `model spodziewał się ${formatNumber(xgAgainst)}`)}
-                ${fact("Trafione typy modelu", `${hits} z ${sides.length}`, "najbardziej prawdopodobny wynik meczu")}
+                ${fact("Trafione typy modelu", `${hits} z ${sides.length}`)}
                 ${fact("Największa niespodzianka", `${escapeHtml(surprise.match.homeTeam)} ${surprise.match.homeGoals}-${surprise.match.awayGoals} ${escapeHtml(surprise.match.awayTeam)}`, `model dawał ${formatPercent(surprise.side[surprise.outcome])} na taki wynik`)}
             </div>
             <div class="table-wrap team-table-wrap">
@@ -373,7 +373,7 @@ function scheduleHtml(team) {
                 ${fact("Mecze do rozegrania", fixtures.length)}
                 ${fact("Oczekiwane punkty", formatNumber(totalPoints), `${formatLambda(totalPoints / fixtures.length)} na mecz`)}
                 ${fact("Trudność terminarza", difficultyText(difficulty), `średnio rywale mają ${formatNumber(strength)} xPts`)}
-                ${fact("Faworyt w meczach", `${favourite} z ${fixtures.length}`, "wygrana jest najbardziej prawdopodobna")}
+                ${fact("Faworyt w meczach", `${favourite} z ${fixtures.length}`)}
                 ${fact("Najtrudniejszy mecz", `${escapeHtml(hardest.side.opponent)} (${hardest.side.isHome ? "dom" : "wyjazd"})`, `kolejka ${hardest.match.round}, ${formatPercent(hardest.side.win)} na wygraną`)}
             </div>
             <div class="table-wrap team-table-wrap">
