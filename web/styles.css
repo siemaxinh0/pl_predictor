@@ -589,6 +589,21 @@ h2 {
     font-weight: 900;
 }
 
+.tip-status {
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid var(--line);
+    font-weight: 900;
+}
+
+.tip-status.is-decided {
+    color: var(--purple);
+}
+
+.tip-status.is-open {
+    color: var(--pink);
+}
+
 .team-card {
     position: fixed;
     z-index: 58;

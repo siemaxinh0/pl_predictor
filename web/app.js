@@ -94,13 +94,31 @@ function teamNameLink(team, { showNote = true } = {}) {
     `;
 }
 
-function renderPercent(team, key, simulations, label) {
+const chanceSubjects = {
+    title: { name: "Mistrzostwo", certain: "pewne", impossible: "niemożliwe", possible: "możliwe" },
+    top4: { name: "Miejsce w Top 4", certain: "pewne", impossible: "niemożliwe", possible: "możliwe" },
+    relegation: { name: "Spadek", certain: "pewny", impossible: "niemożliwy", possible: "możliwy" }
+};
+
+function chanceStatusText(team, key) {
     const status = chanceStatus(team, key);
-    const detail = status
-        ? `${label}: ${status === "certain" ? "już pewne" : "już niemożliwe"} matematycznie`
-        : `${label}: ${formatInteger(team[`${key}Count`])} z ${formatInteger(simulations)} symulacji`;
+    const subject = chanceSubjects[key];
+    const value = Number(team[key] || 0);
+    if (status) {
+        return [`${subject.name} jest już matematycznie ${subject[status]}.`, "decided"];
+    }
+    if (value < 0.05) {
+        return [`${subject.name} jest wciąż matematycznie ${subject.possible}.`, "open"];
+    }
+    return value >= 99.95 ? [`${subject.name} nie jest jeszcze matematycznie ${subject.certain}.`, "open"] : ["", ""];
+}
+
+function renderPercent(team, key, simulations) {
+    const status = chanceStatus(team, key);
+    const count = `${formatInteger(team[`${key}Count`])} z ${formatInteger(simulations)} symulacji`;
+    const [statusText, tone] = chanceStatusText(team, key);
     return `
-        <button class="percent-detail ${status ? "is-certain" : ""}" type="button" title="${escapeHtml(detail)}" aria-label="${escapeHtml(detail)}">
+        <button class="percent-detail ${status ? "is-certain" : ""}" type="button" data-tip="chance" data-tip-title="${escapeHtml(tips[key][0])}" data-tip-text="${escapeHtml(count)}" data-tip-status="${escapeHtml(statusText)}" data-tip-tone="${tone}" aria-label="${escapeHtml(`${tips[key][0]}: ${count}. ${statusText}`)}">
             ${formatChance(team, key)}
         </button>
     `;
@@ -152,9 +170,9 @@ function renderTable() {
             <td>${formatNumber(team.xGF)}</td>
             <td>${formatNumber(team.xGA)}</td>
             <td class="${team.xGD >= 0 ? "positive" : "negative"}">${formatNumber(team.xGD)}</td>
-            <td class="title-prob">${renderPercent(team, "title", forecastMeta.simulations, "Tytuł")}</td>
-            <td>${renderPercent(team, "top4", forecastMeta.simulations, "Top 4")}</td>
-            <td class="relegation-prob">${renderPercent(team, "relegation", forecastMeta.simulations, "Spadek")}</td>
+            <td class="title-prob">${renderPercent(team, "title", forecastMeta.simulations)}</td>
+            <td>${renderPercent(team, "top4", forecastMeta.simulations)}</td>
+            <td class="relegation-prob">${renderPercent(team, "relegation", forecastMeta.simulations)}</td>
         </tr>
     `).join("");
 }
@@ -391,9 +409,9 @@ function renderHistoryTable() {
             <td>${formatNumber(team.xGF)}</td>
             <td>${formatNumber(team.xGA)}</td>
             <td class="${team.xGD >= 0 ? "positive" : "negative"}">${formatNumber(team.xGD)}</td>
-            <td class="title-prob">${renderPercent(team, "title", snapshot.simulations, "Tytuł")}</td>
-            <td>${renderPercent(team, "top4", snapshot.simulations, "Top 4")}</td>
-            <td class="relegation-prob">${renderPercent(team, "relegation", snapshot.simulations, "Spadek")}</td>
+            <td class="title-prob">${renderPercent(team, "title", snapshot.simulations)}</td>
+            <td>${renderPercent(team, "top4", snapshot.simulations)}</td>
+            <td class="relegation-prob">${renderPercent(team, "relegation", snapshot.simulations)}</td>
         </tr>
     `).join("");
 }
@@ -733,8 +751,13 @@ async function downloadTable() {
 }
 
 function showTip(target) {
-    const [title, text] = tips[target.dataset.tip];
-    tipBox.innerHTML = `<strong>${escapeHtml(title)}</strong><span>${escapeHtml(text)}</span>`;
+    const { tipTitle, tipText, tipStatus, tipTone } = target.dataset;
+    const [title, text] = tipTitle ? [tipTitle, tipText] : tips[target.dataset.tip];
+    tipBox.innerHTML = `
+        <strong>${escapeHtml(title)}</strong>
+        <span>${escapeHtml(text)}</span>
+        ${tipStatus ? `<span class="tip-status is-${tipTone}">${escapeHtml(tipStatus)}</span>` : ""}
+    `;
     tipBox.hidden = false;
 
     // dymek jest przypiety do okna, bo tabele przewijaja sie w poziomie i obcinalyby go
