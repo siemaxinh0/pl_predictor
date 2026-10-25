@@ -369,56 +369,65 @@ function fillFittedText(context, text, x, y, maxWidth, size, weight, family) {
     context.fillText(text, x, y);
 }
 
+function mixColor(from, to, share) {
+    return from.map((value, index) => value + (to[index] - value) * share);
+}
+
+// gradient z canvasu jest ditherowany i zamienia PNG w szum ważący ponad 1 MB, pasy w jednolitych kolorach ważą ułamek tego
+function fillBands(context, width, y, height, colorAt) {
+    const bandWidth = 5;
+    for (let x = 0; x < width; x += bandWidth) {
+        const [red, green, blue] = colorAt(x / width).map(Math.round);
+        context.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+        context.fillRect(x, y, bandWidth, height);
+    }
+}
+
 async function distChartCanvas(chart, team, withCrest = true) {
     const width = 1200;
-    const height = 720;
+    const height = 675;
+    const scale = 1.6;
     const pad = 56;
     const canvas = document.createElement("canvas");
-    canvas.width = width * 2;
-    canvas.height = height * 2;
+    canvas.width = width * scale;
+    canvas.height = height * scale;
     const context = canvas.getContext("2d");
-    context.scale(2, 2);
+    context.scale(scale, scale);
 
-    context.fillStyle = "#fbfdff";
-    context.fillRect(0, 0, width, height);
-    const glow = context.createLinearGradient(0, 0, width, height);
-    glow.addColorStop(0, "rgba(114, 215, 255, 0.35)");
-    glow.addColorStop(0.55, "rgba(233, 64, 145, 0.08)");
-    glow.addColorStop(1, "rgba(233, 64, 145, 0)");
-    context.fillStyle = glow;
-    context.fillRect(0, 0, width, height);
-    const stripe = context.createLinearGradient(0, 0, width, 0);
-    stripe.addColorStop(0, "#3d195b");
-    stripe.addColorStop(1, "#e94091");
-    context.fillStyle = stripe;
-    context.fillRect(0, height - 10, width, 10);
+    fillBands(context, width, 0, height, share => {
+        const glow = share < 0.55
+            ? mixColor([114, 215, 255, 0.35], [233, 64, 145, 0.08], share / 0.55)
+            : mixColor([233, 64, 145, 0.08], [233, 64, 145, 0], (share - 0.55) / 0.45);
+        return mixColor([251, 253, 255, 1], [glow[0], glow[1], glow[2], 1], glow[3]);
+    });
+    fillBands(context, width, height - 10, 10, share => mixColor([61, 25, 91, 1], [233, 64, 145, 1], share));
 
     const crest = withCrest ? await loadImage(`assets/logos/${team.slug}.svg`) : null;
     if (crest) {
         const ratio = crest.naturalWidth && crest.naturalHeight ? crest.naturalWidth / crest.naturalHeight : 1;
         const crestWidth = ratio >= 1 ? 100 : 100 * ratio;
         const crestHeight = ratio >= 1 ? 100 / ratio : 100;
-        context.drawImage(crest, pad + (100 - crestWidth) / 2, 40 + (100 - crestHeight) / 2, crestWidth, crestHeight);
+        context.drawImage(crest, pad + (100 - crestWidth) / 2, 34 + (100 - crestHeight) / 2, crestWidth, crestHeight);
     }
     const titleX = crest ? pad + 124 : pad;
     context.textBaseline = "alphabetic";
     context.fillStyle = "#240030";
-    fillFittedText(context, team.team, titleX, 92, 640, 50, 700, exportDisplayFont);
+    fillFittedText(context, team.team, titleX, 86, 640, 50, 700, exportDisplayFont);
     context.fillStyle = "#6a37a8";
     context.font = `700 24px ${exportBodyFont}`;
-    context.fillText(chart.title, titleX, 130);
+    context.fillText(chart.title, titleX, 122);
 
     context.textAlign = "right";
     context.fillStyle = "#3d195b";
     context.font = `700 20px ${exportDisplayFont}`;
-    context.fillText("Premier League Predictor", width - pad, 74);
+    context.fillText("Premier League Predictor", width - pad, 68);
     context.fillStyle = "#69758b";
     context.font = `700 15px ${exportBodyFont}`;
-    context.fillText(`${forecastMeta.snapshotLabel} · ${formatInteger(forecastMeta.simulations)} symulacji`, width - pad, 100);
+    context.fillText(`${forecastMeta.snapshotLabel} · ${formatInteger(forecastMeta.simulations)} symulacji`, width - pad, 94);
     context.textAlign = "left";
 
     const factGap = 14;
-    const factTop = 172;
+    const factTop = 156;
     const factWidth = (width - 2 * pad - factGap * (chart.facts.length - 1)) / chart.facts.length;
     chart.facts.forEach(([label, value], index) => {
         const x = pad + index * (factWidth + factGap);
@@ -435,8 +444,8 @@ async function distChartCanvas(chart, team, withCrest = true) {
         fillFittedText(context, value, x + 16, factTop + 62, factWidth - 32, 26, 700, exportDisplayFont);
     });
 
-    const plotTop = 300;
-    const plotBottom = 600;
+    const plotTop = 276;
+    const plotBottom = 556;
     const columnGap = chart.columns.length > 30 ? 3 : 8;
     const columnWidth = (width - 2 * pad - columnGap * (chart.columns.length - 1)) / chart.columns.length;
     context.textAlign = "center";
@@ -474,11 +483,11 @@ async function distChartCanvas(chart, team, withCrest = true) {
     let legendX = pad;
     chart.legend.forEach(([label, className]) => {
         context.beginPath();
-        context.roundRect(legendX, 663, 14, 14, 3);
+        context.roundRect(legendX, 610, 14, 14, 3);
         context.fillStyle = exportColors[className];
         context.fill();
         context.fillStyle = "#69758b";
-        context.fillText(label, legendX + 22, 676);
+        context.fillText(label, legendX + 22, 623);
         legendX += 22 + context.measureText(label).width + 28;
     });
 
