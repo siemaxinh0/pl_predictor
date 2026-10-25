@@ -571,16 +571,14 @@ h2 {
     position: fixed;
     z-index: 58;
     display: grid;
-    gap: 12px;
-    width: min(360px, calc(100vw - 16px));
-    max-height: min(560px, calc(100vh - 16px));
-    overflow: auto;
-    padding: 14px;
+    gap: 10px;
+    width: min(300px, calc(100vw - 16px));
+    padding: 12px 14px;
     border: 1px solid rgba(61, 25, 91, 0.12);
     border-radius: 12px;
     color: var(--ink);
     background: #ffffff;
-    box-shadow: 0 18px 40px rgba(61, 25, 91, 0.2);
+    box-shadow: 0 14px 32px rgba(61, 25, 91, 0.18);
 }
 
 .team-card[hidden] {
@@ -588,97 +586,58 @@ h2 {
 }
 
 .team-card-head {
-    display: flex;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 4px 10px;
     align-items: center;
 }
 
+.team-card-head .crest {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+}
+
 .team-card-head h3 {
-    font-size: 1.15rem;
+    font-size: 1rem;
 }
 
 .team-card-head p,
-.team-card-meta,
-.team-card-empty {
+.team-card-next {
     margin: 0;
     color: var(--muted);
     font-size: 0.8rem;
     font-weight: 700;
 }
 
-.team-card section {
-    display: grid;
-    gap: 8px;
-}
-
-.team-card h4 {
-    margin: 0;
-    color: var(--muted);
-    font-size: 0.74rem;
-    font-weight: 900;
-    text-transform: uppercase;
+.team-card-head .team-form {
+    grid-column: 2;
 }
 
 .team-card-chances {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 6px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    border-top: 1px solid var(--line);
+    padding-top: 10px;
 }
 
 .team-card-chances span {
     display: grid;
-    gap: 2px;
-    border-radius: 8px;
-    padding: 8px 6px;
-    background: var(--panel-strong);
+    gap: 1px;
     color: var(--muted);
     font-size: 0.68rem;
     font-weight: 900;
     text-transform: uppercase;
-    text-align: center;
 }
 
 .team-card-chances strong {
     color: var(--purple);
-    font-size: 0.92rem;
+    font-size: 0.95rem;
 }
 
-.team-card-match {
-    display: grid;
-    grid-template-columns: 20px 42px minmax(0, 1fr) auto;
-    gap: 8px;
-    align-items: center;
-}
-
-.team-card-opponent {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    min-width: 0;
-    font-weight: 800;
-}
-
-.team-card-opponent .crest {
-    width: 20px;
-    height: 20px;
-    flex-basis: 20px;
-}
-
-.team-card-next {
-    display: grid;
-    gap: 4px;
-}
-
-.team-card .probability-grid {
-    margin-top: 2px;
-}
-
-.team-card .probability {
-    padding: 7px 8px;
-}
-
-.team-card .probability strong {
-    font-size: 0.92rem;
+.team-card-next strong {
+    color: var(--ink);
 }
 
 .team-card-link {
@@ -1833,22 +1792,6 @@ td {
 
     .modal {
         padding: 10px;
-    }
-
-    .team-card {
-        padding: 12px;
-    }
-
-    .team-card-chances {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .team-card-match {
-        grid-template-columns: 20px 36px minmax(0, 1fr);
-    }
-
-    .team-card-match .team-card-meta {
-        grid-column: 3;
     }
 
     .action-button {
