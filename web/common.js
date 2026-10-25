@@ -381,6 +381,22 @@ function bindChartTooltips(container) {
     });
 }
 
+const siteLabel = "siemaxinh0.github.io/pl_predictor";
+
+function forecastUpdatedText() {
+    const generatedAt = forecastMeta.generatedAtUTC ? new Date(forecastMeta.generatedAtUTC) : null;
+    return generatedAt && !Number.isNaN(generatedAt.getTime())
+        ? new Intl.DateTimeFormat("pl-PL", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Warsaw" }).format(generatedAt)
+        : "";
+}
+
+function exportMetaText() {
+    const updated = forecastUpdatedText();
+    return [
+        forecastMeta.simulations ? `${formatInteger(forecastMeta.simulations)} symulacji` : "",
+        updated ? `Aktualizacja: ${updated}` : ""
+    ].filter(Boolean).join("  ·  ");
+}
 const exportDisplayFont = `"Bahnschrift", "Aptos Display", sans-serif`;
 const exportBodyFont = `"Trebuchet MS", "Aptos", sans-serif`;
 
@@ -456,14 +472,16 @@ function createExportCanvas(width, height, scale) {
     return { canvas, context };
 }
 
-function drawExportBrand(context, width, pad, y) {
+function drawExportBrand(context, width, pad, y, withMeta = false) {
     context.textAlign = "right";
     context.fillStyle = "#3d195b";
     context.font = `700 20px ${exportDisplayFont}`;
-    context.fillText("Premier League Predictor", width - pad, y);
-    context.fillStyle = "#69758b";
-    context.font = `700 15px ${exportBodyFont}`;
-    context.fillText(`${forecastMeta.snapshotLabel} · ${formatInteger(forecastMeta.simulations)} symulacji`, width - pad, y + 26);
+    context.fillText(siteLabel, width - pad, y);
+    if (withMeta) {
+        context.fillStyle = "#69758b";
+        context.font = `700 15px ${exportBodyFont}`;
+        context.fillText(exportMetaText(), width - pad, y + 26);
+    }
     context.textAlign = "left";
 }
 

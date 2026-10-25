@@ -103,13 +103,6 @@ function renderPercent(team, key, simulations, label) {
     `;
 }
 
-function forecastUpdatedText() {
-    const generatedAt = forecastMeta.generatedAtUTC ? new Date(forecastMeta.generatedAtUTC) : null;
-    return generatedAt && !Number.isNaN(generatedAt.getTime())
-        ? new Intl.DateTimeFormat("pl-PL", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Warsaw" }).format(generatedAt)
-        : "";
-}
-
 function renderMeta() {
     const playedMatches = document.querySelector("#played-matches");
     const matchProgressFill = document.querySelector("#match-progress-fill");
@@ -550,9 +543,8 @@ async function downloadCustomChart() {
 }
 
 const tableExportZones = [
-    { label: "Mistrzostwo", color: "#3d195b", test: rank => rank === 1 },
-    { label: "Top 4", color: "#72d7ff", test: rank => rank > 1 && rank <= 4 },
-    { label: "Spadek", color: "#c43f5f", test: rank => rank >= 18 }
+    { label: "Top 4", color: "#e2f5ff", border: "#72d7ff", test: rank => rank <= 4 },
+    { label: "Spadek", color: "#fff0f4", border: "#e94091", test: rank => rank >= 18 }
 ];
 
 async function tableCanvas(withCrests) {
@@ -562,19 +554,22 @@ async function tableCanvas(withCrests) {
     const { canvas, context } = createExportCanvas(width, height, 2);
     const rows = [...teams].sort((first, second) => first.rank - second.rank);
     const crests = withCrests ? await Promise.all(rows.map(team => loadExportImage(`assets/logos/${team.slug}.svg`))) : [];
-    const notes = rows.filter(team => teamNotes[teamKey(team)]).map((team, index) => ({ team, mark: "*".repeat(index + 1), note: teamNotes[teamKey(team)] }));
+    context.font = `700 14px ${exportBodyFont}`;
+    const notes = rows.filter(team => teamNotes[teamKey(team)]).map((team, index) => {
+        const note = teamNotes[teamKey(team)];
+        const lines = wrapText(context, note[1], width - 2 * pad - 72);
+        return { team, mark: "*".repeat(index + 1), title: note[0], lines, height: 50 + lines.length * 20 + 12 };
+    });
+    const notesTop = height - 26 - notes.reduce((sum, note) => sum + note.height + 12, 0) + (notes.length ? 12 : 0);
 
     context.textBaseline = "alphabetic";
     context.fillStyle = "#240030";
     context.font = `700 46px ${exportDisplayFont}`;
     context.fillText("Przewidywana tabela", pad, 82);
-    const updated = forecastUpdatedText();
-    if (updated) {
-        context.fillStyle = "#6a37a8";
-        context.font = `700 19px ${exportBodyFont}`;
-        context.fillText(`Aktualizacja: ${updated}`, pad, 116);
-    }
-    drawExportBrand(context, width, pad, 66);
+    context.fillStyle = "#6a37a8";
+    context.font = `700 19px ${exportBodyFont}`;
+    context.fillText(exportMetaText(), pad, 116);
+    drawExportBrand(context, width, pad, 70);
 
     const columns = [
         { label: "#", width: 40 },
@@ -595,15 +590,25 @@ async function tableCanvas(withCrests) {
 
     const tableTop = 146;
     const headerHeight = 40;
-    const rowHeight = 46;
+    const rowHeight = Math.min(56, Math.floor((notesTop - 22 - tableTop - 8 - headerHeight) / rows.length));
     const tableHeight = headerHeight + rows.length * rowHeight;
-    context.beginPath();
-    context.roundRect(pad - 12, tableTop, width - 2 * pad + 24, tableHeight + 8, 12);
+    const tablePanel = new Path2D();
+    tablePanel.roundRect(pad - 12, tableTop, width - 2 * pad + 24, tableHeight + 8, 12);
     context.fillStyle = "#ffffff";
-    context.fill();
+    context.fill(tablePanel);
+    context.save();
+    context.clip(tablePanel);
+    rows.forEach((team, index) => {
+        const zone = tableExportZones.find(item => item.test(team.rank));
+        if (zone) {
+            context.fillStyle = zone.color;
+            context.fillRect(pad - 12, tableTop + headerHeight + index * rowHeight, width - 2 * pad + 24, rowHeight);
+        }
+    });
+    context.restore();
     context.strokeStyle = "#c9e2f4";
     context.lineWidth = 1;
-    context.stroke();
+    context.stroke(tablePanel);
 
     context.font = `700 13px ${exportBodyFont}`;
     context.fillStyle = "#69758b";
@@ -619,14 +624,6 @@ async function tableCanvas(withCrests) {
         context.fillStyle = "#e3eef7";
         context.fillRect(pad - 12, top, width - 2 * pad + 24, 1);
 
-        const zone = tableExportZones.find(item => item.test(team.rank));
-        if (zone) {
-            context.beginPath();
-            context.roundRect(pad - 6, top + 9, 4, rowHeight - 18, 2);
-            context.fillStyle = zone.color;
-            context.fill();
-        }
-
         context.textAlign = "center";
         context.fillStyle = "#240030";
         context.font = `700 17px ${exportDisplayFont}`;
@@ -635,9 +632,9 @@ async function tableCanvas(withCrests) {
         const teamColumn = columns[1];
         const crest = crests[index];
         if (crest) {
-            drawContainedImage(context, crest, teamColumn.x, middle - 15, 30);
+            drawContainedImage(context, crest, teamColumn.x, middle - 16, 32);
         }
-        const nameX = teamColumn.x + 42;
+        const nameX = teamColumn.x + 44;
         context.textAlign = "left";
         context.fillStyle = "#240030";
         const note = notes.find(item => item.team === team);
@@ -681,26 +678,25 @@ async function tableCanvas(withCrests) {
         });
     });
 
-    let footerY = tableTop + tableHeight + 46;
+    const legendBaseline = 116;
     context.textAlign = "left";
     context.font = `700 15px ${exportBodyFont}`;
-    let legendX = pad;
+    const legendWidth = tableExportZones.reduce((sum, zone) => sum + 22 + context.measureText(zone.label).width, 0) + 28 * (tableExportZones.length - 1);
+    let legendX = width - pad - legendWidth;
     tableExportZones.forEach(zone => {
         context.beginPath();
-        context.roundRect(legendX, footerY - 12, 14, 14, 3);
+        context.roundRect(legendX, legendBaseline - 12, 14, 14, 3);
         context.fillStyle = zone.color;
         context.fill();
+        context.strokeStyle = zone.border;
+        context.stroke();
         context.fillStyle = "#69758b";
-        context.fillText(zone.label, legendX + 22, footerY);
+        context.fillText(zone.label, legendX + 22, legendBaseline);
         legendX += 22 + context.measureText(zone.label).width + 28;
     });
 
-    footerY += 22;
-    notes.forEach(({ mark, note }) => {
-        const [title, body] = note;
-        context.font = `700 14px ${exportBodyFont}`;
-        const lines = wrapText(context, body, width - 2 * pad - 72);
-        const boxHeight = 50 + lines.length * 20 + 12;
+    let footerY = notesTop;
+    notes.forEach(({ mark, title, lines, height: boxHeight }) => {
         context.beginPath();
         context.roundRect(pad - 12, footerY, width - 2 * pad + 24, boxHeight, 12);
         context.fillStyle = "#ffffff";

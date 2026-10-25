@@ -365,7 +365,7 @@ async function distChartCanvas(chart, team, withCrest = true) {
     context.font = `700 24px ${exportBodyFont}`;
     context.fillText(chart.title, titleX, 122);
 
-    drawExportBrand(context, width, pad, 68);
+    drawExportBrand(context, width, pad, 68, true);
 
     const factGap = 14;
     const factTop = 156;
