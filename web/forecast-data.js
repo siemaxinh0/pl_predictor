@@ -5,7 +5,7 @@ window.forecastData = {
         "totalMatches": 380,
         "playedRounds": 8,
         "nextRound": 9,
-        "generatedAtUTC": "2026-10-25T18:26:10+00:00",
+        "generatedAtUTC": "2026-10-25T19:43:39+00:00",
         "snapshotId": "round-8",
         "snapshotLabel": "Po 8. kolejce"
     },
@@ -25,7 +25,9 @@ window.forecastData = {
             "titleCount": 63473,
             "top4Count": 99600,
             "relegationCount": 0,
-            "rank": 1
+            "rank": 1,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Arsenal",
@@ -42,7 +44,9 @@ window.forecastData = {
             "titleCount": 33084,
             "top4Count": 98476,
             "relegationCount": 0,
-            "rank": 2
+            "rank": 2,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Liverpool",
@@ -59,7 +63,9 @@ window.forecastData = {
             "titleCount": 2312,
             "top4Count": 71852,
             "relegationCount": 6,
-            "rank": 3
+            "rank": 3,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Brighton",
@@ -76,7 +82,9 @@ window.forecastData = {
             "titleCount": 557,
             "top4Count": 44447,
             "relegationCount": 43,
-            "rank": 4
+            "rank": 4,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Chelsea",
@@ -93,7 +101,9 @@ window.forecastData = {
             "titleCount": 491,
             "top4Count": 40101,
             "relegationCount": 80,
-            "rank": 5
+            "rank": 5,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Brentford",
@@ -110,7 +120,9 @@ window.forecastData = {
             "titleCount": 37,
             "top4Count": 10299,
             "relegationCount": 1107,
-            "rank": 6
+            "rank": 6,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Aston Villa",
@@ -127,7 +139,9 @@ window.forecastData = {
             "titleCount": 11,
             "top4Count": 7085,
             "relegationCount": 1851,
-            "rank": 7
+            "rank": 7,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Newcastle",
@@ -144,7 +158,9 @@ window.forecastData = {
             "titleCount": 11,
             "top4Count": 7175,
             "relegationCount": 1793,
-            "rank": 8
+            "rank": 8,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Bournemouth",
@@ -161,7 +177,9 @@ window.forecastData = {
             "titleCount": 4,
             "top4Count": 5867,
             "relegationCount": 2414,
-            "rank": 9
+            "rank": 9,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Tottenham",
@@ -178,7 +196,9 @@ window.forecastData = {
             "titleCount": 16,
             "top4Count": 5826,
             "relegationCount": 2459,
-            "rank": 10
+            "rank": 10,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Man United",
@@ -195,7 +215,9 @@ window.forecastData = {
             "titleCount": 4,
             "top4Count": 3681,
             "relegationCount": 4131,
-            "rank": 11
+            "rank": 11,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Leeds",
@@ -212,7 +234,9 @@ window.forecastData = {
             "titleCount": 0,
             "top4Count": 3182,
             "relegationCount": 6514,
-            "rank": 12
+            "rank": 12,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Everton",
@@ -229,7 +253,9 @@ window.forecastData = {
             "titleCount": 0,
             "top4Count": 884,
             "relegationCount": 12136,
-            "rank": 13
+            "rank": 13,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Crystal Palace",
@@ -246,7 +272,9 @@ window.forecastData = {
             "titleCount": 0,
             "top4Count": 526,
             "relegationCount": 17920,
-            "rank": 14
+            "rank": 14,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Nott'm Forest",
@@ -263,7 +291,9 @@ window.forecastData = {
             "titleCount": 0,
             "top4Count": 448,
             "relegationCount": 19940,
-            "rank": 15
+            "rank": 15,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Fulham",
@@ -280,7 +310,9 @@ window.forecastData = {
             "titleCount": 0,
             "top4Count": 103,
             "relegationCount": 35302,
-            "rank": 16
+            "rank": 16,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Sunderland",
@@ -297,7 +329,9 @@ window.forecastData = {
             "titleCount": 0,
             "top4Count": 161,
             "relegationCount": 37800,
-            "rank": 17
+            "rank": 17,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Ipswich",
@@ -314,7 +348,9 @@ window.forecastData = {
             "titleCount": 0,
             "top4Count": 117,
             "relegationCount": 44239,
-            "rank": 18
+            "rank": 18,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Coventry City",
@@ -331,7 +367,9 @@ window.forecastData = {
             "titleCount": 0,
             "top4Count": 148,
             "relegationCount": 47042,
-            "rank": 19
+            "rank": 19,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         },
         {
             "teamKey": "Hull",
@@ -348,7 +386,9 @@ window.forecastData = {
             "titleCount": 0,
             "top4Count": 22,
             "relegationCount": 65223,
-            "rank": 20
+            "rank": 20,
+            "bestPossibleRank": 1,
+            "worstPossibleRank": 20
         }
     ],
     "standings": [

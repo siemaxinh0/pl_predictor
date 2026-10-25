@@ -2806,7 +2806,7 @@ window.forecastHistory = {
             "playedRounds": 8,
             "playedMatches": 80,
             "simulations": 100000,
-            "generatedAtUTC": "2026-10-25T18:26:10+00:00",
+            "generatedAtUTC": "2026-10-25T19:43:39+00:00",
             "teams": [
                 {
                     "rank": 1,
@@ -2823,7 +2823,9 @@ window.forecastHistory = {
                     "relegation": 0.0,
                     "titleCount": 63473,
                     "top4Count": 99600,
-                    "relegationCount": 0
+                    "relegationCount": 0,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 2,
@@ -2840,7 +2842,9 @@ window.forecastHistory = {
                     "relegation": 0.0,
                     "titleCount": 33084,
                     "top4Count": 98476,
-                    "relegationCount": 0
+                    "relegationCount": 0,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 3,
@@ -2857,7 +2861,9 @@ window.forecastHistory = {
                     "relegation": 0.0,
                     "titleCount": 2312,
                     "top4Count": 71852,
-                    "relegationCount": 6
+                    "relegationCount": 6,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 4,
@@ -2874,7 +2880,9 @@ window.forecastHistory = {
                     "relegation": 0.0,
                     "titleCount": 557,
                     "top4Count": 44447,
-                    "relegationCount": 43
+                    "relegationCount": 43,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 5,
@@ -2891,7 +2899,9 @@ window.forecastHistory = {
                     "relegation": 0.1,
                     "titleCount": 491,
                     "top4Count": 40101,
-                    "relegationCount": 80
+                    "relegationCount": 80,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 6,
@@ -2908,7 +2918,9 @@ window.forecastHistory = {
                     "relegation": 1.1,
                     "titleCount": 37,
                     "top4Count": 10299,
-                    "relegationCount": 1107
+                    "relegationCount": 1107,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 7,
@@ -2925,7 +2937,9 @@ window.forecastHistory = {
                     "relegation": 1.9,
                     "titleCount": 11,
                     "top4Count": 7085,
-                    "relegationCount": 1851
+                    "relegationCount": 1851,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 8,
@@ -2942,7 +2956,9 @@ window.forecastHistory = {
                     "relegation": 1.8,
                     "titleCount": 11,
                     "top4Count": 7175,
-                    "relegationCount": 1793
+                    "relegationCount": 1793,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 9,
@@ -2959,7 +2975,9 @@ window.forecastHistory = {
                     "relegation": 2.4,
                     "titleCount": 4,
                     "top4Count": 5867,
-                    "relegationCount": 2414
+                    "relegationCount": 2414,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 10,
@@ -2976,7 +2994,9 @@ window.forecastHistory = {
                     "relegation": 2.5,
                     "titleCount": 16,
                     "top4Count": 5826,
-                    "relegationCount": 2459
+                    "relegationCount": 2459,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 11,
@@ -2993,7 +3013,9 @@ window.forecastHistory = {
                     "relegation": 4.1,
                     "titleCount": 4,
                     "top4Count": 3681,
-                    "relegationCount": 4131
+                    "relegationCount": 4131,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 12,
@@ -3010,7 +3032,9 @@ window.forecastHistory = {
                     "relegation": 6.5,
                     "titleCount": 0,
                     "top4Count": 3182,
-                    "relegationCount": 6514
+                    "relegationCount": 6514,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 13,
@@ -3027,7 +3051,9 @@ window.forecastHistory = {
                     "relegation": 12.1,
                     "titleCount": 0,
                     "top4Count": 884,
-                    "relegationCount": 12136
+                    "relegationCount": 12136,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 14,
@@ -3044,7 +3070,9 @@ window.forecastHistory = {
                     "relegation": 17.9,
                     "titleCount": 0,
                     "top4Count": 526,
-                    "relegationCount": 17920
+                    "relegationCount": 17920,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 15,
@@ -3061,7 +3089,9 @@ window.forecastHistory = {
                     "relegation": 19.9,
                     "titleCount": 0,
                     "top4Count": 448,
-                    "relegationCount": 19940
+                    "relegationCount": 19940,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 16,
@@ -3078,7 +3108,9 @@ window.forecastHistory = {
                     "relegation": 35.3,
                     "titleCount": 0,
                     "top4Count": 103,
-                    "relegationCount": 35302
+                    "relegationCount": 35302,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 17,
@@ -3095,7 +3127,9 @@ window.forecastHistory = {
                     "relegation": 37.8,
                     "titleCount": 0,
                     "top4Count": 161,
-                    "relegationCount": 37800
+                    "relegationCount": 37800,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 18,
@@ -3112,7 +3146,9 @@ window.forecastHistory = {
                     "relegation": 44.2,
                     "titleCount": 0,
                     "top4Count": 117,
-                    "relegationCount": 44239
+                    "relegationCount": 44239,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 19,
@@ -3129,7 +3165,9 @@ window.forecastHistory = {
                     "relegation": 47.0,
                     "titleCount": 0,
                     "top4Count": 148,
-                    "relegationCount": 47042
+                    "relegationCount": 47042,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 },
                 {
                     "rank": 20,
@@ -3146,7 +3184,9 @@ window.forecastHistory = {
                     "relegation": 65.2,
                     "titleCount": 0,
                     "top4Count": 22,
-                    "relegationCount": 65223
+                    "relegationCount": 65223,
+                    "bestPossibleRank": 1,
+                    "worstPossibleRank": 20
                 }
             ]
         }

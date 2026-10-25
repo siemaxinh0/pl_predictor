@@ -119,9 +119,9 @@ function teamHeroHtml(team) {
                 </div>
             </div>
             <div class="probability-grid team-chances">
-                ${probabilityBlock("Mistrzostwo", team.title, "home-win")}
-                ${probabilityBlock("Top 4", team.top4, "draw")}
-                ${probabilityBlock("Spadek", team.relegation, "away-win")}
+                ${[["Mistrzostwo", "title", "home-win"], ["Top 4", "top4", "draw"], ["Spadek", "relegation", "away-win"]]
+                    .map(([label, key, className]) => probabilityBlock(label, team[key], className, chanceStatus(team, key) ? "is-certain" : "", formatChance(team, key)))
+                    .join("")}
             </div>
             ${note ? `<p class="team-hero-note"><span class="team-note-mark">*</span> <strong>${escapeHtml(note[0])}.</strong> ${escapeHtml(note[1])}</p>` : ""}
             <div class="chart-tooltip form-tooltip is-below" hidden></div>

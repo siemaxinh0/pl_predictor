@@ -95,10 +95,13 @@ function teamNameLink(team, { showNote = true } = {}) {
 }
 
 function renderPercent(team, key, simulations, label) {
-    const detail = `${label}: ${formatInteger(team[`${key}Count`])} z ${formatInteger(simulations)} symulacji`;
+    const status = chanceStatus(team, key);
+    const detail = status
+        ? `${label}: ${status === "certain" ? "już pewne" : "już niemożliwe"} matematycznie`
+        : `${label}: ${formatInteger(team[`${key}Count`])} z ${formatInteger(simulations)} symulacji`;
     return `
-        <button class="percent-detail" type="button" title="${escapeHtml(detail)}" aria-label="${escapeHtml(detail)}">
-            ${formatPercent(team[key])}
+        <button class="percent-detail ${status ? "is-certain" : ""}" type="button" title="${escapeHtml(detail)}" aria-label="${escapeHtml(detail)}">
+            ${formatChance(team, key)}
         </button>
     `;
 }
@@ -672,9 +675,10 @@ async function tableCanvas(withCrests) {
                 context.fillStyle = column.fill;
                 context.fill();
             }
-            context.fillStyle = value > 0 ? "#240030" : "#9aa3b5";
-            context.font = `700 15px ${exportBodyFont}`;
-            context.fillText(formatPercent(value), column.x + column.width / 2, middle + 5);
+            const isCertain = Boolean(chanceStatus(team, column.percent));
+            context.fillStyle = value > 0 || isCertain ? "#240030" : "#9aa3b5";
+            context.font = `${isCertain ? 700 : 400} 15px ${exportBodyFont}`;
+            context.fillText(formatChance(team, column.percent), column.x + column.width / 2, middle + 5);
         });
     });
 
@@ -775,9 +779,9 @@ function teamCardHtml(slug) {
         </div>
         ${forecast ? `
             <div class="team-card-chances">
-                <span>Tytuł <strong>${formatPercent(forecast.title)}</strong></span>
-                <span>Top 4 <strong>${formatPercent(forecast.top4)}</strong></span>
-                <span>Spadek <strong>${formatPercent(forecast.relegation)}</strong></span>
+                ${[["Tytuł", "title"], ["Top 4", "top4"], ["Spadek", "relegation"]].map(([label, key]) => `
+                    <span>${label} <strong class="${chanceStatus(forecast, key) ? "is-certain" : ""}">${formatChance(forecast, key)}</strong></span>
+                `).join("")}
             </div>
         ` : ""}
         ${teamCardNextHtml(slug)}

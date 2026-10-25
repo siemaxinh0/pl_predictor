@@ -656,6 +656,7 @@ h2 {
 .team-card-chances strong {
     color: var(--purple);
     font-size: 0.95rem;
+    font-weight: 400;
 }
 
 .team-card-next strong {
@@ -919,6 +920,7 @@ h2 {
 
 .team-chances .probability strong {
     font-size: 1.3rem;
+    font-weight: 400;
 }
 
 .team-panel-head {
@@ -1675,8 +1677,14 @@ td {
     color: inherit;
     background: rgba(114, 215, 255, 0.18);
     font: inherit;
-    font-weight: 900;
+    font-weight: 400;
     cursor: help;
+}
+
+.percent-detail.is-certain,
+.team-card-chances strong.is-certain,
+.team-chances .probability.is-certain strong {
+    font-weight: 900;
 }
 
 .percent-detail:focus-visible {

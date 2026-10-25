@@ -68,6 +68,32 @@ function formatLambda(value) {
     return Number(value || 0).toFixed(2);
 }
 
+function chanceStatus(team, key) {
+    const best = Number(team?.bestPossibleRank);
+    const worst = Number(team?.worstPossibleRank);
+    const lastPlace = teams.length || 20;
+    const zone = { title: [1, 1], top4: [1, 4], relegation: [lastPlace - 2, lastPlace] }[key];
+    if (!best || !worst || !zone) {
+        return "";
+    }
+    if (best >= zone[0] && worst <= zone[1]) {
+        return "certain";
+    }
+    return worst < zone[0] || best > zone[1] ? "impossible" : "";
+}
+
+function formatChance(team, key) {
+    const status = chanceStatus(team, key);
+    const value = Number(team?.[key] || 0);
+    if (status) {
+        return status === "certain" ? "100%" : "0%";
+    }
+    if (value < 0.05) {
+        return "~0%";
+    }
+    return value >= 99.95 ? "~100%" : formatPercent(value);
+}
+
 function formatInteger(value) {
     return Number(value || 0).toLocaleString("pl-PL");
 }
@@ -114,12 +140,12 @@ function createLogo(team) {
     `;
 }
 
-function probabilityBlock(label, value, className, extraClass = "") {
+function probabilityBlock(label, value, className, extraClass = "", text = "") {
     const boundedValue = Math.max(0, Math.min(100, Number(value || 0)));
     return `
         <div class="probability ${className} ${extraClass}" style="--probability: ${boundedValue}%">
             <span>${label}</span>
-            <strong>${formatPercent(boundedValue)}</strong>
+            <strong>${text || formatPercent(boundedValue)}</strong>
             <i aria-hidden="true"></i>
         </div>
     `;
@@ -300,7 +326,9 @@ function chartChangeHtml(team, snapshot, metric) {
 }
 
 function chartTooltipHtml(team, snapshot, metric) {
-    const value = `<div class="chart-tooltip-value"><i style="background:${team.color || chartColors[0]}"></i>${escapeHtml(metric.label)}: <strong>${formatMetric(metric, valueForTeam(snapshot, team.key, metric.key))}${chartChangeHtml(team, snapshot, metric)}</strong></div>`;
+    const snapshotTeam = snapshot.teams.find(item => teamKey(item) === team.key);
+    const valueText = metric.percent && snapshotTeam ? formatChance(snapshotTeam, metric.key) : formatMetric(metric, valueForTeam(snapshot, team.key, metric.key));
+    const value = `<div class="chart-tooltip-value"><i style="background:${team.color || chartColors[0]}"></i>${escapeHtml(metric.label)}: <strong>${valueText}${chartChangeHtml(team, snapshot, metric)}</strong></div>`;
     const teamRow = `<div class="chart-tooltip-team"><img src="assets/logos/${escapeHtml(team.slug)}.svg" alt="">${escapeHtml(team.name)}</div>`;
     if (!Number(snapshot.playedMatches)) {
         return `<div class="chart-tooltip-head"><span>${escapeHtml(snapshot.label)}</span></div>${teamRow}${value}`;

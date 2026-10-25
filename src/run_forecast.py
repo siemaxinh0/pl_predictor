@@ -53,6 +53,7 @@ HOME_ADVANTAGE_ELO = 60
 HISTORY_TEAM_FIELDS = [
     "rank", "teamKey", "team", "slug", "avgRank", "xPts", "xGF", "xGA", "xGD",
     "title", "top4", "relegation", "titleCount", "top4Count", "relegationCount",
+    "bestPossibleRank", "worstPossibleRank",
 ]
 
 
@@ -279,6 +280,21 @@ def build_standings(teams: list[str], played_matches: pd.DataFrame) -> list[dict
     return table[columns].to_dict(orient="records")
 
 
+def possible_rank_bounds(standings: list[dict[str, object]], remaining_matches: pd.DataFrame, teams: list[str]) -> dict[str, tuple[int, int]]:
+    # granice sa ostrozne: rywal z rowna liczba punktow moze byc wyzej przez bilans, a wzajemne mecze rywali nie sa rozpisywane,
+    # wiec "pewne" znaczy naprawde pewne, a czesc wyeliminowanych druzyn moze jeszcze wygladac na niewyeliminowane
+    points = {row["teamKey"]: int(row["pts"]) for row in standings}
+    games_left = pd.concat([remaining_matches["HomeTeam"], remaining_matches["AwayTeam"]]).value_counts()
+    max_points = {team: points[team] + 3 * int(games_left.get(team, 0)) for team in teams}
+    bounds = {}
+    for team in teams:
+        others = [other for other in teams if other != team]
+        surely_above = sum(points[other] > max_points[team] for other in others)
+        maybe_above = sum(max_points[other] >= points[team] for other in others)
+        bounds[team] = (surely_above + 1, maybe_above + 1)
+    return bounds
+
+
 def team_uncertainty(history: pd.DataFrame, teams: list[str]) -> tuple[dict[str, float], dict[str, float]]:
     recent_seasons = sorted(history["SeasonFile"].unique())[-RECENT_HISTORY_SEASONS:]
     recent_history = history[history["SeasonFile"].isin(recent_seasons)]
@@ -479,6 +495,9 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
     uncertainty_sigma, shrinkage = team_uncertainty(history, teams)
     adjusted_matches = adjusted_lambdas(match_lambdas, shrinkage, home_goal_mean, away_goal_mean)
     forecast_table, sample_tables, team_details = simulate_table(standings, teams, adjusted_matches, uncertainty_sigma, args.simulations, args.seed, args.sample_tables)
+    rank_bounds = possible_rank_bounds(standings, remaining_matches, teams)
+    forecast_table["bestPossibleRank"] = forecast_table["teamKey"].map(lambda team: rank_bounds[team][0])
+    forecast_table["worstPossibleRank"] = forecast_table["teamKey"].map(lambda team: rank_bounds[team][1])
     upcoming_fixtures = build_upcoming_fixtures(adjusted_matches)
     results = build_results(fixtures, history, poisson_model, shrinkage, home_goal_mean, away_goal_mean)
     total_matches = len(fixtures)
