@@ -205,6 +205,10 @@ function recentForm(slug, count = 5) {
         .join("");
 }
 
+function fixtureTeamLink(name, slug) {
+    return `<a class="team-link" href="${teamPageUrl(slug)}" data-team-slug="${escapeHtml(slug)}"><strong>${escapeHtml(name)}</strong></a>`;
+}
+
 function fixtureTeam(name, slug, isAway) {
     const position = standings.find(team => team.slug === slug)?.rank;
     const form = recentForm(slug);
@@ -213,7 +217,7 @@ function fixtureTeam(name, slug, isAway) {
             ${isAway ? "" : createLogo({ slug })}
             <div class="fixture-team-info">
                 <div class="fixture-team-name">
-                    <strong>${escapeHtml(name)}</strong>
+                    ${fixtureTeamLink(name, slug)}
                     ${position ? `<span class="team-position" title="Pozycja w tabeli">${position}.</span>` : ""}
                 </div>
                 ${form ? `<div class="team-form" aria-label="Ostatnie mecze">${form}</div>` : ""}
@@ -325,11 +329,11 @@ function renderResults() {
             <div class="fixture-teams">
                 <div class="fixture-team">
                     ${createLogo({ slug: match.homeSlug })}
-                    <strong>${escapeHtml(match.homeTeam)}</strong>
+                    ${fixtureTeamLink(match.homeTeam, match.homeSlug)}
                 </div>
                 <span class="result-score">${match.homeGoals}-${match.awayGoals}</span>
                 <div class="fixture-team is-away">
-                    <strong>${escapeHtml(match.awayTeam)}</strong>
+                    ${fixtureTeamLink(match.awayTeam, match.awaySlug)}
                     ${createLogo({ slug: match.awaySlug })}
                 </div>
             </div>

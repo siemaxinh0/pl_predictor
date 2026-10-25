@@ -1282,7 +1282,8 @@ h2 {
     min-width: 0;
 }
 
-.fixture-team strong {
+.fixture-team .team-link {
+    min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -1923,7 +1924,7 @@ td {
         justify-content: center;
     }
 
-    .fixture-team strong {
+    .fixture-team .team-link {
         white-space: normal;
     }
 
