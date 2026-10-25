@@ -3,6 +3,7 @@ const state = {
     sortDirection: "asc",
     historyIndex: 0,
     resultsRound: 0,
+    upcomingRounds: 2,
     teamCardSlug: "",
     teamCardTimer: 0
 };
@@ -47,6 +48,7 @@ const resultsBody = document.querySelector("#results-body");
 const resultsSelect = document.querySelector("#results-select");
 const resultsTitle = document.querySelector("#results-title");
 const upcomingBody = document.querySelector("#upcoming-body");
+const upcomingActions = document.querySelector("#upcoming-actions");
 const historySelect = document.querySelector("#history-select");
 const historyBody = document.querySelector("#history-body");
 const historyTitle = document.querySelector("#history-title");
@@ -222,15 +224,30 @@ function fixtureTeam(name, slug, isAway) {
 }
 
 function renderUpcomingFixtures() {
-    const upcomingRound = document.querySelector("#upcoming-round");
-    upcomingRound.textContent = forecastMeta.nextRound ? `Kolejka ${forecastMeta.nextRound}` : "Brak nadchodzących spotkań";
-
-    if (!upcomingFixtures.length) {
+    const rounds = [...new Set(remainingFixtures.map(fixture => Number(fixture.round)))];
+    if (!rounds.length) {
         upcomingBody.innerHTML = `<p class="empty-state">Brak nierozgranych meczów w terminarzu.</p>`;
+        upcomingActions.innerHTML = "";
         return;
     }
 
-    upcomingBody.innerHTML = upcomingFixtures.map(fixture => `
+    upcomingBody.innerHTML = rounds.slice(0, state.upcomingRounds).map(round => `
+        <section class="upcoming-round">
+            <h2>Kolejka ${round}</h2>
+            <div class="fixtures-grid">
+                ${remainingFixtures.filter(fixture => Number(fixture.round) === round).map(fixtureCard).join("")}
+            </div>
+        </section>
+    `).join("");
+
+    upcomingActions.innerHTML = [
+        state.upcomingRounds < rounds.length ? `<button class="action-button" type="button" data-upcoming="more">Pokaż kolejne kolejki</button>` : "",
+        state.upcomingRounds > 2 ? `<button class="action-button action-button-secondary" type="button" data-upcoming="less">Zwiń</button>` : ""
+    ].join("");
+}
+
+function fixtureCard(fixture) {
+    return `
         <article class="fixture-card">
             <div class="fixture-teams">
                 ${fixtureTeam(fixture.homeTeam, fixture.homeSlug, false)}
@@ -247,7 +264,7 @@ function renderUpcomingFixtures() {
                 ${probabilityBlock("2", fixture.awayWin, "away-win")}
             </div>
         </article>
-    `).join("");
+    `;
 }
 
 function renderStandings() {
@@ -685,6 +702,15 @@ document.querySelectorAll(".tab-button").forEach(button => {
         document.querySelectorAll(".tab-view").forEach(view => view.classList.toggle("is-active", view.dataset.view === tab));
         closeTeamCard();
     });
+});
+
+upcomingActions.addEventListener("click", event => {
+    const button = event.target.closest("[data-upcoming]");
+    if (!button) {
+        return;
+    }
+    state.upcomingRounds = button.dataset.upcoming === "more" ? state.upcomingRounds + 3 : 2;
+    renderUpcomingFixtures();
 });
 
 historySelect.addEventListener("change", () => {

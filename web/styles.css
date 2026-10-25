@@ -1179,6 +1179,28 @@ h2 {
     gap: 14px;
 }
 
+.upcoming-rounds {
+    display: grid;
+    gap: 28px;
+}
+
+.upcoming-round {
+    display: grid;
+    gap: 14px;
+}
+
+.upcoming-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.upcoming-actions:empty {
+    display: none;
+}
+
 .fixture-card {
     border: 1px solid var(--line);
     border-radius: 8px;
