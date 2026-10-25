@@ -142,7 +142,6 @@ function formTooltipHtml(match, slug) {
         <div class="chart-tooltip-head"><span>Kolejka ${match.round} · ${side.isHome ? "dom" : "wyjazd"}</span><b class="chart-tooltip-outcome is-${outcome}">${formLabels[outcome].label}</b></div>
         ${tooltipMatchHtml(match, slug)}
         <div class="form-tooltip-odds">${odds}</div>
-        <div class="chart-tooltip-value">Prognoza goli<strong>${formatLambda(side.xgFor)} - ${formatLambda(side.xgAgainst)}</strong></div>
     `;
 }
 
