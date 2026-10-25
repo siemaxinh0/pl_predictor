@@ -2,7 +2,7 @@ const state = {
     sortKey: "rank",
     sortDirection: "asc",
     historyIndex: 0,
-    resultsRound: 0,
+    resultsRounds: 2,
     upcomingRounds: 2,
     teamCardSlug: "",
     teamCardTimer: 0
@@ -45,8 +45,7 @@ function teamTip(team) {
 const tableBody = document.querySelector("#table-body");
 const standingsBody = document.querySelector("#standings-body");
 const resultsBody = document.querySelector("#results-body");
-const resultsSelect = document.querySelector("#results-select");
-const resultsTitle = document.querySelector("#results-title");
+const resultsActions = document.querySelector("#results-actions");
 const upcomingBody = document.querySelector("#upcoming-body");
 const upcomingActions = document.querySelector("#upcoming-actions");
 const historySelect = document.querySelector("#history-select");
@@ -72,7 +71,6 @@ state.customChart = {
     to: state.historyIndex,
     teams: latestTeams().slice(0, 4).map(teamKey)
 };
-state.resultsRound = results.length ? Math.max(...results.map(match => Number(match.round))) : 0;
 
 function sortTeams(rows) {
     return [...rows].sort((first, second) => {
@@ -298,33 +296,31 @@ function renderStandings() {
     `).join("");
 }
 
-function resultRounds() {
-    return [...new Set(results.map(match => Number(match.round)))].sort((first, second) => first - second);
-}
-
-function renderResultsControls() {
-    const rounds = resultRounds();
-    if (!rounds.length) {
-        resultsSelect.innerHTML = `<option>Brak rozegranych kolejek</option>`;
-        resultsSelect.disabled = true;
-        return;
-    }
-
-    resultsSelect.disabled = false;
-    resultsSelect.innerHTML = rounds.map(round => `<option value="${round}" ${round === state.resultsRound ? "selected" : ""}>Kolejka ${round}</option>`).join("");
-}
-
 function renderResults() {
-    if (!results.length) {
-        resultsTitle.textContent = "Brak rozegranych meczów";
+    const rounds = [...new Set(results.map(match => Number(match.round)))].sort((first, second) => second - first);
+    if (!rounds.length) {
         resultsBody.innerHTML = `<p class="empty-state">Żaden mecz sezonu nie ma jeszcze wyniku.</p>`;
+        resultsActions.innerHTML = "";
         return;
     }
 
-    resultsTitle.textContent = `Kolejka ${state.resultsRound}`;
+    resultsBody.innerHTML = rounds.slice(0, state.resultsRounds).map(round => `
+        <section class="upcoming-round">
+            <h2>Kolejka ${round}</h2>
+            <div class="fixtures-grid">
+                ${results.filter(match => Number(match.round) === round).map(resultCard).join("")}
+            </div>
+        </section>
+    `).join("");
 
-    const roundMatches = results.filter(match => Number(match.round) === state.resultsRound);
-    resultsBody.innerHTML = roundMatches.map(match => `
+    resultsActions.innerHTML = [
+        state.resultsRounds < rounds.length ? `<button class="action-button" type="button" data-results="more">Pokaż wcześniejsze kolejki</button>` : "",
+        state.resultsRounds > 2 ? `<button class="action-button action-button-secondary" type="button" data-results="less">Zwiń</button>` : ""
+    ].join("");
+}
+
+function resultCard(match) {
+    return `
         <article class="fixture-card result-card">
             <div class="fixture-teams">
                 <div class="fixture-team">
@@ -348,7 +344,7 @@ function renderResults() {
                 ${probabilityBlock("2", match.awayWin, "away-win", match.outcome === "away" ? "is-hit" : "")}
             </div>
         </article>
-    `).join("");
+    `;
 }
 
 function renderHistoryControls() {
@@ -681,8 +677,12 @@ historySelect.addEventListener("change", () => {
     renderHistory();
 });
 
-resultsSelect.addEventListener("change", () => {
-    state.resultsRound = Number(resultsSelect.value || 0);
+resultsActions.addEventListener("click", event => {
+    const button = event.target.closest("[data-results]");
+    if (!button) {
+        return;
+    }
+    state.resultsRounds = button.dataset.results === "more" ? state.resultsRounds + 3 : 2;
     renderResults();
 });
 
@@ -787,7 +787,6 @@ renderMeta();
 renderTable();
 renderStandings();
 renderUpcomingFixtures();
-renderResultsControls();
 renderResults();
 renderHistory();
 renderCustomChartControls();

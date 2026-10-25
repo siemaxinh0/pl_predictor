@@ -269,8 +269,7 @@ h2 {
 
 .upcoming-header,
 .history-header,
-.charts-header,
-.results-header {
+.charts-header {
     display: flex;
     justify-content: space-between;
     gap: 18px;
@@ -1750,7 +1749,6 @@ td {
     .upcoming-header,
     .history-header,
     .charts-header,
-    .results-header,
     .fixtures-grid {
         display: grid;
         grid-template-columns: 1fr;
