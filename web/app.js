@@ -51,6 +51,10 @@ const upcomingActions = document.querySelector("#upcoming-actions");
 const historySelect = document.querySelector("#history-select");
 const historyPicker = document.querySelector("#history-picker");
 const historyMenu = document.querySelector("#history-menu");
+const historyDownload = document.querySelector("#history-download");
+const resultsRefresh = document.querySelector("#results-refresh");
+const resultsRefreshButton = document.querySelector("#results-refresh-button");
+const resultsRefreshStatus = document.querySelector("#results-refresh-status");
 const historyBody = document.querySelector("#history-body");
 const historyTitle = document.querySelector("#history-title");
 const chartsPanel = document.querySelector("[data-view='charts']");
@@ -612,12 +616,12 @@ const tableExportZones = [
     { label: "Spadek", color: "#fff0f4", border: "#e94091", test: rank => rank >= 18 }
 ];
 
-async function tableCanvas(withCrests) {
+async function tableCanvas(withCrests, source = { teams, title: "Przewidywana tabela", meta: forecastMeta }) {
     const width = 1080;
     const height = 1350;
     const pad = 48;
     const { canvas, context } = createExportCanvas(width, height, 2);
-    const rows = [...teams].sort((first, second) => first.rank - second.rank);
+    const rows = [...source.teams].sort((first, second) => first.rank - second.rank);
     const crests = withCrests ? await Promise.all(rows.map(team => loadExportImage(`assets/logos/${team.slug}.svg`))) : [];
     context.font = `700 14px ${exportBodyFont}`;
     const notes = rows.filter(team => teamNotes[teamKey(team)]).map((team, index) => {
@@ -630,10 +634,10 @@ async function tableCanvas(withCrests) {
     context.textBaseline = "alphabetic";
     context.fillStyle = "#240030";
     context.font = `700 46px ${exportDisplayFont}`;
-    context.fillText("Przewidywana tabela", pad, 82);
+    context.fillText(source.title, pad, 82);
     context.fillStyle = "#6a37a8";
     context.font = `700 19px ${exportBodyFont}`;
-    context.fillText(exportMetaText(), pad, 116);
+    context.fillText(exportMetaText(source.meta), pad, 116);
     drawExportBrand(context, width, pad, 70);
 
     const columns = [
@@ -791,6 +795,21 @@ async function downloadTable() {
         await downloadCanvasPng(tableCanvas, `przewidywana-tabela-${forecastMeta.snapshotId || "teraz"}.png`);
     } finally {
         tableDownload.disabled = false;
+    }
+}
+
+async function downloadHistoryTable() {
+    const snapshot = historySnapshots[state.historyIndex];
+    if (!snapshot) {
+        return;
+    }
+    const label = snapshot.label || "";
+    const source = { teams: snapshot.teams, title: `Prognoza ${label.charAt(0).toLowerCase()}${label.slice(1)}`, meta: snapshot };
+    historyDownload.disabled = true;
+    try {
+        await downloadCanvasPng(withCrests => tableCanvas(withCrests, source), `prognoza-${snapshot.id || "historia"}.png`);
+    } finally {
+        historyDownload.disabled = false;
     }
 }
 
@@ -998,6 +1017,51 @@ async function downloadRound(button) {
     } finally {
         button.disabled = false;
     }
+}
+
+async function apiRequest(path, method = "GET") {
+    const response = await fetch(`${window.forecastApi}/${path}`, { method, cache: "no-store" });
+    if (!response.ok) {
+        throw new Error(`${path}: ${response.status}`);
+    }
+    return response.json();
+}
+
+function noNewResultsText(status) {
+    const checkedAt = status.checkedAtUTC ? new Date(status.checkedAtUTC) : null;
+    const time = checkedAt ? new Intl.DateTimeFormat("pl-PL", { timeStyle: "short", timeZone: "Europe/Warsaw" }).format(checkedAt) : "";
+    const minutes = Math.ceil(Number(status.nextCheckInSeconds || 0) / 60);
+    return [
+        `Brak nowych wyników${time ? ` (sprawdzono o ${time})` : ""}.`,
+        "football-data dodaje je zwykle dzień lub dwa po meczu.",
+        !status.started && minutes ? `Ponownie można sprawdzić za ${minutes} min.` : ""
+    ].filter(Boolean).join(" ");
+}
+
+async function refreshResults() {
+    resultsRefreshButton.disabled = true;
+    resultsRefreshStatus.textContent = "Sprawdzam football-data…";
+    try {
+        let status = await apiRequest("refresh", "POST");
+        const { started } = status;
+        while (status.refreshing) {
+            resultsRefreshStatus.textContent = "Sprawdzam wyniki i przeliczam prognozę…";
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            status = { ...(await apiRequest("status")), started };
+        }
+        if (status.forecastGeneratedAtUTC && status.forecastGeneratedAtUTC !== forecastMeta.generatedAtUTC) {
+            const added = Number(status.playedMatches || 0) - Number(forecastMeta.playedMatches || 0);
+            resultsRefreshStatus.textContent = `${added > 0 ? `Nowe wyniki: ${added}.` : "Jest nowa prognoza."} Odświeżam stronę…`;
+            location.reload();
+            return;
+        }
+        resultsRefreshStatus.textContent = status.started && status.downloadFailed
+            ? "Nie udało się pobrać wyników z football-data, spróbuj później."
+            : noNewResultsText(status);
+    } catch {
+        resultsRefreshStatus.textContent = "Serwer z prognozą nie odpowiada, spróbuj później.";
+    }
+    resultsRefreshButton.disabled = false;
 }
 
 function showTip(target) {
@@ -1222,6 +1286,10 @@ customChartControls.addEventListener("change", event => {
 customChartDownload.addEventListener("click", downloadCustomChart);
 tableDownload.disabled = !teams.length;
 tableDownload.addEventListener("click", downloadTable);
+resultsRefresh.hidden = window.forecastSource !== "api";
+resultsRefreshButton.addEventListener("click", refreshResults);
+historyDownload.disabled = !historySnapshots.length;
+historyDownload.addEventListener("click", downloadHistoryTable);
 
 customChartControls.addEventListener("click", event => {
     const chip = event.target.closest(".team-chip");

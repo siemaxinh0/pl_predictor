@@ -158,6 +158,37 @@ h2 {
     background: linear-gradient(90deg, var(--sky), var(--pink));
 }
 
+.results-refresh {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.results-refresh[hidden] {
+    display: none;
+}
+
+.results-refresh .action-button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+}
+
+.results-refresh .action-button:disabled {
+    cursor: progress;
+    opacity: 0.6;
+}
+
+.results-refresh-status {
+    flex: 1 1 100%;
+    max-width: 312px;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
 .tabs {
     display: inline-flex;
     flex-wrap: wrap;

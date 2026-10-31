@@ -79,16 +79,16 @@ Ipswich,Nott'm Forest,1.0,1.0
 Liverpool,Brighton,2.0,0.0
 Man United,Bournemouth,0.0,3.0
 Sunderland,Leeds United,0.0,0.0
-Bournemouth,Leeds United,,
+Bournemouth,Leeds United,2.0,0.0
 Aston Villa,Fulham,,
-Brentford,Nott'm Forest,,
-Chelsea,Man United,,
-Coventry City,Sunderland,,
-Hull City,Ipswich,,
+Brentford,Nott'm Forest,2.0,0.0
+Chelsea,Man United,2.0,0.0
+Coventry City,Sunderland,3.0,1.0
+Hull City,Ipswich,2.0,2.0
 Liverpool,Arsenal,,
-Man City,Brighton,,
+Man City,Brighton,0.0,1.0
 Newcastle,Everton,,
-Tottenham,Crystal Palace,,
+Tottenham,Crystal Palace,2.0,0.0
 Arsenal,Hull City,,
 Brighton,Brentford,,
 Crystal Palace,Liverpool,,

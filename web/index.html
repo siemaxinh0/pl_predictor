@@ -34,6 +34,10 @@
                 <div class="match-progress-track" aria-hidden="true">
                     <span id="match-progress-fill"></span>
                 </div>
+                <div class="results-refresh" id="results-refresh" hidden>
+                    <button class="action-button action-button-secondary" id="results-refresh-button" type="button">Pobierz wyniki</button>
+                    <span class="results-refresh-status" id="results-refresh-status" role="status"></span>
+                </div>
             </div>
         </section>
 
@@ -122,6 +126,7 @@
                 <div>
                     <h2 id="history-title">Tabela prawdopodobieństw</h2>
                 </div>
+                <button class="action-button action-button-secondary" id="history-download" type="button">Zapisz PNG</button>
             </div>
             <p class="history-select-label" id="history-picker-label">Wybierz zapisany moment sezonu</p>
             <div class="round-picker" id="history-picker">
@@ -196,9 +201,6 @@
     <div class="tip-box" id="tip-box" role="tooltip" hidden></div>
     <div class="team-card" id="team-card" role="dialog" aria-label="Karta drużyny" hidden></div>
 
-    <script src="forecast-data.js?v=dev"></script>
-    <script src="forecast-history.js?v=dev"></script>
-    <script src="common.js?v=dev"></script>
-    <script src="app.js?v=dev"></script>
+    <script src="data-loader.js?v=dev" data-api="api" data-scripts="common.js app.js"></script>
 </body>
 </html>

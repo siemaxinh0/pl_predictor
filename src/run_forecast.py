@@ -109,8 +109,8 @@ def model_diff_features(frame: pd.DataFrame) -> list[str]:
     return DIFF_FEATURES + ([VALUE_FEATURE] if VALUE_FEATURE in frame.columns else [])
 
 
-def make_poisson_rows(history: pd.DataFrame) -> pd.DataFrame:
-    diff_features = model_diff_features(history)
+def make_poisson_rows(history: pd.DataFrame, diff_features: list[str] | None = None) -> pd.DataFrame:
+    diff_features = model_diff_features(history) if diff_features is None else diff_features
     base_columns = ["HomeTeam", "AwayTeam", "FTHG", "FTAG", "SeasonFile"] + diff_features
     home_rows = history[base_columns].copy().rename(columns={
         "HomeTeam": "Team",
@@ -134,8 +134,8 @@ def make_poisson_rows(history: pd.DataFrame) -> pd.DataFrame:
     return pd.concat([home_rows, away_rows], ignore_index=True)
 
 
-def train_poisson_model(model_rows: pd.DataFrame) -> Pipeline:
-    numeric_features = ["IsHome"] + model_diff_features(model_rows)
+def train_poisson_model(model_rows: pd.DataFrame, diff_features: list[str] | None = None) -> Pipeline:
+    numeric_features = ["IsHome"] + (model_diff_features(model_rows) if diff_features is None else diff_features)
     preprocessor = ColumnTransformer(transformers=[
         ("teams", OneHotEncoder(handle_unknown="ignore"), CATEGORICAL_FEATURES),
         ("numbers", StandardScaler(), numeric_features),
@@ -471,13 +471,13 @@ def snapshot_id_and_label(played_rounds: int, played_matches: int, total_matches
     return f"current-{played_matches}", f"Aktualnie: {played_matches}/{total_matches} meczów"
 
 
-def build_payload(args: argparse.Namespace) -> dict[str, object]:
-    history = load_history(args.history)
+def build_payload(args: argparse.Namespace, fixtures: pd.DataFrame | None = None, history: pd.DataFrame | None = None) -> dict[str, object]:
+    history = load_history(args.history) if history is None else history
     model_rows = make_poisson_rows(history)
     poisson_model = train_poisson_model(model_rows)
     home_goal_mean, away_goal_mean = venue_goal_means(model_rows)
 
-    fixtures = pd.read_csv(args.fixtures)
+    fixtures = pd.read_csv(args.fixtures) if fixtures is None else fixtures.reset_index(drop=True)
     fixtures.insert(0, "FixtureIndex", range(len(fixtures)))
     fixtures = normalize_names(fixtures)
     fixtures["FTHG"] = pd.to_numeric(fixtures["FTHG"], errors="coerce")
@@ -551,8 +551,7 @@ def read_forecast_history(history_path: Path) -> dict[str, object]:
     return json.loads(json_text)
 
 
-def write_forecast_history(payload: dict[str, object], history_path: Path) -> dict[str, object]:
-    history_payload = read_forecast_history(history_path)
+def add_history_snapshot(history_payload: dict[str, object], payload: dict[str, object]) -> dict[str, object]:
     # migawki zapisujemy tylko po pelnych kolejkach, stan w trakcie kolejki pokazuje sama strona
     if not payload["meta"]["snapshotId"].startswith("round-"):
         return history_payload
@@ -561,9 +560,15 @@ def write_forecast_history(payload: dict[str, object], history_path: Path) -> di
     snapshots = [item for item in history_payload["snapshots"] if item.get("id") != snapshot["id"]]
     snapshots.append(snapshot)
     snapshots.sort(key=lambda item: int(item.get("playedRounds") or 0))
-    history_payload["snapshots"] = snapshots
-    write_js_data(history_path, "forecastHistory", history_payload)
-    return history_payload
+    return {**history_payload, "snapshots": snapshots}
+
+
+def write_forecast_history(payload: dict[str, object], history_path: Path) -> dict[str, object]:
+    history_payload = read_forecast_history(history_path)
+    updated = add_history_snapshot(history_payload, payload)
+    if updated is not history_payload:
+        write_js_data(history_path, "forecastHistory", updated)
+    return updated
 
 
 def parse_args() -> argparse.Namespace:

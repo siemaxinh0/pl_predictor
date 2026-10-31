@@ -411,17 +411,17 @@ function bindChartTooltips(container) {
 
 const siteLabel = "siemaxinh0.github.io/pl_predictor";
 
-function forecastUpdatedText() {
-    const generatedAt = forecastMeta.generatedAtUTC ? new Date(forecastMeta.generatedAtUTC) : null;
+function forecastUpdatedText(source = forecastMeta) {
+    const generatedAt = source.generatedAtUTC ? new Date(source.generatedAtUTC) : null;
     return generatedAt && !Number.isNaN(generatedAt.getTime())
         ? new Intl.DateTimeFormat("pl-PL", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Warsaw" }).format(generatedAt)
         : "";
 }
 
-function exportMetaText() {
-    const updated = forecastUpdatedText();
+function exportMetaText(source = forecastMeta) {
+    const updated = forecastUpdatedText(source);
     return [
-        forecastMeta.simulations ? `${formatInteger(forecastMeta.simulations)} symulacji` : "",
+        source.simulations ? `${formatInteger(source.simulations)} symulacji` : "",
         updated ? `Aktualizacja: ${updated}` : ""
     ].filter(Boolean).join("  ·  ");
 }
