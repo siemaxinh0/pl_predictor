@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 from collections import defaultdict
 from pathlib import Path
 
@@ -194,10 +195,7 @@ def build_features(history: pd.DataFrame) -> tuple[pd.DataFrame, TeamState]:
 
     features = history.copy()
     features[FEATURE_COLUMNS] = pd.DataFrame(snapshots, index=history.index)[FEATURE_COLUMNS]
-    features["EloDiff"] = features["HomeElo"] - features["AwayElo"]
-    features["FormDiff"] = features["HomeForm"] - features["AwayForm"]
-    features["VenueFormDiff"] = features["HomeFormAtHome"] - features["AwayFormAtAway"]
-    features["H2HDiff"] = features["HomeH2H"] - features["AwayH2H"]
+    add_diff_features(features)
     features["Target"] = np.select(
         [features["FTHG"] > features["FTAG"], features["FTHG"] == features["FTAG"]],
         [1, 0],
@@ -206,12 +204,23 @@ def build_features(history: pd.DataFrame) -> tuple[pd.DataFrame, TeamState]:
     return features, state
 
 
-def current_state(history: pd.DataFrame, fixtures: pd.DataFrame) -> TeamState:
+def add_diff_features(features: pd.DataFrame) -> pd.DataFrame:
+    features["EloDiff"] = features["HomeElo"] - features["AwayElo"]
+    features["FormDiff"] = features["HomeForm"] - features["AwayForm"]
+    features["VenueFormDiff"] = features["HomeFormAtHome"] - features["AwayFormAtAway"]
+    features["H2HDiff"] = features["HomeH2H"] - features["AwayH2H"]
+    return features
+
+
+def season_start_state(history: pd.DataFrame, teams: set[str]) -> TeamState:
     _features, state = build_features(history)
-    fixtures = normalize_names(fixtures)
-    state.start_season(season_teams(fixtures))
-    played = fixtures.dropna(subset=["FTHG", "FTAG"])
-    for match in played.itertuples(index=False):
+    state.start_season(teams)
+    return state
+
+
+def apply_results(state: TeamState, matches: pd.DataFrame) -> TeamState:
+    state = copy.deepcopy(state)
+    for match in matches.itertuples(index=False):
         state.update(match.HomeTeam, match.AwayTeam, int(match.FTHG), int(match.FTAG))
     return state
 

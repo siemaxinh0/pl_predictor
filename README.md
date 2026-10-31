@@ -200,7 +200,7 @@ Main numbers at the time of writing (seasons 19/20 - 25/26):
 | Correct 1/X/2 pick | 43.4% | 52.9% |
 | Log loss (lower = better, coin flip on 3 outcomes = 1.099) | 1.070 | 0.981 |
 
-Table forecast made in August, compared with the final table: on average ~9 points off per team, rank correlation 0.77, 2.9 of the real top 4 and 1.6 of the 3 relegated teams were in those zones in the forecast, and the champion was the favourite in 4 of 7 seasons. During the season the site has more data, so it does better than that.
+Table forecast made in August, compared with the final table: on average ~9 points off per team, rank correlation 0.76, 2.7 of the real top 4 and 1.9 of the 3 relegated teams were in those zones in the forecast, and the champion was the favourite in 4 of 7 seasons. During the season the site has more data, so it does better than that.
 
 This script replaced the old notebook (`src/model.ipynb`), which had its own copy of the whole pipeline.
 
@@ -318,7 +318,7 @@ web/forecast-history.js               snapshot after every complete matchweek (g
 
 ### Features
 
-All of them are calculated from the state **before** the match, otherwise the model would be peeking at the result.
+All of them are calculated from the state **before** the match, otherwise the model would be peeking at the result. Training and the forecast use the same code for this (`TeamState` in `src/features.py`), so the current season is described with exactly the same rules as the seasons the model learned from.
 
 - **ELO** - every team starts at 1500 and after each match `new_elo = old_elo + K * (actual - expected)`, where `actual` is 1 / 0.5 / 0 for win / draw / loss and `expected` comes from the ELO difference with a home bonus. K = 20, home advantage = 90 ELO points. Between seasons ratings are pulled 5% back to 1500. Promoted teams get the average ELO of the teams that went down (or something in between if they were in the league before).
 - **Form** - average points from the last 5 matches, in three versions: overall, home only and away only.
@@ -386,7 +386,6 @@ When a chance is shown as **0%** or **100%** in bold, it's mathematically decide
 
 ## TODO / ideas
 
-- `run_forecast.py` calculates the current ELO / form on its own with slightly different rules than `features.py` (home advantage 60 instead of 90, no regression between seasons). It should reuse `features.py`, but that changes the numbers a bit, so it's a separate change.
 - Dixon-Coles correction for low scores (0-0, 1-0, 1-1 are usually underestimated by plain Poisson)
 - time weighting so recent seasons matter more
 - football-data also has xG columns now, could be worth trying as a feature
