@@ -31,43 +31,8 @@ function modelPick(side) {
     return side.draw >= side.loss ? "draw" : "loss";
 }
 
-function countsTotal(counts) {
-    return counts.reduce((sum, count) => sum + count, 0);
-}
-
-function countsMean(counts) {
-    return counts.reduce((sum, count, index) => sum + count * index, 0) / countsTotal(counts);
-}
-
-function countsQuantile(counts, share) {
-    const target = countsTotal(counts) * share;
-    let running = 0;
-    for (let index = 0; index < counts.length; index += 1) {
-        running += counts[index];
-        if (running >= target) {
-            return index;
-        }
-    }
-    return counts.length - 1;
-}
-
-function shareText(count, total) {
-    const share = (count / total) * 100;
-    return `${share >= 10 || share === 0 ? share.toFixed(0) : share.toFixed(1)}%`;
-}
-
 function opponentLink(slug, name) {
     return `<a class="team-opponent" href="${teamPageUrl(slug)}">${createLogo({ slug })}<span>${escapeHtml(name)}</span></a>`;
-}
-
-function fact(label, value, detail = "", className = "") {
-    return `
-        <div class="team-fact ${className}">
-            <span>${label}</span>
-            <strong>${value}</strong>
-            ${detail ? `<small>${detail}</small>` : ""}
-        </div>
-    `;
 }
 
 function recordText(matches, slug) {
@@ -207,16 +172,6 @@ function bindFormTooltip() {
     });
 }
 
-function distBar(share, label = "") {
-    const height = `${(share * 100).toFixed(1)}%`;
-    return `
-        <span class="dist-track">
-            <span class="dist-bar" style="height: ${height}"></span>
-            ${label ? `<span class="dist-value" style="bottom: calc(${height} + 3px)">${label}</span>` : ""}
-        </span>
-    `;
-}
-
 function positionZone(position) {
     if (position === 1) {
         return "is-title";
@@ -310,136 +265,11 @@ function pointsChart(team) {
     };
 }
 
-const distCharts = new Map();
-
-function distPanelHtml(chart) {
-    if (!chart) {
-        return "";
-    }
-    distCharts.set(chart.id, chart);
-    const columns = chart.columns.map(column => `
-        <div class="dist-col ${column.className} ${column.isCurrent ? "is-current" : ""}" title="${escapeHtml(column.tip)}">
-            ${distBar(column.height, column.value)}
-            <span class="dist-label">${column.label}</span>
-        </div>
-    `).join("");
-
-    return `
-        <section class="team-panel">
-            <div class="team-panel-head">
-                <h2>${chart.title}</h2>
-                <button type="button" class="action-button action-button-secondary team-export" data-export-chart="${chart.id}">Zapisz PNG</button>
-            </div>
-            <div class="team-facts">${chart.facts.map(([label, value]) => fact(label, value)).join("")}</div>
-            <div class="dist-scroll">
-                <div class="dist-chart ${chart.chartClass || ""}">${columns}</div>
-            </div>
-            <div class="dist-legend">${chart.legend.map(([label, className]) => `<span class="${className}">${label}</span>`).join("")}</div>
-        </section>
-    `;
-}
-
-const exportColors = {
-    "is-title": "#3d195b",
-    "is-top4": "#72d7ff",
-    "is-range": "#72d7ff",
-    "is-relegation": "#c43f5f",
-    "is-median": "#e94091",
-    "is-current": "#e94091"
-};
-async function distChartCanvas(chart, team, withCrest = true) {
-    const width = 1200;
-    const height = 675;
-    const pad = 56;
-    const { canvas, context } = createExportCanvas(width, height, 1.6);
-
-    const crest = withCrest ? await loadExportImage(`assets/logos/${team.slug}.svg`) : null;
-    if (crest) {
-        drawContainedImage(context, crest, pad, 34, 100);
-    }
-    const titleX = crest ? pad + 124 : pad;
-    context.textBaseline = "alphabetic";
-    context.fillStyle = "#240030";
-    fillFittedText(context, team.team, titleX, 86, 640, 50, 700, exportDisplayFont);
-    context.fillStyle = "#6a37a8";
-    context.font = `700 24px ${exportBodyFont}`;
-    context.fillText(chart.title, titleX, 122);
-
-    drawExportBrand(context, width, pad, 68, true);
-
-    const factGap = 14;
-    const factTop = 156;
-    const factWidth = (width - 2 * pad - factGap * (chart.facts.length - 1)) / chart.facts.length;
-    chart.facts.forEach(([label, value], index) => {
-        const x = pad + index * (factWidth + factGap);
-        context.beginPath();
-        context.roundRect(x, factTop, factWidth, 78, 10);
-        context.fillStyle = "#ffffff";
-        context.fill();
-        context.strokeStyle = "#c9e2f4";
-        context.lineWidth = 1;
-        context.stroke();
-        context.fillStyle = "#69758b";
-        fillFittedText(context, label.toUpperCase(), x + 16, factTop + 28, factWidth - 32, 13, 700, exportBodyFont);
-        context.fillStyle = "#240030";
-        fillFittedText(context, value, x + 16, factTop + 62, factWidth - 32, 26, 700, exportDisplayFont);
-    });
-
-    const plotTop = 276;
-    const plotBottom = 556;
-    const columnGap = chart.columns.length > 30 ? 3 : 8;
-    const columnWidth = (width - 2 * pad - columnGap * (chart.columns.length - 1)) / chart.columns.length;
-    context.textAlign = "center";
-    chart.columns.forEach((column, index) => {
-        const x = pad + index * (columnWidth + columnGap);
-        const centerX = x + columnWidth / 2;
-        const barHeight = Math.max(2, column.height * (plotBottom - plotTop - 26));
-        context.beginPath();
-        context.roundRect(x, plotBottom - barHeight, columnWidth, barHeight, [Math.min(5, columnWidth / 2), Math.min(5, columnWidth / 2), 0, 0]);
-        context.fillStyle = exportColors[column.className] || "rgba(61, 25, 91, 0.2)";
-        context.fill();
-        if (column.value) {
-            context.fillStyle = "#3d195b";
-            context.font = `700 15px ${exportBodyFont}`;
-            context.fillText(column.value, centerX, plotBottom - barHeight - 8);
-        }
-        if (column.label) {
-            context.font = `700 15px ${exportBodyFont}`;
-            if (column.isCurrent) {
-                const pillWidth = Math.max(columnWidth, context.measureText(column.label).width + 16);
-                context.beginPath();
-                context.roundRect(centerX - pillWidth / 2, plotBottom + 8, pillWidth, 24, 6);
-                context.fillStyle = exportColors["is-current"];
-                context.fill();
-                context.fillStyle = "#ffffff";
-            } else {
-                context.fillStyle = "#69758b";
-            }
-            context.fillText(column.label, centerX, plotBottom + 26);
-        }
-    });
-
-    context.textAlign = "left";
-    context.font = `700 15px ${exportBodyFont}`;
-    let legendX = pad;
-    chart.legend.forEach(([label, className]) => {
-        context.beginPath();
-        context.roundRect(legendX, 610, 14, 14, 3);
-        context.fillStyle = exportColors[className];
-        context.fill();
-        context.fillStyle = "#69758b";
-        context.fillText(label, legendX + 22, 623);
-        legendX += 22 + context.measureText(label).width + 28;
-    });
-
-    return canvas;
-}
-
 async function downloadDistChart(button) {
     const chart = distCharts.get(button.dataset.exportChart);
     button.disabled = true;
     try {
-        await downloadCanvasPng(withCrest => distChartCanvas(chart, club, withCrest), `${club.slug}-${chart.fileName}.png`);
+        await downloadCanvasPng(withCrest => distChartCanvas(chart, { title: club.team, slug: club.slug }, withCrest), `${club.slug}-${chart.fileName}.png`);
     } finally {
         button.disabled = false;
     }

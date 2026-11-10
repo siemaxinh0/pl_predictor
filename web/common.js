@@ -7,6 +7,7 @@ const results = forecastData.results || [];
 const upcomingFixtures = forecastData.upcomingFixtures || [];
 const remainingFixtures = forecastData.remainingFixtures || [];
 const teamDetails = forecastData.teamDetails || {};
+const leagueDetails = forecastData.leagueDetails || null;
 const sampleTables = forecastData.sampleTables || [];
 
 const metricConfigs = [
@@ -536,4 +537,187 @@ async function downloadCanvasPng(drawCanvas, fileName) {
     link.download = fileName;
     link.click();
     setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+}
+
+function countsTotal(counts) {
+    return counts.reduce((sum, count) => sum + count, 0);
+}
+
+function countsMean(counts) {
+    return counts.reduce((sum, count, index) => sum + count * index, 0) / countsTotal(counts);
+}
+
+function countsQuantile(counts, share) {
+    const target = countsTotal(counts) * share;
+    let running = 0;
+    for (let index = 0; index < counts.length; index += 1) {
+        running += counts[index];
+        if (running >= target) {
+            return index;
+        }
+    }
+    return counts.length - 1;
+}
+
+function shareText(count, total) {
+    const share = (count / total) * 100;
+    return `${share >= 10 || share === 0 ? share.toFixed(0) : share.toFixed(1)}%`;
+}
+
+function factsHtml(facts) {
+    return facts.map(([label, value, detail]) => fact(label, value, detail)).join("");
+}
+
+function fact(label, value, detail = "", className = "") {
+    return `
+        <div class="team-fact ${className}">
+            <span>${label}</span>
+            <strong>${value}</strong>
+            ${detail ? `<small>${detail}</small>` : ""}
+        </div>
+    `;
+}
+
+function distBar(share, label = "") {
+    const height = `${(share * 100).toFixed(1)}%`;
+    return `
+        <span class="dist-track">
+            <span class="dist-bar" style="height: ${height}"></span>
+            ${label ? `<span class="dist-value" style="bottom: calc(${height} + 3px)">${label}</span>` : ""}
+        </span>
+    `;
+}
+
+const distCharts = new Map();
+
+function distPanelHtml(chart) {
+    if (!chart) {
+        return "";
+    }
+    distCharts.set(chart.id, chart);
+    const columns = chart.columns.map(column => `
+        <div class="dist-col ${column.className} ${column.isCurrent ? "is-current" : ""}" title="${escapeHtml(column.tip)}">
+            ${distBar(column.height, column.value)}
+            <span class="dist-label">${column.label}</span>
+        </div>
+    `).join("");
+
+    return `
+        <section class="team-panel">
+            <div class="team-panel-head">
+                <h2>${chart.title}</h2>
+                <button type="button" class="action-button action-button-secondary team-export" data-export-chart="${chart.id}">Zapisz PNG</button>
+            </div>
+            <div class="team-facts">${factsHtml(chart.facts)}</div>
+            <div class="dist-scroll">
+                <div class="dist-chart ${chart.chartClass || ""}">${columns}</div>
+            </div>
+            <div class="dist-legend">${chart.legend.map(([label, className]) => `<span class="${className}">${label}</span>`).join("")}</div>
+        </section>
+    `;
+}
+
+const exportColors = {
+    "is-title": "#3d195b",
+    "is-top4": "#72d7ff",
+    "is-range": "#72d7ff",
+    "is-safe": "#00c983",
+    "is-relegation": "#c43f5f",
+    "is-median": "#e94091",
+    "is-current": "#e94091"
+};
+
+function drawExportFacts(context, facts, left, top, totalWidth) {
+    const gap = 14;
+    const boxWidth = (totalWidth - gap * (facts.length - 1)) / facts.length;
+    const boxHeight = facts.some(item => item[2]) ? 100 : 78;
+    facts.forEach(([label, value, detail], index) => {
+        const x = left + index * (boxWidth + gap);
+        context.beginPath();
+        context.roundRect(x, top, boxWidth, boxHeight, 10);
+        context.fillStyle = "#ffffff";
+        context.fill();
+        context.strokeStyle = "#c9e2f4";
+        context.lineWidth = 1;
+        context.stroke();
+        context.fillStyle = "#69758b";
+        fillFittedText(context, label.toUpperCase(), x + 16, top + 28, boxWidth - 32, 13, 700, exportBodyFont);
+        context.fillStyle = "#240030";
+        fillFittedText(context, String(value), x + 16, top + 62, boxWidth - 32, 26, 700, exportDisplayFont);
+        if (detail) {
+            context.fillStyle = "#69758b";
+            fillFittedText(context, detail, x + 16, top + 87, boxWidth - 32, 14, 700, exportBodyFont);
+        }
+    });
+}
+
+async function distChartCanvas(chart, heading, withCrest = true) {
+    const width = 1200;
+    const height = 675;
+    const pad = 56;
+    const { canvas, context } = createExportCanvas(width, height, 1.6);
+
+    const crest = withCrest && heading.slug ? await loadExportImage(`assets/logos/${heading.slug}.svg`) : null;
+    if (crest) {
+        drawContainedImage(context, crest, pad, 34, 100);
+    }
+    const titleX = crest ? pad + 124 : pad;
+    context.textBaseline = "alphabetic";
+    context.fillStyle = "#240030";
+    fillFittedText(context, heading.title, titleX, 86, 640, 50, 700, exportDisplayFont);
+    context.fillStyle = "#6a37a8";
+    context.font = `700 24px ${exportBodyFont}`;
+    context.fillText(chart.title, titleX, 122);
+
+    drawExportBrand(context, width, pad, 68, true);
+    drawExportFacts(context, chart.facts, pad, 156, width - 2 * pad);
+
+    const plotTop = 276;
+    const plotBottom = 556;
+    const columnGap = chart.columns.length > 30 ? 3 : 8;
+    const columnWidth = (width - 2 * pad - columnGap * (chart.columns.length - 1)) / chart.columns.length;
+    context.textAlign = "center";
+    chart.columns.forEach((column, index) => {
+        const x = pad + index * (columnWidth + columnGap);
+        const centerX = x + columnWidth / 2;
+        const barHeight = Math.max(2, column.height * (plotBottom - plotTop - 26));
+        context.beginPath();
+        context.roundRect(x, plotBottom - barHeight, columnWidth, barHeight, [Math.min(5, columnWidth / 2), Math.min(5, columnWidth / 2), 0, 0]);
+        context.fillStyle = exportColors[column.className] || "rgba(61, 25, 91, 0.2)";
+        context.fill();
+        if (column.value) {
+            context.fillStyle = "#3d195b";
+            context.font = `700 15px ${exportBodyFont}`;
+            context.fillText(column.value, centerX, plotBottom - barHeight - 8);
+        }
+        if (column.label) {
+            context.font = `700 15px ${exportBodyFont}`;
+            if (column.isCurrent) {
+                const pillWidth = Math.max(columnWidth, context.measureText(column.label).width + 16);
+                context.beginPath();
+                context.roundRect(centerX - pillWidth / 2, plotBottom + 8, pillWidth, 24, 6);
+                context.fillStyle = exportColors["is-current"];
+                context.fill();
+                context.fillStyle = "#ffffff";
+            } else {
+                context.fillStyle = "#69758b";
+            }
+            context.fillText(column.label, centerX, plotBottom + 26);
+        }
+    });
+
+    context.textAlign = "left";
+    context.font = `700 15px ${exportBodyFont}`;
+    let legendX = pad;
+    chart.legend.forEach(([label, className]) => {
+        context.beginPath();
+        context.roundRect(legendX, 610, 14, 14, 3);
+        context.fillStyle = exportColors[className];
+        context.fill();
+        context.fillStyle = "#69758b";
+        context.fillText(label, legendX + 22, 623);
+        legendX += 22 + context.measureText(label).width + 28;
+    });
+
+    return canvas;
 }

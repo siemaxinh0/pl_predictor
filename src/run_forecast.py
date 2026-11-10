@@ -233,7 +233,32 @@ def team_distributions(teams: list[str], position_counts: np.ndarray, points: np
     return details
 
 
-def simulate_table(standings: list[dict[str, object]], teams: list[str], adjusted_matches: pd.DataFrame, uncertainty_sigma: dict[str, float], simulations: int, seed: int, sample_tables: int) -> tuple[pd.DataFrame, list[dict[str, object]], dict[str, dict[str, object]]]:
+def league_distributions(points: np.ndarray, order: np.ndarray) -> dict[str, object]:
+    # kazda para (symulacja, druzyna) to jeden mozliwy koniec sezonu; zliczenia per liczba punktow daja szanse strefy przy danym dorobku
+    positions = np.argsort(order, axis=1).ravel()
+    lowest = int(points.min())
+    shifted = (points - lowest).ravel()
+    size = int(points.max()) - lowest + 1
+    team_count = points.shape[1]
+
+    def counts(mask: np.ndarray | None = None) -> list[int]:
+        return np.bincount(shifted if mask is None else shifted[mask], minlength=size).tolist()
+
+    position_points = np.take_along_axis(points, order, axis=1)
+    return {
+        "pointsMin": lowest,
+        "teamSeasons": counts(),
+        "title": counts(positions == 0),
+        "top4": counts(positions < 4),
+        "relegation": counts(positions >= team_count - 3),
+        "positionPoints": [
+            {"pointsMin": int(column.min()), "pointsCounts": np.bincount(column - column.min()).tolist()}
+            for column in position_points.T
+        ],
+    }
+
+
+def simulate_table(standings: list[dict[str, object]], teams: list[str], adjusted_matches: pd.DataFrame, uncertainty_sigma: dict[str, float], simulations: int, seed: int, sample_tables: int) -> tuple[pd.DataFrame, list[dict[str, object]], dict[str, dict[str, object]], dict[str, object]]:
     # wiersz macierzy to jeden symulowany sezon, kolumna to mecz albo druzyna
     random_generator = np.random.default_rng(seed)
     team_index = {team: index for index, team in enumerate(teams)}
@@ -289,7 +314,7 @@ def simulate_table(standings: list[dict[str, object]], teams: list[str], adjuste
         make_table_snapshot(teams, order[index], points[index], goals_for[index], goals_against[index], int(index) + 1)
         for index in sample_indices
     ]
-    return forecast_table, sampled_tables, team_distributions(teams, position_counts, points)
+    return forecast_table, sampled_tables, team_distributions(teams, position_counts, points), league_distributions(points, order)
 
 
 def poisson_result_probs(lambda_home: float, lambda_away: float, max_goals: int = 12) -> tuple[float, float, float]:
@@ -382,7 +407,7 @@ def build_payload(args: argparse.Namespace, fixtures: pd.DataFrame | None = None
     standings = build_standings(teams, played_matches)
     uncertainty_sigma, shrinkage = team_uncertainty(history, teams)
     adjusted_matches = adjusted_lambdas(match_lambdas, shrinkage, home_goal_mean, away_goal_mean)
-    forecast_table, sample_tables, team_details = simulate_table(standings, teams, adjusted_matches, uncertainty_sigma, args.simulations, args.seed, args.sample_tables)
+    forecast_table, sample_tables, team_details, league_details = simulate_table(standings, teams, adjusted_matches, uncertainty_sigma, args.simulations, args.seed, args.sample_tables)
     rank_bounds = possible_rank_bounds(standings, remaining_matches, teams)
     forecast_table["bestPossibleRank"] = forecast_table["teamKey"].map(lambda team: rank_bounds[team][0])
     forecast_table["worstPossibleRank"] = forecast_table["teamKey"].map(lambda team: rank_bounds[team][1])
@@ -410,6 +435,7 @@ def build_payload(args: argparse.Namespace, fixtures: pd.DataFrame | None = None
         "upcomingFixtures": upcoming_fixtures,
         "remainingFixtures": build_remaining_fixtures(adjusted_matches),
         "teamDetails": team_details,
+        "leagueDetails": league_details,
         "sampleTables": sample_tables,
     }
 

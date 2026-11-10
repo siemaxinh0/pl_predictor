@@ -995,7 +995,8 @@ h2 {
     border-color: var(--purple);
 }
 
-.team-hero-note {
+.team-hero-note,
+.league-note {
     margin: 0;
     color: var(--muted);
     font-weight: 700;
@@ -1205,6 +1206,11 @@ h2 {
     background: var(--rose);
 }
 
+.dist-col.is-safe .dist-bar,
+.dist-legend .is-safe::before {
+    background: var(--mint);
+}
+
 .dist-col.is-median .dist-bar,
 .dist-legend .is-median::before,
 .dist-legend .is-current::before {
@@ -1244,6 +1250,61 @@ h2 {
 
 .team-table {
     min-width: 760px;
+}
+
+.league-panel.is-active {
+    display: grid;
+    gap: 18px;
+}
+
+.league-head .table-meta {
+    margin-top: 6px;
+}
+
+.league-table {
+    min-width: 680px;
+}
+
+.league-table th:first-child,
+.league-table td:first-child {
+    text-align: left;
+}
+
+.league-table td strong {
+    color: var(--purple);
+    font-size: 1.1rem;
+}
+
+.league-table td small {
+    margin-left: 4px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.league-zone {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: 900;
+}
+
+.league-zone::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.league-zone.is-title::before {
+    background: var(--purple);
+}
+
+.league-zone.is-top4::before {
+    background: var(--sky);
+}
+
+.league-zone.is-safe::before {
+    background: var(--mint);
 }
 
 .team-match-col,
