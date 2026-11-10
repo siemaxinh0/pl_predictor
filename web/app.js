@@ -32,11 +32,7 @@ const tips = {
     simPoints: ["Punkty", "Punkty na koniec sezonu w tej jednej symulacji."],
     simGoalsFor: ["Gole strzelone", "Gole strzelone w całym sezonie w tej jednej symulacji."],
     simGoalsAgainst: ["Gole stracone", "Gole stracone w całym sezonie w tej jednej symulacji."],
-    simGoalDiff: ["Różnica bramek", "Gole strzelone minus stracone w tej jednej symulacji."],
-    leaguePlace: ["Drużyna na granicy strefy", "Ile punktów zdobywa mistrz, 4. drużyna i ostatnia bezpieczna drużyna: mediana i zakres z 8 na 10 symulacji."],
-    leagueHalf: ["50% szans", "Od takiej liczby punktów drużyna kończyła sezon w strefie w co najmniej połowie symulacji."],
-    leagueLikely: ["90% szans", "Od takiej liczby punktów drużyna kończyła sezon w strefie w co najmniej 9 na 10 symulacji."],
-    leagueAlways: ["Zawsze w symulacjach", "Od takiej liczby punktów drużyna kończyła sezon w strefie w każdej symulacji. To nie jest matematyczna pewność."]
+    simGoalDiff: ["Różnica bramek", "Gole strzelone minus stracone w tej jednej symulacji."]
 };
 Object.entries(teamNotes).forEach(([key, note]) => {
     tips[`note:${key}`] = note;
@@ -146,16 +142,11 @@ function renderMeta() {
     matchProgressFill.style.width = `${progress}%`;
 
     const updated = forecastUpdatedText();
-    document.querySelector("#table-meta").innerHTML = forecastMetaHtml();
-    document.querySelector("#standings-meta").innerHTML = updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : "";
-}
-
-function forecastMetaHtml() {
-    const updated = forecastUpdatedText();
-    return [
+    document.querySelector("#table-meta").innerHTML = [
         forecastMeta.simulations ? `<span><strong>${formatInteger(forecastMeta.simulations)}</strong> symulacji</span>` : "",
         updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : ""
     ].filter(Boolean).join("");
+    document.querySelector("#standings-meta").innerHTML = updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : "";
 }
 
 function renderTable() {
@@ -826,9 +817,9 @@ async function downloadHistoryTable() {
 const leagueName = document.querySelector("#page-title").textContent.trim();
 
 const leagueZones = [
-    { id: "title", name: "Mistrzostwo", title: "Ile punktów daje mistrzostwo", place: 1, placeName: "Mistrz", className: "is-title", goal: "na mistrzostwo", fileName: "mistrzostwo" },
-    { id: "top4", name: "Top 4", title: "Ile punktów daje Top 4", place: 4, placeName: "4. miejsce", className: "is-top4", goal: "na Top 4", fileName: "top4" },
-    { id: "safe", name: "Utrzymanie", title: "Ile punktów daje utrzymanie", place: (teams.length || 20) - 3, placeName: `${(teams.length || 20) - 3}. miejsce`, className: "is-safe", goal: "na utrzymanie", fileName: "utrzymanie" }
+    { id: "title", title: "Ile punktów daje mistrzostwo", place: 1, placeName: "Mistrz", className: "is-title", goal: "na mistrzostwo", fileName: "mistrzostwo" },
+    { id: "top4", title: "Ile punktów daje Top 4", place: 4, placeName: "4. miejsce", className: "is-top4", goal: "na Top 4", fileName: "top4" },
+    { id: "safe", title: "Ile punktów daje utrzymanie", place: (teams.length || 20) - 3, placeName: `${(teams.length || 20) - 3}. miejsce`, className: "is-safe", goal: "na utrzymanie", fileName: "utrzymanie" }
 ];
 
 function zoneChances(zone) {
@@ -862,56 +853,12 @@ function zoneSummary(zone) {
         low: pointsMin + countsQuantile(pointsCounts, 0.1),
         high: pointsMin + countsQuantile(pointsCounts, 0.9),
         half: pointsThreshold(rows, 0.5),
-        likely: pointsThreshold(rows, 0.9),
-        always: pointsThreshold(rows, 1)
+        likely: pointsThreshold(rows, 0.9)
     };
 }
 
 function pointsText(points) {
     return points === null ? "—" : `${points} pkt`;
-}
-
-function leagueFacts() {
-    const played = Number(forecastMeta.playedMatches || 0);
-    const total = Number(forecastMeta.totalMatches || 380);
-    const seasonGoals = teams.reduce((sum, team) => sum + Number(team.xGF || 0), 0);
-    const playedGoals = standings.reduce((sum, row) => sum + Number(row.gf || 0), 0);
-    return [
-        ["Gole w sezonie (prognoza)", formatInteger(Math.round(seasonGoals)), `${formatLambda(seasonGoals / total)} na mecz`],
-        ["Gole do tej pory", formatInteger(playedGoals), played ? `${formatLambda(playedGoals / played)} na mecz` : "sezon jeszcze się nie zaczął"]
-    ];
-}
-
-const thresholdColumns = [
-    ["leaguePlace", "Drużyna na granicy"],
-    ["leagueHalf", "50% szans od"],
-    ["leagueLikely", "90% szans od"],
-    ["leagueAlways", "Zawsze od"]
-];
-
-function leagueThresholdsHtml(summaries) {
-    const rows = summaries.map(summary => `
-        <tr>
-            <td><span class="league-zone ${summary.zone.className}">${summary.zone.name}</span></td>
-            <td><strong>${summary.median} pkt</strong> <small>${summary.low}–${summary.high}</small></td>
-            <td><strong>${pointsText(summary.half)}</strong></td>
-            <td><strong>${pointsText(summary.likely)}</strong></td>
-            <td><strong>${pointsText(summary.always)}</strong></td>
-        </tr>
-    `).join("");
-    return `
-        <div class="table-wrap team-table-wrap">
-            <table class="league-table">
-                <thead>
-                    <tr>
-                        <th>Strefa</th>
-                        ${thresholdColumns.map(([tip, label]) => `<th data-tip="${tip}">${label}</th>`).join("")}
-                    </tr>
-                </thead>
-                <tbody>${rows}</tbody>
-            </table>
-        </div>
-    `;
 }
 
 function leagueZoneChart(summary) {
@@ -954,108 +901,7 @@ function renderLeague() {
         leagueBody.innerHTML = `<section class="team-panel"><p class="empty-state">Brak statystyk ligi. Uruchom generator Monte Carlo.</p></section>`;
         return;
     }
-    const summaries = leagueZones.map(zoneSummary);
-    leagueBody.innerHTML = `
-        <section class="team-panel">
-            <div class="team-panel-head">
-                <div class="league-head">
-                    <h2>Progi punktowe</h2>
-                    <div class="table-meta">${forecastMetaHtml()}</div>
-                </div>
-                <button type="button" class="action-button action-button-secondary team-export" data-league-download>Zapisz PNG</button>
-            </div>
-            <div class="team-facts">${factsHtml(leagueFacts())}</div>
-            ${leagueThresholdsHtml(summaries)}
-            <p class="league-note">Szansa przy danym dorobku: ze wszystkich drużyn, które w symulacjach skończyły sezon z taką liczbą punktów, jaka część zmieściła się w strefie. „Zawsze” oznacza wszystkie symulacje, a nie matematyczną pewność.</p>
-        </section>
-        ${summaries.map(summary => distPanelHtml(leagueZoneChart(summary))).join("")}
-    `;
-}
-
-async function leagueSummaryCanvas() {
-    const width = 1200;
-    const height = 675;
-    const pad = 56;
-    const { canvas, context } = createExportCanvas(width, height, 1.6);
-    const summaries = leagueZones.map(zoneSummary);
-
-    context.textBaseline = "alphabetic";
-    context.fillStyle = "#240030";
-    fillFittedText(context, leagueName, pad, 86, 640, 50, 700, exportDisplayFont);
-    context.fillStyle = "#6a37a8";
-    context.font = `700 24px ${exportBodyFont}`;
-    context.fillText("Progi punktowe", pad, 122);
-    drawExportBrand(context, width, pad, 68, true);
-    drawExportFacts(context, leagueFacts(), pad, 156, width - 2 * pad);
-
-    const tableTop = 284;
-    const headerHeight = 46;
-    const rowHeight = 70;
-    const columnWidths = [248, 250, 190, 190, 210];
-    const columnX = columnWidths.map((_, index) => pad + columnWidths.slice(0, index).reduce((sum, value) => sum + value, 0));
-    context.beginPath();
-    context.roundRect(pad, tableTop, width - 2 * pad, headerHeight + rowHeight * summaries.length, 10);
-    context.fillStyle = "#ffffff";
-    context.fill();
-    context.strokeStyle = "#c9e2f4";
-    context.lineWidth = 1;
-    context.stroke();
-
-    context.beginPath();
-    context.roundRect(pad, tableTop, width - 2 * pad, headerHeight, [10, 10, 0, 0]);
-    context.fillStyle = "#3d195b";
-    context.fill();
-    context.fillStyle = "#ffffff";
-    ["Strefa", ...thresholdColumns.map(([, label]) => label)].forEach((label, index) => {
-        fillFittedText(context, label.toUpperCase(), columnX[index] + 20, tableTop + 29, columnWidths[index] - 40, 14, 700, exportBodyFont);
-    });
-
-    summaries.forEach((summary, rowIndex) => {
-        const rowTop = tableTop + headerHeight + rowIndex * rowHeight;
-        const baseline = rowTop + rowHeight / 2 + 9;
-        if (rowIndex > 0) {
-            context.fillStyle = "#c9e2f4";
-            context.fillRect(pad, rowTop, width - 2 * pad, 1);
-        }
-        context.beginPath();
-        context.roundRect(columnX[0] + 20, rowTop + rowHeight / 2 - 8, 16, 16, 4);
-        context.fillStyle = exportColors[summary.zone.className];
-        context.fill();
-        context.fillStyle = "#240030";
-        context.font = `700 22px ${exportBodyFont}`;
-        context.fillText(summary.zone.name, columnX[0] + 48, baseline - 2);
-
-        context.font = `700 26px ${exportDisplayFont}`;
-        const medianText = `${summary.median} pkt`;
-        context.fillText(medianText, columnX[1] + 20, baseline);
-        const medianWidth = context.measureText(medianText).width;
-        context.fillStyle = "#69758b";
-        context.font = `700 16px ${exportBodyFont}`;
-        context.fillText(`${summary.low}–${summary.high}`, columnX[1] + 30 + medianWidth, baseline);
-
-        context.fillStyle = "#240030";
-        context.font = `700 26px ${exportDisplayFont}`;
-        [summary.half, summary.likely, summary.always].forEach((points, index) => {
-            context.fillText(pointsText(points), columnX[index + 2] + 20, baseline);
-        });
-    });
-
-    context.fillStyle = "#69758b";
-    context.font = `700 15px ${exportBodyFont}`;
-    const noteTop = tableTop + headerHeight + rowHeight * summaries.length + 36;
-    wrapText(context, `Drużyna na granicy: mediana i zakres 8 na 10 symulacji dla mistrza, 4. i ${leagueZones[2].place}. miejsca. Progi: od takiej liczby punktów drużyna kończyła w strefie w co najmniej 50% / 90% / 100% symulacji.`, width - 2 * pad)
-        .forEach((line, index) => context.fillText(line, pad, noteTop + index * 22));
-
-    return canvas;
-}
-
-async function downloadLeagueSummary(button) {
-    button.disabled = true;
-    try {
-        await downloadCanvasPng(leagueSummaryCanvas, `statystyki-ligi-${forecastMeta.snapshotId || "teraz"}.png`);
-    } finally {
-        button.disabled = false;
-    }
+    leagueBody.innerHTML = leagueZones.map(zone => distPanelHtml(leagueZoneChart(zoneSummary(zone)))).join("");
 }
 
 async function downloadLeagueChart(button) {
@@ -1561,12 +1407,9 @@ customChartControls.addEventListener("click", event => {
 bindChartTooltips(chartsPanel);
 
 leagueBody.addEventListener("click", event => {
-    const summaryButton = event.target.closest("[data-league-download]");
-    const chartButton = event.target.closest("[data-export-chart]");
-    if (summaryButton) {
-        downloadLeagueSummary(summaryButton);
-    } else if (chartButton) {
-        downloadLeagueChart(chartButton);
+    const button = event.target.closest("[data-export-chart]");
+    if (button) {
+        downloadLeagueChart(button);
     }
 });
 

@@ -564,10 +564,6 @@ function shareText(count, total) {
     return `${share >= 10 || share === 0 ? share.toFixed(0) : share.toFixed(1)}%`;
 }
 
-function factsHtml(facts) {
-    return facts.map(([label, value, detail]) => fact(label, value, detail)).join("");
-}
-
 function fact(label, value, detail = "", className = "") {
     return `
         <div class="team-fact ${className}">
@@ -608,7 +604,7 @@ function distPanelHtml(chart) {
                 <h2>${chart.title}</h2>
                 <button type="button" class="action-button action-button-secondary team-export" data-export-chart="${chart.id}">Zapisz PNG</button>
             </div>
-            <div class="team-facts">${factsHtml(chart.facts)}</div>
+            <div class="team-facts">${chart.facts.map(([label, value]) => fact(label, value)).join("")}</div>
             <div class="dist-scroll">
                 <div class="dist-chart ${chart.chartClass || ""}">${columns}</div>
             </div>
@@ -626,30 +622,6 @@ const exportColors = {
     "is-median": "#e94091",
     "is-current": "#e94091"
 };
-
-function drawExportFacts(context, facts, left, top, totalWidth) {
-    const gap = 14;
-    const boxWidth = (totalWidth - gap * (facts.length - 1)) / facts.length;
-    const boxHeight = facts.some(item => item[2]) ? 100 : 78;
-    facts.forEach(([label, value, detail], index) => {
-        const x = left + index * (boxWidth + gap);
-        context.beginPath();
-        context.roundRect(x, top, boxWidth, boxHeight, 10);
-        context.fillStyle = "#ffffff";
-        context.fill();
-        context.strokeStyle = "#c9e2f4";
-        context.lineWidth = 1;
-        context.stroke();
-        context.fillStyle = "#69758b";
-        fillFittedText(context, label.toUpperCase(), x + 16, top + 28, boxWidth - 32, 13, 700, exportBodyFont);
-        context.fillStyle = "#240030";
-        fillFittedText(context, String(value), x + 16, top + 62, boxWidth - 32, 26, 700, exportDisplayFont);
-        if (detail) {
-            context.fillStyle = "#69758b";
-            fillFittedText(context, detail, x + 16, top + 87, boxWidth - 32, 14, 700, exportBodyFont);
-        }
-    });
-}
 
 async function distChartCanvas(chart, heading, withCrest = true) {
     const width = 1200;
@@ -670,7 +642,24 @@ async function distChartCanvas(chart, heading, withCrest = true) {
     context.fillText(chart.title, titleX, 122);
 
     drawExportBrand(context, width, pad, 68, true);
-    drawExportFacts(context, chart.facts, pad, 156, width - 2 * pad);
+
+    const factGap = 14;
+    const factTop = 156;
+    const factWidth = (width - 2 * pad - factGap * (chart.facts.length - 1)) / chart.facts.length;
+    chart.facts.forEach(([label, value], index) => {
+        const x = pad + index * (factWidth + factGap);
+        context.beginPath();
+        context.roundRect(x, factTop, factWidth, 78, 10);
+        context.fillStyle = "#ffffff";
+        context.fill();
+        context.strokeStyle = "#c9e2f4";
+        context.lineWidth = 1;
+        context.stroke();
+        context.fillStyle = "#69758b";
+        fillFittedText(context, label.toUpperCase(), x + 16, factTop + 28, factWidth - 32, 13, 700, exportBodyFont);
+        context.fillStyle = "#240030";
+        fillFittedText(context, value, x + 16, factTop + 62, factWidth - 32, 26, 700, exportDisplayFont);
+    });
 
     const plotTop = 276;
     const plotBottom = 556;
