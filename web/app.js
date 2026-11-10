@@ -56,7 +56,6 @@ const resultsRefresh = document.querySelector("#results-refresh");
 const resultsRefreshButton = document.querySelector("#results-refresh-button");
 const resultsRefreshStatus = document.querySelector("#results-refresh-status");
 const historyBody = document.querySelector("#history-body");
-const historyTitle = document.querySelector("#history-title");
 const chartsPanel = document.querySelector("[data-view='charts']");
 const chartsBody = document.querySelector("#charts-body");
 const customChartControls = document.querySelector("#custom-chart-controls");
@@ -143,6 +142,14 @@ function renderMeta() {
         updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : ""
     ].filter(Boolean).join("");
     document.querySelector("#standings-meta").innerHTML = updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : "";
+    document.querySelector("#upcoming-meta").innerHTML = [
+        `<span>Mecze do rozegrania: <strong>${formatInteger(remainingFixtures.length)}</strong></span>`,
+        updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : ""
+    ].filter(Boolean).join("");
+    document.querySelector("#results-meta").innerHTML = [
+        `<span>Rozegrane mecze: <strong>${formatInteger(results.length)}/${formatInteger(total)}</strong></span>`,
+        updated ? `<span>Aktualizacja: <strong>${updated}</strong></span>` : ""
+    ].filter(Boolean).join("");
 }
 
 function renderTable() {
@@ -239,7 +246,7 @@ function renderUpcomingFixtures() {
     upcomingBody.innerHTML = rounds.slice(0, state.upcomingRounds).map(round => `
         <section class="upcoming-round">
             <div class="round-head">
-                <h2>Kolejka ${round}</h2>
+                <h3>Kolejka ${round}</h3>
                 <button class="action-button action-button-secondary round-export" type="button" data-round-download="${round}">Zapisz PNG</button>
             </div>
             <div class="fixtures-grid">
@@ -310,7 +317,7 @@ function renderResults() {
     resultsBody.innerHTML = rounds.slice(0, state.resultsRounds).map(round => `
         <section class="upcoming-round">
             <div class="round-head">
-                <h2>Kolejka ${round}</h2>
+                <h3>Kolejka ${round}</h3>
                 <button class="action-button action-button-secondary round-export" type="button" data-round-download="${round}" data-round-kind="results">Zapisz PNG</button>
             </div>
             <div class="fixtures-grid">
@@ -405,12 +412,10 @@ function closeHistoryMenu(focusToggle = false) {
 function renderHistoryTable() {
     const snapshot = historySnapshots[state.historyIndex];
     if (!snapshot) {
-        historyTitle.textContent = "Brak historii prognoz";
         historyBody.innerHTML = `<tr><td colspan="9">Brak zapisanych snapshotów.</td></tr>`;
         return;
     }
 
-    historyTitle.textContent = snapshot.label;
     historyBody.innerHTML = snapshot.teams.map(team => `
         <tr class="${team.rank >= 18 ? "relegation-row" : ""}">
             <td class="rank-cell">${team.rank}</td>
@@ -1173,7 +1178,19 @@ function teamCardNextHtml(slug) {
     }
     const isHome = fixture.homeSlug === slug;
     const opponent = isHome ? fixture.awayTeam : fixture.homeTeam;
-    return `<p class="team-card-next">Następny mecz: <strong>${escapeHtml(opponent)}</strong> (${isHome ? "dom" : "wyjazd"})</p>`;
+    const opponentSlug = isHome ? fixture.awaySlug : fixture.homeSlug;
+    const win = isHome ? fixture.homeWin : fixture.awayWin;
+    return `
+        <div class="team-card-section">
+            <span class="team-card-label">Następny mecz · kolejka ${fixture.round}</span>
+            <div class="team-card-match">
+                ${createLogo({ slug: opponentSlug })}
+                <strong>${escapeHtml(opponent)}</strong>
+                <span class="team-card-venue">${isHome ? "dom" : "wyjazd"}</span>
+                <span class="team-card-win">wygrana <strong>${formatPercent(win)}</strong></span>
+            </div>
+        </div>
+    `;
 }
 
 function teamCardHtml(slug) {
@@ -1182,25 +1199,39 @@ function teamCardHtml(slug) {
     const name = forecast?.team || current?.team || slug;
     const tip = forecast ? teamTip(forecast) : "";
     const form = recentForm(slug);
+    const tags = [
+        current ? `${current.rank}. miejsce` : "",
+        current ? `${current.pts} pkt` : "",
+        forecast ? `${formatNumber(forecast.xPts)} xPts` : ""
+    ].filter(Boolean);
 
     return `
-        <div class="team-card-head">
+        <div class="team-card-head" style="--club: ${teamColors[forecast ? teamKey(forecast) : name] || "var(--sky)"}">
             ${createLogo({ slug })}
-            <div>
+            <div class="team-card-title">
                 <h3>${escapeHtml(name)}${tip ? `<sup class="team-note-mark" data-tip="${tip}">*</sup>` : ""}</h3>
-                ${current ? `<p>${current.rank}. miejsce · ${current.pts} pkt</p>` : ""}
+                <div class="team-card-tags">${tags.map(tag => `<span>${tag}</span>`).join("")}</div>
             </div>
-            ${form ? `<div class="team-form" aria-label="Ostatnie mecze">${form}</div>` : ""}
         </div>
+        ${form ? `
+            <div class="team-card-section team-card-row">
+                <span class="team-card-label">Forma</span>
+                <div class="team-form" aria-label="Ostatnie mecze">${form}</div>
+            </div>
+        ` : ""}
         ${forecast ? `
             <div class="team-card-chances">
                 ${[["Tytuł", "title"], ["Top 4", "top4"], ["Spadek", "relegation"]].map(([label, key]) => `
-                    <span>${label} <strong class="${chanceStatus(forecast, key) ? "is-certain" : ""}">${formatChance(forecast, key)}</strong></span>
+                    <div class="team-card-chance is-${key}" style="--value: ${Math.min(100, Number(forecast[key] || 0))}%">
+                        <span class="team-card-label">${label}</span>
+                        <strong class="${chanceStatus(forecast, key) ? "is-certain" : ""}">${formatChance(forecast, key)}</strong>
+                        <i aria-hidden="true"></i>
+                    </div>
                 `).join("")}
             </div>
         ` : ""}
         ${teamCardNextHtml(slug)}
-        <a class="team-card-link" href="${teamPageUrl(slug)}">Pełne statystyki →</a>
+        <a class="team-card-link" href="${teamPageUrl(slug)}">Pełne statystyki <span aria-hidden="true">→</span></a>
     `;
 }
 

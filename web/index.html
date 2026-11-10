@@ -113,19 +113,31 @@
         </section>
 
         <section class="upcoming-panel tab-view" data-view="upcoming" aria-label="Nadchodzące mecze">
+            <div class="table-toolbar panel-head">
+                <div>
+                    <h2>Nadchodzące mecze</h2>
+                    <p class="table-meta" id="upcoming-meta"></p>
+                </div>
+            </div>
             <div class="upcoming-rounds" id="upcoming-body"></div>
             <div class="upcoming-actions" id="upcoming-actions"></div>
         </section>
 
         <section class="results-panel tab-view" data-view="results" aria-label="Wyniki rozegranych meczów">
+            <div class="table-toolbar panel-head">
+                <div>
+                    <h2>Wyniki</h2>
+                    <p class="table-meta" id="results-meta"></p>
+                </div>
+            </div>
             <div class="upcoming-rounds" id="results-body"></div>
             <div class="upcoming-actions" id="results-actions"></div>
         </section>
 
         <section class="history-panel tab-view" data-view="history" aria-label="Historia prognoz">
-            <div class="history-header">
+            <div class="table-toolbar panel-head">
                 <div>
-                    <h2 id="history-title">Tabela prawdopodobieństw</h2>
+                    <h2>Historia prognoz</h2>
                 </div>
                 <button class="action-button action-button-secondary" id="history-download" type="button">Zapisz PNG</button>
             </div>
@@ -155,7 +167,7 @@
         </section>
 
         <section class="charts-panel tab-view" data-view="charts" aria-label="Wykresy prawdopodobieństw">
-            <div class="charts-header">
+            <div class="table-toolbar panel-head">
                 <div>
                     <h2>Jak zmieniają się szanse po kolejkach</h2>
                 </div>

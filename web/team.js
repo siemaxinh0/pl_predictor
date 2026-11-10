@@ -292,7 +292,7 @@ function historyChartsHtml(team) {
 
     return `
         <section class="team-panel">
-            <h2>Jak zmieniała się prognoza</h2>
+            <div class="table-toolbar panel-head"><h2>Jak zmieniała się prognoza</h2></div>
             <div class="charts-grid team-charts">${cards}</div>
         </section>
     `;
@@ -303,7 +303,7 @@ function playedHtml(team) {
     if (!matches.length) {
         return `
             <section class="team-panel">
-                <h2>Rozegrane mecze</h2>
+                <div class="table-toolbar panel-head"><h2>Rozegrane mecze</h2></div>
                 <p class="empty-state">Brak rozegranych meczów.</p>
             </section>
         `;
@@ -333,7 +333,7 @@ function playedHtml(team) {
 
     return `
         <section class="team-panel">
-            <h2>Rozegrane mecze</h2>
+            <div class="table-toolbar panel-head"><h2>Rozegrane mecze</h2></div>
             <div class="team-facts">
                 ${fact("U siebie", home, "", "is-big")}
                 ${fact("Na wyjeździe", away, "", "is-big")}
@@ -385,7 +385,7 @@ function scheduleHtml(team) {
     if (!fixtures.length) {
         return `
             <section class="team-panel">
-                <h2>Pozostałe mecze</h2>
+                <div class="table-toolbar panel-head"><h2>Pozostałe mecze</h2></div>
                 <p class="empty-state">Sezon zakończony, brak meczów do rozegrania.</p>
             </section>
         `;
@@ -417,7 +417,7 @@ function scheduleHtml(team) {
 
     return `
         <section class="team-panel">
-            <h2>Pozostałe mecze</h2>
+            <div class="table-toolbar panel-head"><h2>Pozostałe mecze</h2></div>
             <div class="team-facts">
                 ${fact("Mecze do rozegrania", fixtures.length)}
                 ${fact("Oczekiwane punkty", formatNumber(totalPoints), `${formatLambda(totalPoints / fixtures.length)} na mecz`)}

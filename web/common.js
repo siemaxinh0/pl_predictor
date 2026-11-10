@@ -602,7 +602,7 @@ function distPanelHtml(chart) {
 
     return `
         <section class="team-panel">
-            <div class="team-panel-head">
+            <div class="table-toolbar panel-head">
                 <h2>${chart.title}</h2>
                 <button type="button" class="action-button action-button-secondary team-export" data-export-chart="${chart.id}">Zapisz PNG</button>
             </div>
