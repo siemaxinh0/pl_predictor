@@ -234,23 +234,9 @@ def team_distributions(teams: list[str], position_counts: np.ndarray, points: np
 
 
 def league_distributions(points: np.ndarray, order: np.ndarray) -> dict[str, object]:
-    # kazda para (symulacja, druzyna) to jeden mozliwy koniec sezonu; zliczenia per liczba punktow daja szanse strefy przy danym dorobku
-    positions = np.argsort(order, axis=1).ravel()
-    lowest = int(points.min())
-    shifted = (points - lowest).ravel()
-    size = int(points.max()) - lowest + 1
-    team_count = points.shape[1]
-
-    def counts(mask: np.ndarray | None = None) -> list[int]:
-        return np.bincount(shifted if mask is None else shifted[mask], minlength=size).tolist()
-
+    # rozklad punktow druzyny na kazdym miejscu tabeli; z niego strona liczy, w ilu symulacjach dany dorobek dawal strefe
     position_points = np.take_along_axis(points, order, axis=1)
     return {
-        "pointsMin": lowest,
-        "teamSeasons": counts(),
-        "title": counts(positions == 0),
-        "top4": counts(positions < 4),
-        "relegation": counts(positions >= team_count - 3),
         "positionPoints": [
             {"pointsMin": int(column.min()), "pointsCounts": np.bincount(column - column.min()).tolist()}
             for column in position_points.T

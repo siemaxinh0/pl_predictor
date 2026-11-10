@@ -3586,7 +3586,7 @@ window.forecastHistory = {
             "playedRounds": 10,
             "playedMatches": 100,
             "simulations": 100000,
-            "generatedAtUTC": "2026-11-09T21:53:31+00:00",
+            "generatedAtUTC": "2026-11-10T16:14:26+00:00",
             "teams": [
                 {
                     "rank": 1,

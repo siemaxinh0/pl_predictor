@@ -817,30 +817,25 @@ async function downloadHistoryTable() {
 const leagueName = document.querySelector("#page-title").textContent.trim();
 
 const leagueZones = [
-    { id: "title", title: "Ile punktów daje mistrzostwo", place: 1, placeName: "Mistrz", className: "is-title", goal: "na mistrzostwo", fileName: "mistrzostwo" },
-    { id: "top4", title: "Ile punktów daje Top 4", place: 4, placeName: "4. miejsce", className: "is-top4", goal: "na Top 4", fileName: "top4" },
-    { id: "safe", title: "Ile punktów daje utrzymanie", place: (teams.length || 20) - 3, placeName: `${(teams.length || 20) - 3}. miejsce`, className: "is-safe", goal: "na utrzymanie", fileName: "utrzymanie" }
+    { id: "title", title: "Ile punktów daje mistrzostwo", place: 1, placeName: "Mistrz", rival: "mistrz miał", className: "is-title", goal: "mistrzostwo", fileName: "mistrzostwo" },
+    { id: "top4", title: "Ile punktów daje Top 4", place: 4, placeName: "4. miejsce", rival: "4. drużyna miała", className: "is-top4", goal: "Top 4", fileName: "top4" },
+    { id: "safe", title: "Ile punktów daje utrzymanie", place: (teams.length || 20) - 3, placeName: `${(teams.length || 20) - 3}. miejsce`, rival: `${(teams.length || 20) - 3}. drużyna miała`, className: "is-safe", goal: "utrzymanie", fileName: "utrzymanie" }
 ];
 
+// X punktow daje strefe, gdy ostatnia druzyna w strefie ma mniej; przy rownej liczbie decyduje bilans, wiec remis nie jest liczony
 function zoneChances(zone) {
-    const { pointsMin, teamSeasons, relegation } = leagueDetails;
-    const inZone = zone.id === "safe" ? teamSeasons.map((count, index) => count - relegation[index]) : leagueDetails[zone.id];
-    return teamSeasons.map((total, index) => ({ points: pointsMin + index, total, chance: total ? inZone[index] / total : null }));
+    const { pointsMin, pointsCounts } = leagueDetails.positionPoints[zone.place - 1];
+    const total = countsTotal(pointsCounts);
+    let below = 0;
+    return Array.from({ length: pointsCounts.length + 1 }, (_, index) => {
+        const row = { points: pointsMin + index, chance: below / total };
+        below += pointsCounts[index] || 0;
+        return row;
+    });
 }
 
-// liczone od najwyzszego dorobku w dol, zeby pojedynczy szczesliwy sezon z mala liczba punktow nie obnizal progu
 function pointsThreshold(rows, level) {
-    let threshold = null;
-    for (const row of [...rows].reverse()) {
-        if (row.chance === null) {
-            continue;
-        }
-        if (row.chance < level) {
-            break;
-        }
-        threshold = row.points;
-    }
-    return threshold;
+    return rows.find(row => row.chance >= level)?.points ?? null;
 }
 
 function zoneSummary(zone) {
@@ -863,11 +858,8 @@ function pointsText(points) {
 
 function leagueZoneChart(summary) {
     const { zone, rows, half, likely } = summary;
-    const observed = rows.filter(row => row.chance !== null);
-    const open = observed.filter(row => row.chance > 0.005 && row.chance < 0.995);
-    const edges = open.length ? [open[0].points, open[open.length - 1].points] : [half ?? summary.median, half ?? summary.median];
-    const from = Math.max(observed[0].points, edges[0] - 3);
-    const to = Math.min(observed[observed.length - 1].points, edges[1] + 3);
+    const from = (rows.find(row => row.chance >= 0.005) ?? rows[0]).points - 2;
+    const to = (rows.find(row => row.chance >= 0.995) ?? rows[rows.length - 1]).points + 2;
     const shown = rows.filter(row => row.points >= from && row.points <= to);
     const labelStep = shown.length > 40 ? 10 : 5;
 
@@ -885,14 +877,12 @@ function leagueZoneChart(summary) {
         columns: shown.map(row => ({
             className: row.points === half ? "is-median" : zone.className,
             isCurrent: false,
-            height: row.chance || 0,
+            height: row.chance,
             value: row.points === half || row.points === likely ? `${Math.round(row.chance * 100)}%` : "",
             label: row.points % labelStep === 0 ? String(row.points) : "",
-            tip: row.chance === null
-                ? `${row.points} pkt: żadna drużyna nie skończyła sezonu z takim dorobkiem`
-                : `${row.points} pkt: ${formatPercent(row.chance * 100)} szans ${zone.goal} (${formatInteger(row.total)} takich końców sezonu)`
+            tip: `${row.points} pkt lub więcej daje ${zone.goal} w ${formatPercent(row.chance * 100)} symulacji (${zone.rival} mniej punktów)`
         })),
-        legend: [[`Szansa ${zone.goal} przy danym dorobku`, zone.className], ["Próg 50%", "is-median"]]
+        legend: [[`W ilu % symulacji tyle punktów lub więcej daje ${zone.goal}`, zone.className], ["Próg 50%", "is-median"]]
     };
 }
 
