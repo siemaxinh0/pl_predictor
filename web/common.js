@@ -9,6 +9,7 @@ const remainingFixtures = forecastData.remainingFixtures || [];
 const teamDetails = forecastData.teamDetails || {};
 const leagueDetails = forecastData.leagueDetails || null;
 const sampleTables = forecastData.sampleTables || [];
+const exampleTables = forecastData.exampleTables || null;
 
 const metricConfigs = [
     { key: "title", label: "Szansa na tytuł", percent: true },
@@ -591,8 +592,9 @@ function distPanelHtml(chart) {
         return "";
     }
     distCharts.set(chart.id, chart);
-    const columns = chart.columns.map(column => `
-        <div class="dist-col ${column.className} ${column.isCurrent ? "is-current" : ""}" title="${escapeHtml(column.tip)}">
+    const clickable = chart.columns.some(column => column.example);
+    const columns = chart.columns.map((column, index) => `
+        <div class="dist-col ${column.className} ${column.isCurrent ? "is-current" : ""}" title="${escapeHtml(column.tip)}"${column.example ? ` data-example="${chart.id}:${index}" role="button" tabindex="0"` : ""}>
             ${distBar(column.height, column.value)}
             <span class="dist-label">${column.label}</span>
         </div>
@@ -609,9 +611,130 @@ function distPanelHtml(chart) {
                 <div class="dist-chart ${chart.chartClass || ""}">${columns}</div>
             </div>
             <div class="dist-legend">${chart.legend.map(([label, className]) => `<span class="${className}">${label}</span>`).join("")}</div>
+            ${clickable ? `<p class="dist-hint">Kliknij słupek, żeby zobaczyć przykładową symulację z taką sytuacją.</p>` : ""}
         </section>
     `;
 }
+
+function exampleIndex(examples, offset) {
+    const index = examples?.[offset];
+    return index >= 0 && exampleTables?.tables[index] ? index : null;
+}
+
+function exampleTable(index) {
+    const table = exampleTables.tables[index];
+    const names = new Map(teams.map(team => [team.slug, team.team]));
+    const rows = [];
+    for (let offset = 0; offset < table.rows.length; offset += 4) {
+        const [teamIndex, pts, gf, ga] = table.rows.slice(offset, offset + 4);
+        const slug = exampleTables.teamSlugs[teamIndex];
+        rows.push({ rank: rows.length + 1, team: names.get(slug) || slug, slug, pts, gf, ga, gd: gf - ga });
+    }
+    return { simulation: table.simulation, teams: rows };
+}
+
+const simulationModal = document.createElement("div");
+simulationModal.className = "modal";
+simulationModal.id = "random-simulation-modal";
+simulationModal.hidden = true;
+simulationModal.innerHTML = `
+    <div class="modal-backdrop" data-random-close></div>
+    <section class="random-simulation-modal" role="dialog" aria-modal="true" aria-labelledby="random-simulation-title">
+        <div class="random-simulation-header">
+            <div>
+                <h3 id="random-simulation-title">Losowa symulacja</h3>
+                <p class="simulation-caption" id="simulation-caption" hidden></p>
+            </div>
+            <button class="action-button action-button-secondary" id="hide-random-simulation" type="button" data-random-close>Zamknij</button>
+        </div>
+        <div class="table-wrap random-table-wrap">
+            <table class="random-table">
+                <thead>
+                    <tr>
+                        <th class="rank-col" data-tip="simPosition">#</th>
+                        <th class="team-col">Drużyna</th>
+                        <th data-tip="simPoints">Pts</th>
+                        <th data-tip="simGoalsFor">GF</th>
+                        <th data-tip="simGoalsAgainst">GA</th>
+                        <th data-tip="simGoalDiff">GD</th>
+                    </tr>
+                </thead>
+                <tbody id="random-simulation-body"></tbody>
+            </table>
+        </div>
+    </section>
+`;
+document.body.append(simulationModal);
+let simulationOpener = null;
+
+function openSimulation(table, { caption = "", isHighlighted = () => false } = {}) {
+    simulationModal.querySelector("#random-simulation-title").textContent = `Symulacja ${formatInteger(table.simulation)} z ${formatInteger(forecastMeta.simulations || sampleTables.length)}`;
+    const captionElement = simulationModal.querySelector("#simulation-caption");
+    captionElement.textContent = caption;
+    captionElement.hidden = !caption;
+    simulationModal.querySelector("#random-simulation-body").innerHTML = table.teams.map(team => `
+        <tr class="${team.rank >= 18 ? "relegation-row" : ""} ${isHighlighted(team) ? "is-highlight" : ""}">
+            <td class="rank-cell">${team.rank}</td>
+            <td class="team-cell">
+                <div class="team-entry">
+                    ${createLogo(team)}
+                    <span class="team-name"><strong>${escapeHtml(team.team)}</strong></span>
+                </div>
+            </td>
+            <td class="xpts-cell"><strong>${team.pts}</strong></td>
+            <td>${team.gf}</td>
+            <td>${team.ga}</td>
+            <td class="${team.gd >= 0 ? "positive" : "negative"}">${team.gd}</td>
+        </tr>
+    `).join("");
+    simulationOpener = document.activeElement;
+    simulationModal.hidden = false;
+    document.body.classList.add("modal-open");
+    simulationModal.querySelector("#hide-random-simulation").focus();
+    simulationModal.querySelector(".random-table-wrap").scrollTop = 0;
+    simulationModal.querySelector(".is-highlight")?.scrollIntoView({ block: "center" });
+}
+
+function closeSimulation() {
+    if (simulationModal.hidden) {
+        return;
+    }
+    simulationModal.hidden = true;
+    document.body.classList.remove("modal-open");
+    simulationOpener?.focus?.();
+}
+
+function openColumnExample(element) {
+    const [chartId, columnIndex] = element.dataset.example.split(":");
+    const example = distCharts.get(chartId)?.columns[Number(columnIndex)]?.example;
+    if (example) {
+        openSimulation(exampleTable(example.index), example);
+    }
+}
+
+simulationModal.addEventListener("click", event => {
+    if (event.target.closest("[data-random-close]")) {
+        closeSimulation();
+    }
+});
+
+document.addEventListener("click", event => {
+    const column = event.target.closest(".dist-col[data-example]");
+    if (column) {
+        openColumnExample(column);
+    }
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeSimulation();
+    }
+    const column = event.target.closest?.(".dist-col[data-example]");
+    if (column && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+        openColumnExample(column);
+    }
+});
 
 const exportColors = {
     "is-title": "#3d195b",

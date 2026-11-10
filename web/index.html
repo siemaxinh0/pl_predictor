@@ -174,33 +174,6 @@
         <section class="league-panel tab-view" data-view="league" aria-label="Statystyki ligi" id="league-body"></section>
     </main>
 
-    <div class="modal" id="random-simulation-modal" hidden>
-        <div class="modal-backdrop" data-random-close></div>
-        <section class="random-simulation-modal" role="dialog" aria-modal="true" aria-labelledby="random-simulation-title">
-            <div class="random-simulation-header">
-                <div>
-                    <h3 id="random-simulation-title">Losowa symulacja</h3>
-                </div>
-                <button class="action-button action-button-secondary" id="hide-random-simulation" type="button">Zamknij</button>
-            </div>
-            <div class="table-wrap random-table-wrap">
-                <table class="random-table">
-                    <thead>
-                        <tr>
-                            <th class="rank-col" data-tip="simPosition">#</th>
-                            <th class="team-col">Drużyna</th>
-                            <th data-tip="simPoints">Pts</th>
-                            <th data-tip="simGoalsFor">GF</th>
-                            <th data-tip="simGoalsAgainst">GA</th>
-                            <th data-tip="simGoalDiff">GD</th>
-                        </tr>
-                    </thead>
-                    <tbody id="random-simulation-body"></tbody>
-                </table>
-            </div>
-        </section>
-    </div>
-
     <div class="tip-box" id="tip-box" role="tooltip" hidden></div>
     <div class="team-card" id="team-card" role="dialog" aria-label="Karta drużyny" hidden></div>
 

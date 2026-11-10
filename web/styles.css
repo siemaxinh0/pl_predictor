@@ -1183,6 +1183,27 @@ h2 {
     white-space: nowrap;
 }
 
+.dist-col[data-example] {
+    cursor: pointer;
+}
+
+.dist-col[data-example]:hover .dist-bar,
+.dist-col[data-example]:focus-visible .dist-bar {
+    filter: brightness(1.18);
+    box-shadow: 0 0 0 2px var(--pink);
+}
+
+.dist-col[data-example]:focus-visible {
+    outline: none;
+}
+
+.dist-hint {
+    margin: -8px 0 0;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
 .dist-col.is-current .dist-label {
     color: #ffffff;
     background: var(--pink);
@@ -1970,6 +1991,19 @@ td {
 .random-table {
     width: 100%;
     min-width: 760px;
+}
+
+.simulation-caption {
+    margin: 4px 0 0;
+    color: var(--purple-soft);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.random-table tbody tr.is-highlight,
+.random-table tbody tr.is-highlight:nth-child(even) {
+    background: #ffe3f0;
+    box-shadow: inset 4px 0 0 var(--pink);
 }
 
 @media (max-width: 860px) {

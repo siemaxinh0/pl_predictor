@@ -64,10 +64,6 @@ const customChartView = document.querySelector("#custom-chart-view");
 const customChartDownload = document.querySelector("#custom-chart-download");
 const randomSimulationButton = document.querySelector("#random-simulation-button");
 const tableDownload = document.querySelector("#table-download");
-const randomSimulationModal = document.querySelector("#random-simulation-modal");
-const randomSimulationTitle = document.querySelector("#random-simulation-title");
-const randomSimulationBody = document.querySelector("#random-simulation-body");
-const hideRandomSimulationButton = document.querySelector("#hide-random-simulation");
 const leagueBody = document.querySelector("#league-body");
 const tipBox = document.querySelector("#tip-box");
 const teamCard = document.querySelector("#team-card");
@@ -185,41 +181,11 @@ function renderTable() {
     `).join("");
 }
 
-function renderRandomSimulation(sampleTable) {
-    randomSimulationTitle.textContent = `Symulacja ${formatInteger(sampleTable.simulation)} z ${formatInteger(forecastMeta.simulations || sampleTables.length)}`;
-    randomSimulationBody.innerHTML = sampleTable.teams.map(team => `
-        <tr class="${team.rank >= 18 ? "relegation-row" : ""}">
-            <td class="rank-cell">${team.rank}</td>
-            <td class="team-cell">
-                <div class="team-entry">
-                    ${createLogo(team)}
-                    <span class="team-name"><strong>${escapeHtml(team.team)}</strong></span>
-                </div>
-            </td>
-            <td class="xpts-cell"><strong>${team.pts}</strong></td>
-            <td>${team.gf}</td>
-            <td>${team.ga}</td>
-            <td class="${team.gd >= 0 ? "positive" : "negative"}">${team.gd}</td>
-        </tr>
-    `).join("");
-    randomSimulationModal.hidden = false;
-    document.body.classList.add("modal-open");
-    hideRandomSimulationButton.focus();
-}
-
-function closeRandomSimulation() {
-    randomSimulationModal.hidden = true;
-    document.body.classList.remove("modal-open");
-    randomSimulationButton.focus();
-}
-
 function renderRandomSampleTable() {
     if (!sampleTables.length) {
         return;
     }
-
-    const sampleTable = sampleTables[Math.floor(Math.random() * sampleTables.length)];
-    renderRandomSimulation(sampleTable);
+    openSimulation(sampleTables[Math.floor(Math.random() * sampleTables.length)]);
 }
 
 function nextFixtureForTeam(slug) {
@@ -816,15 +782,21 @@ async function downloadHistoryTable() {
 
 const leagueName = document.querySelector("#page-title").textContent.trim();
 
+// place to ostatnie miejsce w strefie, a rival pierwsza druzyna za nia
 const leagueZones = [
-    { id: "title", title: "Ile punktów daje mistrzostwo", place: 1, placeName: "Mistrz", rival: "mistrz miał", className: "is-title", goal: "mistrzostwo", fileName: "mistrzostwo" },
-    { id: "top4", title: "Ile punktów daje Top 4", place: 4, placeName: "4. miejsce", rival: "4. drużyna miała", className: "is-top4", goal: "Top 4", fileName: "top4" },
-    { id: "safe", title: "Ile punktów daje utrzymanie", place: (teams.length || 20) - 3, placeName: `${(teams.length || 20) - 3}. miejsce`, rival: `${(teams.length || 20) - 3}. drużyna miała`, className: "is-safe", goal: "utrzymanie", fileName: "utrzymanie" }
+    { id: "title", title: "Ile punktów daje mistrzostwo", place: 1, placeName: "Mistrz", rivalName: "Wicemistrz", rival: "wicemistrz miał", className: "is-title", goal: "mistrzostwo", fileName: "mistrzostwo" },
+    { id: "top4", title: "Ile punktów daje Top 4", place: 4, placeName: "4. miejsce", rivalName: "5. miejsce", rival: "5. drużyna miała", className: "is-top4", goal: "Top 4", fileName: "top4" },
+    { id: "safe", title: "Ile punktów daje utrzymanie", place: (teams.length || 20) - 3, placeName: `${(teams.length || 20) - 3}. miejsce`, rivalName: `${(teams.length || 20) - 2}. miejsce`, rival: `${(teams.length || 20) - 2}. drużyna miała`, className: "is-safe", goal: "utrzymanie", fileName: "utrzymanie" }
 ];
 
-// X punktow daje strefe, gdy ostatnia druzyna w strefie ma mniej; przy rownej liczbie decyduje bilans, wiec remis nie jest liczony
+function placeMedian(place) {
+    const { pointsMin, pointsCounts } = leagueDetails.positionPoints[place - 1];
+    return pointsMin + countsQuantile(pointsCounts, 0.5);
+}
+
+// X punktow daje strefe, gdy pierwsza druzyna za strefa ma mniej; przy rownej liczbie decyduje bilans, wiec remis nie jest liczony
 function zoneChances(zone) {
-    const { pointsMin, pointsCounts } = leagueDetails.positionPoints[zone.place - 1];
+    const { pointsMin, pointsCounts } = leagueDetails.positionPoints[zone.place];
     const total = countsTotal(pointsCounts);
     let below = 0;
     return Array.from({ length: pointsCounts.length + 1 }, (_, index) => {
@@ -840,13 +812,14 @@ function pointsThreshold(rows, level) {
 
 function zoneSummary(zone) {
     const rows = zoneChances(zone);
-    const { pointsMin, pointsCounts } = leagueDetails.positionPoints[zone.place - 1];
+    const { pointsMin, pointsExamples } = leagueDetails.positionPoints[zone.place];
     return {
         zone,
         rows,
-        median: pointsMin + countsQuantile(pointsCounts, 0.5),
-        low: pointsMin + countsQuantile(pointsCounts, 0.1),
-        high: pointsMin + countsQuantile(pointsCounts, 0.9),
+        pointsMin,
+        pointsExamples,
+        placeMedian: placeMedian(zone.place),
+        rivalMedian: placeMedian(zone.place + 1),
         half: pointsThreshold(rows, 0.5),
         likely: pointsThreshold(rows, 0.9)
     };
@@ -854,6 +827,17 @@ function zoneSummary(zone) {
 
 function pointsText(points) {
     return points === null ? "—" : `${points} pkt`;
+}
+
+// przyklad dla slupka X to symulacja, w ktorej pierwsza druzyna za strefa miala X - 1 pkt, czyli X akurat by wystarczylo
+function leagueColumnExample(summary, points) {
+    const { zone } = summary;
+    const index = exampleIndex(summary.pointsExamples, points - 1 - summary.pointsMin);
+    return index === null ? null : {
+        index,
+        caption: `W tej symulacji ${zone.rival} ${points - 1} pkt, więc ${points} pkt wystarczyłoby na ${zone.goal}.`,
+        isHighlighted: team => team.rank === zone.place + 1
+    };
 }
 
 function leagueZoneChart(summary) {
@@ -869,8 +853,8 @@ function leagueZoneChart(summary) {
         title: zone.title,
         chartClass: shown.length > 30 ? "dist-points" : "",
         facts: [
-            [`${zone.placeName} zdobywa (mediana)`, `${summary.median} pkt`],
-            [`${zone.placeName}: 8 na 10 symulacji`, `${summary.low}–${summary.high} pkt`],
+            [`${zone.placeName} zdobywa (mediana)`, `${summary.placeMedian} pkt`],
+            [`${zone.rivalName} zdobywa (mediana)`, `${summary.rivalMedian} pkt`],
             ["Wystarcza w 50% symulacji", pointsText(half)],
             ["Wystarcza w 90% symulacji", pointsText(likely)]
         ],
@@ -880,7 +864,8 @@ function leagueZoneChart(summary) {
             height: row.chance,
             value: row.points === half || row.points === likely ? `${Math.round(row.chance * 100)}%` : "",
             label: row.points % labelStep === 0 ? String(row.points) : "",
-            tip: `${row.points} pkt wystarczyłoby na ${zone.goal} w ${formatPercent(row.chance * 100)} symulacji (${zone.rival} ${row.points - 1} pkt lub mniej)`
+            tip: `${row.points} pkt wystarczyłoby na ${zone.goal} w ${formatPercent(row.chance * 100)} symulacji (${zone.rival} ${row.points - 1} pkt lub mniej)`,
+            example: leagueColumnExample(summary, row.points)
         })),
         legend: [[`W ilu % symulacji tyle punktów wystarczyłoby na ${zone.goal}`, zone.className], ["Próg 50%", "is-median"]]
     };
@@ -1360,12 +1345,6 @@ resultsActions.addEventListener("click", event => {
 randomSimulationButton.disabled = !sampleTables.length;
 randomSimulationButton.addEventListener("click", renderRandomSampleTable);
 
-hideRandomSimulationButton.addEventListener("click", closeRandomSimulation);
-
-document.querySelectorAll("[data-random-close]").forEach(element => {
-    element.addEventListener("click", closeRandomSimulation);
-});
-
 customChartControls.addEventListener("change", event => {
     const field = event.target.dataset.custom;
     if (field) {
@@ -1460,10 +1439,6 @@ document.addEventListener("keydown", event => {
     }
     if (!teamCard.hidden) {
         closeTeamCard();
-        return;
-    }
-    if (!randomSimulationModal.hidden) {
-        closeRandomSimulation();
     }
 });
 

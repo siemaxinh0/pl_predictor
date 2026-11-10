@@ -182,6 +182,11 @@ function positionZone(position) {
     return position >= 18 ? "is-relegation" : "";
 }
 
+function teamColumnExample(team, examples, offset, caption) {
+    const index = exampleIndex(examples, offset);
+    return index === null ? null : { index, caption, isHighlighted: row => row.slug === team.slug };
+}
+
 function positionsChart(team) {
     const counts = teamDetails[team.slug]?.positionCounts;
     if (!counts) {
@@ -211,7 +216,8 @@ function positionsChart(team) {
                 height: count / maxCount,
                 value: count / total >= 0.005 ? share : "",
                 label: String(position),
-                tip: `${position}. miejsce: ${share} symulacji`
+                tip: `${position}. miejsce: ${share} symulacji`,
+                example: teamColumnExample(team, teamDetails[team.slug].positionExamples, index, `W tej symulacji ${team.team} kończy sezon na ${position}. miejscu.`)
             };
         }),
         legend: [
@@ -255,7 +261,8 @@ function pointsChart(team) {
                 height: count / maxCount,
                 value: "",
                 label: points % labelStep === 0 ? String(points) : "",
-                tip: `${points} pkt: ${shareText(count, total)} symulacji`
+                tip: `${points} pkt: ${shareText(count, total)} symulacji`,
+                example: teamColumnExample(team, details.pointsExamples, index, `W tej symulacji ${team.team} kończy sezon z ${points} pkt.`)
             };
         }),
         legend: [

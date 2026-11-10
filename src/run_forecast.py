@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -220,31 +221,81 @@ def make_table_snapshot(teams: list[str], order: np.ndarray, points: np.ndarray,
     return {"simulation": simulation_number, "teams": rows}
 
 
-def team_distributions(teams: list[str], position_counts: np.ndarray, points: np.ndarray) -> dict[str, dict[str, object]]:
+def zone_boundary_places(team_count: int) -> list[int]:
+    # pierwsze miejsce za strefa (liczone od 0): wicemistrz, 5. miejsce i najwyzsze spadkowe; dorobek X daje strefe, gdy ta druzyna ma mniej
+    return [1, 4, team_count - 3]
+
+
+def example_simulations(teams: list[str], order: np.ndarray, points: np.ndarray, goals_for: np.ndarray, goals_against: np.ndarray, seed: int) -> tuple[dict[str, list[dict[int, int]]], dict[str, object]]:
+    # jedna przykladowa symulacja dla kazdego slupka na wykresach; najrzadsze zdarzenia ida pierwsze, bo wybrana dla nich symulacja przy okazji pokrywa wiele czestszych
+    position_points = np.take_along_axis(points, order, axis=1)
+    events = {
+        "position": np.argsort(order, axis=1),
+        "points": points,
+        "placePoints": position_points[:, zone_boundary_places(len(teams))],
+    }
+    requirements = sorted(
+        (int(count), kind, column, int(value))
+        for kind, matrix in events.items()
+        for column in range(matrix.shape[1])
+        for value, count in zip(*np.unique(matrix[:, column], return_counts=True))
+    )
+    generator = np.random.default_rng(seed)
+    found = {kind: [{} for _ in range(matrix.shape[1])] for kind, matrix in events.items()}
+    chosen = []
+    for _, kind, column, value in requirements:
+        if value in found[kind][column]:
+            continue
+        simulation = int(generator.choice(np.flatnonzero(events[kind][:, column] == value)))
+        for event_kind, matrix in events.items():
+            for event_column, event_value in enumerate(matrix[simulation]):
+                found[event_kind][event_column].setdefault(int(event_value), len(chosen))
+        chosen.append(simulation)
+
+    # wiersz tabeli to cztery liczby (indeks druzyny w teamSlugs, punkty, gole strzelone, stracone) w kolejnosci miejsc, zeby plik nie puchl
+    tables = [{
+        "simulation": simulation + 1,
+        "rows": [int(value) for team in order[simulation] for value in (team, points[simulation, team], goals_for[simulation, team], goals_against[simulation, team])],
+    } for simulation in chosen]
+    return found, {"teamSlugs": [slug_for_team(team) for team in teams], "tables": tables}
+
+
+def example_list(found: dict[int, int], lowest: int, size: int) -> list[int]:
+    return [found.get(lowest + offset, -1) for offset in range(size)]
+
+
+def team_distributions(teams: list[str], position_counts: np.ndarray, points: np.ndarray, examples: dict[str, list[dict[int, int]]]) -> dict[str, dict[str, object]]:
     details = {}
     for index, team in enumerate(teams):
         team_points = points[:, index]
         lowest = int(team_points.min())
+        points_counts = np.bincount(team_points - lowest).tolist()
         details[slug_for_team(team)] = {
             "positionCounts": position_counts[index].tolist(),
+            "positionExamples": example_list(examples["position"][index], 0, len(teams)),
             "pointsMin": lowest,
-            "pointsCounts": np.bincount(team_points - lowest).tolist(),
+            "pointsCounts": points_counts,
+            "pointsExamples": example_list(examples["points"][index], lowest, len(points_counts)),
         }
     return details
 
 
-def league_distributions(points: np.ndarray, order: np.ndarray) -> dict[str, object]:
+def league_distributions(points: np.ndarray, order: np.ndarray, examples: dict[str, list[dict[int, int]]]) -> dict[str, object]:
     # rozklad punktow druzyny na kazdym miejscu tabeli; z niego strona liczy, w ilu symulacjach dany dorobek dawal strefe
     position_points = np.take_along_axis(points, order, axis=1)
-    return {
-        "positionPoints": [
-            {"pointsMin": int(column.min()), "pointsCounts": np.bincount(column - column.min()).tolist()}
-            for column in position_points.T
-        ],
-    }
+    boundary_places = zone_boundary_places(points.shape[1])
+    distributions = []
+    for place, column in enumerate(position_points.T):
+        lowest = int(column.min())
+        counts = np.bincount(column - lowest).tolist()
+        distribution = {"pointsMin": lowest, "pointsCounts": counts}
+        if place in boundary_places:
+            distribution["pointsExamples"] = example_list(examples["placePoints"][boundary_places.index(place)], lowest, len(counts))
+        distributions.append(distribution)
+    return {"positionPoints": distributions}
 
 
-def simulate_table(standings: list[dict[str, object]], teams: list[str], adjusted_matches: pd.DataFrame, uncertainty_sigma: dict[str, float], simulations: int, seed: int, sample_tables: int) -> tuple[pd.DataFrame, list[dict[str, object]], dict[str, dict[str, object]], dict[str, object]]:
+def simulate_table(standings: list[dict[str, object]], teams: list[str], adjusted_matches: pd.DataFrame, uncertainty_sigma: dict[str, float], simulations: int, seed: int, sample_tables: int) -> tuple[pd.DataFrame, list[dict[str, object]], dict[str, dict[str, object]], dict[str, object], dict[str, object]]:
     # wiersz macierzy to jeden symulowany sezon, kolumna to mecz albo druzyna
     random_generator = np.random.default_rng(seed)
     team_index = {team: index for index, team in enumerate(teams)}
@@ -300,7 +351,8 @@ def simulate_table(standings: list[dict[str, object]], teams: list[str], adjuste
         make_table_snapshot(teams, order[index], points[index], goals_for[index], goals_against[index], int(index) + 1)
         for index in sample_indices
     ]
-    return forecast_table, sampled_tables, team_distributions(teams, position_counts, points), league_distributions(points, order)
+    examples, example_tables = example_simulations(teams, order, points, goals_for, goals_against, seed + 2)
+    return forecast_table, sampled_tables, team_distributions(teams, position_counts, points, examples), league_distributions(points, order, examples), example_tables
 
 
 def poisson_result_probs(lambda_home: float, lambda_away: float, max_goals: int = 12) -> tuple[float, float, float]:
@@ -393,7 +445,7 @@ def build_payload(args: argparse.Namespace, fixtures: pd.DataFrame | None = None
     standings = build_standings(teams, played_matches)
     uncertainty_sigma, shrinkage = team_uncertainty(history, teams)
     adjusted_matches = adjusted_lambdas(match_lambdas, shrinkage, home_goal_mean, away_goal_mean)
-    forecast_table, sample_tables, team_details, league_details = simulate_table(standings, teams, adjusted_matches, uncertainty_sigma, args.simulations, args.seed, args.sample_tables)
+    forecast_table, sample_tables, team_details, league_details, example_tables = simulate_table(standings, teams, adjusted_matches, uncertainty_sigma, args.simulations, args.seed, args.sample_tables)
     rank_bounds = possible_rank_bounds(standings, remaining_matches, teams)
     forecast_table["bestPossibleRank"] = forecast_table["teamKey"].map(lambda team: rank_bounds[team][0])
     forecast_table["worstPossibleRank"] = forecast_table["teamKey"].map(lambda team: rank_bounds[team][1])
@@ -423,12 +475,18 @@ def build_payload(args: argparse.Namespace, fixtures: pd.DataFrame | None = None
         "teamDetails": team_details,
         "leagueDetails": league_details,
         "sampleTables": sample_tables,
+        "exampleTables": example_tables,
     }
+
+
+NUMBER_LIST = re.compile(r"\[\s*(-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?(?:,\s*-?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)*)\s*\]")
 
 
 def write_js_data(path: Path, variable: str, payload: dict[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(f"window.{variable} = {json.dumps(payload, ensure_ascii=False, indent=4)};\n", encoding="utf-8")
+    # listy samych liczb w jednej linii; przy indent=4 kazda liczba zajmowalaby osobna linie
+    text = NUMBER_LIST.sub(lambda match: "[" + ", ".join(part.strip() for part in match.group(1).split(",")) + "]", json.dumps(payload, ensure_ascii=False, indent=4))
+    path.write_text(f"window.{variable} = {text};\n", encoding="utf-8")
 
 
 def make_history_snapshot(payload: dict[str, object]) -> dict[str, object]:
