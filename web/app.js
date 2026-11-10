@@ -871,8 +871,8 @@ function leagueZoneChart(summary) {
         facts: [
             [`${zone.placeName} zdobywa (mediana)`, `${summary.median} pkt`],
             [`${zone.placeName}: 8 na 10 symulacji`, `${summary.low}–${summary.high} pkt`],
-            ["50% szans od", pointsText(half)],
-            ["90% szans od", pointsText(likely)]
+            ["Wystarcza w 50% symulacji", pointsText(half)],
+            ["Wystarcza w 90% symulacji", pointsText(likely)]
         ],
         columns: shown.map(row => ({
             className: row.points === half ? "is-median" : zone.className,
@@ -880,9 +880,9 @@ function leagueZoneChart(summary) {
             height: row.chance,
             value: row.points === half || row.points === likely ? `${Math.round(row.chance * 100)}%` : "",
             label: row.points % labelStep === 0 ? String(row.points) : "",
-            tip: `${row.points} pkt lub więcej daje ${zone.goal} w ${formatPercent(row.chance * 100)} symulacji (${zone.rival} mniej punktów)`
+            tip: `${row.points} pkt wystarczyłoby na ${zone.goal} w ${formatPercent(row.chance * 100)} symulacji (${zone.rival} ${row.points - 1} pkt lub mniej)`
         })),
-        legend: [[`W ilu % symulacji tyle punktów lub więcej daje ${zone.goal}`, zone.className], ["Próg 50%", "is-median"]]
+        legend: [[`W ilu % symulacji tyle punktów wystarczyłoby na ${zone.goal}`, zone.className], ["Próg 50%", "is-median"]]
     };
 }
 
