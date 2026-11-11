@@ -3,9 +3,7 @@ const state = {
     sortDirection: "asc",
     historyIndex: 0,
     resultsRounds: 2,
-    upcomingRounds: 2,
-    teamCardSlug: "",
-    teamCardTimer: 0
+    upcomingRounds: 2
 };
 
 const presetChartKeys = ["title", "top4", "relegation"];
@@ -37,11 +35,6 @@ const tips = {
 Object.entries(teamNotes).forEach(([key, note]) => {
     tips[`note:${key}`] = note;
 });
-
-function teamTip(team) {
-    return teamNotes[teamKey(team)] ? escapeHtml(`note:${teamKey(team)}`) : "";
-}
-
 const tableBody = document.querySelector("#table-body");
 const standingsBody = document.querySelector("#standings-body");
 const resultsBody = document.querySelector("#results-body");
@@ -65,7 +58,6 @@ const randomSimulationButton = document.querySelector("#random-simulation-button
 const tableDownload = document.querySelector("#table-download");
 const leagueBody = document.querySelector("#league-body");
 const tipBox = document.querySelector("#tip-box");
-const teamCard = document.querySelector("#team-card");
 
 state.historyIndex = Math.max(historySnapshots.length - 1, 0);
 state.customChart = {
@@ -193,24 +185,6 @@ function renderRandomSampleTable() {
         return;
     }
     openSimulation(sampleTables[Math.floor(Math.random() * sampleTables.length)]);
-}
-
-function nextFixtureForTeam(slug) {
-    return remainingFixtures.find(match => match.homeSlug === slug || match.awaySlug === slug);
-}
-
-function recentForm(slug, count = 5) {
-    return results
-        .filter(match => match.homeSlug === slug || match.awaySlug === slug)
-        .slice(-count)
-        .map(match => {
-            const isHome = match.homeSlug === slug;
-            const outcome = match.outcome === "draw" ? "draw" : (match.outcome === "home") === isHome ? "win" : "loss";
-            const { letter, label } = formLabels[outcome];
-            const detail = `Kolejka ${match.round}: ${match.homeTeam} ${match.homeGoals}-${match.awayGoals} ${match.awayTeam} (${label})`;
-            return `<span class="form-badge is-${outcome}" title="${escapeHtml(detail)}">${letter}</span>`;
-        })
-        .join("");
 }
 
 function fixtureTeamLink(name, slug) {
@@ -1171,114 +1145,6 @@ function hideTip() {
     tipBox.hidden = true;
 }
 
-function teamCardNextHtml(slug) {
-    const fixture = nextFixtureForTeam(slug);
-    if (!fixture) {
-        return "";
-    }
-    const isHome = fixture.homeSlug === slug;
-    const opponent = isHome ? fixture.awayTeam : fixture.homeTeam;
-    const opponentSlug = isHome ? fixture.awaySlug : fixture.homeSlug;
-    const win = isHome ? fixture.homeWin : fixture.awayWin;
-    return `
-        <div class="team-card-section">
-            <span class="team-card-label">Następny mecz · kolejka ${fixture.round}</span>
-            <div class="team-card-match">
-                ${createLogo({ slug: opponentSlug })}
-                <strong>${escapeHtml(opponent)}</strong>
-                <span class="team-card-venue">${isHome ? "dom" : "wyjazd"}</span>
-                <span class="team-card-win">wygrana <strong>${formatPercent(win)}</strong></span>
-            </div>
-        </div>
-    `;
-}
-
-function teamCardHtml(slug) {
-    const forecast = teams.find(team => team.slug === slug);
-    const current = standings.find(team => team.slug === slug);
-    const name = forecast?.team || current?.team || slug;
-    const tip = forecast ? teamTip(forecast) : "";
-    const form = recentForm(slug);
-    const tags = [
-        current ? `${current.rank}. miejsce` : "",
-        current ? `${current.pts} pkt` : "",
-        forecast ? `${formatNumber(forecast.xPts)} xPts` : ""
-    ].filter(Boolean);
-
-    return `
-        <div class="team-card-head" style="--club: ${teamColors[forecast ? teamKey(forecast) : name] || "var(--sky)"}">
-            ${createLogo({ slug })}
-            <div class="team-card-title">
-                <h3>${escapeHtml(name)}${tip ? `<sup class="team-note-mark" data-tip="${tip}">*</sup>` : ""}</h3>
-                <div class="team-card-tags">${tags.map(tag => `<span>${tag}</span>`).join("")}</div>
-            </div>
-        </div>
-        ${form ? `
-            <div class="team-card-section team-card-row">
-                <span class="team-card-label">Forma</span>
-                <div class="team-form" aria-label="Ostatnie mecze">${form}</div>
-            </div>
-        ` : ""}
-        ${forecast ? `
-            <div class="team-card-chances">
-                ${[["Tytuł", "title"], ["Top 4", "top4"], ["Spadek", "relegation"]].map(([label, key]) => `
-                    <div class="team-card-chance is-${key}" style="--value: ${Math.min(100, Number(forecast[key] || 0))}%">
-                        <span class="team-card-label">${label}</span>
-                        <strong class="${chanceStatus(forecast, key) ? "is-certain" : ""}">${formatChance(forecast, key)}</strong>
-                        <i aria-hidden="true"></i>
-                    </div>
-                `).join("")}
-            </div>
-        ` : ""}
-        ${teamCardNextHtml(slug)}
-        <a class="team-card-link" href="${teamPageUrl(slug)}">Pełne statystyki <span aria-hidden="true">→</span></a>
-    `;
-}
-
-function placeTeamCard(anchor) {
-    const rect = anchor.getBoundingClientRect();
-    const pad = 8;
-    const width = teamCard.offsetWidth;
-    const height = teamCard.offsetHeight;
-    const left = Math.min(Math.max(rect.left, pad), window.innerWidth - width - pad);
-    const below = rect.bottom + 8;
-    const top = below + height > window.innerHeight - pad
-        ? Math.max(pad, rect.top - height - 8)
-        : below;
-    teamCard.style.left = `${Math.max(pad, left)}px`;
-    teamCard.style.top = `${top}px`;
-}
-
-function openTeamCard(slug, anchor) {
-    clearTimeout(state.teamCardTimer);
-    if (state.teamCardSlug !== slug) {
-        state.teamCardSlug = slug;
-        teamCard.innerHTML = teamCardHtml(slug);
-    }
-    teamCard.hidden = false;
-    placeTeamCard(anchor);
-}
-
-function closeTeamCard() {
-    clearTimeout(state.teamCardTimer);
-    state.teamCardSlug = "";
-    teamCard.hidden = true;
-}
-
-function scheduleCloseTeamCard() {
-    clearTimeout(state.teamCardTimer);
-    state.teamCardTimer = setTimeout(closeTeamCard, 160);
-}
-
-function scheduleOpenTeamCard(link) {
-    clearTimeout(state.teamCardTimer);
-    if (!teamCard.hidden && state.teamCardSlug === link.dataset.teamSlug) {
-        return;
-    }
-    // przy przesuwaniu myszy przez tabele karta nie przebudowuje sie przy kazdej mijanej nazwie
-    state.teamCardTimer = setTimeout(() => openTeamCard(link.dataset.teamSlug, link), teamCard.hidden ? 220 : 120);
-}
-
 document.querySelectorAll("th button").forEach(button => {
     button.addEventListener("click", () => {
         const sortKey = button.dataset.sort;
@@ -1417,9 +1283,6 @@ document.addEventListener("pointerdown", event => {
     if (!event.target.closest("[data-tip]")) {
         hideTip();
     }
-    if (!event.target.closest(".team-link, #team-card")) {
-        closeTeamCard();
-    }
 });
 
 document.addEventListener("pointerover", event => {
@@ -1427,24 +1290,12 @@ document.addEventListener("pointerover", event => {
     if (target) {
         showTip(target);
     }
-    const link = event.target.closest(".team-link");
-    if (event.pointerType !== "touch" && link) {
-        if (!link.contains(event.relatedTarget)) {
-            scheduleOpenTeamCard(link);
-        }
-    } else if (event.target.closest("#team-card")) {
-        clearTimeout(state.teamCardTimer);
-    }
 });
 
 document.addEventListener("pointerout", event => {
     const target = event.target.closest("[data-tip]");
     if (event.pointerType !== "touch" && target && !target.contains(event.relatedTarget)) {
         hideTip();
-    }
-    const fromTeam = event.target.closest(".team-link, #team-card");
-    if (event.pointerType !== "touch" && fromTeam && !event.relatedTarget?.closest(".team-link, #team-card")) {
-        scheduleCloseTeamCard();
     }
 });
 
@@ -1457,21 +1308,7 @@ document.addEventListener("focusin", event => {
     }
 });
 
-document.addEventListener("scroll", event => {
-    hideTip();
-    if (!teamCard.contains(event.target)) {
-        closeTeamCard();
-    }
-}, true);
-
-document.addEventListener("keydown", event => {
-    if (event.key !== "Escape") {
-        return;
-    }
-    if (!teamCard.hidden) {
-        closeTeamCard();
-    }
-});
+document.addEventListener("scroll", hideTip, true);
 
 renderMeta();
 renderTable();

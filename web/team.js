@@ -32,7 +32,7 @@ function modelPick(side) {
 }
 
 function opponentLink(slug, name) {
-    return `<a class="team-opponent" href="${teamPageUrl(slug)}">${createLogo({ slug })}<span>${escapeHtml(name)}</span></a>`;
+    return `<a class="team-opponent" href="${teamPageUrl(slug)}" data-team-slug="${escapeHtml(slug)}">${createLogo({ slug })}<span>${escapeHtml(name)}</span></a>`;
 }
 
 function recordText(matches, slug) {
