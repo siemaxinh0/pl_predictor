@@ -306,6 +306,7 @@ src/scrape_transfermarkt_squad_values.py   squad value scraper
 
 web/index.html, app.js                main page
 web/team.html, team.js                club page (team.html?club=arsenal)
+web/match.html, match.js              match page (match.html?id=101)
 web/common.js, styles.css             shared code and styles
 web/data-loader.js                    loads the data (API first, then the JS files)
 web/forecast-data.js                  current forecast (generated)
@@ -364,7 +365,7 @@ The seed is fixed (42), so the same data always gives the same numbers.
 
 ### The website
 
-Tabs: predicted table (hover a percentage for the exact count), current table, upcoming matches with 1/X/2, results with what the model predicted before each matchweek, history of the forecast, charts and league stats (how many points were enough for the title, Top 4 and survival across all simulations). Clicking a team opens its page: distribution of final positions and points, how its chances changed, every played match with the pre-match odds and the remaining schedule. Clicking a bar on the league stats or team charts opens an example simulation where that outcome happened. Tables, rounds and charts can be saved as PNG.
+Tabs: predicted table (hover a percentage for the exact count), current table, upcoming matches with 1/X/2, results with what the model predicted before each matchweek, history of the forecast, charts and league stats (how many points were enough for the title, Top 4 and survival across all simulations). Clicking a team opens its page: distribution of final positions and points, how its chances changed, every played match with the pre-match odds and the remaining schedule. Clicking a match opens its page: exact scores from the Poisson score matrix (heatmap, most likely scores, over 2.5 goals, both teams to score, clean sheets, number of goals), with the actual score marked for played matches, plus the rest of that matchweek. Clicking a bar on the league stats or team charts opens an example simulation where that outcome happened. Tables, rounds and charts can be saved as PNG.
 
 When a chance is shown as **0%** or **100%** in bold, it's mathematically decided. `~0%` / `~100%` means it didn't happen in any simulation (or happened in all of them), but it's still mathematically possible.
 

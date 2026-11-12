@@ -58,7 +58,6 @@ const randomSimulationButton = document.querySelector("#random-simulation-button
 const tableDownload = document.querySelector("#table-download");
 const leagueBody = document.querySelector("#league-body");
 const tipBox = document.querySelector("#tip-box");
-
 state.historyIndex = Math.max(historySnapshots.length - 1, 0);
 state.customChart = {
     metric: "title",
@@ -165,7 +164,7 @@ function renderTable() {
             <td class="rank-cell">${team.rank}</td>
             <td class="team-cell">
                 <div class="team-entry">
-                    ${createLogo(team)}
+                    ${teamCrestLink(team.slug)}
                     ${teamNameLink(team)}
                 </div>
             </td>
@@ -185,28 +184,6 @@ function renderRandomSampleTable() {
         return;
     }
     openSimulation(sampleTables[Math.floor(Math.random() * sampleTables.length)]);
-}
-
-function fixtureTeamLink(name, slug) {
-    return `<a class="team-link" href="${teamPageUrl(slug)}" data-team-slug="${escapeHtml(slug)}"><strong>${escapeHtml(name)}</strong></a>`;
-}
-
-function fixtureTeam(name, slug, isAway) {
-    const position = standings.find(team => team.slug === slug)?.rank;
-    const form = recentForm(slug);
-    return `
-        <div class="fixture-team ${isAway ? "is-away" : ""}">
-            ${isAway ? "" : createLogo({ slug })}
-            <div class="fixture-team-info">
-                <div class="fixture-team-name">
-                    ${fixtureTeamLink(name, slug)}
-                    ${position ? `<span class="team-position" title="Pozycja w tabeli">${position}.</span>` : ""}
-                </div>
-                ${form ? `<div class="team-form" aria-label="Ostatnie mecze">${form}</div>` : ""}
-            </div>
-            ${isAway ? createLogo({ slug }) : ""}
-        </div>
-    `;
 }
 
 function renderUpcomingFixtures() {
@@ -234,7 +211,7 @@ function renderUpcomingFixtures() {
 
 function fixtureCard(fixture) {
     return `
-        <article class="fixture-card">
+        <article class="fixture-card" data-match="${fixture.fixture}">
             <div class="fixture-teams">
                 ${fixtureTeam(fixture.homeTeam, fixture.homeSlug, false)}
                 <span class="versus">vs</span>
@@ -249,6 +226,7 @@ function fixtureCard(fixture) {
                 ${probabilityBlock("X", fixture.draw, "draw")}
                 ${probabilityBlock("2", fixture.awayWin, "away-win")}
             </div>
+            <a class="fixture-link" href="${matchPageUrl(fixture.fixture)}">Szczegóły meczu <span aria-hidden="true">→</span></a>
         </article>
     `;
 }
@@ -264,7 +242,7 @@ function renderStandings() {
             <td class="rank-cell">${team.rank}</td>
             <td class="team-cell">
                 <div class="team-entry">
-                    ${createLogo(team)}
+                    ${teamCrestLink(team.slug)}
                     ${teamNameLink(team, { showNote: false })}
                 </div>
             </td>
@@ -305,16 +283,16 @@ function renderResults() {
 
 function resultCard(match) {
     return `
-        <article class="fixture-card result-card">
+        <article class="fixture-card result-card" data-match="${match.fixture}">
             <div class="fixture-teams">
                 <div class="fixture-team">
-                    ${createLogo({ slug: match.homeSlug })}
+                    ${teamCrestLink(match.homeSlug)}
                     ${fixtureTeamLink(match.homeTeam, match.homeSlug)}
                 </div>
                 <span class="result-score">${match.homeGoals}-${match.awayGoals}</span>
                 <div class="fixture-team is-away">
                     ${fixtureTeamLink(match.awayTeam, match.awaySlug)}
-                    ${createLogo({ slug: match.awaySlug })}
+                    ${teamCrestLink(match.awaySlug)}
                 </div>
             </div>
             <div class="fixture-lambdas">
@@ -327,6 +305,7 @@ function resultCard(match) {
                 ${probabilityBlock("X", match.draw, "draw", match.outcome === "draw" ? "is-hit" : "")}
                 ${probabilityBlock("2", match.awayWin, "away-win", match.outcome === "away" ? "is-hit" : "")}
             </div>
+            <a class="fixture-link" href="${matchPageUrl(match.fixture)}">Szczegóły meczu <span aria-hidden="true">→</span></a>
         </article>
     `;
 }
@@ -395,7 +374,7 @@ function renderHistoryTable() {
             <td class="rank-cell">${team.rank}</td>
             <td class="team-cell">
                 <div class="team-entry">
-                    ${createLogo(team)}
+                    ${teamCrestLink(team.slug)}
                     ${teamNameLink(team)}
                 </div>
             </td>

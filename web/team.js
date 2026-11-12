@@ -4,22 +4,6 @@ const club = teams.find(team => team.slug === clubSlug);
 
 const historyMetricKeys = ["avgRank", "xPts", "title", "top4", "relegation"];
 
-function teamSide(match, slug) {
-    const isHome = match.homeSlug === slug;
-    return {
-        isHome,
-        opponent: isHome ? match.awayTeam : match.homeTeam,
-        opponentSlug: isHome ? match.awaySlug : match.homeSlug,
-        win: Number(isHome ? match.homeWin : match.awayWin),
-        draw: Number(match.draw),
-        loss: Number(isHome ? match.awayWin : match.homeWin),
-        xgFor: Number(isHome ? match.lambdaHome : match.lambdaAway),
-        xgAgainst: Number(isHome ? match.lambdaAway : match.lambdaHome),
-        goalsFor: isHome ? match.homeGoals : match.awayGoals,
-        goalsAgainst: isHome ? match.awayGoals : match.homeGoals
-    };
-}
-
 function expectedPoints(side) {
     return (3 * side.win + side.draw) / 100;
 }
@@ -46,12 +30,7 @@ function recordText(matches, slug) {
 function teamHeroHtml(team) {
     const counts = teamDetails[team.slug]?.positionCounts || [];
     const note = teamNotes[teamKey(team)];
-    const matches = matchesForTeam(team.slug);
-    const form = matches.slice(-5).map((match, index) => {
-        const outcome = matchOutcomeForTeam(match, team.slug);
-        const label = `${formLabels[outcome].label}: ${match.homeTeam} ${match.homeGoals}-${match.awayGoals} ${match.awayTeam}`;
-        return `<button type="button" class="form-badge is-${outcome}" data-form-match="${Math.max(0, matches.length - 5) + index}" aria-label="${escapeHtml(label)}">${formLabels[outcome].letter}</button>`;
-    }).join("");
+    const form = recentForm(team.slug);
 
     return `
         <section class="team-hero">
@@ -89,87 +68,8 @@ function teamHeroHtml(team) {
                     .join("")}
             </div>
             ${note ? `<p class="team-hero-note"><span class="team-note-mark">*</span> <strong>${escapeHtml(note[0])}.</strong> ${escapeHtml(note[1])}</p>` : ""}
-            <div class="chart-tooltip form-tooltip is-below" hidden></div>
         </section>
     `;
-}
-
-function formTooltipHtml(match, slug) {
-    const side = teamSide(match, slug);
-    const outcome = matchOutcomeForTeam(match, slug);
-    const odds = ["win", "draw", "loss"].map(key => `
-        <div class="team-odds form-tooltip-odd is-${key} ${key === outcome ? "is-actual" : ""}" style="--probability: ${side[key]}%">
-            <span>${formLabels[key].label}</span>
-            <strong>${formatPercent(side[key])}</strong>
-        </div>
-    `).join("");
-    return `
-        <div class="chart-tooltip-head"><span>Kolejka ${match.round} · ${side.isHome ? "dom" : "wyjazd"}</span><b class="chart-tooltip-outcome is-${outcome}">${formLabels[outcome].label}</b></div>
-        ${tooltipMatchHtml(match, slug)}
-        <div class="form-tooltip-odds">${odds}</div>
-    `;
-}
-
-function showFormTooltip(badge) {
-    const hero = badge.closest(".team-hero");
-    const tooltip = hero.querySelector(".form-tooltip");
-    const match = matchesForTeam(club.slug)[Number(badge.dataset.formMatch)];
-    hero.querySelectorAll(".form-badge.is-active").forEach(item => item.classList.remove("is-active"));
-    badge.classList.add("is-active");
-    tooltip.innerHTML = formTooltipHtml(match, club.slug);
-    tooltip.hidden = false;
-
-    const heroRect = hero.getBoundingClientRect();
-    const badgeRect = badge.getBoundingClientRect();
-    const badgeX = badgeRect.left + badgeRect.width / 2 - heroRect.left;
-    const halfWidth = tooltip.offsetWidth / 2;
-    const left = Math.min(Math.max(badgeX, halfWidth + 8), heroRect.width - halfWidth - 8);
-    tooltip.style.left = `${left}px`;
-    tooltip.style.top = `${badgeRect.bottom - heroRect.top}px`;
-    tooltip.style.setProperty("--arrow-x", `${badgeX - left + halfWidth}px`);
-}
-
-function hideFormTooltip() {
-    teamPage.querySelectorAll(".form-badge.is-active").forEach(item => item.classList.remove("is-active"));
-    const tooltip = teamPage.querySelector(".form-tooltip");
-    if (tooltip) {
-        tooltip.hidden = true;
-    }
-}
-
-function bindFormTooltip() {
-    teamPage.addEventListener("pointerover", event => {
-        const badge = event.target.closest("[data-form-match]");
-        if (badge) {
-            showFormTooltip(badge);
-        }
-    });
-
-    teamPage.addEventListener("pointerout", event => {
-        // na telefonie dymek zostaje po puszczeniu palca i znika po dotknieciu obok
-        if (event.pointerType !== "touch" && event.target.closest("[data-form-match]")) {
-            hideFormTooltip();
-        }
-    });
-
-    teamPage.addEventListener("focusin", event => {
-        const badge = event.target.closest("[data-form-match]");
-        if (badge) {
-            showFormTooltip(badge);
-        }
-    });
-
-    teamPage.addEventListener("focusout", event => {
-        if (event.target.closest("[data-form-match]")) {
-            hideFormTooltip();
-        }
-    });
-
-    document.addEventListener("pointerdown", event => {
-        if (!event.target.closest("[data-form-match]")) {
-            hideFormTooltip();
-        }
-    });
 }
 
 function positionZone(position) {
@@ -319,8 +219,8 @@ function playedHtml(team) {
     const rows = [...sides].reverse().map(({ match, side, outcome }) => {
         const pick = modelPick(side);
         return `
-            <tr>
-                <td>${match.round}</td>
+            <tr class="match-row" data-match="${match.fixture}" title="Szczegóły meczu">
+                <td><a class="match-row-link" href="${matchPageUrl(match.fixture)}">${match.round}</a></td>
                 <td class="team-match-cell">${opponentLink(side.opponentSlug, side.opponent)}</td>
                 <td>${side.isHome ? "dom" : "wyjazd"}</td>
                 <td><span class="team-score is-${outcome}">${side.goalsFor}-${side.goalsAgainst}</span></td>
@@ -404,8 +304,8 @@ function scheduleHtml(team) {
     const rows = sides.map(({ match, side }) => {
         const points = expectedPoints(side);
         return `
-            <tr>
-                <td>${match.round}</td>
+            <tr class="match-row" data-match="${match.fixture}" title="Szczegóły meczu">
+                <td><a class="match-row-link" href="${matchPageUrl(match.fixture)}">${match.round}</a></td>
                 <td class="team-match-cell">${opponentLink(side.opponentSlug, side.opponent)}</td>
                 <td>${side.isHome ? "dom" : "wyjazd"}</td>
                 ${["win", "draw", "loss"].map(key => `<td><span class="team-odds is-${key}" style="--probability: ${side[key]}%">${formatPercent(side[key])}</span></td>`).join("")}
@@ -463,8 +363,6 @@ function renderTeamPage() {
 }
 
 bindChartTooltips(teamPage);
-bindFormTooltip();
-
 teamPage.addEventListener("click", event => {
     const button = event.target.closest("[data-export-chart]");
     if (button) {

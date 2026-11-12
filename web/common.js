@@ -134,12 +134,21 @@ function teamPageUrl(slug) {
     return `team.html?club=${encodeURIComponent(slug)}`;
 }
 
+function matchPageUrl(fixture) {
+    return `match.html?id=${encodeURIComponent(fixture)}`;
+}
+
 function createLogo(team) {
     return `
         <span class="crest" aria-hidden="true">
             <img src="assets/logos/${escapeHtml(team.slug)}.svg" alt="" onerror="this.classList.add('is-missing')">
         </span>
     `;
+}
+
+// herb obok nazwy klubu prowadzi tam gdzie nazwa, ale jest pomijany przy tabulacji, zeby nie dublowac linku
+function teamCrestLink(slug, className = "") {
+    return `<a class="crest-link ${className}" href="${teamPageUrl(slug)}" data-team-slug="${escapeHtml(slug)}" tabindex="-1" aria-hidden="true">${createLogo({ slug })}</a>`;
 }
 
 function probabilityBlock(label, value, className, extraClass = "", text = "") {
@@ -166,6 +175,22 @@ function matchesForTeam(slug) {
 function matchOutcomeForTeam(match, slug) {
     const isHome = match.homeSlug === slug;
     return match.outcome === "draw" ? "draw" : (match.outcome === "home") === isHome ? "win" : "loss";
+}
+
+function teamSide(match, slug) {
+    const isHome = match.homeSlug === slug;
+    return {
+        isHome,
+        opponent: isHome ? match.awayTeam : match.homeTeam,
+        opponentSlug: isHome ? match.awaySlug : match.homeSlug,
+        win: Number(isHome ? match.homeWin : match.awayWin),
+        draw: Number(match.draw),
+        loss: Number(isHome ? match.awayWin : match.homeWin),
+        xgFor: Number(isHome ? match.lambdaHome : match.lambdaAway),
+        xgAgainst: Number(isHome ? match.lambdaAway : match.lambdaHome),
+        goalsFor: isHome ? match.homeGoals : match.awayGoals,
+        goalsAgainst: isHome ? match.awayGoals : match.homeGoals
+    };
 }
 
 function teamKey(team) {
@@ -741,23 +766,129 @@ function teamTip(team) {
     return teamNotes[teamKey(team)] ? escapeHtml(`note:${teamKey(team)}`) : "";
 }
 
+function fixtureTeamLink(name, slug) {
+    return `<a class="team-link" href="${teamPageUrl(slug)}" data-team-slug="${escapeHtml(slug)}"><strong>${escapeHtml(name)}</strong></a>`;
+}
+
+function fixtureTeam(name, slug, isAway) {
+    const position = standings.find(team => team.slug === slug)?.rank;
+    const form = recentForm(slug);
+    return `
+        <div class="fixture-team ${isAway ? "is-away" : ""}">
+            ${isAway ? "" : teamCrestLink(slug)}
+            <div class="fixture-team-info">
+                <div class="fixture-team-name">
+                    ${fixtureTeamLink(name, slug)}
+                    ${position ? `<span class="team-position" title="Pozycja w tabeli">${position}.</span>` : ""}
+                </div>
+                ${form ? `<div class="team-form" aria-label="Ostatnie mecze">${form}</div>` : ""}
+            </div>
+            ${isAway ? teamCrestLink(slug) : ""}
+        </div>
+    `;
+}
+
+// karta lub wiersz z data-match prowadzi do strony meczu, ale linki do klubow w srodku dzialaja po swojemu
+document.addEventListener("click", event => {
+    const target = event.target.closest("[data-match]");
+    if (target && !event.target.closest("a, button") && !window.getSelection()?.toString()) {
+        location.href = matchPageUrl(target.dataset.match);
+    }
+});
+
 function nextFixtureForTeam(slug) {
     return remainingFixtures.find(match => match.homeSlug === slug || match.awaySlug === slug);
 }
 
-function recentForm(slug, count = 5) {
-    return results
-        .filter(match => match.homeSlug === slug || match.awaySlug === slug)
-        .slice(-count)
-        .map(match => {
-            const isHome = match.homeSlug === slug;
-            const outcome = match.outcome === "draw" ? "draw" : (match.outcome === "home") === isHome ? "win" : "loss";
-            const { letter, label } = formLabels[outcome];
-            const detail = `Kolejka ${match.round}: ${match.homeTeam} ${match.homeGoals}-${match.awayGoals} ${match.awayTeam} (${label})`;
-            return `<span class="form-badge is-${outcome}" title="${escapeHtml(detail)}">${letter}</span>`;
-        })
-        .join("");
+function formBadge(match, slug) {
+    const outcome = matchOutcomeForTeam(match, slug);
+    const { letter, label } = formLabels[outcome];
+    const detail = `${label}: ${match.homeTeam} ${match.homeGoals}-${match.awayGoals} ${match.awayTeam}, kolejka ${match.round}`;
+    return `<a class="form-badge is-${outcome}" href="${matchPageUrl(match.fixture)}" data-form-fixture="${match.fixture}" data-form-slug="${escapeHtml(slug)}" aria-label="${escapeHtml(detail)}">${letter}</a>`;
 }
+
+function recentForm(slug, count = 5) {
+    return matchesForTeam(slug).slice(-count).map(match => formBadge(match, slug)).join("");
+}
+
+function formTooltipHtml(match, slug) {
+    const side = teamSide(match, slug);
+    const outcome = matchOutcomeForTeam(match, slug);
+    const odds = ["win", "draw", "loss"].map(key => `
+        <div class="team-odds form-tooltip-odd is-${key} ${key === outcome ? "is-actual" : ""}" style="--probability: ${side[key]}%">
+            <span>${formLabels[key].label}</span>
+            <strong>${formatPercent(side[key])}</strong>
+        </div>
+    `).join("");
+    return `
+        <div class="chart-tooltip-head"><span>Kolejka ${match.round} · ${side.isHome ? "dom" : "wyjazd"}</span><b class="chart-tooltip-outcome is-${outcome}">${formLabels[outcome].label}</b></div>
+        ${tooltipMatchHtml(match, slug)}
+        <div class="form-tooltip-caption">Szanse według modelu przed kolejką</div>
+        <div class="form-tooltip-odds">${odds}</div>
+        <div class="form-tooltip-more">Kliknij, żeby zobaczyć szczegóły meczu →</div>
+    `;
+}
+
+const formTip = document.createElement("div");
+formTip.className = "chart-tooltip form-tooltip form-tip";
+formTip.setAttribute("role", "tooltip");
+formTip.hidden = true;
+document.body.append(formTip);
+
+function showFormTip(badge) {
+    const match = results.find(item => String(item.fixture) === badge.dataset.formFixture);
+    if (!match) {
+        return;
+    }
+    hideFormTip();
+    badge.classList.add("is-active");
+    formTip.innerHTML = formTooltipHtml(match, badge.dataset.formSlug);
+    formTip.hidden = false;
+
+    const rect = badge.getBoundingClientRect();
+    const badgeX = rect.left + rect.width / 2;
+    const halfWidth = formTip.offsetWidth / 2;
+    const left = Math.min(Math.max(badgeX, halfWidth + 8), innerWidth - halfWidth - 8);
+    const isBelow = rect.bottom + formTip.offsetHeight + 24 <= innerHeight;
+    formTip.classList.toggle("is-below", isBelow);
+    formTip.style.left = `${left}px`;
+    formTip.style.top = `${isBelow ? rect.bottom : rect.top}px`;
+    formTip.style.setProperty("--arrow-x", `${badgeX - left + halfWidth}px`);
+}
+
+function hideFormTip() {
+    document.querySelectorAll(".form-badge.is-active").forEach(item => item.classList.remove("is-active"));
+    formTip.hidden = true;
+}
+
+// na telefonie dotkniecie kafelka od razu otwiera mecz, wiec dymek pokazuje sie tylko pod myszka i przy tabulacji
+document.addEventListener("pointerover", event => {
+    const badge = event.target.closest("[data-form-fixture]");
+    if (badge && event.pointerType !== "touch") {
+        showFormTip(badge);
+    }
+});
+
+document.addEventListener("pointerout", event => {
+    if (event.target.closest("[data-form-fixture]")) {
+        hideFormTip();
+    }
+});
+
+document.addEventListener("focusin", event => {
+    const badge = event.target.closest("[data-form-fixture]");
+    if (badge) {
+        showFormTip(badge);
+    }
+});
+
+document.addEventListener("focusout", event => {
+    if (event.target.closest("[data-form-fixture]")) {
+        hideFormTip();
+    }
+});
+
+document.addEventListener("scroll", hideFormTip, true);
 
 const teamCard = document.createElement("div");
 teamCard.className = "team-card";
@@ -780,12 +911,12 @@ function teamCardNextHtml(slug) {
     return `
         <div class="team-card-section">
             <span class="team-card-label">Następny mecz · kolejka ${fixture.round}</span>
-            <div class="team-card-match">
+            <a class="team-card-match" href="${matchPageUrl(fixture.fixture)}" title="Szczegóły meczu">
                 ${createLogo({ slug: opponentSlug })}
                 <strong>${escapeHtml(opponent)}</strong>
                 <span class="team-card-venue">${isHome ? "dom" : "wyjazd"}</span>
                 <span class="team-card-win">wygrana <strong>${formatPercent(win)}</strong></span>
-            </div>
+            </a>
         </div>
     `;
 }
